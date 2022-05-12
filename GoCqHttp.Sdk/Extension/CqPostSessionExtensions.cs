@@ -22,8 +22,8 @@ namespace NullLib.GoCqHttpSdk
         }
 
         public static void UseAny(this ICqPostSession session, Func<CqPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UsePrivateMsg(this ICqPostSession session, Func<CqPrivateMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMsgPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UsePrivateMsg(this ICqPostSession session, Func<CqPrivateMsgPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupFileUpload(this ICqPostSession session, Func<CqGroupFileUploadPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseClientStatusChanged(this ICqPostSession session, Func<CqClientStatusChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseEssenceChanged(this ICqPostSession session, Func<CqEssenceChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);

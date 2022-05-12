@@ -5,7 +5,7 @@ using System;
 
 namespace NullLib.GoCqHttpSdk.Post
 {
-    public abstract class CqMessagePostContext : CqPostContext
+    public abstract class CqMsgPostContext : CqPostContext
     {
         public override CqPostType EventType => CqPostType.Message;
         public abstract CqMessageType MessageType { get; }
@@ -17,9 +17,9 @@ namespace NullLib.GoCqHttpSdk.Post
         public int Font { get; set; }
         public CqMessageSender Sender { get; set; }
 
-        internal CqMessagePostContext() { }
+        internal CqMsgPostContext() { }
 
-        protected CqMessagePostContext(int messageId, long userId, CqMsg[] message, string rawMessage, int font, CqMessageSender sender)
+        protected CqMsgPostContext(int messageId, long userId, CqMsg[] message, string rawMessage, int font, CqMessageSender sender)
         {
             MessageId = messageId;
             UserId = userId;

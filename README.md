@@ -101,7 +101,7 @@ context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发
 
 ## 项目
 
-#### 关于 JSON 解析
+### 关于数据结构
 
 因为 go-cqhttp 给的数据, json 都是小驼峰, 并且为了用户操作上的便捷, 所以 JSON 解析上使用了以下方法:
 
@@ -109,9 +109,56 @@ context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发
 2. 在调用接口, 或者解析上报的时候, 两种类会相互转换
 3. 一些原始 Model 类中的 `data` 字段, 或者 `params` 字段, 他们在用户的操作类中直接作为类型成员存在, 而不独立分出一个 `data` 或 `params` 成员存放.
 
-##### 消息
+同时, 为了用户操作的便捷, 用户所操作的类与实际传输使用的类, 字段格式是不一样的, 例如在 Music 消息中 sub_type 表示该 Music 消息的音乐类型, 于是在用户的操作类中, 它使用 MusicType 命名.
 
-首先是 `go-cqhttp` 中的基础消息类型, 也就是 CQ 码(CQ Code), 
+#### 消息
+
+首先是 `go-cqhttp` 中的基础消息类型, 也就是 CQ 码(CQ Code):
+
+它的 JSON 格式是这样的:
+
+```json
+{
+    "type": "消息类型",
+    "data": {
+        // 消息的数据
+    }
+}
+```
+
+如果让用户操作 data, 肯定有些繁琐, 所以在用户操作的类中, 是这样的:
+```csharp
+public class CqXxxMsg : CqMsg
+{
+    public override string Type => "消息类型";  // Type 是不允许用户修改的, 一个类型对应一个 Type
+    
+    // 直接将消息数据作为消息的成员
+}
+```
+
+#### 上报
+
+上报的原始数据 JSON 格式是这样的:
+
+```json
+{
+    "time": 时间,
+    "post_type": 上报类型,
+    
+    // 上报的数据在这里
+}
+```
+
+数据没有单独分出一个 data 成员, 所以在设计用户操作的类时, 格式也大概是如此的
+
+```csharp
+public CqXxxPostContext : CqPostContext
+{
+    
+}
+```
+
+#### 
 
 ## 贡献
 

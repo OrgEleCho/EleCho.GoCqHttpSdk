@@ -3,14 +3,14 @@ using NullLib.GoCqHttpSdk.Post.Model;
 
 namespace NullLib.GoCqHttpSdk.Post
 {
-    public class CqPrivateMessagePostContext : CqMessagePostContext
+    public class CqPrivateMsgPostContext : CqMsgPostContext
     {
         public override CqMessageType MessageType => CqMessageType.Private;
         public CqMessagePrivateType MessageSubType { get; set; }
         public CqTempSourceType TempSource { get; set; }
 
 
-        internal CqPrivateMessagePostContext() { }
+        internal CqPrivateMsgPostContext() { }
 
         internal static CqMessagePrivateType SubTypeFromString(string str)
         {

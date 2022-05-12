@@ -3,14 +3,14 @@ using NullLib.GoCqHttpSdk.Post.Model;
 
 namespace NullLib.GoCqHttpSdk.Post
 {
-    public class CqGroupMessagePostContext : CqMessagePostContext
+    public class CqGroupMsgPostContext : CqMsgPostContext
     {
         public override CqMessageType MessageType => CqMessageType.Group;
 
         public long GroupId { get; set; }
         public CqMessageAnonymous? Anonymous { get; set; }
 
-        internal CqGroupMessagePostContext() { }
+        internal CqGroupMsgPostContext() { }
 
         internal override void WriteModel(CqPostModel model)
         {

@@ -53,8 +53,8 @@ namespace NullLib.GoCqHttpSdk.Post
         {
             return model?.message_type switch
             {
-                "private" => new CqPrivateMessagePostContext(),
-                "group" => new CqGroupMessagePostContext(),
+                "private" => new CqPrivateMsgPostContext(),
+                "group" => new CqGroupMsgPostContext(),
 
                 _ => null,
             };
