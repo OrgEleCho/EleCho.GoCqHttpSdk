@@ -138,27 +138,13 @@ public class CqXxxMsg : CqMsg
 
 #### 上报
 
-上报的原始数据 JSON 格式是这样的:
+上报的原始数据 JSON 格式中, 并没有专门为数据抽出一个 data 字段, 所以不做特殊处理.
 
-```json
-{
-    "time": 时间,
-    "post_type": 上报类型,
-    
-    // 上报的数据在这里
-}
-```
+#### Action
 
-数据没有单独分出一个 data 成员, 所以在设计用户操作的类时, 格式也大概是如此的
+Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一个 params 字段, 然后将所有参数放在这个字段中. 所以在这方面, 做了与消息类型近似的处理, 也就是直接将参数独立出来, 而不是放在 params 字段中.
 
-```csharp
-public CqXxxPostContext : CqPostContext
-{
-    
-}
-```
-
-#### 
+同样, ActionResult(Action 调用的返回结果) 也将数据放在了 data 字段中, 所以同样做了特殊处理.
 
 ## 贡献
 
