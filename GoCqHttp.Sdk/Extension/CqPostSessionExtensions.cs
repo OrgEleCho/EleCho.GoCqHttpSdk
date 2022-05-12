@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
 {
-    public static class CqPostContextExtensions
+    public static class CqPostSessionExtensions
     {
         private static void Use<IContext>(ICqPostSession session, Func<IContext, Func<Task>, Task> middleware) where IContext : CqPostContext
         {
@@ -22,8 +22,8 @@ namespace NullLib.GoCqHttpSdk
         }
 
         public static void UseAny(this ICqPostSession session, Func<CqPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupMessage(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UsePrivateMessage(this ICqPostSession session, Func<CqPrivateMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UsePrivateMsg(this ICqPostSession session, Func<CqPrivateMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupFileUpload(this ICqPostSession session, Func<CqGroupFileUploadPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseClientStatusChanged(this ICqPostSession session, Func<CqClientStatusChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseEssenceChanged(this ICqPostSession session, Func<CqEssenceChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);

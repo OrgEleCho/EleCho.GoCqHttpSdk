@@ -23,24 +23,24 @@ namespace TestConsole
                 UseEventEndPoint = true,
             });
 
-            session.UseGroupMessage(async (context, next) =>
+            session.UseGroupMsg(async (context, next) =>
             {
                 Console.WriteLine(context.RawMessage);
 
                 if (context.RawMessage.Contains("喵"))
                 {
-                    await session.SendGroupMsg(context.GroupId, new CqTextMsg("喵喵喵?"));
+                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("喵喵喵?"));
                 }
                 if (context.RawMessage.Contains("热重载"))
                 {
-                    await session.SendGroupMsg(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
+                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
                 }
                 if (context.RawMessage.Contains("亲我"))
                 {
                     if (context.RawMessage.Contains("悄咪咪"))
-                        await session.SendPrivateMsg(context.UserId, new CqTextMsg("mua~"));
+                        await session.SendPrivateMsgAsync(context.UserId, new CqTextMsg("mua~"));
                     else
-                        await session.SendGroupMsg(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
+                        await session.SendGroupMsgAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
                 }
                 if (context.RawMessage.Contains("卖个萌"))
                 {
@@ -54,7 +54,7 @@ namespace TestConsole
 
                     int randindex = new Random().Next(0, awa.Length);
 
-                    await session.SendGroupMsg(context.GroupId, new CqTextMsg(awa[randindex]));
+                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
                 }
 
 
