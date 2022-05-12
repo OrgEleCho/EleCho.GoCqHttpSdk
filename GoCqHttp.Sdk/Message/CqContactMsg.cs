@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using NullLib.GoCqHttpSdk.Enumeration;
+using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -29,42 +31,15 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public long Id { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqContactDataModel(StrPascal.ToCamelStr(ContactType)!, Id));
+        internal override object GetDataModel() => new CqContactMsgDataModel(CqEnum.GetString(ContactType), Id);
         internal override void ReadDataModel(object model)
         {
-            CqContactDataModel? m = model as CqContactDataModel;
+            CqContactMsgDataModel? m = model as CqContactMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
-            ContactType = m.type switch
-            {
-                "qq" => CqContactType.QQ,
-                "group" => CqContactType.Group,
-                _ => (CqContactType)(-1)
-            };
+            ContactType = CqEnum.GetContactType(m.type);
             Id = m.id;
         }
-
-        public enum CqContactType
-        {
-            QQ,
-            Group
-        }
-    }
-
-    internal class CqContactDataModel
-    {
-        public CqContactDataModel()
-        {
-        }
-
-        public CqContactDataModel(string type, long id)
-        {
-            this.type = type;
-            this.id = id;
-        }
-
-        public string type { get; set; }
-        public long id { get; set; }
     }
 }

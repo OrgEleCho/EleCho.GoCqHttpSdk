@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -18,10 +19,10 @@ namespace NullLib.GoCqHttpSdk.Message
         internal CqFaceMsg() { }
         public CqFaceMsg(int id) => Id = id;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqFaceDataModel(Id));
+        internal override object GetDataModel() => new CqFaceMsgDataModel(Id);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqFaceDataModel;
+            var m = model as CqFaceMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -447,16 +448,5 @@ namespace NullLib.GoCqHttpSdk.Message
                 return null;
             return new CqFaceMsg(fadeId);
         }
-    }
-
-    internal class CqFaceDataModel
-    {
-        public CqFaceDataModel()
-        {
-        }
-
-        public CqFaceDataModel(int id) => this.id = id;
-
-        public int id { get; set; }
     }
 }

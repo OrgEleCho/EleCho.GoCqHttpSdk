@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -18,12 +19,7 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public int? Ignore { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqAnonymousDataModel());
+        internal override object GetDataModel() => new CqAnonymousMsgDataModel();
         internal override void ReadDataModel(object model) { }
-    }
-
-    public class CqAnonymousDataModel
-    {
-        
     }
 }

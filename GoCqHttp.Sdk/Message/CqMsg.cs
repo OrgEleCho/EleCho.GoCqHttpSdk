@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -6,31 +7,36 @@ namespace NullLib.GoCqHttpSdk.Message
     public abstract class CqMsg
     {
         public abstract string Type { get; }
-        internal abstract CqMsgModel GetModel();
+        internal abstract object GetDataModel();
         internal abstract void ReadDataModel(object model);
 
         public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
 
-        private static CqMsg MusicFromModel(CqMsgModel model)
+        public static CqMsg[] Chain(params CqMsg[] msgs)
         {
-            if (model.data is not CqMusicDataModel musicDataModel)
-                throw new NotSupportedException(NotSupportedCqCodeTip);
-
-            switch (musicDataModel.type)
-            {
-                case "qq":
-                case "163":
-                case "xm":
-                    return new CqMusicMsg();
-                case "custom":
-                    return new CqCustomMusicMsg();
-                default:
-                    throw new NotSupportedException(NotSupportedCqCodeTip);
-            }
+            return msgs;
         }
 
         internal static CqMsg FromModel(CqMsgModel model)
         {
+            CqMsg MusicFromModel(CqMsgModel model)
+            {
+                if (model.data is not CqMusicMsgDataModel musicDataModel)
+                    throw new NotSupportedException(NotSupportedCqCodeTip);
+
+                switch (musicDataModel.type)
+                {
+                    case "qq":
+                    case "163":
+                    case "xm":
+                        return new CqMusicMsg();
+                    case "custom":
+                        return new CqCustomMusicMsg();
+                    default:
+                        throw new NotSupportedException(NotSupportedCqCodeTip);
+                }
+            }
+            
             CqMsg rst;
             rst = model.type switch
             {
@@ -61,34 +67,13 @@ namespace NullLib.GoCqHttpSdk.Message
                 _ => throw new NotSupportedException(NotSupportedCqCodeTip)
             };
 
-            rst.ReadDataModel(model);
-            return rst;
-        }
-        internal static CqMsg[] FromModel(CqMsgModel[] models)
-        {
-            CqMsg[] rst = new CqMsg[models.Length];
-            for (int i = 0; i < models.Length; i++)
-            {
-                rst[i] = FromModel(models[i]);
-            }
-
+            rst.ReadDataModel(model.data);
             return rst;
         }
 
         internal static CqMsgModel ToModel(CqMsg msg)
         {
-            return new CqMsgModel(msg.Type, msg.GetModel());
-        }
-
-        internal static CqMsgModel[] ToModel(CqMsg[] msgs)
-        {
-            CqMsgModel[] rst = new CqMsgModel[msgs.Length];
-            for (int i = 0; i < msgs.Length; i++)
-            {
-                rst[i] = ToModel(msgs[i]);
-            }
-
-            return rst;
+            return new CqMsgModel(msg.Type, msg.GetDataModel());
         }
     }
 }

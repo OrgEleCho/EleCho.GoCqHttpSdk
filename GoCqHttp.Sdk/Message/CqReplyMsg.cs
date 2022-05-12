@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,10 @@ namespace NullLib.GoCqHttpSdk.Message
         public DateTime Time { get; set; }
         public long Seq { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqReplyDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq));
+        internal override object GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqReplyDataModel;
+            var m = model as CqReplyMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -41,24 +42,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Time = UnixTime.DateFromUnix(m.time);
             Seq = m.seq;
         }
-    }
-
-    public class CqReplyDataModel
-    {
-        internal CqReplyDataModel() { }
-        public CqReplyDataModel(string id, string text, long qq, long time, long seq)
-        {
-            this.id = id;
-            this.text = text;
-            this.qq = qq;
-            this.time = time;
-            this.seq = seq;
-        }
-
-        public string id { get; set; }
-        public string text { get; set; }
-        public long qq { get; set; }
-        public long time { get; set; }
-        public long seq { get; set; }
     }
 }

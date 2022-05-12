@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace NullLib.GoCqHttpSdk.Message.JsonConverter
                 case "qq":
                 case "163":
                 case "xm":
-                    return jsondoc.ToObject<CqMsgModel<CqMusicDataModel>>(options);
+                    return jsondoc.ToObject<CqMsgModel<CqMusicMsgDataModel>>(options);
                 case "custom":
-                    return jsondoc.ToObject<CqMsgModel<CqCustomMusicDataModel>>(options);
+                    return jsondoc.ToObject<CqMsgModel<CqCustomMusicMsgDataModel>>(options);
                 default:
                     return null;
             }
@@ -36,27 +37,27 @@ namespace NullLib.GoCqHttpSdk.Message.JsonConverter
 
             return msgType switch
             {
-                "text" => jsondoc.ToObject<CqMsgModel<CqTextDataModel>>(options),
-                "image" => jsondoc.ToObject<CqMsgModel<CqImageDataModel>>(options),
-                "record" => jsondoc.ToObject<CqMsgModel<CqRecordDataModel>>(options),
-                "location" => jsondoc.ToObject<CqMsgModel<CqLocationDataModel>>(options),
-                "anonymous" => jsondoc.ToObject<CqMsgModel<CqAnonymousDataModel>>(options),
-                "cardimage" => jsondoc.ToObject<CqMsgModel<CqCardImageDataModel>>(options),
-                "at" => jsondoc.ToObject<CqMsgModel<CqAtDataModel>>(options),
-                "rps" => jsondoc.ToObject<CqMsgModel<CqRpsDataModel>>(options),
-                "shake" => jsondoc.ToObject<CqMsgModel<CqShakeDataModel>>(options),
-                "contact" => jsondoc.ToObject<CqMsgModel<CqContactDataModel>>(options),
-                "dice" => jsondoc.ToObject<CqMsgModel<CqDiceDataModel>>(options),
-                "face" => jsondoc.ToObject<CqMsgModel<CqFaceDataModel>>(options),
-                "forward" => jsondoc.ToObject<CqMsgModel<CqForwardDataModel>>(options),
-                "node" => jsondoc.ToObject<CqMsgModel<CqForwardNodeDataModel>>(options),
-                "gift" => jsondoc.ToObject<CqMsgModel<CqGiftDataModel>>(options),
-                "json" => jsondoc.ToObject<CqMsgModel<CqJsonDataModel>>(options),
-                "xml" => jsondoc.ToObject<CqMsgModel<CqXmlDataModel>>(options),
-                "poke" => jsondoc.ToObject<CqMsgModel<CqPokeDataModel>>(options),
-                "redbag" => jsondoc.ToObject<CqMsgModel<CqRedEnvelopeDataModel>>(options),
-                "reply" => jsondoc.ToObject<CqMsgModel<CqReplyDataModel>>(options),
-                "video" => jsondoc.ToObject<CqMsgModel<CqVideoDataModel>>(options),
+                "text" => jsondoc.ToObject<CqMsgModel<CqTextMsgDataModel>>(options),
+                "image" => jsondoc.ToObject<CqMsgModel<CqImageMsgDataModel>>(options),
+                "record" => jsondoc.ToObject<CqMsgModel<CqRecordMsgDataModel>>(options),
+                "location" => jsondoc.ToObject<CqMsgModel<CqLocationMsgDataModel>>(options),
+                "anonymous" => jsondoc.ToObject<CqMsgModel<CqAnonymousMsgDataModel>>(options),
+                "cardimage" => jsondoc.ToObject<CqMsgModel<CqCardImageMsgDataModel>>(options),
+                "at" => jsondoc.ToObject<CqMsgModel<CqAtMsgDataModel>>(options),
+                "rps" => jsondoc.ToObject<CqMsgModel<CqRpsMsgDataModel>>(options),
+                "shake" => jsondoc.ToObject<CqMsgModel<CqShakeMsgDataModel>>(options),
+                "contact" => jsondoc.ToObject<CqMsgModel<CqContactMsgDataModel>>(options),
+                "dice" => jsondoc.ToObject<CqMsgModel<CqDiceMsgDataModel>>(options),
+                "face" => jsondoc.ToObject<CqMsgModel<CqFaceMsgDataModel>>(options),
+                "forward" => jsondoc.ToObject<CqMsgModel<CqForwardMsgDataModel>>(options),
+                "node" => jsondoc.ToObject<CqMsgModel<CqForwardNodeMsgDataModel>>(options),
+                "gift" => jsondoc.ToObject<CqMsgModel<CqGiftMsgDataModel>>(options),
+                "json" => jsondoc.ToObject<CqMsgModel<CqJsonMsgDataModel>>(options),
+                "xml" => jsondoc.ToObject<CqMsgModel<CqXmlMsgDataModel>>(options),
+                "poke" => jsondoc.ToObject<CqMsgModel<CqPokeMsgDataModel>>(options),
+                "redbag" => jsondoc.ToObject<CqMsgModel<CqRedEnvelopeMsgDataModel>>(options),
+                "reply" => jsondoc.ToObject<CqMsgModel<CqReplyMsgDataModel>>(options),
+                "video" => jsondoc.ToObject<CqMsgModel<CqVideoMsgDataModel>>(options),
                 "music" => MusicMsgModelToObject(jsondoc, options),
 
                 _ => null

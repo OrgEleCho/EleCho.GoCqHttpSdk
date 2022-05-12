@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -37,10 +38,10 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public string? Content { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqLocationDataModel(Lat, Lon, Title, Content));
+        internal override object GetDataModel() => new CqLocationMsgDataModel(Lat, Lon, Title, Content);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqLocationDataModel;
+            var m = model as CqLocationMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -49,22 +50,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Title = m.title;
             Content = m.content;
         }
-    }
-
-    public class CqLocationDataModel        
-    {
-        internal CqLocationDataModel() { }
-        public CqLocationDataModel(double lat, double lon, string? title, string? content)
-        {
-            this.lat = lat;
-            this.lon = lon;
-            this.title = title;
-            this.content = content;
-        }
-
-        public double lat { get; set; }
-        public double lon { get; set; }
-        public string? title { get; set; }
-        public string? content { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NullLib.GoCqHttpSdk.Enumeration;
+using NullLib.GoCqHttpSdk.Message.DataModel;
+using System;
 using static NullLib.GoCqHttpSdk.Message.CqMusicMsg;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -52,11 +54,11 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public override long Id { get => base.Id; set => base.Id = value; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqCustomMusicDataModel("custom", Url, Audio, Title, Content, Image));
+        internal override object GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
 
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqCustomMusicDataModel;
+            var m = model as CqCustomMusicMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -67,29 +69,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Image = m.image;
             MusicType = GetMusicTypeFromString(m.type);
         }
-    }
-
-    internal class CqCustomMusicDataModel
-    {
-        public CqCustomMusicDataModel()
-        {
-        }
-
-        public CqCustomMusicDataModel(string type, string url, string audio, string title, string? content, string? image)
-        {
-            this.type = type;
-            this.url = url;
-            this.audio = audio;
-            this.title = title;
-            this.content = content;
-            this.image = image;
-        }
-
-        public string type { get; set; }
-        public string url { get; set; }
-        public string audio { get; set; }
-        public string title { get; set; }
-        public string? content { get; set; }
-        public string? image { get; set; }
     }
 }

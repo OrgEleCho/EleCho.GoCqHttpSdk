@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -29,10 +30,10 @@ namespace NullLib.GoCqHttpSdk.Message
         internal CqVideoMsg() { }
         public CqVideoMsg(string file) => File = file;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqVideoDataModel(File, Cover, ThreadCount));
+        internal override object GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqVideoDataModel;
+            var m = model as CqVideoMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -40,20 +41,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Cover = m.cover;
             ThreadCount = m.c;
         }
-    }
-
-    public class CqVideoDataModel
-    {
-        internal CqVideoDataModel() { }
-        public CqVideoDataModel(string file, string? cover, int? c)
-        {
-            this.file = file;
-            this.cover = cover;
-            this.c = c;
-        }
-
-        public string file { get; set; }
-        public string? cover { get; set; }
-        public int? c { get; set; }
     }
 }

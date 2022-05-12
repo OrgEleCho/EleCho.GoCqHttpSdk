@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -12,12 +13,7 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Shake;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new());
+        internal override object GetDataModel() => new CqShakeMsgDataModel();
         internal override void ReadDataModel(object model) { }
-    }
-
-    public class CqShakeDataModel
-    {
-        
     }
 }

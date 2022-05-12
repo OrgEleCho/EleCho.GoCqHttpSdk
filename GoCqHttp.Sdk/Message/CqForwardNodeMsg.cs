@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,10 +40,10 @@ namespace NullLib.GoCqHttpSdk.Message
         }
 
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqForwardNodeDataModel(Id, Name, QQ, Content, Seq));
+        internal override object GetDataModel() => new CqForwardNodeMsgDataModel(Id, Name, QQ, Content, Seq);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqForwardNodeDataModel;
+            var m = model as CqForwardNodeMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -52,24 +53,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Content = m.content;
             Seq = m.seq;
         }
-    }
-
-    internal class CqForwardNodeDataModel
-    {
-        public CqForwardNodeDataModel() { }
-        public CqForwardNodeDataModel(int? id, string? name, long? uin, CqMsg[]? content, CqMsg[]? seq)
-        {
-            this.id = id;
-            this.name = name;
-            this.uin = uin;
-            this.content = content;
-            this.seq = seq;
-        }
-
-        public int? id { get; set; }
-        public string? name { get; set; }
-        public long? uin { get; set; }
-        public CqMsg[]? content { get; set; }
-        public CqMsg[]? seq { get; set; }
     }
 }

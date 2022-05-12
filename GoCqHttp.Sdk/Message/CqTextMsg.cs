@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -15,23 +16,14 @@ namespace NullLib.GoCqHttpSdk.Message
             Text = text;
         }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqTextDataModel(Text));
+        internal override object GetDataModel() => new CqTextMsgDataModel(Text);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqTextDataModel;
+            var m = model as CqTextMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             Text = m.text;
         }
-    }
-
-    public class CqTextDataModel
-    {
-        public string text { get; set; }
-
-        internal CqTextDataModel() { }
-
-        public CqTextDataModel(string text) => this.text = text;
     }
 }

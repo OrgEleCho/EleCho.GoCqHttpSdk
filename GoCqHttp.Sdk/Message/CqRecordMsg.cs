@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -48,10 +49,10 @@ namespace NullLib.GoCqHttpSdk.Message
         internal CqRecordMsg() { }
         public CqRecordMsg(string file) => File = file;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqRecordDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout));
+        internal override object GetDataModel() => new CqRecordMsgDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqRecordDataModel;
+            var m = model as CqRecordMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -62,26 +63,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Proxy = m.proxy.ToBool();
             Timeout = m.timeout;
         }
-    }
-
-    public class CqRecordDataModel
-    {
-        internal CqRecordDataModel() { }
-        public CqRecordDataModel(string file, int magic, string? url, int? cache, int? proxy, int? timeout)
-        {
-            this.file = file;
-            this.magic = magic;
-            this.url = url;
-            this.cache = cache;
-            this.proxy = proxy;
-            this.timeout = timeout;
-        }
-
-        public string file { get; set; }
-        public int magic { get; set; }
-        public string? url { get; set; }
-        public int? cache { get; set; }
-        public int? proxy { get; set; }
-        public int? timeout { get; set; }
     }
 }

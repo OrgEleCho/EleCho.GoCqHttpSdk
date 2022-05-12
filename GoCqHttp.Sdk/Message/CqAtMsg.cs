@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -26,7 +27,7 @@ namespace NullLib.GoCqHttpSdk.Message
 
         internal override void ReadDataModel(object model)
         {
-            CqAtDataModel? m = model as CqAtDataModel;
+            CqAtMsgDataModel? m = model as CqAtMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -34,28 +35,9 @@ namespace NullLib.GoCqHttpSdk.Message
             Name = m.name;
         }
 
-        internal override CqMsgModel GetModel()
+        internal override object GetDataModel()
         {
-            if (Name == null)
-                throw new ArgumentException(null, nameof(Name));
-
-            return new CqMsgModel(Type, new CqAtDataModel(QQ.ToString(), Name));
+            return new CqAtMsgDataModel(QQ.ToString(), Name);
         }
-    }
-
-    internal class CqAtDataModel
-    {
-        public CqAtDataModel()
-        {
-        }
-
-        public CqAtDataModel(string qq, string name)
-        {
-            this.qq = qq;
-            this.name = name;
-        }
-
-        public string qq { get; set; }
-        public string name { get; set; }
     }
 }

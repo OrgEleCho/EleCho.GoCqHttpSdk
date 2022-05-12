@@ -1,4 +1,5 @@
 ﻿using System;
+using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -22,20 +23,38 @@ namespace NullLib.GoCqHttpSdk.Message
             Url = url;
             ImageSubType = CqImageSubType.Normal;
         }
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqImageDataModel(File, StrPascal.ToCamelStr(ImageType), ((int)ImageSubType).ToString(), Url, Cache.ToInt(), (int?)ImageEffect, ThreadCount));
+
+        internal string ImageTypeToString(CqImageType? cqImageType)
+        {
+            return cqImageType switch
+            {
+                CqImageType.Flash => "flash",
+                CqImageType.Show => "show",
+                _ => ""
+            };
+        }
+
+        internal CqImageType ImageTypeFromString(string? value)
+        {
+            return value switch
+            {
+                "flash" => CqImageType.Flash,
+                "show" => CqImageType.Show,
+                _ => CqImageType.Unknown
+            };
+        }
+
+        internal override object GetDataModel() =>
+            new CqImageMsgDataModel(File, ImageTypeToString(ImageType), ((int)ImageSubType).ToString(), Url, Cache.ToInt(), (int?)ImageEffect, ThreadCount);
+
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqImageDataModel;
+            var m = model as CqImageMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             File = m.file;
-            ImageType = m.type switch
-            {
-                "flash" => CqImageType.Flash,
-                "show" => CqImageType.Show,
-                _ => null
-            };
+            ImageType = ImageTypeFromString(m.type);
             ImageSubType = (CqImageSubType)int.Parse(m.subType!);
             Url = m.url;
             Cache = m.cache.ToBool();
@@ -45,7 +64,8 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public enum CqImageType
         {
-            Flash, Show
+            Flash, Show,
+            Unknown = -1
         }
         public enum CqImageSubType
         {
@@ -69,31 +89,5 @@ namespace NullLib.GoCqHttpSdk.Message
             LoveYou = 40004,
             MakeFriend = 40005
         }
-    }
-
-    internal class CqImageDataModel
-    {
-        public CqImageDataModel()
-        {
-        }
-
-        public CqImageDataModel(string file, string? type, string? subType, string url, int? cache, int? id, int? c)
-        {
-            this.file = file;
-            this.type = type;
-            this.subType = subType;
-            this.url = url;
-            this.cache = cache;
-            this.id = id;
-            this.c = c;
-        }
-
-        public string file { get; set; }
-        public string? type { get; set; }
-        public string? subType { get; set; }
-        public string url { get; set; }
-        public int? cache { get; set; }
-        public int? id { get; set; }
-        public int? c { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +17,14 @@ namespace NullLib.GoCqHttpSdk.Message
         internal CqPokeMsg() { }
         public CqPokeMsg(long qq) => QQ = qq;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqPokeDataModel(QQ));
+        internal override object GetDataModel() => new CqPokeMsgDataModel(QQ);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqPokeDataModel;
+            var m = model as CqPokeMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             QQ = m.qq;
         }
-    }
-
-    public class CqPokeDataModel
-    {
-        public long qq { get; set; }
-
-        internal CqPokeDataModel() { }
-        public CqPokeDataModel(long qq) => this.qq = qq;
     }
 }

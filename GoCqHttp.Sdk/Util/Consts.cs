@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NullLib.GoCqHttpSdk.Action;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,9 @@ namespace NullLib.GoCqHttpSdk.Util
     {
         public static class EventType
         {
-            
+
         }
+
         public static class MsgType
         {
             public const string Text = "text";
@@ -37,7 +39,13 @@ namespace NullLib.GoCqHttpSdk.Util
             public const string Video = "video";
             public const string Xml = "xml";
             public const string Music = "music";
+        }
 
+        public static class ActionType
+        {
+            public const string SendPrivateMsg = "send_private_msg";
+            public const string SendGroupMsg = "send_group_msg";
+            public const string SendMsg = "send_msg";
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Enumeration;
+using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -28,26 +30,16 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public virtual long Id { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqMusicDataModel(GetMusicTypeFromEnum(MusicType), Id));
+        internal override object GetDataModel() => new CqMusicMsgDataModel(GetMusicTypeFromEnum(MusicType), Id);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqMusicDataModel;
+            var m = model as CqMusicMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             MusicType = GetMusicTypeFromString(m.type);
             Id = m.id;
         }
-
-        public enum CqMusicType
-        {
-            Unknown = 0,
-            QQ,
-            Netease,
-            XiaMi,
-            Custom,
-        }
-
         public static string GetMusicTypeFromEnum(CqMusicType name)
         {
             return name switch
@@ -73,18 +65,5 @@ namespace NullLib.GoCqHttpSdk.Message
                 _ => CqMusicType.Unknown,
             };
         }
-    }
-
-    public class CqMusicDataModel
-    {
-        internal CqMusicDataModel() { }
-        public CqMusicDataModel(string type, long id)
-        {
-            this.type = type;
-            this.id = id;
-        }
-
-        public string type { get; set; }
-        public long id { get; set; }
     }
 }

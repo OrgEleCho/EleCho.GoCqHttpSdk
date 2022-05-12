@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +17,14 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public string Title { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqRedEnvelopeDataModel(Title));
+        internal override object GetDataModel() => new CqRedEnvelopeMsgDataModel(Title);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqRedEnvelopeDataModel;
+            var m = model as CqRedEnvelopeMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             Title = m.title;
         }
-    }
-    public class CqRedEnvelopeDataModel
-    {
-        public string title { get; set; }
-        internal CqRedEnvelopeDataModel() { }
-
-        public CqRedEnvelopeDataModel(string title) => this.title = title;
     }
 }

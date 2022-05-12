@@ -6,8 +6,9 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
-using NullLib.GoCqHttpSdk.Event.JsonConverter;
+using NullLib.GoCqHttpSdk.Post.JsonConverter;
 using NullLib.GoCqHttpSdk.Message.JsonConverter;
+using NullLib.GoCqHttpSdk.JsonConverter;
 
 namespace NullLib.GoCqHttpSdk.Util
 {
@@ -22,6 +23,8 @@ namespace NullLib.GoCqHttpSdk.Util
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =
                 {
+                    new CqWsDataModelConverter(),
+                    
                     new CqEventModelConverter(),
                     new CqMessageEventModelConverter(),
 
@@ -38,7 +41,11 @@ namespace NullLib.GoCqHttpSdk.Util
         }
         public static JsonSerializerOptions GetOptions()
         {
+#if RELEASE
             return options.Value;
+#else
+            return debugOptions.Value;
+#endif
         }
 
 #if DEBUG
@@ -51,6 +58,8 @@ namespace NullLib.GoCqHttpSdk.Util
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =
                 {
+                    new CqWsDataModelConverter(),
+
                     new CqEventModelConverter(),
                     new CqMessageEventModelConverter(),
 
@@ -71,12 +80,11 @@ namespace NullLib.GoCqHttpSdk.Util
         }
 #endif
 
-        public static T? ToObject<T>(this JsonElement el, JsonSerializerOptions options)
+        public static T? ToObject<T>(this JsonElement el, JsonSerializerOptions? options)
         {
             return JsonSerializer.Deserialize<T>(el.GetRawText(), options);
         }
-
-        public static T? ToObject<T>(this JsonDocument doc, JsonSerializerOptions options)
+        public static T? ToObject<T>(this JsonDocument doc, JsonSerializerOptions? options)
         {
             return doc.RootElement.ToObject<T>(options);
         }

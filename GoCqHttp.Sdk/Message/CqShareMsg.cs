@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -33,10 +34,10 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public string? Image { get; set; }
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqShareDataModel(Url, Title, Content, Image));
+        internal override object GetDataModel() => new CqShareMsgDataModel(Url, Title, Content, Image);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqShareDataModel;
+            var m = model as CqShareMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
@@ -45,22 +46,5 @@ namespace NullLib.GoCqHttpSdk.Message
             Content = m.content;
             Image = m.image;
         }
-    }
-
-    public class CqShareDataModel
-    {
-        internal CqShareDataModel() {         }
-        public CqShareDataModel(string url, string title, string? content, string? image)
-        {
-            this.url = url;
-            this.title = title;
-            this.content = content;
-            this.image = image;
-        }
-
-        public string url { get; set; }
-        public string title { get; set; }
-        public string? content { get; set; }
-        public string? image { get; set; }
     }
 }

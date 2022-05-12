@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +17,14 @@ namespace NullLib.GoCqHttpSdk.Message
         internal CqForwardMsg() { }
         public CqForwardMsg(string id) => Id = id;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new CqForwardDataModel(Id));
+        internal override object GetDataModel() => new CqForwardMsgDataModel(Id);
         internal override void ReadDataModel(object model)
         {
-            var m = model as CqForwardDataModel;
+            var m = model as CqForwardMsgDataModel;
             if (m == null)
                 throw new ArgumentException();
 
             Id = m.id;
         }
-    }
-
-    internal class CqForwardDataModel
-    {
-        public string id { get; set; }
-
-        public CqForwardDataModel() { }
-        public CqForwardDataModel(string id) => this.id = id;
     }
 }

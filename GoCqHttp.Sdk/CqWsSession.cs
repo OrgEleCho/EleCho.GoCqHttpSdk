@@ -1,4 +1,9 @@
-﻿using NullLib.GoCqHttpSdk.Event;
+﻿using NullLib.GoCqHttpSdk.Action;
+using NullLib.GoCqHttpSdk.Action.Invoker;
+using NullLib.GoCqHttpSdk.Action.Result.Model;
+using NullLib.GoCqHttpSdk.Model;
+using NullLib.GoCqHttpSdk.Post;
+using NullLib.GoCqHttpSdk.Post.Model;
 using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
@@ -15,70 +20,122 @@ using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
 {
-    public class CqWsSession
+    public class CqWsSession : ICqPostSession, ICqActionSession
     {
-        private Uri wsUri;
-        private string? accessToken;
+        // 基础接入点地址和访问令牌
+        private readonly Uri baseUri;
+        private readonly string? accessToken;
 
+        public Uri BaseUri => baseUri;
+        public string? AccessToken => accessToken;
+
+        // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
+        private ClientWebSocket? apiWebSocketClient;
+        private ClientWebSocket? eventWebSocketClient;
 
         private bool isConnected;
         public bool IsConnected => isConnected;
 
+        // websocket 缓冲区大小
         public static int BufferSize { get; set; } = 1024;
-        public static int WebSocketKeepAliveInterval { get; } = 30;
 
-        public CqWsSession(Uri wsUri)
+        // 用来发送 API 请求
+        private readonly CqWsActionSender actionSender;
+        // 用来处理 post 上报事件
+        private readonly CqPostPipeline postPipeline;
+
+        public CqActionSender ActionSender => actionSender;
+        public CqPostPipeline PostPipeline => postPipeline;
+        public CqWsSession(CqWsSessionOptions options)
         {
-            this.wsUri = wsUri;
+            // 设定基础地址和访问令牌
+            this.baseUri = options.BaseUri;
+            this.accessToken = options.AccessToken;
+
+            // 如果使用 api 接入点, 那么则初始化 api 套接字
+            if (options.UseApiEndPoint)
+                apiWebSocketClient = new ClientWebSocket();
+
+            // 如果使用事件接入点, 那么则初始化事件套接字
+            if (options.UseEventEndPoint)
+                eventWebSocketClient = new ClientWebSocket();
+
+            // 如果任何一个没有被初始化, 则初始化根套接字
+            if (eventWebSocketClient == null || apiWebSocketClient == null)
+                webSocketClient = new ClientWebSocket();
+
+            // 初始化 action 发送器 和 post 管道
+            actionSender = new CqWsActionSender((apiWebSocketClient ?? webSocketClient)!, options.UseApiEndPoint);
+            postPipeline = new CqPostPipeline();
         }
 
-        public CqWsSession(Uri wsUri, string accessToken)
+        /// <summary>
+        /// 处理 WebSocket 数据
+        /// </summary>
+        /// <param name="wsDataModel"></param>
+        /// <returns></returns>
+        private Task ProcWsData(CqWsDataModel? wsDataModel)
         {
-            this.wsUri = wsUri;
-            this.accessToken = accessToken;
+            return Task.Run(async () =>
+            {
+                // 如果是 post 上报
+                if (wsDataModel is CqPostModel postModel)
+                {
+                    CqPostContext? postContext = CqPostContext.FromModel(postModel);
+
+                    // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
+                    if (postContext != null)
+                        await postPipeline.ExecuteAsync(postContext);
+                }
+                // 否则如果是 action 请求响应
+                else if (wsDataModel is CqActionResultRaw actionResultRaw)
+                {
+                    // 将请求放入 ActionSender 进行处理
+                    actionSender.PutResult(actionResultRaw);
+                }
+            });
         }
 
+        /// <summary>
+        /// WebSocket 循环 (不要等待这个方法)
+        /// </summary>
+        /// <returns></returns>
         private async Task WebSocketLoopAsync()
         {
-            if (webSocketClient == null)
+            // 初始化 WebSocket (使用 event socket 或者根 socket
+            WebSocket? webSocket2Listen = eventWebSocketClient ?? webSocketClient;
+            if (webSocket2Listen == null)
                 return;
 
+            // 初始化缓冲区
             byte[] buffer = new byte[BufferSize];
             MemoryStream ms = new MemoryStream();
             while (true)
             {
+                // 重置内存流
                 ms.SetLength(0);
-                WebSocketReceiveResult webSocketReceiveResult;
 
-                do
-                {
-                    webSocketReceiveResult = await webSocketClient.ReceiveAsync(buffer, default);
-                    ms.Write(buffer, 0, webSocketReceiveResult.Count);
-                }
-                while (!webSocketReceiveResult.EndOfMessage);
+                // 读取一个消息
+                await webSocket2Listen.ReadMessage(ms, buffer, default);
 
+                // 在发布模式下套一层 try 防止消息循环中断
+#if RELEASE
                 try
                 {
-                    ms.Seek(0, SeekOrigin.Begin);
-#if DEBUG
-                    var qwq = Encoding.UTF8.GetString(ms.ToArray());
 #endif
-                    CqEventModel? eventModel = await JsonSerializer.DeserializeAsync<CqEventModel>(ms, JsonHelper.GetOptions());
-                    CqEventArgs? eventArgs = CqEventArgs.FromModel(eventModel);
-#if DEBUG
-                    Debug.Write(string.Empty);
-#endif
+                // 反序列化为 WebSocket 数据 (自己抽的类
+                string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
+                CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
 
-                    
+                // 处理 WebSocket 数据
+                _ = ProcWsData(wsDataModel);
+
+#if RELEASE
                 }
                 catch { }
+#endif
             }
-        }
-
-        private void ProcEvent(CqEventArgs? eventArgs)
-        {
-            
         }
 
         /// <summary>
@@ -88,30 +145,49 @@ namespace NullLib.GoCqHttpSdk
         /// <returns></returns>
         private async Task ConnectWebSocketAsync()
         {
-            webSocketClient = new ClientWebSocket();
+            // 如果 api 套接字不为空, 则连接 api 套接字
+            if (apiWebSocketClient != null)
+            {
+                if (apiWebSocketClient.State == WebSocketState.Open)
+                    return;
 
-            if (accessToken != null)
-                webSocketClient.Options.SetRequestHeader("Authorization", "Bearer " + accessToken);   // 鉴权
+                apiWebSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                string apiUriStr = Path.Combine(baseUri.ToString(), "api");
+                await apiWebSocketClient.ConnectAsync(new Uri(apiUriStr), default);
+            }
 
-            await webSocketClient.ConnectAsync(wsUri, new CancellationToken());
+            // 如果事件套接字不为空, 则连接事件套接字
+            if (eventWebSocketClient != null)
+            {
+                if (eventWebSocketClient.State == WebSocketState.Open)
+                    return;
+
+                eventWebSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                string eventUriStr = Path.Combine(baseUri.ToString(), "event");
+                await eventWebSocketClient.ConnectAsync(new Uri(eventUriStr), default);
+            }
+
+            // 如果任意一个为空且基础套接字部不为空, 则连接基础套接字
+            if ((apiWebSocketClient == null || eventWebSocketClient == null) && webSocketClient != null)
+            {
+                if (webSocketClient.State == WebSocketState.Open)
+                    return;
+
+                webSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                await webSocketClient.ConnectAsync(baseUri, default);
+            }
+
+            // 开启套接字循环
             _ = WebSocketLoopAsync();
 
+            // 已连接设定为 true
             isConnected = true;
         }
 
         public async Task ConnectAsync()
         {
-            if (wsUri != null)
+            if (baseUri != null)
                 await ConnectWebSocketAsync();
         }
-
-
-    }
-
-    public struct CqWsSessionOption
-    {
-        public Uri WebSocketUri { get; set; }
-
-        public string? AccessToken { get; set; }
     }
 }

@@ -15,12 +15,7 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public override string Type => Consts.MsgType.Dice;
 
-        internal override CqMsgModel GetModel() => new CqMsgModel(Type, new());
+        internal override object GetDataModel() => new();
         internal override void ReadDataModel(object model) { }
-    }
-
-    internal class CqDiceDataModel
-    {
-        
     }
 }
