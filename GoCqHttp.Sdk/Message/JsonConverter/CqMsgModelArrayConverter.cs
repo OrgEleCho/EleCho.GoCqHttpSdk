@@ -99,7 +99,7 @@ namespace NullLib.GoCqHttpSdk.Message.JsonConverter
             writer.WriteStartArray();
             foreach (var msgModel in value)
             {
-                JsonSerializer.Serialize(writer, msgModel, msgModel.GetType(), options: options);
+                JsonSerializer.Serialize(writer, msgModel, msgModel.GetType(), options);
             }
             writer.WriteEndArray();
         }

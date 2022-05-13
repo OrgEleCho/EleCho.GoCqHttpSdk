@@ -4,6 +4,7 @@ using NullLib.GoCqHttpSdk.Post.JsonConverter;
 using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
 namespace NullLib.GoCqHttpSdk.Util
@@ -16,6 +17,7 @@ namespace NullLib.GoCqHttpSdk.Util
         {
             return new JsonSerializerOptions()
             {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =
                 {
@@ -54,6 +56,7 @@ namespace NullLib.GoCqHttpSdk.Util
             return new JsonSerializerOptions()
             {
                 WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =
                 {

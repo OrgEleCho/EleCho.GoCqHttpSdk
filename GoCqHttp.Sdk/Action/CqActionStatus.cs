@@ -2,6 +2,7 @@
 {
     public enum CqActionStatus
     {
-        Success, Async, Failed
+        Success, Async, Failed,
+        Unknown = -1
     }
 }

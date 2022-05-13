@@ -1,5 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Action.Result.Model;
 using NullLib.GoCqHttpSdk.Action.Result.Model.Data;
+using NullLib.GoCqHttpSdk.Enumeration;
 using NullLib.GoCqHttpSdk.Util;
 using System;
 
@@ -28,6 +29,10 @@ namespace NullLib.GoCqHttpSdk.Action.Result
 
                 _ => throw new ArgumentException("Invalid action type", nameof(actionType))
             };
+
+            rst.Status = CqEnum.GetActionStatus(raw.status);
+            rst.RetCode = (CqActionRetCode)raw.retcode;
+            rst.EchoData = raw.echo;
 
             rst.ReadDataModel(dataModel);
 

@@ -22,6 +22,11 @@ namespace TestConsole
                 UseEventEndPoint = true,
             });
 
+            CqHttpSession apiSession = new CqHttpSession(new CqHttpSessionOptions()
+            {
+                BaseUri = new Uri("http://127.0.0.1:5700"),
+            });
+
             session.UseGroupMsg(async (context, next) =>
             {
                 Console.WriteLine(context.Message.GetText());
@@ -37,9 +42,13 @@ namespace TestConsole
                 if (context.RawMessage.Contains("亲我"))
                 {
                     if (context.RawMessage.Contains("悄咪咪"))
-                        await session.SendPrivateMsgAsync(context.UserId, new CqTextMsg("mua~"));
+                    {
+                        await apiSession.SendPrivateMsgAsync(context.UserId, new CqTextMsg("mua~"));
+                    }
                     else
-                        await session.SendGroupMsgAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
+                    {
+                        var rst = await apiSession.SendGroupMsgAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
+                    }
                 }
                 if (context.RawMessage.Contains("骂我"))
                 {

@@ -82,7 +82,7 @@ namespace NullLib.GoCqHttpSdk.Message.JsonConverter
             if (value.data != null)
             {
                 writer.WritePropertyName(nameof(CqMsgModel.data));
-                JsonSerializer.Serialize(writer, value.data, value.data.GetType(), options: options);
+                JsonSerializer.Serialize(writer, value.data, value.data.GetType(), options);
             }
             writer.WriteEndObject();
         }

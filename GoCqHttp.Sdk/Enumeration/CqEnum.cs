@@ -1,4 +1,7 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿using NullLib.GoCqHttpSdk.Action;
+using System;
+
+namespace NullLib.GoCqHttpSdk.Enumeration
 {
     internal static class CqEnum
     {
@@ -35,6 +38,18 @@
             };
         }
 
+        public static string? GetString(CqActionStatus status)
+        {
+            return status switch
+            {
+                CqActionStatus.Success => "success",
+                CqActionStatus.Async => "async",
+                CqActionStatus.Failed => "failed",
+
+                _ => null
+            };
+        }
+
         public static CqContactType GetContactType(string? value)
         {
             return value switch
@@ -65,6 +80,18 @@
                 "connect" => CqLifecycleType.Connect,
 
                 _ => CqLifecycleType.Unknown
+            };
+        }
+
+        public static CqActionStatus GetActionStatus(string? value)
+        {
+            return value switch
+            {
+                "success" => CqActionStatus.Success,
+                "async" => CqActionStatus.Async,
+                "failed" => CqActionStatus.Failed,
+
+                _ => CqActionStatus.Unknown
             };
         }
     }

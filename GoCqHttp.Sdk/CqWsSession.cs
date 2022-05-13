@@ -33,7 +33,7 @@ namespace NullLib.GoCqHttpSdk
         private ClientWebSocket? apiWebSocketClient;
         private ClientWebSocket? eventWebSocketClient;
 
-        
+
         private bool isConnected;
         public bool IsConnected => isConnected;
 
@@ -70,6 +70,9 @@ namespace NullLib.GoCqHttpSdk
             // 初始化 action 发送器 和 post 管道
             actionSender = new CqWsActionSender((apiWebSocketClient ?? webSocketClient)!, options.UseApiEndPoint);
             postPipeline = new CqPostPipeline();
+
+            // 开启套接字循环
+            _ = WebSocketLoopAsync();
         }
 
         /// <summary>
@@ -186,9 +189,6 @@ namespace NullLib.GoCqHttpSdk
                 await webSocketClient.ConnectAsync(baseUri, default);
             }
 
-            // 开启套接字循环
-            _ = WebSocketLoopAsync();
-
             // 已连接设定为 true
             isConnected = true;
         }
@@ -198,6 +198,18 @@ namespace NullLib.GoCqHttpSdk
         {
             if (baseUri != null)
                 await ConnectWebSocketAsync();
+        }
+
+        public async Task CloseAsync()
+        {
+            if (apiWebSocketClient != null)
+                await apiWebSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            if (eventWebSocketClient != null)
+                await eventWebSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            if (webSocketClient != null)
+                await webSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+
+            isConnected = false;
         }
     }
 }

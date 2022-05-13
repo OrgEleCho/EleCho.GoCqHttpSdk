@@ -31,7 +31,7 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
         public override void Write(Utf8JsonWriter writer, CqNoticeNotifyPostModel value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value, value.GetType(), options: null);
+            throw new InvalidOperationException();
         }
     }
 }
