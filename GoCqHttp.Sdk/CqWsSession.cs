@@ -12,11 +12,16 @@ using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
 {
+    /// <summary>
+    /// 正向 WebSocket Session
+    /// 可处理上报, 以及发送 Action
+    /// </summary>
     public class CqWsSession : ICqPostSession, ICqActionSession
     {
         // 基础接入点地址和访问令牌
         private readonly Uri baseUri;
 
+        // 访问令牌
         private readonly string? accessToken;
 
         public Uri BaseUri => baseUri;
@@ -28,6 +33,7 @@ namespace NullLib.GoCqHttpSdk
         private ClientWebSocket? apiWebSocketClient;
         private ClientWebSocket? eventWebSocketClient;
 
+        
         private bool isConnected;
         public bool IsConnected => isConnected;
 
@@ -109,11 +115,17 @@ namespace NullLib.GoCqHttpSdk
             MemoryStream ms = new MemoryStream();
             while (true)
             {
+                if (webSocket2Listen.State != WebSocketState.Open)
+                {
+                    await Task.Delay(100);
+                    continue;
+                }
+
                 // 重置内存流
                 ms.SetLength(0);
 
                 // 读取一个消息
-                await webSocket2Listen.ReadMessage(ms, buffer, default);
+                await webSocket2Listen.ReadMessageAsync(ms, buffer, default);
 
                 // 在发布模式下套一层 try 防止消息循环中断
 #if RELEASE
@@ -131,6 +143,7 @@ namespace NullLib.GoCqHttpSdk
                 }
                 catch { }
 #endif
+                isConnected = webSocket2Listen.State == WebSocketState.Open;
             }
         }
 
@@ -180,6 +193,7 @@ namespace NullLib.GoCqHttpSdk
             isConnected = true;
         }
 
+        // 连接
         public async Task ConnectAsync()
         {
             if (baseUri != null)

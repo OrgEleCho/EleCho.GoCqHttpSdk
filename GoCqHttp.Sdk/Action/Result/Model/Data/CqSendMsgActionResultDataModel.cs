@@ -7,4 +7,9 @@
     {
         public int message_id { get; set; }
     }
+
+    internal class CqDeleteMsgActionResultDataModel : CqActionResultDataModel
+    {
+        
+    }
 }

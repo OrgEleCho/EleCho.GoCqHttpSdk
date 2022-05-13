@@ -16,8 +16,8 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
             return messageType switch
             {
-                "private" => doc.ToObject<CqPrivateMessagePostModel>(options),
-                "group" => doc.ToObject<CqGroupMessagePostModel>(options),
+                "private" => JsonSerializer.Deserialize<CqPrivateMessagePostModel>(doc, options),
+                "group" => JsonSerializer.Deserialize<CqGroupMessagePostModel>(doc, options),
 
                 _ => null
             };
@@ -25,7 +25,7 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
         public override void Write(Utf8JsonWriter writer, CqMessagePostModel value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value, options);
+            JsonSerializer.Serialize(writer, value, value.GetType(), options: null);
         }
     }
 }

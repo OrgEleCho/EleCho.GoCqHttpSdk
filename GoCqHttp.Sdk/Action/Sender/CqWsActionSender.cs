@@ -6,9 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.WebSockets;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace NullLib.GoCqHttpSdk.Action.Invoker
 {
@@ -32,9 +34,29 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
             results = new Dictionary<string, (AutoResetEvent, CqActionResultRaw?)>();
 
             if (readResult)
+                _ = WebSocketLoopAsync();
+        }
+
+        private async Task WebSocketLoopAsync()
+        {
+            MemoryStream wsMs = new MemoryStream();
+            byte[] wsBuffer = new byte[GlobalConfig.WebSocketBufferSize];
+
+            while (true)
             {
-                wsMs = new MemoryStream();
-                wsBuffer = new byte[GlobalConfig.WebSocketBufferSize];
+                if (Ws.State != WebSocketState.Open)
+                {
+                    await Task.Delay(100);
+                    continue;
+                }
+                
+                wsMs.SetLength(0);
+                await Ws.ReadMessageAsync(wsMs, wsBuffer, default);
+
+                string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
+                CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
+                if (resultRaw != null)
+                    PutResult(resultRaw);
             }
         }
 
@@ -51,9 +73,6 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
             }
         }
 
-        private MemoryStream? wsMs;
-        private byte[]? wsBuffer;
-
         public override async Task<CqActionResult?> SendActionAsync(CqAction action)
         {
             // 生成唯一标识符
@@ -64,48 +83,24 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
             actionModel.echo = echo;
 
             // 序列化
-            string json = JsonSerializer.Serialize(actionModel);
+            string json = JsonSerializer.Serialize(actionModel, JsonHelper.GetOptions());
             byte[] buffer = GlobalConfig.TextEncoding.GetBytes(json);
 
             // 发送请求
             await Ws.SendAsync(buffer[0..buffer.Length], WebSocketMessageType.Text, true, default);
 
-            CqActionResult? rst = null;
+            CqActionResult? rst;
+            
+            // 创建等待
+            AutoResetEvent handle = new AutoResetEvent(false);
+            results[echo] = (handle, null);
 
-            // 如果允许直接读取响应
-            if (ReadResult)
-            {
-                wsMs!.SetLength(0);
+            // 等待响应
+            handle.WaitOne(WaitTimeout);
+            rst = CqActionResult.FromRaw(results[echo].result, action.Type);
 
-                Task responseReadTask = Ws.ReadMessage(wsMs!, wsBuffer!, default);
-
-                // 等待任务结束或超时
-                await Task.WhenAny(Task.Delay(WaitTimeout), responseReadTask);
-
-                if (responseReadTask.IsCompleted)
-                {
-                    string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray());
-#if DEBUG
-                    Console.WriteLine(rstjson);
-#endif
-
-                    CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
-                    rst = CqActionResult.FromRaw(resultRaw, action.Type);
-                }
-            }
-            else
-            {
-                // 创建等待
-                AutoResetEvent handle = new AutoResetEvent(false);
-                results[echo] = (handle, null);
-
-                // 等待响应
-                handle.WaitOne(WaitTimeout);
-                rst = CqActionResult.FromRaw(results[echo].result, action.Type);
-
-                // 删除存储
-                results.Remove(echo);
-            }
+            // 删除存储
+            results.Remove(echo);
 
             return rst;
         }

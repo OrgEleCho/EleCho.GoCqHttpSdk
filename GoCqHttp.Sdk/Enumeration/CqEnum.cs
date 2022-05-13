@@ -2,28 +2,28 @@
 {
     internal static class CqEnum
     {
-        public static string GetString(CqContactType contactType)
+        public static string? GetString(CqContactType contactType)
         {
             return contactType switch
             {
                 CqContactType.Group => "group",
                 CqContactType.QQ => "qq",
-                _ => ""
+                _ => null
             };
         }
 
-        public static string GetString(CqMessageType messageType)
+        public static string? GetString(CqMessageType messageType)
         {
             return messageType switch
             {
                 CqMessageType.Private => "private",
                 CqMessageType.Group => "group",
 
-                _ => string.Empty
+                _ => null
             };
         }
 
-        public static string GetString(CqLifecycleType lifecycleType)
+        public static string? GetString(CqLifecycleType lifecycleType)
         {
             return lifecycleType switch
             {
@@ -31,11 +31,11 @@
                 CqLifecycleType.Disable => "disable",
                 CqLifecycleType.Connect => "connect",
 
-                _ => string.Empty
+                _ => null
             };
         }
 
-        public static CqContactType GetContactType(string value)
+        public static CqContactType GetContactType(string? value)
         {
             return value switch
             {
@@ -45,7 +45,7 @@
             };
         }
 
-        public static CqMessageType GetMessageType(string value)
+        public static CqMessageType GetMessageType(string? value)
         {
             return value switch
             {
@@ -56,7 +56,7 @@
             };
         }
 
-        public static CqLifecycleType GetLifecycleType(string value)
+        public static CqLifecycleType GetLifecycleType(string? value)
         {
             return value switch
             {

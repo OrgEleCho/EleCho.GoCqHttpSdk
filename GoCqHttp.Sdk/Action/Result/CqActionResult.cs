@@ -23,6 +23,8 @@ namespace NullLib.GoCqHttpSdk.Action.Result
             {
                 Consts.ActionType.SendPrivateMsg => new CqSendPrivateMsgActionResult(),
                 Consts.ActionType.SendGroupMsg => new CqSendGroupMsgActionResult(),
+                Consts.ActionType.SendMsg => new CqSendMsgActionResult(),
+                Consts.ActionType.DeleteMsg => new CqDeleteMsgActionResult(),
 
                 _ => throw new ArgumentException("Invalid action type", nameof(actionType))
             };

@@ -1,4 +1,5 @@
 ﻿using NullLib.GoCqHttpSdk;
+using NullLib.GoCqHttpSdk.Action;
 using NullLib.GoCqHttpSdk.Message;
 using NullLib.GoCqHttpSdk.Util;
 using System;
@@ -23,7 +24,7 @@ namespace TestConsole
 
             session.UseGroupMsg(async (context, next) =>
             {
-                Console.WriteLine(context.RawMessage);
+                Console.WriteLine(context.Message.GetText());
 
                 if (context.RawMessage.Contains("喵"))
                 {
@@ -40,6 +41,32 @@ namespace TestConsole
                     else
                         await session.SendGroupMsgAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
                 }
+                if (context.RawMessage.Contains("骂我"))
+                {
+                    if (context.RawMessage.Contains("狠狠"))
+                        await session.SendPrivateMsgAsync(context.UserId, new CqTextMsg("cnm"));
+                    else
+                    {
+                        string[] awa = new string[]
+                        {
+                            "恶心, 感谢我的大恩大德罢, 让你在我身边, 你应该觉得荣幸.",
+                            "呵, 像你这样的死宅, 不会对纸片人做哪种奇怪的事情罢, 真恶心.",
+                            "我已经无法忍受你在我身边了, 我建议你找个地缝钻进去"
+                        };
+
+                        int randindex = new Random().Next(0, awa.Length);
+
+                        var rst =  await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));    // 发送脏话
+
+                        await Task.Delay(2000);                                                                       // 等待 2 秒
+
+                        if (rst != null && rst.Status == CqActionStatus.Success)
+                        {
+                            await session.DeleteMsgAsync(rst!.MessageId);                                             // 撤回消息
+                            await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("打错字惹qwq (小仙女怎么可以骂脏话呢)"));     // 发错了.jpg
+                        }
+                    }
+                }
                 if (context.RawMessage.Contains("卖个萌"))
                 {
                     string[] awa = new string[]
@@ -52,7 +79,8 @@ namespace TestConsole
 
                     int randindex = new Random().Next(0, awa.Length);
 
-                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
+                    await session.SendMsgAsync(null, context.GroupId, new CqTextMsg(awa[randindex]));
+                    //var rst =  await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
                 }
 
                 await next();

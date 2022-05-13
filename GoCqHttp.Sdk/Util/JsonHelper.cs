@@ -31,6 +31,7 @@ namespace NullLib.GoCqHttpSdk.Util
 
                     new CqRequestEventModelConverter(),
 
+                    new CqMsgModelArrayConverter(),
                     new CpMsgModelConverter(),
                 }
             };
@@ -68,6 +69,7 @@ namespace NullLib.GoCqHttpSdk.Util
 
                     new CqRequestEventModelConverter(),
 
+                    new CqMsgModelArrayConverter(),
                     new CpMsgModelConverter(),
                 }
             };

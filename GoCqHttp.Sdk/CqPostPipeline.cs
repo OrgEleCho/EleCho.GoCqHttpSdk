@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
 {
+    /// <summary>
+    /// 上报处理管道
+    /// </summary>
     public class CqPostPipeline
     {
         private List<Func<CqPostContext, Func<Task>, Task>> middlewares;
@@ -27,6 +30,11 @@ namespace NullLib.GoCqHttpSdk
             return this;
         }
 
+        /// <summary>
+        /// 异步执行
+        /// </summary>
+        /// <param name="context">上报上下文</param>
+        /// <returns></returns>
         public Task ExecuteAsync(CqPostContext context)
         {
             return TaskExecuteAt(context, 0).Invoke();

@@ -14,4 +14,10 @@ namespace NullLib.GoCqHttpSdk.Action.Result
             }
         }
     }
+
+    public class CqDeleteMsgActionResult : CqActionResult
+    {
+        internal override void ReadDataModel(CqActionResultDataModel? model)
+        { }
+    }
 }

@@ -13,8 +13,10 @@ namespace NullLib.GoCqHttpSdk.Action.Result.Model.Data
             JsonElement dataValue = data.Value;
             return actionType switch
             {
-                Consts.ActionType.SendPrivateMsg => dataValue.ToObject<CqSendPrivateMsgActionResultDataModel>(null),
-                Consts.ActionType.SendGroupMsg => dataValue.ToObject<CqSendGroupMsgActionResultDataModel>(null),
+                Consts.ActionType.SendPrivateMsg => JsonSerializer.Deserialize<CqSendPrivateMsgActionResultDataModel>(dataValue),
+                Consts.ActionType.SendGroupMsg => JsonSerializer.Deserialize<CqSendGroupMsgActionResultDataModel>(dataValue),
+                Consts.ActionType.SendMsg => JsonSerializer.Deserialize<CqSendMsgActionResultDataModel>(dataValue),
+                Consts.ActionType.DeleteMsg => JsonSerializer.Deserialize<CqDeleteMsgActionResultDataModel>(dataValue),
 
                 _ => null
             };

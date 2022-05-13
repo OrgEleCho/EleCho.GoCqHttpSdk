@@ -4,21 +4,13 @@
 
 ## 支持:
 
-正向 WebSocket, 正向 HTTP. (不过仅支持 array 格式的数据上报, 不支持 cqcode 解析 (懒了懒了, cqcode 解析起来一定很麻烦吧qaq))
+正向 WebSocket, 正向 HTTP.
+
+同时支持 array 格式和 string 格式上报数据.
 
 > 正向 HTTP 尚且在开发中 (咕咕咕...)
 
 ## 使用:
-
-#### 配置:
-
-因为 SDK 仅支持 array 格式的数据上报, 所以请设定 go-cqhttp 配置文件中 message.post-format 字段值为 array, 否则无法正常接收上报数据
-
-```yaml
-# 这是你的 go-cqhttp 的 config.yaml 文件中应该调整的配置项
-message:
-  post-format: array
-```
 
 #### 连接
 

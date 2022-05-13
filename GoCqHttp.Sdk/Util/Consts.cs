@@ -38,6 +38,7 @@
             public const string SendPrivateMsg = "send_private_msg";
             public const string SendGroupMsg = "send_group_msg";
             public const string SendMsg = "send_msg";
+            public const string DeleteMsg = "delete_msg";
         }
     }
 }
