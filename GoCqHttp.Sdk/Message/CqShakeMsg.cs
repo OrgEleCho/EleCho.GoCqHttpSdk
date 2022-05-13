@@ -13,7 +13,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Shake;
 
-        internal override object GetDataModel() => new CqShakeMsgDataModel();
-        internal override void ReadDataModel(object model) { }
+        internal override CqMsgDataModel GetDataModel() => new CqShakeMsgDataModel();
+
+        internal override void ReadDataModel(CqMsgDataModel model)
+        { }
     }
 }

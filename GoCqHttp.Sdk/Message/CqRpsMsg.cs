@@ -1,4 +1,5 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+using NullLib.GoCqHttpSdk.Util;
 using System;
 
 namespace NullLib.GoCqHttpSdk.Message
@@ -15,7 +16,9 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public override string Type => Consts.MsgType.Rps;
 
-        internal override object GetDataModel() => new();
-        internal override void ReadDataModel(object model) { }
+        internal override CqMsgDataModel GetDataModel() => null!;
+
+        internal override void ReadDataModel(CqMsgDataModel model)
+        { }
     }
 }

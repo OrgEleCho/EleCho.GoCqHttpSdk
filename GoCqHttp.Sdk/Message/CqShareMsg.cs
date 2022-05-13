@@ -1,4 +1,6 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+﻿#pragma warning disable CS8618
+
+using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 using System;
 
@@ -8,7 +10,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Share;
 
-        internal CqShareMsg() { }
+        internal CqShareMsg()
+        { }
+
         public CqShareMsg(string url, string title)
         {
             Url = url;
@@ -19,6 +23,7 @@ namespace NullLib.GoCqHttpSdk.Message
         /// 说明: URL
         /// </summary>
         public string Url { get; set; }
+
         /// <summary>
         /// 说明: 标题
         /// </summary>
@@ -34,8 +39,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public string? Image { get; set; }
 
-        internal override object GetDataModel() => new CqShareMsgDataModel(Url, Title, Content, Image);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqShareMsgDataModel(Url, Title, Content, Image);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqShareMsgDataModel;
             if (m == null)

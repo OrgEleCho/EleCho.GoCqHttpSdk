@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading;
-using NullLib.GoCqHttpSdk.Enumeration;
+﻿using NullLib.GoCqHttpSdk.Enumeration;
 using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
+using System;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -13,8 +12,10 @@ namespace NullLib.GoCqHttpSdk.Message
     public class CqContactMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Contact;
-        
-        internal CqContactMsg() { }
+
+        internal CqContactMsg()
+        { }
+
         public CqContactMsg(CqContactType type, long id)
         {
             ContactType = type;
@@ -31,8 +32,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public long Id { get; set; }
 
-        internal override object GetDataModel() => new CqContactMsgDataModel(CqEnum.GetString(ContactType), Id);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqContactMsgDataModel(CqEnum.GetString(ContactType), Id);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             CqContactMsgDataModel? m = model as CqContactMsgDataModel;
             if (m == null)

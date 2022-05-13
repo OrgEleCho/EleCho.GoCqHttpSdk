@@ -9,6 +9,7 @@
             Sex = model.sex;
             Age = model.age;
         }
+
         public CqMessageSender(long userId, string nickname, string sex, int age)
         {
             UserId = userId;

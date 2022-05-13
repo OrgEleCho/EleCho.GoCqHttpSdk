@@ -17,7 +17,8 @@ namespace NullLib.GoCqHttpSdk.Post
         public int Font { get; set; }
         public CqMessageSender Sender { get; set; }
 
-        internal CqMsgPostContext() { }
+        internal CqMsgPostContext()
+        { }
 
         protected CqMsgPostContext(int messageId, long userId, CqMsg[] message, string rawMessage, int font, CqMessageSender sender)
         {

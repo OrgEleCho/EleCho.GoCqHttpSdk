@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using NullLib.GoCqHttpSdk.JsonConverter;
+using NullLib.GoCqHttpSdk.Message.JsonConverter;
+using NullLib.GoCqHttpSdk.Post.JsonConverter;
+using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
-using System.Threading.Tasks;
-using NullLib.GoCqHttpSdk.Post.JsonConverter;
-using NullLib.GoCqHttpSdk.Message.JsonConverter;
-using NullLib.GoCqHttpSdk.JsonConverter;
 
 namespace NullLib.GoCqHttpSdk.Util
 {
@@ -24,7 +20,7 @@ namespace NullLib.GoCqHttpSdk.Util
                 Converters =
                 {
                     new CqWsDataModelConverter(),
-                    
+
                     new CqEventModelConverter(),
                     new CqMessageEventModelConverter(),
 
@@ -39,6 +35,7 @@ namespace NullLib.GoCqHttpSdk.Util
                 }
             };
         }
+
         public static JsonSerializerOptions GetOptions()
         {
 #if RELEASE
@@ -49,7 +46,8 @@ namespace NullLib.GoCqHttpSdk.Util
         }
 
 #if DEBUG
-        static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
+        private static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
+
         public static JsonSerializerOptions NewDebugOptions()
         {
             return new JsonSerializerOptions()
@@ -74,16 +72,19 @@ namespace NullLib.GoCqHttpSdk.Util
                 }
             };
         }
+
         public static JsonSerializerOptions GetDebugOptions()
         {
             return debugOptions.Value;
         }
+
 #endif
 
         public static T? ToObject<T>(this JsonElement el, JsonSerializerOptions? options)
         {
-            return JsonSerializer.Deserialize<T>(el.GetRawText(), options);
+            return JsonSerializer.Deserialize<T>(el, options);
         }
+
         public static T? ToObject<T>(this JsonDocument doc, JsonSerializerOptions? options)
         {
             return doc.RootElement.ToObject<T>(options);

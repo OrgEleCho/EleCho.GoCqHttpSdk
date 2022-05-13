@@ -12,7 +12,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Music;
 
-        internal CqMusicMsg() { }
+        internal CqMusicMsg()
+        { }
+
         public CqMusicMsg(CqMusicType type, long id)
         {
             MusicType = type;
@@ -30,8 +32,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public virtual long Id { get; set; }
 
-        internal override object GetDataModel() => new CqMusicMsgDataModel(GetMusicTypeFromEnum(MusicType), Id);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqMusicMsgDataModel(GetMusicTypeFromEnum(MusicType), Id);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqMusicMsgDataModel;
             if (m == null)
@@ -40,6 +43,7 @@ namespace NullLib.GoCqHttpSdk.Message
             MusicType = GetMusicTypeFromString(m.type);
             Id = m.id;
         }
+
         public static string GetMusicTypeFromEnum(CqMusicType name)
         {
             return name switch

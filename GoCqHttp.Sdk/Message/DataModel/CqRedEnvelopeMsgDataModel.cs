@@ -1,10 +1,22 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqRedEnvelopeMsgDataModel
+    internal class CqRedEnvelopeMsgDataModel : CqMsgDataModel
     {
         public string title { get; set; }
-        internal CqRedEnvelopeMsgDataModel() { }
+
+        public CqRedEnvelopeMsgDataModel()
+        { }
 
         public CqRedEnvelopeMsgDataModel(string title) => this.title = title;
+
+        public static CqRedEnvelopeMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqRedEnvelopeMsgDataModel(
+                code.GetString(nameof(title))!);
+        }
     }
 }

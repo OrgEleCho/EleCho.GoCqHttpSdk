@@ -11,8 +11,8 @@ namespace NullLib.GoCqHttpSdk.Action.Model.Params
             this.auto_escape = auto_escape;
         }
 
-        internal CqSendGroupMsgActionParamsModel() { }
-
+        internal CqSendGroupMsgActionParamsModel()
+        { }
 
         public long group_id { get; set; }
     }

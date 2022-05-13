@@ -1,10 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Action;
 using NullLib.GoCqHttpSdk.Action.Result;
 using NullLib.GoCqHttpSdk.Message;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
@@ -23,10 +19,12 @@ namespace NullLib.GoCqHttpSdk
         {
             return await session.SendAsync<CqSendPrivateMsgAction, CqSendPrivateMsgActionResult>(new CqSendPrivateMsgAction(userId, 0, message));
         }
+
         public static async Task<CqSendPrivateMsgActionResult?> SendPrivateMsgAsync(this ICqActionSession session, long userId, long groupId, params CqMsg[] message)
         {
             return await session.SendAsync<CqSendPrivateMsgAction, CqSendPrivateMsgActionResult>(new CqSendPrivateMsgAction(userId, groupId, message));
         }
+
         public static async Task<CqSendGroupMsgActionResult?> SendGroupMsgAsync(this ICqActionSession session, long groupId, params CqMsg[] message)
         {
             return await session.SendAsync<CqSendGroupMsgAction, CqSendGroupMsgActionResult>(new CqSendGroupMsgAction(groupId, message));

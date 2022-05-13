@@ -2,15 +2,9 @@
 using NullLib.GoCqHttpSdk.Post.Model;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Post
 {
-
     public abstract class CqPostContext
     {
         internal CqPostContext()
@@ -21,6 +15,7 @@ namespace NullLib.GoCqHttpSdk.Post
         public abstract CqPostType EventType { get; }
         public long SelfId { get; set; }
         public DateTime Time { get; set; }
+
         internal static CqPostContext? FromModel(CqPostModel? model)
         {
             CqPostContext? cqEventArgs = model?.post_type switch
@@ -43,6 +38,7 @@ namespace NullLib.GoCqHttpSdk.Post
             Time = UnixTime.DateFromUnix(model.time);
             SelfId = model.self_id;
         }
+
         internal virtual void WriteModel(CqPostModel model)
         {
             model.time = UnixTime.DateToUnix(Time);

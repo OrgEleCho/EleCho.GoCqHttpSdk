@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqLocationMsgDataModel
+    internal class CqLocationMsgDataModel : CqMsgDataModel
     {
-        internal CqLocationMsgDataModel() { }
+        public CqLocationMsgDataModel()
+        { }
+
         public CqLocationMsgDataModel(double lat, double lon, string? title, string? content)
         {
             this.lat = lat;
@@ -15,5 +21,14 @@
         public double lon { get; set; }
         public string? title { get; set; }
         public string? content { get; set; }
+
+        public static CqLocationMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqLocationMsgDataModel(
+                code.GetDouble(nameof(lat)).GetValueOrDefault(0),
+                code.GetDouble(nameof(lon)).GetValueOrDefault(0),
+                code.GetString(nameof(title)),
+                code.GetString(nameof(content)));
+        }
     }
 }

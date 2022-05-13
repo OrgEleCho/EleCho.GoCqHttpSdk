@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.WebSockets;
-using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,10 +15,11 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
     public class CqWsActionSender : CqActionSender
     {
         // 响应存储
-        Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
+        private Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
 
         // 基础套接字
         public WebSocket Ws { get; }
+
         public bool ReadResult { get; }
 
         // 响应等待超时
@@ -51,8 +51,9 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
             }
         }
 
-        MemoryStream? wsMs;
-        byte[]? wsBuffer;
+        private MemoryStream? wsMs;
+        private byte[]? wsBuffer;
+
         public override async Task<CqActionResult?> SendActionAsync(CqAction action)
         {
             // 生成唯一标识符

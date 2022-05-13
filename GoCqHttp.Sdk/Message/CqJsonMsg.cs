@@ -8,7 +8,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Json;
 
-        internal CqJsonMsg() { }
+        internal CqJsonMsg()
+        { }
+
         public CqJsonMsg(string data)
         {
             Data = data;
@@ -17,8 +19,9 @@ namespace NullLib.GoCqHttpSdk.Message
         public string Data { get; set; }
         public int ResId { get; set; }
 
-        internal override object GetDataModel() => new CqJsonMsgDataModel(Data, ResId);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqJsonMsgDataModel(Data, ResId);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqJsonMsgDataModel;
             if (m == null)

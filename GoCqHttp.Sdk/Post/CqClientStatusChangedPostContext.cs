@@ -7,7 +7,8 @@ namespace NullLib.GoCqHttpSdk.Post
     {
         public override CqNoticeType NoticeType => CqNoticeType.ClientStatus;
 
-        internal CqClientStatusChangedPostContext() { }
+        internal CqClientStatusChangedPostContext()
+        { }
 
         public bool IsOnline { get; set; }
         public CqDevice Client { get; set; }

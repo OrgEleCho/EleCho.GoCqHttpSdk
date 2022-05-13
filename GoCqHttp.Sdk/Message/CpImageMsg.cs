@@ -1,6 +1,8 @@
-﻿using System;
+﻿#pragma warning disable CS8618
+
 using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
+using System;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -15,8 +17,10 @@ namespace NullLib.GoCqHttpSdk.Message
         public bool? Cache { get; set; }
         public CqImageEffect? ImageEffect { get; set; }
         public int? ThreadCount { get; set; }
-        
-        internal CqImageMsg() { }
+
+        internal CqImageMsg()
+        { }
+
         public CqImageMsg(string file, string url)
         {
             File = file;
@@ -44,10 +48,10 @@ namespace NullLib.GoCqHttpSdk.Message
             };
         }
 
-        internal override object GetDataModel() =>
+        internal override CqMsgDataModel GetDataModel() =>
             new CqImageMsgDataModel(File, ImageTypeToString(ImageType), ((int)ImageSubType).ToString(), Url, Cache.ToInt(), (int?)ImageEffect, ThreadCount);
 
-        internal override void ReadDataModel(object model)
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqImageMsgDataModel;
             if (m == null)
@@ -67,6 +71,7 @@ namespace NullLib.GoCqHttpSdk.Message
             Flash, Show,
             Unknown = -1
         }
+
         public enum CqImageSubType
         {
             Normal = 0,
@@ -80,6 +85,7 @@ namespace NullLib.GoCqHttpSdk.Message
             WaitForTest = 10,
             HotSearchedImage = 13
         }
+
         public enum CqImageEffect
         {
             Normal = 40000,

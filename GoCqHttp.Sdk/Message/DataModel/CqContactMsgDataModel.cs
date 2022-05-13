@@ -1,6 +1,10 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqContactMsgDataModel
+    internal class CqContactMsgDataModel : CqMsgDataModel
     {
         public CqContactMsgDataModel()
         {
@@ -14,5 +18,12 @@
 
         public string type { get; set; }
         public long id { get; set; }
+
+        public static CqContactMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqContactMsgDataModel(
+                code.GetString(nameof(type))!,
+                code.GetLong(nameof(id)).GetValueOrDefault(0));
+        }
     }
 }

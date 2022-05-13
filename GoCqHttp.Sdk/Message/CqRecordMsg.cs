@@ -39,18 +39,19 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public bool? Proxy { get; set; }
 
-
         /// <summary>
         /// 只在通过网络 URL 发送时有效, 单位秒, 表示下载网络文件的超时时间 , 默认不超时
         /// </summary>
         public int? Timeout { get; set; }
 
+        internal CqRecordMsg()
+        { }
 
-        internal CqRecordMsg() { }
         public CqRecordMsg(string file) => File = file;
 
-        internal override object GetDataModel() => new CqRecordMsgDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqRecordMsgDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqRecordMsgDataModel;
             if (m == null)

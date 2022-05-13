@@ -1,10 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -18,7 +14,9 @@ namespace NullLib.GoCqHttpSdk.Message
         public CqMsg[]? Content { get; set; }
         public CqMsg[]? Seq { get; set; }
 
-        internal CqForwardNodeMsg() { }
+        internal CqForwardNodeMsg()
+        { }
+
         public CqForwardNodeMsg(int id)
         {
             Id = id;
@@ -39,9 +37,9 @@ namespace NullLib.GoCqHttpSdk.Message
             Seq = seq;
         }
 
+        internal override CqMsgDataModel GetDataModel() => new CqForwardNodeMsgDataModel(Id, Name, QQ, Content, Seq);
 
-        internal override object GetDataModel() => new CqForwardNodeMsgDataModel(Id, Name, QQ, Content, Seq);
-        internal override void ReadDataModel(object model)
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqForwardNodeMsgDataModel;
             if (m == null)

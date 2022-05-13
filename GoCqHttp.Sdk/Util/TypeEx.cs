@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NullLib.GoCqHttpSdk.Util
+﻿namespace NullLib.GoCqHttpSdk.Util
 {
     internal static class TypeEx
     {
@@ -20,6 +14,7 @@ namespace NullLib.GoCqHttpSdk.Util
         {
             return value ? 1 : 0;
         }
+
         public static bool ToBool(this int? value)
         {
             if (!value.HasValue)
@@ -27,6 +22,7 @@ namespace NullLib.GoCqHttpSdk.Util
 
             return value.Value != 0;
         }
+
         public static bool ToBool(this int value)
         {
             return value != 0;

@@ -1,17 +1,9 @@
-﻿using NullLib.GoCqHttpSdk.Action;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NullLib.GoCqHttpSdk.Util
+﻿namespace NullLib.GoCqHttpSdk.Util
 {
     internal static class Consts
     {
         public static class EventType
         {
-
         }
 
         public static class MsgType

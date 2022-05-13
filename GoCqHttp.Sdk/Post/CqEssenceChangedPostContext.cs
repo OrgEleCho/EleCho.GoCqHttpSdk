@@ -1,10 +1,8 @@
 ﻿using NullLib.GoCqHttpSdk.Enumeration;
 using NullLib.GoCqHttpSdk.Post.Model;
-using System;
 
 namespace NullLib.GoCqHttpSdk.Post
 {
-
     public class CqEssenceChangedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.Essence;

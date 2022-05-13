@@ -7,8 +7,10 @@ namespace NullLib.GoCqHttpSdk.Message
     public abstract class CqMsg
     {
         public abstract string Type { get; }
-        internal abstract object GetDataModel();
-        internal abstract void ReadDataModel(object model);
+
+        internal abstract CqMsgDataModel GetDataModel();
+
+        internal abstract void ReadDataModel(CqMsgDataModel model);
 
         public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
 
@@ -30,13 +32,15 @@ namespace NullLib.GoCqHttpSdk.Message
                     case "163":
                     case "xm":
                         return new CqMusicMsg();
+
                     case "custom":
                         return new CqCustomMusicMsg();
+
                     default:
                         throw new NotSupportedException(NotSupportedCqCodeTip);
                 }
             }
-            
+
             CqMsg rst;
             rst = model.type switch
             {

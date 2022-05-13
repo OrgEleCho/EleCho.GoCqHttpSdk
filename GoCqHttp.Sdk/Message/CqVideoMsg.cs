@@ -27,11 +27,14 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public int? ThreadCount { get; set; }
 
-        internal CqVideoMsg() { }
+        internal CqVideoMsg()
+        { }
+
         public CqVideoMsg(string file) => File = file;
 
-        internal override object GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqVideoMsgDataModel;
             if (m == null)

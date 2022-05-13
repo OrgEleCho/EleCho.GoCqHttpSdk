@@ -19,7 +19,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public int? Ignore { get; set; }
 
-        internal override object GetDataModel() => new CqAnonymousMsgDataModel();
-        internal override void ReadDataModel(object model) { }
+        internal override CqMsgDataModel GetDataModel() => new CqAnonymousMsgDataModel();
+
+        internal override void ReadDataModel(CqMsgDataModel model)
+        { }
     }
 }

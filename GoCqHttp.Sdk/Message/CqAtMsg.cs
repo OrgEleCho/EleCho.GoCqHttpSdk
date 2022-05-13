@@ -19,13 +19,15 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public string? Name { get; set; }
 
-        internal CqAtMsg() { }
+        internal CqAtMsg()
+        { }
+
         public CqAtMsg(long qq)
         {
             QQ = qq;
         }
 
-        internal override void ReadDataModel(object model)
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             CqAtMsgDataModel? m = model as CqAtMsgDataModel;
             if (m == null)
@@ -35,7 +37,7 @@ namespace NullLib.GoCqHttpSdk.Message
             Name = m.name;
         }
 
-        internal override object GetDataModel()
+        internal override CqMsgDataModel GetDataModel()
         {
             return new CqAtMsgDataModel(QQ.ToString(), Name);
         }

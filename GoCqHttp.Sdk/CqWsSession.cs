@@ -1,21 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Action;
-using NullLib.GoCqHttpSdk.Action.Invoker;
+﻿using NullLib.GoCqHttpSdk.Action.Invoker;
 using NullLib.GoCqHttpSdk.Action.Result.Model;
 using NullLib.GoCqHttpSdk.Model;
 using NullLib.GoCqHttpSdk.Post;
 using NullLib.GoCqHttpSdk.Post.Model;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Net.WebSockets;
-using System.Text;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk
@@ -24,6 +16,7 @@ namespace NullLib.GoCqHttpSdk
     {
         // 基础接入点地址和访问令牌
         private readonly Uri baseUri;
+
         private readonly string? accessToken;
 
         public Uri BaseUri => baseUri;
@@ -31,6 +24,7 @@ namespace NullLib.GoCqHttpSdk
 
         // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
+
         private ClientWebSocket? apiWebSocketClient;
         private ClientWebSocket? eventWebSocketClient;
 
@@ -42,11 +36,13 @@ namespace NullLib.GoCqHttpSdk
 
         // 用来发送 API 请求
         private readonly CqWsActionSender actionSender;
+
         // 用来处理 post 上报事件
         private readonly CqPostPipeline postPipeline;
 
         public CqActionSender ActionSender => actionSender;
         public CqPostPipeline PostPipeline => postPipeline;
+
         public CqWsSession(CqWsSessionOptions options)
         {
             // 设定基础地址和访问令牌

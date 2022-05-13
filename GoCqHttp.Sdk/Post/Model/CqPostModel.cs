@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using System.Text.Json.Serialization;
-using NullLib.GoCqHttpSdk.Model;
+﻿using NullLib.GoCqHttpSdk.Model;
 
 namespace NullLib.GoCqHttpSdk.Post.Model
 {

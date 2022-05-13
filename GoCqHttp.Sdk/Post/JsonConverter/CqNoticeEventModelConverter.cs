@@ -1,5 +1,4 @@
 ﻿using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -11,29 +10,36 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
         public override CqNoticePostModel? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             JsonDocument doc = JsonDocument.ParseValue(ref reader);
-            string? noticeType = doc.RootElement.GetProperty("notice_type").GetString();
-
-            return noticeType switch
+            if (doc.RootElement.TryGetProperty("notice_type", out JsonElement noticeTypeEle))
             {
-                "group_upload" => doc.ToObject<CqNoticeGroupUploadPostModel>(options),
-                "group_admin" => doc.ToObject<CqNoticeGroupAdminPostModel>(options),
-                "group_decrease" => doc.ToObject<CqNoticeGroupDecreasePostModel>(options),
-                "group_increase" => doc.ToObject<CqNoticeGroupIncreasePostModel>(options),
-                "group_ban" => doc.ToObject<CqNoticeGroupBanPostModel>(options),
-                "friend_add" => doc.ToObject<CqNoticeFriendAddPostModel>(options),
-                "group_recall" => doc.ToObject<CqNoticeGroupRecallPostModel>(options),
-                "friend_recall" => doc.ToObject<CqNoticeFriendRecallPostModel>(options),
-                "notify" => doc.ToObject<CqNoticeNotifyPostModel>(options),
-                "group_card" => doc.ToObject<CqNoticeGroupCardPostModel>(options),
-                "offline_file" => doc.ToObject<CqNoticeOfflineFilePostModel>(options),
+                if (noticeTypeEle.ValueKind != JsonValueKind.String)
+                    return null;
 
-                _ => null
-            };
+                string noticeType = noticeTypeEle.GetString()!;
+                return noticeType switch
+                {
+                    "group_upload" => JsonSerializer.Deserialize<CqNoticeGroupUploadPostModel>(doc, options),
+                    "group_admin" => JsonSerializer.Deserialize<CqNoticeGroupAdminPostModel>(doc, options),
+                    "group_decrease" => JsonSerializer.Deserialize<CqNoticeGroupDecreasePostModel>(doc, options),
+                    "group_increase" => JsonSerializer.Deserialize<CqNoticeGroupIncreasePostModel>(doc, options),
+                    "group_ban" => JsonSerializer.Deserialize<CqNoticeGroupBanPostModel>(doc, options),
+                    "friend_add" => JsonSerializer.Deserialize<CqNoticeFriendAddPostModel>(doc, options),
+                    "group_recall" => JsonSerializer.Deserialize<CqNoticeGroupRecallPostModel>(doc, options),
+                    "friend_recall" => JsonSerializer.Deserialize<CqNoticeFriendRecallPostModel>(doc, options),
+                    "notify" => JsonSerializer.Deserialize<CqNoticeNotifyPostModel>(doc, options),
+                    "group_card" => JsonSerializer.Deserialize<CqNoticeGroupCardPostModel>(doc, options),
+                    "offline_file" => JsonSerializer.Deserialize<CqNoticeOfflineFilePostModel>(doc, options),
+
+                    _ => null
+                };
+            }
+
+            return null;
         }
 
         public override void Write(Utf8JsonWriter writer, CqNoticePostModel value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value, options);
+            JsonSerializer.Serialize(writer, value, value.GetType(), options);
         }
     }
 }

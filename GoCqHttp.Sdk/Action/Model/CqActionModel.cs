@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NullLib.GoCqHttpSdk.Action.Model
+﻿namespace NullLib.GoCqHttpSdk.Action.Model
 {
     internal class CqActionModel
     {

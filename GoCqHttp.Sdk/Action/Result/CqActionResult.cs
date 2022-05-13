@@ -1,12 +1,7 @@
-﻿using EleCho.Json;
-using NullLib.GoCqHttpSdk.Action.Result.Model;
+﻿using NullLib.GoCqHttpSdk.Action.Result.Model;
 using NullLib.GoCqHttpSdk.Action.Result.Model.Data;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Action.Result
 {

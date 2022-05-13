@@ -8,6 +8,7 @@
             Name = model.name;
             Flag = model.flag;
         }
+
         public CqMessageAnonymous(long id, string name, string flag)
         {
             Id = id;

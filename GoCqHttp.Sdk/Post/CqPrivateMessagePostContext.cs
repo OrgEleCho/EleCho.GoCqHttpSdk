@@ -9,8 +9,8 @@ namespace NullLib.GoCqHttpSdk.Post
         public CqMessagePrivateType MessageSubType { get; set; }
         public CqTempSourceType TempSource { get; set; }
 
-
-        internal CqPrivateMsgPostContext() { }
+        internal CqPrivateMsgPostContext()
+        { }
 
         internal static CqMessagePrivateType SubTypeFromString(string str)
         {
@@ -24,6 +24,7 @@ namespace NullLib.GoCqHttpSdk.Post
                 _ => CqMessagePrivateType.Unknown
             };
         }
+
         internal static string SubTypeToString(CqMessagePrivateType subType)
         {
             return subType switch

@@ -16,6 +16,7 @@ namespace NullLib.GoCqHttpSdk.Post
             LostTimes = model.LostTimes;
             LastMessageTime = UnixTime.DateFromUnix(model.LastMessageTime);
         }
+
         public CqStatusStatistics(ulong packetReceived,
                                   ulong packetSent,
                                   ulong packetLost,

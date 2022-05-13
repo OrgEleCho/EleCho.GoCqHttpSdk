@@ -10,14 +10,17 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public string Text { get; set; }
 
-        internal CqTextMsg() { }
+        internal CqTextMsg()
+        { }
+
         public CqTextMsg(string text)
         {
             Text = text;
         }
 
-        internal override object GetDataModel() => new CqTextMsgDataModel(Text);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqTextMsgDataModel(Text);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqTextMsgDataModel;
             if (m == null)

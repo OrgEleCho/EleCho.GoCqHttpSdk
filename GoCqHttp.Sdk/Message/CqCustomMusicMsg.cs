@@ -1,7 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Enumeration;
 using NullLib.GoCqHttpSdk.Message.DataModel;
 using System;
-using static NullLib.GoCqHttpSdk.Message.CqMusicMsg;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -10,8 +9,14 @@ namespace NullLib.GoCqHttpSdk.Message
     /// </summary>
     public class CqCustomMusicMsg : CqMusicMsg
     {
+#pragma warning disable CS8618
 
-        internal CqCustomMusicMsg():base() { }
+        internal CqCustomMusicMsg() : base()
+        {
+        }
+
+#pragma warning restore CS8618
+
         public CqCustomMusicMsg(string url, string audio, string title) : base(CqMusicType.Custom, -1)
         {
             Url = url;
@@ -54,9 +59,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public override long Id { get => base.Id; set => base.Id = value; }
 
-        internal override object GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
+        internal override CqMsgDataModel GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
 
-        internal override void ReadDataModel(object model)
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqCustomMusicMsgDataModel;
             if (m == null)

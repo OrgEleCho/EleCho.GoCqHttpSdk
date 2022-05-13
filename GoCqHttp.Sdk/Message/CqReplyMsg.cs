@@ -1,10 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -12,7 +8,13 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Reply;
 
-        internal CqReplyMsg() { }
+#pragma warning disable CS8618
+
+        internal CqReplyMsg()
+        { }
+
+#pragma warning restore CS8618
+
         public CqReplyMsg(string id, string text, long qq, long seq)
         {
             Id = id;
@@ -29,8 +31,9 @@ namespace NullLib.GoCqHttpSdk.Message
         public DateTime Time { get; set; }
         public long Seq { get; set; }
 
-        internal override object GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqReplyMsgDataModel;
             if (m == null)

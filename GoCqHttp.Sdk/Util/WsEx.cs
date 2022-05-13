@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net.WebSockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +10,7 @@ namespace NullLib.GoCqHttpSdk.Util
         public static async Task<WebSocketMessageType> ReadMessage(this WebSocket ws, Stream stream, byte[] buffer, CancellationToken cancellationToken)
         {
             WebSocketReceiveResult webSocketReceiveResult;
-            
+
             do
             {
                 webSocketReceiveResult = await ws.ReceiveAsync(buffer, cancellationToken);

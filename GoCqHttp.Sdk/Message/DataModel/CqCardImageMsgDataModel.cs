@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqCardImageMsgDataModel
+    internal class CqCardImageMsgDataModel : CqMsgDataModel
     {
-        public CqCardImageMsgDataModel() { }
+        public CqCardImageMsgDataModel()
+        { }
+
         public CqCardImageMsgDataModel(string file, long? minwidth, long? minheight, long? maxwidth, long? maxheight, string? source, string? icon)
         {
             this.file = file;
@@ -21,5 +27,17 @@
         public long? maxheight { get; set; }
         public string? source { get; set; }
         public string? icon { get; set; }
+
+        public static CqCardImageMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqCardImageMsgDataModel(
+                code.GetString(nameof(file))!,
+                code.GetLong(nameof(minwidth)),
+                code.GetLong(nameof(minheight)),
+                code.GetLong(nameof(maxwidth)),
+                code.GetLong(nameof(maxheight)),
+                code.GetString(nameof(source)),
+                code.GetString(nameof(icon)));
+        }
     }
 }

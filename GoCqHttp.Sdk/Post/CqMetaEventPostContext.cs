@@ -1,5 +1,4 @@
 ﻿using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Util;
 
 namespace NullLib.GoCqHttpSdk.Post
 {

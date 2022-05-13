@@ -6,7 +6,6 @@
 
         public CqHttpSession(CqHttpSessionOptions options)
         {
-            
         }
     }
 }

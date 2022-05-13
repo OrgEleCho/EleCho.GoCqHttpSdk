@@ -9,6 +9,7 @@
             Size = model.size;
             BusId = model.busid;
         }
+
         public CqGroupUploadFilePostContext(string id, string name, long size, long busid)
         {
             Id = id;

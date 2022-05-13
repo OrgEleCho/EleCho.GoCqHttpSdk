@@ -7,7 +7,8 @@ namespace NullLib.GoCqHttpSdk.Post
     {
         public override CqRequestType RequestType => CqRequestType.Group;
 
-        internal CqGroupRequestPostContext() { }
+        internal CqGroupRequestPostContext()
+        { }
 
         public CqRequestGroupType RequestSubType { get; set; }
         public long GroupId { get; set; }

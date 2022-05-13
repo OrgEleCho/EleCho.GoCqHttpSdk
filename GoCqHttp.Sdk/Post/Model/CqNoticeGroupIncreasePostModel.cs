@@ -10,6 +10,7 @@ namespace NullLib.GoCqHttpSdk.Post.Model
         /// <see cref="CqNoticeGroupIncreaseType"/>
         /// </summary>
         public string sub_type { get; set; }
+
         public long group_id { get; set; }
         public long operator_id { get; set; }
         public long user_id { get; set; }

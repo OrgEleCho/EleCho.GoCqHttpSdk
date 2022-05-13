@@ -2,10 +2,6 @@
 using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -13,7 +9,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Gift;
 
-        internal CqGiftMsg() { }
+        internal CqGiftMsg()
+        { }
+
         public CqGiftMsg(long qq, CqGiftId id)
         {
             QQ = qq;
@@ -23,8 +21,9 @@ namespace NullLib.GoCqHttpSdk.Message
         public long QQ { get; set; }
         public CqGiftId Id { get; set; }
 
-        internal override object GetDataModel() => new CqGiftMsgDataModel(QQ, (int)Id);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqGiftMsgDataModel(QQ, (int)Id);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqGiftMsgDataModel;
             if (m == null)

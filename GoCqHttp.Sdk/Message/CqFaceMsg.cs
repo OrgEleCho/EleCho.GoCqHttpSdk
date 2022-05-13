@@ -16,11 +16,14 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public int Id { get; set; }
 
-        internal CqFaceMsg() { }
+        internal CqFaceMsg()
+        { }
+
         public CqFaceMsg(int id) => Id = id;
 
-        internal override object GetDataModel() => new CqFaceMsgDataModel(Id);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqFaceMsgDataModel(Id);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqFaceMsgDataModel;
             if (m == null)
@@ -225,6 +228,7 @@ namespace NullLib.GoCqHttpSdk.Message
                 _ => string.Empty
             };
         }
+
         public static int GetFaceIdFromName(string name)
         {
             return name switch

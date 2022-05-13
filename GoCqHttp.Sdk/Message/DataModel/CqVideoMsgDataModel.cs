@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿#pragma warning disable CS8618
+
+using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqVideoMsgDataModel
+    internal class CqVideoMsgDataModel : CqMsgDataModel
     {
-        internal CqVideoMsgDataModel() { }
+        public CqVideoMsgDataModel()
+        { }
+
         public CqVideoMsgDataModel(string file, string? cover, int? c)
         {
             this.file = file;
@@ -13,5 +19,13 @@
         public string file { get; set; }
         public string? cover { get; set; }
         public int? c { get; set; }
+
+        public static CqVideoMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqVideoMsgDataModel(
+                code.GetString(nameof(file))!,
+                code.GetString(nameof(cover)),
+                code.GetInt(nameof(c)));
+        }
     }
 }

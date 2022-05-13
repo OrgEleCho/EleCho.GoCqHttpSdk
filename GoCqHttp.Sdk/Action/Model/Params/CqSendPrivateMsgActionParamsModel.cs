@@ -1,10 +1,4 @@
 ﻿using NullLib.GoCqHttpSdk.Message.DataModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Action.Model.Params
 {
@@ -18,8 +12,8 @@ namespace NullLib.GoCqHttpSdk.Action.Model.Params
             this.auto_escape = auto_escape;
         }
 
-        internal CqSendPrivateMsgActionParamsModel() { }
-
+        internal CqSendPrivateMsgActionParamsModel()
+        { }
 
         public long user_id { get; set; }
         public long group_id { get; set; }

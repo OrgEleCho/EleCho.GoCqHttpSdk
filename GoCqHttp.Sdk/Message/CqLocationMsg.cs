@@ -12,7 +12,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Location;
 
-        internal CqLocationMsg() { }
+        internal CqLocationMsg()
+        { }
+
         public CqLocationMsg(double lat, double lon)
         {
             Lat = lat;
@@ -23,6 +25,7 @@ namespace NullLib.GoCqHttpSdk.Message
         /// 纬度
         /// </summary>
         public double Lat { get; set; }
+
         /// <summary>
         /// 经度
         /// </summary>
@@ -38,8 +41,9 @@ namespace NullLib.GoCqHttpSdk.Message
         /// </summary>
         public string? Content { get; set; }
 
-        internal override object GetDataModel() => new CqLocationMsgDataModel(Lat, Lon, Title, Content);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqLocationMsgDataModel(Lat, Lon, Title, Content);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqLocationMsgDataModel;
             if (m == null)

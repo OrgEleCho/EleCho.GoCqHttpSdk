@@ -8,6 +8,7 @@ namespace NullLib.GoCqHttpSdk
     public class CqPostPipeline
     {
         private List<Func<CqPostContext, Func<Task>, Task>> middlewares;
+
         public CqPostPipeline()
         {
             middlewares = new List<Func<CqPostContext, Func<Task>, Task>>();

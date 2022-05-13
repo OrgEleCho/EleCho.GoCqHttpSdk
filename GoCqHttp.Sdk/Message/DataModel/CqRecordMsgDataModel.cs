@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqRecordMsgDataModel
+    internal class CqRecordMsgDataModel : CqMsgDataModel
     {
-        internal CqRecordMsgDataModel() { }
+        public CqRecordMsgDataModel()
+        { }
+
         public CqRecordMsgDataModel(string file, int magic, string? url, int? cache, int? proxy, int? timeout)
         {
             this.file = file;
@@ -19,5 +25,16 @@
         public int? cache { get; set; }
         public int? proxy { get; set; }
         public int? timeout { get; set; }
+
+        public static CqRecordMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqRecordMsgDataModel(
+                code.GetString(nameof(file))!,
+                code.GetInt(nameof(magic)).GetValueOrDefault(0),
+                code.GetString(nameof(url)),
+                code.GetInt(nameof(cache)),
+                code.GetInt(nameof(proxy)),
+                code.GetInt(nameof(timeout)));
+        }
     }
 }

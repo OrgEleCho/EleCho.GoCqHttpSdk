@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace NullLib.GoCqHttpSdk.Enumeration
 {
     internal static class CqEnum
     {
@@ -24,7 +18,7 @@ namespace NullLib.GoCqHttpSdk.Enumeration
             {
                 CqMessageType.Private => "private",
                 CqMessageType.Group => "group",
-                
+
                 _ => string.Empty
             };
         }
@@ -41,8 +35,6 @@ namespace NullLib.GoCqHttpSdk.Enumeration
             };
         }
 
-        
-
         public static CqContactType GetContactType(string value)
         {
             return value switch
@@ -50,7 +42,7 @@ namespace NullLib.GoCqHttpSdk.Enumeration
                 "qq" => CqContactType.QQ,
                 "group" => CqContactType.Group,
                 _ => (CqContactType)(-1)
-            };            
+            };
         }
 
         public static CqMessageType GetMessageType(string value)

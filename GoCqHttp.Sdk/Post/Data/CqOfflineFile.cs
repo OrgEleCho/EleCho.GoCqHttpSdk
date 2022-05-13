@@ -8,6 +8,7 @@
             Size = model.size;
             Url = model.url;
         }
+
         public CqOfflineFile(string name, long size, string url)
         {
             Name = name;

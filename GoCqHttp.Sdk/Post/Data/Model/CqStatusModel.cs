@@ -2,7 +2,9 @@
 {
     internal class CqStatusModel
     {
-        public CqStatusModel() { }
+        public CqStatusModel()
+        { }
+
         public CqStatusModel(CqStatus srcData)
         {
             app_initialized = srcData.AppInitialized;
@@ -13,6 +15,7 @@
             good = srcData.Good;
             stat = new CqStatusStatisticsModel(srcData.Statistics);
         }
+
         public bool app_initialized { get; set; }
         public bool app_enabled { get; set; }
         public bool plugins_good { get; set; }

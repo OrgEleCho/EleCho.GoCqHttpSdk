@@ -8,7 +8,9 @@ namespace NullLib.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.CardImage;
 
-        internal CqCardImageMsg() { }
+        internal CqCardImageMsg()
+        { }
+
         public CqCardImageMsg(string file)
         {
             File = file;
@@ -22,7 +24,8 @@ namespace NullLib.GoCqHttpSdk.Message
         public string? Source { get; set; }
         public string? Icon { get; set; }
 
-        internal override object GetDataModel() => new CqCardImageMsgDataModel(File, MinWidth, MinHeight, MaxWidth, MaxHeight, Source, Icon);
-        internal override void ReadDataModel(object model) => throw new NotImplementedException();
+        internal override CqMsgDataModel GetDataModel() => new CqCardImageMsgDataModel(File, MinWidth, MinHeight, MaxWidth, MaxHeight, Source, Icon);
+
+        internal override void ReadDataModel(CqMsgDataModel model) => throw new NotImplementedException();
     }
 }

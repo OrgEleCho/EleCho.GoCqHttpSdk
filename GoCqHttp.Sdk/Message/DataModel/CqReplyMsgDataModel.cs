@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿#pragma warning disable CS8618
+
+using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqReplyMsgDataModel
+    internal class CqReplyMsgDataModel : CqMsgDataModel
     {
-        internal CqReplyMsgDataModel() { }
+        public CqReplyMsgDataModel()
+        { }
+
         public CqReplyMsgDataModel(string id, string text, long qq, long time, long seq)
         {
             this.id = id;
@@ -17,5 +23,15 @@
         public long qq { get; set; }
         public long time { get; set; }
         public long seq { get; set; }
+
+        public static CqReplyMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqReplyMsgDataModel(
+                code.GetString(nameof(id))!,
+                code.GetString(nameof(text))!,
+                code.GetLong(nameof(qq)).GetValueOrDefault(0),
+                code.GetLong(nameof(time)).GetValueOrDefault(0),
+                code.GetLong(nameof(seq)).GetValueOrDefault(0));
+        }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using NullLib.GoCqHttpSdk.Action.Model;
 using NullLib.GoCqHttpSdk.Action.Model.Params;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Action
 {

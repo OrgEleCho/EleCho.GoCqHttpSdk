@@ -1,8 +1,14 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    public class CqMusicMsgDataModel
+    internal class CqMusicMsgDataModel : CqMsgDataModel
     {
-        internal CqMusicMsgDataModel() { }
+        public CqMusicMsgDataModel()
+        { }
+
         public CqMusicMsgDataModel(string type, long id)
         {
             this.type = type;
@@ -11,5 +17,12 @@
 
         public string type { get; set; }
         public long id { get; set; }
+
+        public static CqMusicMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqMusicMsgDataModel(
+                code.GetString(nameof(type))!,
+                code.GetLong(nameof(id)).GetValueOrDefault(0));
+        }
     }
 }

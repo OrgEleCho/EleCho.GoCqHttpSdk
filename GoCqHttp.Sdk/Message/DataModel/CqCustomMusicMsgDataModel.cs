@@ -1,6 +1,10 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqCustomMusicMsgDataModel
+    internal class CqCustomMusicMsgDataModel : CqMsgDataModel
     {
         public CqCustomMusicMsgDataModel()
         {
@@ -22,5 +26,16 @@
         public string title { get; set; }
         public string? content { get; set; }
         public string? image { get; set; }
+
+        public static CqCustomMusicMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqCustomMusicMsgDataModel(
+                code.GetString(nameof(type))!,
+                code.GetString(nameof(url))!,
+                code.GetString(nameof(audio))!,
+                code.GetString(nameof(title))!,
+                code.GetString(nameof(content)),
+                code.GetString(nameof(image)));
+        }
     }
 }

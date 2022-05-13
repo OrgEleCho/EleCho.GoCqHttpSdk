@@ -11,7 +11,8 @@ namespace NullLib.GoCqHttpSdk.Post
         public string Comment { get; set; }
         public string Flag { get; set; }
 
-        internal CqFriendRequestPostContext() { }
+        internal CqFriendRequestPostContext()
+        { }
 
         internal override void ReadModel(CqPostModel model)
         {

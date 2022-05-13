@@ -1,6 +1,10 @@
-﻿namespace NullLib.GoCqHttpSdk.Message.DataModel
+﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+
+#pragma warning disable CS8618
+
+namespace NullLib.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqImageMsgDataModel
+    internal class CqImageMsgDataModel : CqMsgDataModel
     {
         public CqImageMsgDataModel()
         {
@@ -24,5 +28,17 @@
         public int? cache { get; set; }
         public int? id { get; set; }
         public int? c { get; set; }
+
+        public static CqImageMsgDataModel FromCqCode(CqCode code)
+        {
+            return new CqImageMsgDataModel(
+                code.GetString(nameof(file))!,
+                code.GetString(nameof(type)),
+                code.GetString(nameof(subType)),
+                code.GetString(nameof(url))!,
+                code.GetInt(nameof(cache)),
+                code.GetInt(nameof(id)),
+                code.GetInt(nameof(c)));
+        }
     }
 }

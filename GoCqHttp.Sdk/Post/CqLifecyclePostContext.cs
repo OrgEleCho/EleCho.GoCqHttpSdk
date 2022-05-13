@@ -9,7 +9,8 @@ namespace NullLib.GoCqHttpSdk.Post
 
         public CqLifecycleType LifecycleType { get; set; }
 
-        internal CqLifecyclePostContext() { }
+        internal CqLifecyclePostContext()
+        { }
 
         internal override void ReadModel(CqPostModel model)
         {

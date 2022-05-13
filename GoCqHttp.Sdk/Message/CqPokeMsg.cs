@@ -1,10 +1,6 @@
 ﻿using NullLib.GoCqHttpSdk.Message.DataModel;
 using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.Message
 {
@@ -14,11 +10,14 @@ namespace NullLib.GoCqHttpSdk.Message
 
         public long QQ { get; set; }
 
-        internal CqPokeMsg() { }
+        internal CqPokeMsg()
+        { }
+
         public CqPokeMsg(long qq) => QQ = qq;
 
-        internal override object GetDataModel() => new CqPokeMsgDataModel(QQ);
-        internal override void ReadDataModel(object model)
+        internal override CqMsgDataModel GetDataModel() => new CqPokeMsgDataModel(QQ);
+
+        internal override void ReadDataModel(CqMsgDataModel model)
         {
             var m = model as CqPokeMsgDataModel;
             if (m == null)

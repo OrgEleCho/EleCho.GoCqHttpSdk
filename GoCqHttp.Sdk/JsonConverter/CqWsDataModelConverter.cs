@@ -1,15 +1,9 @@
-﻿using NullLib.GoCqHttpSdk.Action.Model;
-using NullLib.GoCqHttpSdk.Action.Result.Model;
+﻿using NullLib.GoCqHttpSdk.Action.Result.Model;
 using NullLib.GoCqHttpSdk.Model;
 using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace NullLib.GoCqHttpSdk.JsonConverter
 {
@@ -20,11 +14,11 @@ namespace NullLib.GoCqHttpSdk.JsonConverter
             JsonDocument doc = JsonDocument.ParseValue(ref reader);
             if (doc.RootElement.TryGetProperty("post_type", out _))
             {
-                return doc.ToObject<CqPostModel>(options);
+                return JsonSerializer.Deserialize<CqPostModel>(doc, options);
             }
             else if (doc.RootElement.TryGetProperty("status", out _) && doc.RootElement.TryGetProperty("retcode", out _))
             {
-                return doc.ToObject<CqActionResultRaw>(options);
+                return JsonSerializer.Deserialize<CqActionResultRaw>(doc, options);
             }
             else
             {

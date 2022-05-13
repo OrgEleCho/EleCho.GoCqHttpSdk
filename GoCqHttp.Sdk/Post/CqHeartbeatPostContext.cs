@@ -10,7 +10,8 @@ namespace NullLib.GoCqHttpSdk.Post
 
         public TimeSpan Interval { get; set; }
 
-        internal CqHeartbeatPostContext() { }
+        internal CqHeartbeatPostContext()
+        { }
 
         internal override void ReadModel(CqPostModel model)
         {

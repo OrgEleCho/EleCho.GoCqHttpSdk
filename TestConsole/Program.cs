@@ -1,18 +1,16 @@
-﻿using System;
-using System.Text.Json;
-using System.Threading.Tasks;
-using NullLib.GoCqHttpSdk;
-using NullLib.GoCqHttpSdk.Action;
-using NullLib.GoCqHttpSdk.Action.Result;
+﻿using NullLib.GoCqHttpSdk;
 using NullLib.GoCqHttpSdk.Message;
 using NullLib.GoCqHttpSdk.Util;
+using System;
+using System.Threading.Tasks;
+
 #nullable enable
 
 namespace TestConsole
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             GlobalConfig.WaitTimeout = TimeSpan.FromSeconds(30);
 
@@ -56,7 +54,6 @@ namespace TestConsole
 
                     await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
                 }
-
 
                 await next();
             });

@@ -4,7 +4,9 @@ namespace NullLib.GoCqHttpSdk.Post
 {
     internal class CqStatusStatisticsModel
     {
-        public CqStatusStatisticsModel() { }
+        public CqStatusStatisticsModel()
+        { }
+
         public CqStatusStatisticsModel(CqStatusStatistics srcData)
         {
             PacketReceived = srcData.PacketReceived;

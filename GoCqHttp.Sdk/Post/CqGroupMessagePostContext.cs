@@ -10,7 +10,8 @@ namespace NullLib.GoCqHttpSdk.Post
         public long GroupId { get; set; }
         public CqMessageAnonymous? Anonymous { get; set; }
 
-        internal CqGroupMsgPostContext() { }
+        internal CqGroupMsgPostContext()
+        { }
 
         internal override void WriteModel(CqPostModel model)
         {
@@ -18,7 +19,7 @@ namespace NullLib.GoCqHttpSdk.Post
 
             if (model is not CqGroupMessagePostModel msgModel)
                 return;
-            
+
             msgModel.group_id = GroupId;
             msgModel.anonymous = Anonymous == null ? null : new CqMessageAnonymousModel(Anonymous);
         }
