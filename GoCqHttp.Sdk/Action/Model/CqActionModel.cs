@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Action.Model
+﻿namespace EleCho.GoCqHttpSdk.Action.Model
 {
     internal class CqActionModel
     {

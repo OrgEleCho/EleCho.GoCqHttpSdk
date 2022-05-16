@@ -1,6 +1,6 @@
-﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+﻿using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 
-namespace NullLib.GoCqHttpSdk.Message.DataModel
+namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
     internal class CqShakeMsgDataModel : CqMsgDataModel
     {

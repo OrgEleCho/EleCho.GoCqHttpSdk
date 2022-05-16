@@ -1,10 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Post.JsonConverter
+namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
     internal class CqRequestEventModelConverter : JsonConverter<CqRequestPostModel>
     {
@@ -15,8 +15,8 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
             return requestType switch
             {
-                "friend" => doc.ToObject<CqRequestFriendPostModel>(options),
-                "group" => doc.ToObject<CqRequestGroupPostModel>(options),
+                "friend" => JsonSerializer.Deserialize<CqRequestFriendPostModel>(doc, options),
+                "group" => JsonSerializer.Deserialize<CqRequestGroupPostModel>(doc, options),
 
                 _ => null
             };

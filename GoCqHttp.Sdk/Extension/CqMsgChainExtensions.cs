@@ -1,7 +1,7 @@
-﻿using NullLib.GoCqHttpSdk.Message;
+﻿using EleCho.GoCqHttpSdk.Message;
 using System.Text;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     public static class CqMsgChainExtensions
     {

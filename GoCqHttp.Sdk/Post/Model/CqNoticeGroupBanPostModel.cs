@@ -1,13 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqNoticeGroupBanPostModel : CqNoticePostModel
     {
         public override string notice_type => "group_ban";
 
         /// <summary>
-        /// <see cref="CqNoticeGroupBanType"/>
+        /// <see cref="CqGroupBanChangeType"/>
         /// </summary>
         public string sub_type { get; set; }
 

@@ -1,10 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Post.JsonConverter
+namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
     internal class CqMessageEventModelConverter : JsonConverter<CqMessagePostModel>
     {
@@ -16,8 +16,8 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
             return messageType switch
             {
-                "private" => JsonSerializer.Deserialize<CqPrivateMessagePostModel>(doc, options),
-                "group" => JsonSerializer.Deserialize<CqGroupMessagePostModel>(doc, options),
+                Consts.MsgType.Private => JsonSerializer.Deserialize<CqPrivateMessagePostModel>(doc, options),
+                Consts.MsgType.Group => JsonSerializer.Deserialize<CqGroupMessagePostModel>(doc, options),
 
                 _ => null
             };

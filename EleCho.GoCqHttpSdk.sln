@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EleCho.GoCqHttpSdk", "GoCqHttp.Sdk\EleCho.GoCqHttpSdk.csproj", "{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{4294F893-450D-48D7-A1BA-538BF0A1429B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{312FC243-1C5B-4021-8059-D974049A2AB6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4294F893-450D-48D7-A1BA-538BF0A1429B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4294F893-450D-48D7-A1BA-538BF0A1429B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4294F893-450D-48D7-A1BA-538BF0A1429B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4294F893-450D-48D7-A1BA-538BF0A1429B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B77B371D-F282-4E42-800E-90B381BA0354}
+	EndGlobalSection
+EndGlobal

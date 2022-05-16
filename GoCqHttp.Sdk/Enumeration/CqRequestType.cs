@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
     public enum CqRequestType
     {

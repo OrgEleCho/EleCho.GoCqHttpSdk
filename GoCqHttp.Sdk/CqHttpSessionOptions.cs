@@ -1,6 +1,6 @@
 ﻿ using System;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     public struct CqHttpSessionOptions
     {

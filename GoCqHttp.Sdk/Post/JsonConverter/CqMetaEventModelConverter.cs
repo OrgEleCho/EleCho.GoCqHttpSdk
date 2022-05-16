@@ -1,10 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Post.JsonConverter
+namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
     internal class CqMetaEventModelConverter : JsonConverter<CqMetaPostModel>
     {
@@ -15,8 +15,8 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
 
             return metaEventType switch
             {
-                "lifecycle" => doc.ToObject<CqMetaLifecyclePostModel>(options),
-                "heartbeat" => doc.ToObject<CqMetaHeartbeatPostModel>(options),
+                Consts.MetaEventType.Lifecycle => JsonSerializer.Deserialize<CqMetaLifecyclePostModel>(doc, options),
+                Consts.MetaEventType.Heartbeat => JsonSerializer.Deserialize<CqMetaHeartbeatPostModel>(doc, options),
 
                 _ => null
             };

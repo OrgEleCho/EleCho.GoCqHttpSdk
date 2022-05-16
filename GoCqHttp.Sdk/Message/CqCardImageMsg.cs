@@ -1,8 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Message.DataModel;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 
-namespace NullLib.GoCqHttpSdk.Message
+namespace EleCho.GoCqHttpSdk.Message
 {
     public class CqCardImageMsg : CqMsg
     {

@@ -1,11 +1,11 @@
-﻿using NullLib.GoCqHttpSdk.Action.Model.Params;
-using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Message;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendMsgAction : CqAction
     {
@@ -24,7 +24,7 @@ namespace NullLib.GoCqHttpSdk.Action
             Message = message;
         }
 
-        public override string Type => Consts.ActionType.SendMsg;
+        public override CqActionType Type => CqActionType.SendMsg;
 
         public CqMessageType MessageType { get; set; } = CqMessageType.Unknown;
         public long? UserId { get; set; }
@@ -38,20 +38,6 @@ namespace NullLib.GoCqHttpSdk.Action
         internal override CqActionParamsModel GetParamsModel()
         {
             return new CqSendMsgActionParamsModel(CqEnum.GetString(MessageType), UserId, GroupId, Array.ConvertAll(Message, CqMsg.ToModel));
-        }
-    }
-
-    public class CqDeleteMsgAction : CqAction
-    {
-        public override string Type => Consts.ActionType.DeleteMsg;
-
-        public int MessageId { get; set; }
-
-        public CqDeleteMsgAction(int messageId) => MessageId = messageId;
-
-        internal override CqActionParamsModel GetParamsModel()
-        {
-            return new CqDeleteMsgActionParamsModel(MessageId);
         }
     }
 }

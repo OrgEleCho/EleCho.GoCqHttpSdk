@@ -1,8 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Message.CqCodeDef;
+using EleCho.GoCqHttpSdk.Message.DataModel;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 
-namespace NullLib.GoCqHttpSdk.Message
+namespace EleCho.GoCqHttpSdk.Message
 {
     public abstract class CqMsg
     {
@@ -17,6 +19,11 @@ namespace NullLib.GoCqHttpSdk.Message
         public static CqMsg[] Chain(params CqMsg[] msgs)
         {
             return msgs;
+        }
+
+        public static CqMsg[] CqCodeChain(string cqCodeMsg)
+        {
+            return CqCode.ChainFromCqCodeString(cqCodeMsg);
         }
 
         internal static CqMsg FromModel(CqMsgModel model)
@@ -37,7 +44,7 @@ namespace NullLib.GoCqHttpSdk.Message
                         return new CqCustomMusicMsg();
 
                     default:
-                        throw new NotSupportedException(NotSupportedCqCodeTip);
+                        return new CqTextMsg();
                 }
             }
 
@@ -57,7 +64,7 @@ namespace NullLib.GoCqHttpSdk.Message
                 Consts.MsgType.Contact => new CqContactMsg(),
                 Consts.MsgType.Dice => new CqDiceMsg(),
                 Consts.MsgType.Forward => new CqForwardMsg(),
-                Consts.MsgType.Node => new CqForwardNodeMsg(),
+                Consts.MsgType.Node => new CqForwardMsgNode(),
                 Consts.MsgType.Gift => new CqGiftMsg(),
                 Consts.MsgType.Json => new CqJsonMsg(),
                 Consts.MsgType.Poke => new CqPokeMsg(),
@@ -68,7 +75,7 @@ namespace NullLib.GoCqHttpSdk.Message
                 Consts.MsgType.Xml => new CqXmlMsg(),
                 Consts.MsgType.Music => MusicFromModel(model),
 
-                _ => throw new NotSupportedException(NotSupportedCqCodeTip)
+                _ => new CqTextMsg(),
             };
 
             rst.ReadDataModel(model.data);

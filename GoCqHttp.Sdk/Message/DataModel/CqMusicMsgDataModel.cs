@@ -1,8 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Message.CqCodeDef;
+﻿using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 
 #pragma warning disable CS8618
 
-namespace NullLib.GoCqHttpSdk.Message.DataModel
+namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
     internal class CqMusicMsgDataModel : CqMsgDataModel
     {

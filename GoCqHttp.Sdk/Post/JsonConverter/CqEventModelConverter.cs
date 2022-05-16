@@ -1,9 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Post.JsonConverter
+namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
     internal class CqEventModelConverter : JsonConverter<CqPostModel>
     {
@@ -18,10 +19,10 @@ namespace NullLib.GoCqHttpSdk.Post.JsonConverter
                 string postType = postTypeEle.GetString()!;
                 return postType switch
                 {
-                    "message" => JsonSerializer.Deserialize<CqMessagePostModel>(doc, options),
-                    "notice" => JsonSerializer.Deserialize<CqNoticePostModel>(doc, options),
-                    "request" => JsonSerializer.Deserialize<CqRequestPostModel>(doc, options),
-                    "meta_event" => JsonSerializer.Deserialize<CqMetaPostModel>(doc, options),
+                    Consts.PostType.Message => JsonSerializer.Deserialize<CqMessagePostModel>(doc, options),
+                    Consts.PostType.Notice => JsonSerializer.Deserialize<CqNoticePostModel>(doc, options),
+                    Consts.PostType.Request => JsonSerializer.Deserialize<CqRequestPostModel>(doc, options),
+                    Consts.PostType.MetaEvent => JsonSerializer.Deserialize<CqMetaPostModel>(doc, options),
 
                     _ => null
                 };

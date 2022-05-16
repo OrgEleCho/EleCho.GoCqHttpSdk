@@ -1,8 +1,8 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqNoticeGroupAdminType
+    public enum CqGroupAdminChangeType
     {
-        Set,
-        UnSet,
+        Set, UnSet,
+        Unknown = -1
     }
 }

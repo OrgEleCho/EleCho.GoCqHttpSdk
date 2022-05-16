@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Util
+﻿namespace EleCho.GoCqHttpSdk.Util
 {
     internal static class TypeEx
     {

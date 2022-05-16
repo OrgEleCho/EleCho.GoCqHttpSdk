@@ -1,8 +1,9 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Message.DataModel;
+using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Action.Model.Params
+namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqSendGroupMsgActionParamsModel : CqSendMsgActionParamsModel
+    internal class CqSendGroupMsgActionParamsModel : CqActionParamsModel
     {
         public CqSendGroupMsgActionParamsModel(long group_id, CqMsgModel[] message, bool auto_escape)
         {
@@ -11,9 +12,10 @@ namespace NullLib.GoCqHttpSdk.Action.Model.Params
             this.auto_escape = auto_escape;
         }
 
-        internal CqSendGroupMsgActionParamsModel()
-        { }
-
         public long group_id { get; set; }
+        public CqMsgModel[] message { get; set; }
+        
+        [JsonIgnore]
+        public bool auto_escape { get; set; }
     }
 }

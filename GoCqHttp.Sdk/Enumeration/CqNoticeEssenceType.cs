@@ -1,6 +1,6 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqNoticeEssenceType
+    public enum CqEssenceChangeType
     {
         Add, Delete,
         Unknown = -1

@@ -1,19 +1,19 @@
-﻿using NullLib.GoCqHttpSdk.JsonConverter;
-using NullLib.GoCqHttpSdk.Message.JsonConverter;
-using NullLib.GoCqHttpSdk.Post.JsonConverter;
+﻿using EleCho.GoCqHttpSdk.JsonConverter;
+using EleCho.GoCqHttpSdk.Message.JsonConverter;
+using EleCho.GoCqHttpSdk.Post.JsonConverter;
 using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
-namespace NullLib.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Util
 {
     internal static class JsonHelper
     {
         private static Lazy<JsonSerializerOptions> options = new Lazy<JsonSerializerOptions>(NewOptions);
 
-        public static JsonSerializerOptions NewOptions()
+        private static JsonSerializerOptions NewOptions()
         {
             return new JsonSerializerOptions()
             {
@@ -41,17 +41,17 @@ namespace NullLib.GoCqHttpSdk.Util
 
         public static JsonSerializerOptions GetOptions()
         {
-#if RELEASE
-            return options.Value;
-#else
+#if DEBUG
             return debugOptions.Value;
+#else
+            return options.Value;
 #endif
         }
 
 #if DEBUG
         private static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
 
-        public static JsonSerializerOptions NewDebugOptions()
+        private static JsonSerializerOptions NewDebugOptions()
         {
             return new JsonSerializerOptions()
             {
@@ -78,21 +78,11 @@ namespace NullLib.GoCqHttpSdk.Util
             };
         }
 
-        public static JsonSerializerOptions GetDebugOptions()
-        {
-            return debugOptions.Value;
-        }
-
 #endif
 
         public static T? ToObject<T>(this JsonElement el, JsonSerializerOptions? options)
         {
             return JsonSerializer.Deserialize<T>(el, options);
-        }
-
-        public static T? ToObject<T>(this JsonDocument doc, JsonSerializerOptions? options)
-        {
-            return doc.RootElement.ToObject<T>(options);
         }
     }
 }

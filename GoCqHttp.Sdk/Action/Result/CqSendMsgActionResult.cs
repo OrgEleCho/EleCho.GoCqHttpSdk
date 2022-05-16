@@ -1,6 +1,6 @@
-﻿using NullLib.GoCqHttpSdk.Action.Result.Model.Data;
+﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
 
-namespace NullLib.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action.Result
 {
     public class CqSendMsgActionResult : CqActionResult
     {
@@ -13,11 +13,5 @@ namespace NullLib.GoCqHttpSdk.Action.Result
                 MessageId = dataModel.message_id;
             }
         }
-    }
-
-    public class CqDeleteMsgActionResult : CqActionResult
-    {
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        { }
     }
 }

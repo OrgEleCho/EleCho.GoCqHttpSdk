@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Action
+﻿namespace EleCho.GoCqHttpSdk.Action
 {
     public enum CqActionRetCode
     {

@@ -1,7 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 
-namespace NullLib.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqFriendRequestPostContext : CqRequestPostContext
     {
@@ -24,18 +25,6 @@ namespace NullLib.GoCqHttpSdk.Post
             UserId = requestModel.user_id;
             Comment = requestModel.comment;
             Flag = requestModel.flag;
-        }
-
-        internal override void WriteModel(CqPostModel model)
-        {
-            base.WriteModel(model);
-
-            if (model is not CqRequestFriendPostModel requestModel)
-                return;
-
-            requestModel.user_id = UserId;
-            requestModel.comment = Comment;
-            requestModel.flag = Flag;
         }
     }
 }

@@ -1,14 +1,14 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal abstract class CqNoticeGroupAdminPostModel : CqNoticePostModel
     {
+        /// <summary>
+        /// <see cref="CqGroupAdminChangeType"/>
+        /// </summary>
         public string sub_type { get; set; }
 
-        /// <summary>
-        /// <see cref="CqNoticeGroupAdminType"/>
-        /// </summary>
         public long group_id { get; set; }
 
         public long user_id { get; set; }

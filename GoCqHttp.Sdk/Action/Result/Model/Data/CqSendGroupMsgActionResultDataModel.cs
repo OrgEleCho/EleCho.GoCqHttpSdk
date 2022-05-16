@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Action.Result.Model.Data
+﻿namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
 {
     internal class CqSendGroupMsgActionResultDataModel : CqSendMsgActionResultDataModel
     {

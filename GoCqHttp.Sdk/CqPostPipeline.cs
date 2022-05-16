@@ -1,9 +1,9 @@
-﻿using NullLib.GoCqHttpSdk.Post;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Post;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
     /// 上报处理管道

@@ -1,6 +1,6 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqTempSourceType
+    public enum CqTempSource
     {
         GroupChat = 0,
         Consulting = 1,

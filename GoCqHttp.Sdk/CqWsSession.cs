@@ -1,19 +1,19 @@
-﻿using NullLib.GoCqHttpSdk.Action.Invoker;
-using NullLib.GoCqHttpSdk.Action.Result.Model;
-using NullLib.GoCqHttpSdk.Model;
-using NullLib.GoCqHttpSdk.Post;
-using NullLib.GoCqHttpSdk.Post.Model;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Action.Invoker;
+using EleCho.GoCqHttpSdk.Action.Result.Model;
+using EleCho.GoCqHttpSdk.Model;
+using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.IO;
 using System.Net.WebSockets;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
-    /// 正向 WebSocket Session
+    /// 正向 WebSocket 会话
     /// 可处理上报, 以及发送 Action
     /// </summary>
     public class CqWsSession : ICqPostSession, ICqActionSession
@@ -72,7 +72,7 @@ namespace NullLib.GoCqHttpSdk
             postPipeline = new CqPostPipeline();
 
             // 开启套接字循环
-            _ = WebSocketLoopAsync();
+            Task.Run(WebSocketLoop);
         }
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace NullLib.GoCqHttpSdk
         /// </summary>
         /// <param name="wsDataModel"></param>
         /// <returns></returns>
-        private Task ProcWsData(CqWsDataModel? wsDataModel)
+        private void ProcWsDataAsync(CqWsDataModel? wsDataModel)
         {
-            return Task.Run(async () =>
+            Task.Run(async () =>
             {
                 // 如果是 post 上报
                 if (wsDataModel is CqPostModel postModel)
@@ -106,7 +106,7 @@ namespace NullLib.GoCqHttpSdk
         /// WebSocket 循环 (不要等待这个方法)
         /// </summary>
         /// <returns></returns>
-        private async Task WebSocketLoopAsync()
+        private async void WebSocketLoop()
         {
             // 初始化 WebSocket (使用 event socket 或者根 socket
             WebSocket? webSocket2Listen = eventWebSocketClient ?? webSocketClient;
@@ -132,7 +132,7 @@ namespace NullLib.GoCqHttpSdk
 
                 // 在发布模式下套一层 try 防止消息循环中断
 #if RELEASE
-                try
+                try  // 直接捕捉 JSON 反序列化异常
                 {
 #endif
                 // 反序列化为 WebSocket 数据 (自己抽的类
@@ -140,7 +140,7 @@ namespace NullLib.GoCqHttpSdk
                 CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
 
                 // 处理 WebSocket 数据
-                _ = ProcWsData(wsDataModel);
+                ProcWsDataAsync(wsDataModel);
 
 #if RELEASE
                 }
@@ -149,13 +149,9 @@ namespace NullLib.GoCqHttpSdk
                 isConnected = webSocket2Listen.State == WebSocketState.Open;
             }
         }
-
-        /// <summary>
-        /// connect websocket.
-        /// only call when websocket is enabled
-        /// </summary>
-        /// <returns></returns>
-        private async Task ConnectWebSocketAsync()
+        
+        // 连接
+        public async Task ConnectAsync()
         {
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocketClient != null)
@@ -193,15 +189,9 @@ namespace NullLib.GoCqHttpSdk
             isConnected = true;
         }
 
-        // 连接
-        public async Task ConnectAsync()
-        {
-            if (baseUri != null)
-                await ConnectWebSocketAsync();
-        }
-
         public async Task CloseAsync()
         {
+            // 关闭已连接的套接字
             if (apiWebSocketClient != null)
                 await apiWebSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
             if (eventWebSocketClient != null)

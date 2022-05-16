@@ -1,7 +1,8 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqNoticeGroupIncreaseType
+    public enum CqGroupIncreaseChangeType
     {
-        Approve, Invite
+        Approve, Invite,
+        Unknown = -1
     }
 }

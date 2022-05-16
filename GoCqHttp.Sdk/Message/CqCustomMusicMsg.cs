@@ -1,8 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Message.DataModel;
 using System;
 
-namespace NullLib.GoCqHttpSdk.Message
+namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
     /// 音乐自定义分享

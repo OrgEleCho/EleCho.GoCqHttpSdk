@@ -1,10 +1,11 @@
-﻿using NullLib.GoCqHttpSdk.Action;
-using NullLib.GoCqHttpSdk.Action.Result;
-using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Message;
+﻿using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Message;
 using System.Threading.Tasks;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     public static class CqActionSessionExtensions
     {
@@ -44,6 +45,15 @@ namespace NullLib.GoCqHttpSdk
         public static async Task<CqDeleteMsgActionResult?> DeleteMsgAsync(this ICqActionSession session, int messageId)
         {
             return await session.SendAsync<CqDeleteMsgAction, CqDeleteMsgActionResult>(new CqDeleteMsgAction(messageId));
+        }
+
+        public static async Task<CqSendGroupForwardMsgActionResult?> SendGroupForwardMsg(this ICqActionSession session, long groupId, params CqForwardMsgNode[] messages)
+        {
+            return await session.SendAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMsgActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));
+        }
+        public static async Task<CqGetMsgActionResult?> GetMsg(this ICqActionSession session, int messageId)
+        {
+            return await session.SendAsync<CqGetMsgAction, CqGetMsgActionResult>(new CqGetMsgAction(messageId));
         }
     }
 }

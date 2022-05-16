@@ -1,7 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System.Text.Json;
 
-namespace NullLib.GoCqHttpSdk.Action.Result.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
 {
     internal class CqActionResultDataModel
     {
@@ -13,13 +14,25 @@ namespace NullLib.GoCqHttpSdk.Action.Result.Model.Data
             JsonElement dataValue = data.Value;
             return actionType switch
             {
-                Consts.ActionType.SendPrivateMsg => JsonSerializer.Deserialize<CqSendPrivateMsgActionResultDataModel>(dataValue),
-                Consts.ActionType.SendGroupMsg => JsonSerializer.Deserialize<CqSendGroupMsgActionResultDataModel>(dataValue),
-                Consts.ActionType.SendMsg => JsonSerializer.Deserialize<CqSendMsgActionResultDataModel>(dataValue),
-                Consts.ActionType.DeleteMsg => JsonSerializer.Deserialize<CqDeleteMsgActionResultDataModel>(dataValue),
+                Consts.ActionType.SendPrivateMsg => JsonSerializer.Deserialize<CqSendPrivateMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SendGroupMsg => JsonSerializer.Deserialize<CqSendGroupMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SendMsg => JsonSerializer.Deserialize<CqSendMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.DeleteMsg => JsonSerializer.Deserialize<CqDeleteMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SendGroupForwardMsg => JsonSerializer.Deserialize<CqSendGroupForwardMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.GetMsg => JsonSerializer.Deserialize<CqGetMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
 
                 _ => null
             };
         }
+    }
+
+    internal class CqSetFriendAddRequestActionResultDataModel : CqActionResultDataModel
+    {
+
+    }
+
+    internal class CqGetForwardMsgActionResultDataModel : CqActionResultDataModel
+    {
+        public CqForwardMsgNodeDataModel[] messages { get; set; }
     }
 }

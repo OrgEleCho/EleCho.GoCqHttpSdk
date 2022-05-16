@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
     public enum CqHonorType
     {
@@ -15,6 +15,8 @@
         /// <summary>
         /// 快乐源泉
         /// </summary>
-        Emotion
+        Emotion,
+
+        Unknown = -1
     }
 }

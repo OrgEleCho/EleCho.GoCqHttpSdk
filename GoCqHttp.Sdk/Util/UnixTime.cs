@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NullLib.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Util
 {
     internal static class UnixTime
     {

@@ -1,13 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqNoticeGroupIncreasePostModel : CqNoticePostModel
     {
         public override string notice_type => "group_increase";
 
         /// <summary>
-        /// <see cref="CqNoticeGroupIncreaseType"/>
+        /// <see cref="CqGroupIncreaseChangeType"/>
         /// </summary>
         public string sub_type { get; set; }
 

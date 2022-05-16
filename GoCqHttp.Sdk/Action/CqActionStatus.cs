@@ -1,8 +1,8 @@
-﻿namespace NullLib.GoCqHttpSdk.Action
+﻿namespace EleCho.GoCqHttpSdk.Action
 {
     public enum CqActionStatus
     {
-        Success, Async, Failed,
+        Okay, Async, Failed,
         Unknown = -1
     }
 }

@@ -1,6 +1,6 @@
-﻿using NullLib.GoCqHttpSdk.Action.Result.Model.Data;
+﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
 
-namespace NullLib.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action.Result
 {
     public class CqSendPrivateMsgActionResult : CqSendMsgActionResult
     {

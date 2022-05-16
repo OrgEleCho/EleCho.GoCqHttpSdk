@@ -1,18 +1,26 @@
-﻿using NullLib.GoCqHttpSdk.Action.Model;
-using NullLib.GoCqHttpSdk.Action.Model.Params;
+﻿using EleCho.GoCqHttpSdk.Action.Model;
+using EleCho.GoCqHttpSdk.Action.Model.Params;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Util;
 
-namespace NullLib.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 一个 CQ Action
+    /// </summary>
     public abstract class CqAction
     {
-        public abstract string Type { get; }
+        public abstract CqActionType Type { get; }
         public string? EchoData { get; set; }
 
         internal abstract CqActionParamsModel GetParamsModel();
 
         internal static CqActionModel ToModel(CqAction action)
         {
-            return new CqActionModel(action.Type, action.GetParamsModel(), action.EchoData);
+            return new CqActionModel(
+                CqEnum.GetString(action.Type) ?? "",
+                action.GetParamsModel(),
+                action.EchoData);
         }
     }
 }

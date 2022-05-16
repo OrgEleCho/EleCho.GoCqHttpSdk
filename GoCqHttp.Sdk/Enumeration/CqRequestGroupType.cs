@@ -1,6 +1,6 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqRequestGroupType
+    public enum CqGroupRequestType
     {
         Unknown = -1,
         Add = 0,

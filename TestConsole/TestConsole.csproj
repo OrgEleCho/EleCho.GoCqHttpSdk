@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoCqHttp.Sdk\NullLib.GoCqHttpSdk.csproj" />
+    <ProjectReference Include="..\GoCqHttp.Sdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Message.DataModel;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Message.JsonConverter
+namespace EleCho.GoCqHttpSdk.Message.JsonConverter
 {
 
     internal class CpMsgModelConverter : JsonConverter<CqMsgModel>
@@ -58,7 +59,7 @@ namespace NullLib.GoCqHttpSdk.Message.JsonConverter
                     "dice" => JsonSerializer.Deserialize<CqMsgModel<CqDiceMsgDataModel>>(jsondoc, options),
                     "face" => JsonSerializer.Deserialize<CqMsgModel<CqFaceMsgDataModel>>(jsondoc, options),
                     "forward" => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgDataModel>>(jsondoc, options),
-                    "node" => JsonSerializer.Deserialize<CqMsgModel<CqForwardNodeMsgDataModel>>(jsondoc, options),
+                    "node" => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgNodeDataModel>>(jsondoc, options),
                     "gift" => JsonSerializer.Deserialize<CqMsgModel<CqGiftMsgDataModel>>(jsondoc, options),
                     "json" => JsonSerializer.Deserialize<CqMsgModel<CqJsonMsgDataModel>>(jsondoc, options),
                     "xml" => JsonSerializer.Deserialize<CqMsgModel<CqXmlMsgDataModel>>(jsondoc, options),

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Attr\**" />
+    <Compile Remove="CoreUtil\**" />
+    <Compile Remove="Temp\**" />
+    <EmbeddedResource Remove="Attr\**" />
+    <EmbeddedResource Remove="CoreUtil\**" />
+    <EmbeddedResource Remove="Temp\**" />
+    <None Remove="Attr\**" />
+    <None Remove="CoreUtil\**" />
+    <None Remove="Temp\**" />
+  </ItemGroup>
+
+</Project>

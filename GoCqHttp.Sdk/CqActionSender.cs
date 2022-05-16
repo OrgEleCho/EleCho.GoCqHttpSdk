@@ -1,8 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Action;
-using NullLib.GoCqHttpSdk.Action.Result;
+﻿using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Action.Result;
 using System.Threading.Tasks;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     public abstract class CqActionSender
     {

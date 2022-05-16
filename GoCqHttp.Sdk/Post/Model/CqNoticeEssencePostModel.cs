@@ -1,13 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqNoticeEssencePostModel : CqNoticePostModel
     {
         public override string notice_type => "essence";
 
         /// <summary>
-        /// <see cref="CqNoticeEssenceType"/>
+        /// <see cref="CqEssenceChangeType"/>
         /// </summary>
         public string sub_type { get; set; }
 

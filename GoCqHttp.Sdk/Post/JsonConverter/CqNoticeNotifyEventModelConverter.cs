@@ -1,9 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Post.JsonConverter
+namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
     internal class CqNoticeNotifyEventModelConverter : JsonConverter<CqNoticeNotifyPostModel>
     {

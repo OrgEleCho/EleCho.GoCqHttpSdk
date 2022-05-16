@@ -1,7 +1,7 @@
 ﻿#pragma warning disable CS8618
 #pragma warning disable IDE1006
 
-namespace NullLib.GoCqHttpSdk.Message.DataModel
+namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
     internal class CqMsgModel
     {

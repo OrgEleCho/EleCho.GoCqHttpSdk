@@ -1,7 +1,8 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
-using NullLib.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Model;
 
-namespace NullLib.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqClientStatusChangedPostContext : CqNoticePostContext
     {
@@ -22,17 +23,6 @@ namespace NullLib.GoCqHttpSdk.Post
 
             IsOnline = noticeModel.online;
             Client = new CqDevice(noticeModel.client);
-        }
-
-        internal override void WriteModel(CqPostModel model)
-        {
-            base.WriteModel(model);
-
-            if (model is not CqNoticeClientStatusPostModel noticeModel)
-                return;
-
-            noticeModel.online = IsOnline;
-            noticeModel.client = new CqDeviceModel(Client);
         }
     }
 }

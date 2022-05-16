@@ -1,13 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqRequestGroupPostModel : CqRequestPostModel
     {
         public override string request_type => "group";
 
         /// <summary>
-        /// <see cref="CqRequestGroupType"/>
+        /// <see cref="CqGroupRequestType"/>
         /// </summary>
         public string sub_type { get; set; }
 

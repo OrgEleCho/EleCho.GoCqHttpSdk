@@ -1,14 +1,14 @@
-﻿using NullLib.GoCqHttpSdk.Enumeration;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace NullLib.GoCqHttpSdk.Post.Model
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqPrivateMessagePostModel : CqMessagePostModel
     {
         public override string message_type => "private";
 
         /// <summary>
-        /// <see cref="CqTempSourceType"/>
+        /// <see cref="CqTempSource"/>
         /// </summary>
-        public string temp_source { get; set; }
+        public int temp_source { get; set; }
     }
 }

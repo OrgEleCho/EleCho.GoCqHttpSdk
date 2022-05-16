@@ -1,8 +1,10 @@
-﻿namespace NullLib.GoCqHttpSdk.Post.Model
+﻿using EleCho.GoCqHttpSdk.Util;
+
+namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqMetaHeartbeatPostModel : CqMetaPostModel
     {
-        public override string meta_event_type => "heartbeat";
+        public override string meta_event_type => Consts.MetaEventType.Heartbeat;
 
         /// <summary>
         /// ms

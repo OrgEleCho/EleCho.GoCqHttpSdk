@@ -4,7 +4,7 @@ using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NullLib.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Util
 {
     internal static class WsEx
     {

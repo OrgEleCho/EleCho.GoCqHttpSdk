@@ -1,11 +1,11 @@
-﻿using NullLib.GoCqHttpSdk.Action.Result.Model;
-using NullLib.GoCqHttpSdk.Model;
-using NullLib.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Action.Result.Model;
+using EleCho.GoCqHttpSdk.Model;
+using EleCho.GoCqHttpSdk.Post.Model;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.JsonConverter
+namespace EleCho.GoCqHttpSdk.JsonConverter
 {
     internal class CqWsDataModelConverter : JsonConverter<CqWsDataModel>
     {

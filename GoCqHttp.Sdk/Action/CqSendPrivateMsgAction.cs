@@ -1,13 +1,14 @@
-﻿using NullLib.GoCqHttpSdk.Action.Model.Params;
-using NullLib.GoCqHttpSdk.Message;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 
-namespace NullLib.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendPrivateMsgAction : CqAction
     {
-        public override string Type => Consts.ActionType.SendPrivateMsg;
+        public override CqActionType Type => CqActionType.SendPrivateMsg;
 
         public CqSendPrivateMsgAction(long userId, long groupId, CqMsg[] message)
         {
@@ -23,6 +24,6 @@ namespace NullLib.GoCqHttpSdk.Action
         [Obsolete("该属性无用")]
         public bool AutoEscape { get; set; }
 
-        internal override CqActionParamsModel GetParamsModel() => new CqSendPrivateMsgActionParamsModel(UserId, GroupId, Array.ConvertAll(Message, CqMsg.ToModel), false);
+        internal override CqActionParamsModel GetParamsModel() => new CqSendPrivateMsgActionParamsModel(UserId, GroupId, Array.ConvertAll(Message ?? Array.Empty<CqMsg>(), CqMsg.ToModel), false);
     }
 }

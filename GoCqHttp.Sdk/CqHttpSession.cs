@@ -1,8 +1,13 @@
-﻿using NullLib.GoCqHttpSdk.Action.Invoker;
+﻿using EleCho.GoCqHttpSdk.Action.Invoker;
+using System.Buffers.Text;
 using System.Net.Http;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 正向 HTTP 会话
+    /// 可用来发送 Action
+    /// </summary>
     public class CqHttpSession : ICqActionSession
     {
         private HttpClient httpClient;

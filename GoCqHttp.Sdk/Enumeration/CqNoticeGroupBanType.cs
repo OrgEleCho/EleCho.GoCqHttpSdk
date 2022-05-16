@@ -1,7 +1,8 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
-    public enum CqNoticeGroupBanType
+    public enum CqGroupBanChangeType
     {
-        Ban, LiftBan
+        Ban, LiftBan,
+        Unknown = -1
     }
 }

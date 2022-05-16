@@ -1,15 +1,11 @@
-﻿using NullLib.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using System;
 using System.Text.Json.Serialization;
 
-namespace NullLib.GoCqHttpSdk.Action.Model.Params
+namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
     internal class CqSendMsgActionParamsModel : CqActionParamsModel
     {
-        public CqSendMsgActionParamsModel()
-        {
-        }
-
         public CqSendMsgActionParamsModel(string? message_type, long? user_id, long? group_id, CqMsgModel[] message)
         {
             this.message_type = message_type;
@@ -26,19 +22,5 @@ namespace NullLib.GoCqHttpSdk.Action.Model.Params
         [JsonIgnore]
         [Obsolete("传输协议使用 JSON, 所以该属性无用")]
         public bool auto_escape { get; set; }
-    }
-
-    internal class CqDeleteMsgActionParamsModel : CqActionParamsModel
-    {
-        public CqDeleteMsgActionParamsModel()
-        {
-        }
-
-        public CqDeleteMsgActionParamsModel(int message_id)
-        {
-            this.message_id = message_id;
-        }
-
-        public int message_id { get; set; }
     }
 }

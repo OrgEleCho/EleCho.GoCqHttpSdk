@@ -1,9 +1,10 @@
-﻿using NullLib.GoCqHttpSdk.Action.Model;
-using NullLib.GoCqHttpSdk.Action.Result;
-using NullLib.GoCqHttpSdk.Action.Result.Model;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Action.Model;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.Action.Result.Model;
+using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.WebSockets;
 using System.Security.Cryptography;
@@ -12,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
 
-namespace NullLib.GoCqHttpSdk.Action.Invoker
+namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
     public class CqWsActionSender : CqActionSender
     {
@@ -49,14 +50,29 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
                     await Task.Delay(100);
                     continue;
                 }
-                
-                wsMs.SetLength(0);
-                await Ws.ReadMessageAsync(wsMs, wsBuffer, default);
+
+#if RELEASE
+                try
+                {
+#endif
+                    wsMs.SetLength(0);
+                    await Ws.ReadMessageAsync(wsMs, wsBuffer, default);
+#if RELEASE
+                }
+                catch
+                {
+                    continue;
+                }
+#endif
 
                 string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
                 CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
                 if (resultRaw != null)
                     PutResult(resultRaw);
+
+#if DEBUG
+                Debug.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.GetOptions())}");
+#endif
             }
         }
 
@@ -90,14 +106,14 @@ namespace NullLib.GoCqHttpSdk.Action.Invoker
             await Ws.SendAsync(buffer[0..buffer.Length], WebSocketMessageType.Text, true, default);
 
             CqActionResult? rst;
-            
+
             // 创建等待
             AutoResetEvent handle = new AutoResetEvent(false);
             results[echo] = (handle, null);
 
             // 等待响应
             handle.WaitOne(WaitTimeout);
-            rst = CqActionResult.FromRaw(results[echo].result, action.Type);
+            rst = CqActionResult.FromRaw(results[echo].result, actionModel.action);
 
             // 删除存储
             results.Remove(echo);

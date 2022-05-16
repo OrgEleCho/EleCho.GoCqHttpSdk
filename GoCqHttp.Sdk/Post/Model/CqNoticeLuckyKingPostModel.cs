@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Post.Model
+﻿namespace EleCho.GoCqHttpSdk.Post.Model
 {
     internal class CqNoticeLuckyKingPostModel : CqNoticeNotifyPostModel
     {

@@ -1,8 +1,10 @@
-﻿using NullLib.GoCqHttpSdk;
-using NullLib.GoCqHttpSdk.Action;
-using NullLib.GoCqHttpSdk.Message;
-using NullLib.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Util;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 #nullable enable
@@ -13,8 +15,6 @@ namespace TestConsole
     {
         private static async Task Main(string[] args)
         {
-            GlobalConfig.WaitTimeout = TimeSpan.FromSeconds(30);
-
             CqWsSession session = new CqWsSession(new CqWsSessionOptions()
             {
                 BaseUri = new Uri("ws://127.0.0.1:6700"),
@@ -22,24 +22,43 @@ namespace TestConsole
                 UseEventEndPoint = true,
             });
 
+            //CqRHttpSession rHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
+            //{
+            //    BaseUri = new Uri("http://127.0.0.1:1145"),
+            //    AccessToken = "qwq",
+            //});
+
             CqHttpSession apiSession = new CqHttpSession(new CqHttpSessionOptions()
             {
                 BaseUri = new Uri("http://127.0.0.1:5700"),
             });
 
+            //rHttpSession.UseGroupMsg(async (context, next) =>
+            //{
+            //    Console.WriteLine(context.RawMessage);
+            //    await next();
+            //});
+
+            session.UseGroupMsgRecalled(async (context, next) =>
+            {
+                CqMsg[] message = (await session.GetMsg((int)context.MessageId)).Message;
+                await session.SendGroupMsgAsync(context.GroupId, CqMsg.Chain(new CqAtMsg(context.UserId), new CqTextMsg("发送了: ")).Concat(message).ToArray());
+            });
+
             session.UseGroupMsg(async (context, next) =>
             {
-                Console.WriteLine(context.Message.GetText());
+                string textMsg = context.Message.GetText();
+                Console.WriteLine(textMsg);
 
                 if (context.RawMessage.Contains("喵"))
                 {
-                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("喵喵喵?"));
+                    await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg("喵喵喵?"));
                 }
-                if (context.RawMessage.Contains("热重载"))
+                else if (context.RawMessage.Contains("热重载"))
                 {
-                    await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
+                    await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
                 }
-                if (context.RawMessage.Contains("亲我"))
+                else if (context.RawMessage.Contains("亲我"))
                 {
                     if (context.RawMessage.Contains("悄咪咪"))
                     {
@@ -50,10 +69,10 @@ namespace TestConsole
                         var rst = await apiSession.SendGroupMsgAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
                     }
                 }
-                if (context.RawMessage.Contains("骂我"))
+                else if (context.RawMessage.Contains("骂我"))
                 {
                     if (context.RawMessage.Contains("狠狠"))
-                        await session.SendPrivateMsgAsync(context.UserId, new CqTextMsg("cnm"));
+                        await apiSession.SendPrivateMsgAsync(context.UserId, new CqTextMsg("cnm"));
                     else
                     {
                         string[] awa = new string[]
@@ -63,20 +82,24 @@ namespace TestConsole
                             "我已经无法忍受你在我身边了, 我建议你找个地缝钻进去"
                         };
 
+#if DEBUG
+                        context.GroupId++;
+#endif
+
                         int randindex = new Random().Next(0, awa.Length);
 
-                        var rst =  await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));    // 发送脏话
+                        var rst =  await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));    // 发送脏话
 
                         await Task.Delay(2000);                                                                       // 等待 2 秒
 
-                        if (rst != null && rst.Status == CqActionStatus.Success)
+                        if (rst != null && rst.Status == CqActionStatus.Okay)
                         {
-                            await session.DeleteMsgAsync(rst!.MessageId);                                             // 撤回消息
-                            await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg("打错字惹qwq (小仙女怎么可以骂脏话呢)"));     // 发错了.jpg
+                            await apiSession.DeleteMsgAsync(rst!.MessageId);                                             // 撤回消息
+                            await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg("打错字惹qwq (小仙女怎么可以骂脏话呢)"));     // 发错了.jpg
                         }
                     }
                 }
-                if (context.RawMessage.Contains("卖个萌"))
+                else if (context.RawMessage.Contains("卖个萌"))
                 {
                     string[] awa = new string[]
                     {
@@ -88,14 +111,31 @@ namespace TestConsole
 
                     int randindex = new Random().Next(0, awa.Length);
 
-                    await session.SendMsgAsync(null, context.GroupId, new CqTextMsg(awa[randindex]));
+                    await apiSession.SendMsgAsync(null, context.GroupId, new CqTextMsg(awa[randindex]));
                     //var rst =  await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
+                }
+                else if (textMsg.Contains("假装卖萌"))
+                {
+                    CqMsg[] fakeMsg = CqMsg.CqCodeChain("嘤嘤嘤~");
+                    await apiSession.SendGroupForwardMsg(context.GroupId,
+                        new CqForwardMsgNode(context.Sender.Nickname, context.UserId, fakeMsg, fakeMsg));
+                }
+                else if (textMsg.Contains("转发测试"))
+                {
+                    await apiSession.SendGroupForwardMsg(context.GroupId,
+                        new CqForwardMsgNode(context.MessageId));
+                }
+                else if (textMsg.StartsWith("="))
+                {
+                    await apiSession.SendGroupMsgAsync(context.GroupId, CqMsg.CqCodeChain(textMsg.Substring(1)));
                 }
 
                 await next();
             });
 
             await session.ConnectAsync();
+
+            //rHttpSession.Start();
 
             while (true)
                 Console.ReadKey(true);

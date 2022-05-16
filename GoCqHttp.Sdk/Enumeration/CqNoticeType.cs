@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk.Enumeration
 {
     public enum CqNoticeType
     {
@@ -14,6 +14,6 @@
         Essence,
         Notify,
         FriendAdd,
-        OfflineFile
+        OfflineFile,
     }
 }

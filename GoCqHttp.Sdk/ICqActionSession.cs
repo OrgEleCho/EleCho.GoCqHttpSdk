@@ -1,4 +1,4 @@
-﻿namespace NullLib.GoCqHttpSdk
+﻿namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
     /// 可发送 Action 的 Session

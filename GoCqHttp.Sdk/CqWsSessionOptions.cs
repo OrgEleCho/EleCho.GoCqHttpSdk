@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NullLib.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
     /// WebSocket Session 选项
