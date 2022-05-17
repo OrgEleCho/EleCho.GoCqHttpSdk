@@ -12,7 +12,7 @@
 
 #### 连接
 
-要与 go-cqhttp 建立一个 WebSocket 连接, 需要使用位于 `NullLib.GoCqHttpSdk` 命名空间下的 `CqWsSession` 来创建一个会话
+要与 go-cqhttp 建立一个 WebSocket 连接, 需要使用位于 `EleCho.GoCqHttpSdk` 命名空间下的 `CqWsSession` 来创建一个会话
 
 ```csharp
 // 初始化一个 CqWsSession 用来与 go-cqhttp
@@ -29,7 +29,7 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
 
 #### 上报
 
-上报数据也就是所谓的 "事件", 所有继承了 `NullLib.GoCqHttpSdk.ICqPostSession` 接口的类都将处理上报数据, 该接口规定必须要有一个名为 *PostPipeline* 的 `CqPostPipeline` 成员
+上报数据也就是所谓的 "事件", 所有继承了 `EleCho.GoCqHttpSdk.ICqPostSession` 接口的类都将处理上报数据, 该接口规定必须要有一个名为 *PostPipeline* 的 `CqPostPipeline` 成员
 
 `CqPostPipeline` 是用户处理上报的途径, 它符合中间件设计模型, 你可以直接使用使用它添加中间件.
 
@@ -48,7 +48,7 @@ session.PostPipeline.Use(async (context, next) =>
 });
 ```
 
-上述订阅方法将会处理所有的上报, 我们更推荐使用 `NullLib.GoCqHttpSdk.CqActionContextExtensions` 类所提供的拓展方法, 通过它你可以非常便捷的处理任何具体类型的事件
+上述订阅方法将会处理所有的上报, 我们更推荐使用 `EleCho.GoCqHttpSdk.CqActionContextExtensions` 类所提供的拓展方法, 通过它你可以非常便捷的处理任何具体类型的事件
 
 ```csharp
 CqWsSession session;   // 要处理上报数据的会话
@@ -71,7 +71,7 @@ session.PostPipeline.UseGroupMsg(async (context, next) =>
 
 #### 消息发送
 
-所有继承了 `NullLib.GoCqHttpSdk.ICqActionSession` 接口的类都将具备使用 "Action" 的能力, 消息发送属于 "Action", 该接口规定必须有一个名为 *ActionSender* 的 `CqActionSender` 成员
+所有继承了 `EleCho.GoCqHttpSdk.ICqActionSession` 接口的类都将具备使用 "Action" 的能力, 消息发送属于 "Action", 该接口规定必须有一个名为 *ActionSender* 的 `CqActionSender` 成员
 
 `CqActionSender` 是程序向 go-cqhttp 发送 "Action" 的途径, 其中需要实现 `CqAction` 的发送逻辑以及响应逻辑, 你可以直接使用它来调用任何 `CqAction`
 
@@ -80,14 +80,14 @@ CqWsSession session;   // 要使用 Action 的会话
 session.ActionSender.SendActionAsync(new CqSendGroupMsgAction(群聊ID, new CqMsg[] { new CqTextMsg("一个文本消息") }));
 ```
 
-可以看到, 使用 *session.ActionSender* 直接发送 `Action` 的步骤比较繁琐, 所以同样的, 推荐使用拓展方法, 它们由 `NullLib.GoCqHttpSdk.CqActionSessionExtensions` 提供.
+可以看到, 使用 *session.ActionSender* 直接发送 `Action` 的步骤比较繁琐, 所以同样的, 推荐使用拓展方法, 它们由 `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 提供.
 
 ```csharp
 CqWsSession session;   // 要使用 Action 的会话
 context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
 ```
 
-> `NullLib.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
+> `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
 
 ## 项目
 
