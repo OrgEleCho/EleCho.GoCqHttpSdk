@@ -2,16 +2,16 @@
 
 namespace EleCho.GoCqHttpSdk.DataStructure
 {
-    public class CqMessageAnonymous
+    public class CqMsgAnonymous
     {
-        internal CqMessageAnonymous(CqMessageAnonymousModel model)
+        internal CqMsgAnonymous(CqMsgAnonymousModel model)
         {
             Id = model.id;
             Name = model.name;
             Flag = model.flag;
         }
 
-        public CqMessageAnonymous(long id, string name, string flag)
+        public CqMsgAnonymous(long id, string name, string flag)
         {
             Id = id;
             Name = name;

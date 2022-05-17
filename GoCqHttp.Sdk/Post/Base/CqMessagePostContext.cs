@@ -17,20 +17,6 @@ namespace EleCho.GoCqHttpSdk.Post
         public CqMsg[] Message { get; set; }
         public string RawMessage { get; set; }
         public int Font { get; set; }
-        public CqMsgSender Sender { get; set; }
-
-        internal CqMsgPostContext()
-        { }
-
-        protected CqMsgPostContext(int messageId, long userId, CqMsg[] message, string rawMessage, int font, CqMsgSender sender)
-        {
-            MessageId = messageId;
-            UserId = userId;
-            Message = message;
-            RawMessage = rawMessage;
-            Font = font;
-            Sender = sender;
-        }
 
         internal override void ReadModel(CqPostModel model)
         {
@@ -44,7 +30,6 @@ namespace EleCho.GoCqHttpSdk.Post
             Message = Array.ConvertAll(msgModel.message ?? Array.Empty<CqMsgModel>(), CqMsg.FromModel);
             RawMessage = msgModel.raw_message;
             Font = msgModel.font;
-            Sender = new CqMsgSender(msgModel.sender);
         }
     }
 }

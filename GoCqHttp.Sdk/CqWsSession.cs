@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk
     /// 正向 WebSocket 会话
     /// 可处理上报, 以及发送 Action
     /// </summary>
-    public class CqWsSession : ICqPostSession, ICqActionSession
+    public class CqWsSession : ICqPostSession, ICqActionSession, IDisposable
     {
         // 基础接入点地址和访问令牌
         private readonly Uri baseUri;
@@ -103,7 +103,7 @@ namespace EleCho.GoCqHttpSdk
         }
 
         /// <summary>
-        /// WebSocket 循环 (不要等待这个方法)
+        /// WebSocket 循环
         /// </summary>
         /// <returns></returns>
         private async void WebSocketLoop()
@@ -118,48 +118,61 @@ namespace EleCho.GoCqHttpSdk
             MemoryStream ms = new MemoryStream();
             while (true)
             {
-                if (webSocket2Listen.State != WebSocketState.Open)
+                isConnected = webSocket2Listen.State == WebSocketState.Open;
+                
+                if (!isConnected)
                 {
                     await Task.Delay(100);
                     continue;
                 }
 
-                // 重置内存流
-                ms.SetLength(0);
-
-                // 读取一个消息
-                await webSocket2Listen.ReadMessageAsync(ms, buffer, default);
+                try
+                {
+                    // 重置内存流
+                    ms.SetLength(0);
+                    // 读取一个消息
+                    await webSocket2Listen.ReadMessageAsync(ms, buffer, default);
+                }
+                catch
+                {
+                    continue;
+                    // ignore error
+                }
 
                 // 在发布模式下套一层 try 防止消息循环中断
 #if RELEASE
                 try  // 直接捕捉 JSON 反序列化异常
                 {
 #endif
-                // 反序列化为 WebSocket 数据 (自己抽的类
-                string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
-                CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
+                    // 反序列化为 WebSocket 数据 (自己抽的类
+                    string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
+                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
 
-                // 处理 WebSocket 数据
-                ProcWsDataAsync(wsDataModel);
+                    // 处理 WebSocket 数据
+                    ProcWsDataAsync(wsDataModel);
 
 #if RELEASE
                 }
-                catch { }
+                catch (JsonException)
+                {
+                    // 忽略 JSON 反序列化异常
+                }
 #endif
-                isConnected = webSocket2Listen.State == WebSocketState.Open;
             }
         }
-        
+
         // 连接
         public async Task ConnectAsync()
         {
+            string accessTokenHeaderValue = $"Bearer {accessToken}";
+
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocketClient != null)
             {
                 if (apiWebSocketClient.State == WebSocketState.Open)
                     return;
 
-                apiWebSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 string apiUriStr = Path.Combine(baseUri.ToString(), "api");
                 await apiWebSocketClient.ConnectAsync(new Uri(apiUriStr), default);
             }
@@ -170,7 +183,7 @@ namespace EleCho.GoCqHttpSdk
                 if (eventWebSocketClient.State == WebSocketState.Open)
                     return;
 
-                eventWebSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 string eventUriStr = Path.Combine(baseUri.ToString(), "event");
                 await eventWebSocketClient.ConnectAsync(new Uri(eventUriStr), default);
             }
@@ -181,7 +194,7 @@ namespace EleCho.GoCqHttpSdk
                 if (webSocketClient.State == WebSocketState.Open)
                     return;
 
-                webSocketClient.Options.SetRequestHeader("Authorization", $"Bearer {accessToken}");   // 鉴权
+                webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await webSocketClient.ConnectAsync(baseUri, default);
             }
 
@@ -200,6 +213,13 @@ namespace EleCho.GoCqHttpSdk
                 await webSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
 
             isConnected = false;
+        }
+
+        public void Dispose()
+        {
+            apiWebSocketClient?.Dispose();
+            eventWebSocketClient?.Dispose();
+            webSocketClient?.Dispose();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace EleCho.GoCqHttpSdk.Action.Result
                 return null;
 
             CqActionResultDataModel? dataModel = CqActionResultDataModel.FromRaw(raw.data, actionType);
-            CqActionResult rst = actionType switch
+            CqActionResult? rst = actionType switch
             {
                 Consts.ActionType.SendPrivateMsg => new CqSendPrivateMsgActionResult(),
                 Consts.ActionType.SendGroupMsg => new CqSendGroupMsgActionResult(),
@@ -41,9 +41,19 @@ namespace EleCho.GoCqHttpSdk.Action.Result
                 Consts.ActionType.DeleteMsg => new CqDeleteMsgActionResult(),
                 Consts.ActionType.SendGroupForwardMsg => new CqSendGroupForwardMsgActionResult(),
                 Consts.ActionType.GetMsg => new CqGetMsgActionResult(),
+                Consts.ActionType.GetForwardMsg => new CqGetForwardMsgActionResult(),
+                Consts.ActionType.GetImage => new CqGetImageActionResult(),
+                Consts.ActionType.SetGroupBan => new CqBanGroupMemberActionResult(),
+                Consts.ActionType.SetGroupKick => new CqKickGroupMemberActionResult(),
 
-                _ => throw new ArgumentException("Invalid action type", nameof(actionType))
+                Consts.ActionType.SetFriendAddRequest => new CqHandleFriendRequestActionResult(),
+                Consts.ActionType.SetGroupAddRequest => new CqHandleGroupRequestActionResult(),
+
+                _ => null
             };
+
+            if (rst == null)
+                return null;
 
             rst.Status = CqEnum.GetActionStatus(raw.status);
             rst.RetCode = (CqActionRetCode)raw.retcode;
@@ -55,6 +65,14 @@ namespace EleCho.GoCqHttpSdk.Action.Result
             rst.ReadDataModel(dataModel);
 
             return rst;
+        }
+    }
+
+    public class CqHandleGroupRequestActionResult : CqActionResult
+    {
+        internal override void ReadDataModel(CqActionResultDataModel? model)
+        {
+            
         }
     }
 }

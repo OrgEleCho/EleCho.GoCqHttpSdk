@@ -7,8 +7,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Net.Mime;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -29,14 +27,14 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             string actionType = CqEnum.GetString(action.Type) ?? "";
             CqActionParamsModel? paramsModel = action.GetParamsModel();
             string json = JsonSerializer.Serialize(paramsModel, paramsModel.GetType(), JsonHelper.GetOptions());
-            StringContent content = new StringContent(json, GlobalConfig.TextEncoding, MediaTypeNames.Application.Json);
+            StringContent content = new StringContent(json, GlobalConfig.TextEncoding, "application/json");
 
             HttpResponseMessage response = await Client.PostAsync(actionType, content);
             if (!response.IsSuccessStatusCode)
                 return null;
 
             MemoryStream ms = new MemoryStream();
-            response.Content.CopyTo(ms, null, default);
+            await response.Content.CopyToAsync(ms);
             string rstjson = GlobalConfig.TextEncoding.GetString(ms.ToArray());
             CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, options: null);
 

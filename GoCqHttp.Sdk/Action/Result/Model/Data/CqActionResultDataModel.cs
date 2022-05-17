@@ -1,5 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
-using EleCho.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Util;
 using System.Text.Json;
 
 namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
@@ -20,19 +19,16 @@ namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
                 Consts.ActionType.DeleteMsg => JsonSerializer.Deserialize<CqDeleteMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
                 Consts.ActionType.SendGroupForwardMsg => JsonSerializer.Deserialize<CqSendGroupForwardMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
                 Consts.ActionType.GetMsg => JsonSerializer.Deserialize<CqGetMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.GetForwardMsg => JsonSerializer.Deserialize<CqGetForwardMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.GetImage => JsonSerializer.Deserialize<CqGetImageActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SetGroupBan => JsonSerializer.Deserialize<CqSetGroupBanActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SetGroupKick => JsonSerializer.Deserialize<CqSetGroupKickActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+
+                Consts.ActionType.SetFriendAddRequest => JsonSerializer.Deserialize<CqSetFriendAddRequestActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                Consts.ActionType.SetGroupAddRequest => JsonSerializer.Deserialize<CqSetGroupAddRequestActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
 
                 _ => null
             };
         }
-    }
-
-    internal class CqSetFriendAddRequestActionResultDataModel : CqActionResultDataModel
-    {
-
-    }
-
-    internal class CqGetForwardMsgActionResultDataModel : CqActionResultDataModel
-    {
-        public CqForwardMsgNodeDataModel[] messages { get; set; }
     }
 }

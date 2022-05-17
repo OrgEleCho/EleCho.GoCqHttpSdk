@@ -56,6 +56,13 @@
             public const string SendGroupForwardMsg = "send_group_forward_msg";
             public const string GetMsg = "get_msg";
             public const string GetForwardMsg = "get_forward_msg";
+            public const string GetImage = "get_image";
+            public const string SetGroupBan = "set_group_ban";
+            public const string SetGroupKick = "set_group_kick";
+
+            public const string SetFriendAddRequest = "set_friend_add_request";
+            public const string SetGroupAddRequest = "set_group_add_request";
+
             
         }
 

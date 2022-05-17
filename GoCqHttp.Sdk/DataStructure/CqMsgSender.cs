@@ -15,14 +15,6 @@ namespace EleCho.GoCqHttpSdk.DataStructure
             Age = model.age;
         }
 
-        public CqMsgSender(long userId, string nickname, string sex, int age)
-        {
-            UserId = userId;
-            Nickname = nickname;
-            Sex = sex;
-            Age = age;
-        }
-
         public long UserId { get; set; }
         public string Nickname { get; set; }
         public string Sex { get; set; }

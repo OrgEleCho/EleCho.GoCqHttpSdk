@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Post
         internal CqGroupRequestPostContext()
         { }
 
-        public CqGroupRequestType RequestSubType { get; set; }
+        public CqGroupRequestType SubRequestType { get; set; }
         public long GroupId { get; set; }
         public long UserId { get; set; }
         public string Comment { get; set; }
@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk.Post
             if (model is not CqRequestGroupPostModel requestModel)
                 return;
 
-            RequestSubType = CqEnum.GetGroupRequestType(requestModel.sub_type);
+            SubRequestType = CqEnum.GetGroupRequestType(requestModel.sub_type);
             GroupId = requestModel.group_id;
             UserId = requestModel.user_id;
             Comment = requestModel.comment;

@@ -1,6 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Util;
 using System;
@@ -22,27 +23,20 @@ namespace TestConsole
                 UseEventEndPoint = true,
             });
 
-            //CqRHttpSession rHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
-            //{
-            //    BaseUri = new Uri("http://127.0.0.1:1145"),
-            //    AccessToken = "qwq",
-            //});
-
             CqHttpSession apiSession = new CqHttpSession(new CqHttpSessionOptions()
             {
                 BaseUri = new Uri("http://127.0.0.1:5700"),
             });
 
-            //rHttpSession.UseGroupMsg(async (context, next) =>
-            //{
-            //    Console.WriteLine(context.RawMessage);
-            //    await next();
-            //});
-
             session.UseGroupMsgRecalled(async (context, next) =>
             {
                 CqMsg[] message = (await session.GetMsg((int)context.MessageId)).Message;
                 await session.SendGroupMsgAsync(context.GroupId, CqMsg.Chain(new CqAtMsg(context.UserId), new CqTextMsg("发送了: ")).Concat(message).ToArray());
+            });
+
+            session.UseGroupRequest(async (context, next) =>
+            {
+                await apiSession.ApproveGroupRequest(context.Flag, context.SubRequestType);
             });
 
             session.UseGroupMsg(async (context, next) =>
@@ -57,6 +51,10 @@ namespace TestConsole
                 else if (context.RawMessage.Contains("热重载"))
                 {
                     await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
+                }
+                else if (context.RawMessage.Contains("辰辰"))
+                {
+                    await apiSession.SendGroupMsgAsync(context.GroupId, new CqTextMsg("爆! 照~~"));
                 }
                 else if (context.RawMessage.Contains("亲我"))
                 {
@@ -128,6 +126,17 @@ namespace TestConsole
                 else if (textMsg.StartsWith("="))
                 {
                     await apiSession.SendGroupMsgAsync(context.GroupId, CqMsg.CqCodeChain(textMsg.Substring(1)));
+                }
+                else if (textMsg.Contains("禁言"))
+                {
+                    CqAtMsg? cqMsg = context.Message.FirstOrDefault((msg) => msg is CqAtMsg) as CqAtMsg;
+                    if (cqMsg == null)
+                        return;
+
+                    if (context.Sender.Role.HasFlag(CqRole.Admin))
+                    {
+                        var rst = await apiSession.BanGroupMember(context.GroupId, cqMsg.QQ, TimeSpan.FromDays(10));
+                    }
                 }
 
                 await next();

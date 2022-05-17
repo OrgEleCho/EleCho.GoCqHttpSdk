@@ -4,14 +4,11 @@ using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Util;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net.WebSockets;
-using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
@@ -65,10 +62,21 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 }
 #endif
 
-                string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
-                CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
-                if (resultRaw != null)
-                    PutResult(resultRaw);
+                try
+                {
+                    string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
+                    CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
+                    if (resultRaw != null)
+                        PutResult(resultRaw);
+                }
+                catch (System.Text.DecoderFallbackException)
+                {
+                    // ignore text decode error
+                }
+                catch (JsonException)
+                {
+                    // ignore json error
+                }
 
 #if DEBUG
                 Debug.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.GetOptions())}");
@@ -103,7 +111,8 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             byte[] buffer = GlobalConfig.TextEncoding.GetBytes(json);
 
             // 发送请求
-            await Ws.SendAsync(buffer[0..buffer.Length], WebSocketMessageType.Text, true, default);
+            ArraySegment<byte> bufferSegment = new ArraySegment<byte>(buffer);
+            await Ws.SendAsync(bufferSegment, WebSocketMessageType.Text, true, default);
 
             CqActionResult? rst;
 

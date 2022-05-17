@@ -1,9 +1,12 @@
 ﻿using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Util;
 
 namespace EleCho.GoCqHttpSdk.Post.Model
 {
-    internal abstract class CqNoticeGroupAdminPostModel : CqNoticePostModel
+    internal class CqNoticeGroupAdminPostModel : CqNoticePostModel
     {
+        public override string notice_type => Consts.NoticeType.GroupAdmin;
+
         /// <summary>
         /// <see cref="CqGroupAdminChangeType"/>
         /// </summary>

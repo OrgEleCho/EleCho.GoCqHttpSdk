@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqDeleteMsgAction : CqAction
     {
-        public override CqActionType Type => CqActionType.DeleteMsg;
+        public override CqActionType Type => CqActionType.RecallMsg;
 
         public int MessageId { get; set; }
 

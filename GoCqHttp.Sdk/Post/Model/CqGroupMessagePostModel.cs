@@ -5,6 +5,7 @@
         public override string message_type => "group";
 
         public long group_id { get; set; }
-        public CqMessageAnonymousModel? anonymous { get; set; }
+        public CqMsgAnonymousModel? anonymous { get; set; }
+        public CqGroupMsgSenderModel sender { get; set; }
     }
 }

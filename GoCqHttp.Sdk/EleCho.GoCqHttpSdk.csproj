@@ -1,20 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.0;net461</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Attr\**" />
-    <Compile Remove="CoreUtil\**" />
-    <Compile Remove="Temp\**" />
-    <EmbeddedResource Remove="Attr\**" />
-    <EmbeddedResource Remove="CoreUtil\**" />
-    <EmbeddedResource Remove="Temp\**" />
-    <None Remove="Attr\**" />
-    <None Remove="CoreUtil\**" />
-    <None Remove="Temp\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Attr\**" />
+		<Compile Remove="CoreUtil\**" />
+		<Compile Remove="Temp\**" />
+		<EmbeddedResource Remove="Attr\**" />
+		<EmbeddedResource Remove="CoreUtil\**" />
+		<EmbeddedResource Remove="Temp\**" />
+		<None Remove="Attr\**" />
+		<None Remove="CoreUtil\**" />
+		<None Remove="Temp\**" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'!='net6.0'">
+		<PackageReference Include="System.Text.Json" Version="6.0.4" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'=='net461'">
+	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
+	</ItemGroup>
 
 </Project>

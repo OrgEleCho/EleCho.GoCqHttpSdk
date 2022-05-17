@@ -10,5 +10,6 @@ namespace EleCho.GoCqHttpSdk.Post.Model
         /// <see cref="CqTempSource"/>
         /// </summary>
         public int temp_source { get; set; }
+        public CqMsgSenderModel sender { get; set; }
     }
 }

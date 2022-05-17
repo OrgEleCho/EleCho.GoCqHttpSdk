@@ -40,6 +40,18 @@ namespace EleCho.GoCqHttpSdk.Enumeration
             };
         }
 
+        public static string? GetString(CqRole role)
+        {
+            return role switch
+            {
+                CqRole.Owner => "owner",
+                CqRole.Admin => "admin",
+                CqRole.Member => "member",
+
+                _ => null
+            };
+        }
+
         public static string? GetString(CqActionStatus status)
         {
             return status switch
@@ -94,10 +106,18 @@ namespace EleCho.GoCqHttpSdk.Enumeration
                 CqActionType.SendPrivateMsg => Consts.ActionType.SendPrivateMsg,
                 CqActionType.SendGroupMsg => Consts.ActionType.SendGroupMsg,
                 CqActionType.SendMsg => Consts.ActionType.SendMsg,
-                CqActionType.DeleteMsg => Consts.ActionType.DeleteMsg,
+                CqActionType.RecallMsg => Consts.ActionType.DeleteMsg,
                 CqActionType.SendGroupForwardMsg => Consts.ActionType.SendGroupForwardMsg,
                 CqActionType.GetMsg => Consts.ActionType.GetMsg,
                 CqActionType.GetForwardMsg => Consts.ActionType.GetForwardMsg,
+                CqActionType.GetImage => Consts.ActionType.GetImage,
+                CqActionType.BanGroupMember => Consts.ActionType.SetGroupBan,
+                CqActionType.KickGroupMember => Consts.ActionType.SetGroupKick,
+                
+                CqActionType.HandleFriendRequest => Consts.ActionType.SetFriendAddRequest,
+                CqActionType.HandleGroupRequest => Consts.ActionType.SetGroupAddRequest,
+
+
 
                 _ => null,
             };
@@ -227,6 +247,18 @@ namespace EleCho.GoCqHttpSdk.Enumeration
                 "emotion" => CqHonorType.Emotion,
 
                 _ => CqHonorType.Unknown
+            };
+        }
+
+        public static CqRole GetRole(string? str)
+        {
+            return str switch
+            {
+                "owner" => CqRole.Owner,
+                "admin" => CqRole.Admin,
+                "member" => CqRole.Member,
+
+                _ => CqRole.Unknown
             };
         }
     }

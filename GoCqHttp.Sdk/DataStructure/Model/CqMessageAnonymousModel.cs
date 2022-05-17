@@ -2,12 +2,12 @@
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    internal class CqMessageAnonymousModel
+    internal class CqMsgAnonymousModel
     {
-        public CqMessageAnonymousModel()
+        public CqMsgAnonymousModel()
         { }
 
-        public CqMessageAnonymousModel(CqMessageAnonymous srcData)
+        public CqMsgAnonymousModel(CqMsgAnonymous srcData)
         {
             id = srcData.Id;
             name = srcData.Name;

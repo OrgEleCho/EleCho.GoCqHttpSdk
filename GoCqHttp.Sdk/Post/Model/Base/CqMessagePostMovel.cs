@@ -13,6 +13,5 @@ namespace EleCho.GoCqHttpSdk.Post.Model
         public CqMsgModel[] message { get; set; }
         public string raw_message { get; set; }
         public int font { get; set; }
-        public CqMsgSenderModel sender { get; set; }
     }
 }

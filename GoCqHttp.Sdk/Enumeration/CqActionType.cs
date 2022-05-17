@@ -5,9 +5,14 @@
         SendPrivateMsg,
         SendGroupMsg,
         SendMsg,
-        DeleteMsg,
+        RecallMsg,
         SendGroupForwardMsg,
         GetMsg,
         GetForwardMsg,
+        HandleFriendRequest,
+        GetImage,
+        BanGroupMember,
+        KickGroupMember,
+        HandleGroupRequest
     }
 }

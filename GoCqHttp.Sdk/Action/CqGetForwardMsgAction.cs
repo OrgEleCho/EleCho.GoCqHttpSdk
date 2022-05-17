@@ -7,6 +7,8 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         public override CqActionType Type => CqActionType.GetForwardMsg;
 
+        public CqGetForwardMsgAction(int messageId) => MessageId = messageId;
+
         public int MessageId { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()

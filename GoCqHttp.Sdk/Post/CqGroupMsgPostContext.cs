@@ -9,7 +9,8 @@ namespace EleCho.GoCqHttpSdk.Post
         public override CqMessageType MessageType => CqMessageType.Group;
 
         public long GroupId { get; set; }
-        public CqMessageAnonymous? Anonymous { get; set; }
+        public CqMsgAnonymous? Anonymous { get; set; }
+        public CqGroupMsgSender Sender { get; set; }
 
         internal CqGroupMsgPostContext()
         { }
@@ -22,7 +23,8 @@ namespace EleCho.GoCqHttpSdk.Post
                 return;
 
             GroupId = msgModel.group_id;
-            Anonymous = msgModel.anonymous == null ? null : new CqMessageAnonymous(msgModel.anonymous);
+            Anonymous = msgModel.anonymous == null ? null : new CqMsgAnonymous(msgModel.anonymous);
+            Sender = new CqGroupMsgSender(msgModel.sender);
         }
     }
 }
