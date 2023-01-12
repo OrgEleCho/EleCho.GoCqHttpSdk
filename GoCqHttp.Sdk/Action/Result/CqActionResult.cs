@@ -1,7 +1,7 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
-using EleCho.GoCqHttpSdk.Enumeration;
+
 using EleCho.GoCqHttpSdk.Utils;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 

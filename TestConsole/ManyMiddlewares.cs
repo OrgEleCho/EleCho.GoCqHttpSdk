@@ -1,28 +1,25 @@
 ﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.DataStructure;
-using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Post;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using JiebaNet;
-using JiebaNet.Segmenter;
 using System.Collections.Generic;
 
 namespace TestConsole
 {
-    internal class 一堆中间件
+    internal class ManyMiddlewares
     {
         ICqActionSession apiSession;
 
-        public 一堆中间件(ICqActionSession apiSession)
+        public ManyMiddlewares(ICqActionSession apiSession)
         {
             this.apiSession = apiSession;
         }
 
-        public async Task 起哄中间件(CqGroupMessagePostContext context, Func<Task> next)
+        public async Task WaterWaterWater(CqGroupMessagePostContext context, Func<Task> next)
         {
             string textMsg = context.Message.GetText();
             Console.WriteLine(textMsg);
@@ -102,12 +99,12 @@ namespace TestConsole
             else if (textMsg.Contains("假装卖萌"))
             {
                 CqMsg[] fakeMsg = CqMsg.CqCodeChain("嘤嘤嘤~");
-                await apiSession.SendGroupForwardMessage(context.GroupId,
+                await apiSession.SendGroupForwardMessageAsync(context.GroupId,
                     new CqForwardMessageNode(context.Sender.Nickname, context.UserId, fakeMsg, fakeMsg));
             }
             else if (textMsg.Contains("转发测试"))
             {
-                await apiSession.SendGroupForwardMessage(context.GroupId,
+                await apiSession.SendGroupForwardMessageAsync(context.GroupId,
                     new CqForwardMessageNode(context.MessageId));
             }
             else if (textMsg.StartsWith("="))
@@ -122,26 +119,11 @@ namespace TestConsole
 
                 if (context.Sender.Role.HasFlag(CqRole.Admin))
                 {
-                    var rst = await apiSession.BanGroupMember(context.GroupId, cqMsg.QQ, TimeSpan.FromDays(10));
+                    var rst = await apiSession.BanGroupMemberAsync(context.GroupId, cqMsg.QQ, TimeSpan.FromDays(10));
                 }
             }
 
             await next();
-        }
-
-
-        Dictionary<string, SortedList<float, string>> learningStorage =new Dictionary<string, SortedList<float, string>>();
-
-        long lastMsgSender;
-        List<string> lastMsgs = new List<string>();
-        List<List<string>> lastMsgTokens = new List<List<string>>();
-        public async Task 自助学习中间件(CqGroupMessagePostContext context, Func<Task> next)
-        {
-            JiebaSegmenter segmenter = new JiebaSegmenter();
-            var words = segmenter.Cut(context.Message.GetText(), true).ToArray();
-            float value = 1f / words.Length;
-            
-            
         }
     }
 }

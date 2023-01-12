@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
-using EleCho.GoCqHttpSdk.Enumeration;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

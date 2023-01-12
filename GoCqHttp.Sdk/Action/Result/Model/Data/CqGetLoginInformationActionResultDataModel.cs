@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
 {
-    internal class CqGetLoginInformationActionResultDataModel
+    internal class CqGetLoginInformationActionResultDataModel : CqActionResultDataModel
     {
         public CqGetLoginInformationActionResultDataModel(long user_id, string nickname)
         {

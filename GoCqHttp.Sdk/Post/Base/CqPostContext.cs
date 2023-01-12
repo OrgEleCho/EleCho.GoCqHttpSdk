@@ -1,15 +1,19 @@
-﻿using EleCho.GoCqHttpSdk.Enumeration;
-using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 消息上报上下文基类 (可以理解为上报信息的具体数据)
+    /// </summary>
     public abstract class CqPostContext
     {
         internal CqPostContext()
         {
             Time = DateTime.Now;
+            Session = null!;         // 别警告了, 憨批 VS
+                                     // 保证在 new 之后通过 SetSession 设置 Session
         }
 
         public CqSession Session { get; private set; }
@@ -27,10 +31,10 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             CqPostContext? cqEventArgs = model?.post_type switch
             {
-                Consts.PostType.Message => MessageFromModel(model as CqMessagePostModel),
-                Consts.PostType.Notice => NoticeFromModel(model as CqNoticePostModel),
-                Consts.PostType.Request => RequestFromModel(model as CqRequestPostModel),
-                Consts.PostType.MetaEvent => MetaFromModel(model as CqMetaPostModel),
+                Consts.PostType.Message => FromMessageModel(model as CqMessagePostModel),
+                Consts.PostType.Notice => FromNoticeModel(model as CqNoticePostModel),
+                Consts.PostType.Request => FromRequestModel(model as CqRequestPostModel),
+                Consts.PostType.MetaEvent => FromMetaModel(model as CqMetaPostModel),
 
                 _ => null,
             };
@@ -52,18 +56,18 @@ namespace EleCho.GoCqHttpSdk.Post
         //    model.self_id = SelfId;
         //}
 
-        private static CqPostContext? MessageFromModel(CqMessagePostModel? model)
+        private static CqPostContext? FromMessageModel(CqMessagePostModel? model)
         {
             return model?.message_type switch
             {
-                Consts.MsgType.Private => new CqPrivateMsgPostContext(),
+                Consts.MsgType.Private => new CqPrivateMessagePostContext(),
                 Consts.MsgType.Group => new CqGroupMessagePostContext(),
 
                 _ => null,
             };
         }
 
-        private static CqPostContext? MetaFromModel(CqMetaPostModel? model)
+        private static CqPostContext? FromMetaModel(CqMetaPostModel? model)
         {
             return model?.meta_event_type switch
             {
@@ -74,7 +78,7 @@ namespace EleCho.GoCqHttpSdk.Post
             };
         }
 
-        private static CqPostContext? NoticeFromModel(CqNoticePostModel? model)
+        private static CqPostContext? FromNoticeModel(CqNoticePostModel? model)
         {
             return model?.notice_type switch
             {
@@ -91,13 +95,13 @@ namespace EleCho.GoCqHttpSdk.Post
                 Consts.NoticeType.FriendRecall => new CqFriendMessageRecalledPostContext(),
                 Consts.NoticeType.OfflineFile => new CqOfflineFileUploadedPostContext(),
 
-                Consts.NoticeType.Notify => NotifyFromModel(model),
+                Consts.NoticeType.Notify => FromNotifyModel(model),
 
                 _ => null,
             };
         }
 
-        private static CqPostContext? RequestFromModel(CqRequestPostModel? model)
+        private static CqPostContext? FromRequestModel(CqRequestPostModel? model)
         {
             return model?.request_type switch
             {
@@ -108,7 +112,7 @@ namespace EleCho.GoCqHttpSdk.Post
             };
         }
 
-        private static CqPostContext? NotifyFromModel(CqPostModel? model)
+        private static CqPostContext? FromNotifyModel(CqPostModel? model)
         {
             if (model is not CqNoticeNotifyPostModel notifyModel)
                 return null;

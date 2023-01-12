@@ -18,7 +18,7 @@ namespace EleCho.GoCqHttpSdk
         readonly Uri baseUri;
         readonly string? accessToken;
         CqPostPipeline postPipeline;
-        HMACSHA1 sha1;
+        HMACSHA1? sha1;
 
         private HttpListener listener;
 

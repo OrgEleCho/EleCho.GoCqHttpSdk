@@ -28,5 +28,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
             Text = m.text;
         }
+
+        public static implicit operator CqTextMsg(string text) => new CqTextMsg(text);
     }
 }

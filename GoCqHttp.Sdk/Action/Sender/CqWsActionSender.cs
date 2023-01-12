@@ -4,6 +4,7 @@ using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net.WebSockets;
 using System.Text.Json;
@@ -68,6 +69,10 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                     CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.Options);
                     if (resultRaw != null)
                         PutResult(resultRaw);
+                    
+#if DEBUG
+                    Debug.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
+#endif
                 }
                 catch (System.Text.DecoderFallbackException)
                 {
@@ -77,10 +82,6 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 {
                     // ignore json error
                 }
-
-#if DEBUG
-                Debug.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.GetOptions())}");
-#endif
             }
         }
 

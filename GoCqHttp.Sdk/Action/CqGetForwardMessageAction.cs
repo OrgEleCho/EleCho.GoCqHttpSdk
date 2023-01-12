@@ -1,5 +1,4 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
-using EleCho.GoCqHttpSdk.Enumeration;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
@@ -7,9 +6,9 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         public override CqActionType Type => CqActionType.GetForwardMessage;
 
-        public CqGetForwardMessageAction(int messageId) => MessageId = messageId;
+        public CqGetForwardMessageAction(long messageId) => MessageId = messageId;
 
-        public int MessageId { get; set; }
+        public long MessageId { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()
         {

@@ -1,16 +1,18 @@
-# GoCqHttpSdk
+# EleCho.GoCqHttpSdk
 
-欸嘿, 是一个 go-cqhttp 的 .NET SDK \~ (但是目前仍在开发中qwq)
+欸嘿, 是 `go-cqhttp` 的一个 .NET SDK! (但是目前仍在开发中qwq)
+
+> 如果你不了解 `go-cqhttp`, 可以从这里了解一下: [go-cqhttp 文档](https://docs.go-cqhttp.org/) / [go-cqhttp 仓库](https://github.com/Mrs4s/go-cqhttp)
 
 ## 支持:
 
-正向 WebSocket, 正向 HTTP.
+协议支持: 正反向 HTTP 与正向 WebSocket.
 
-同时支持 array 格式和 string 格式上报数据.
+> 同时支持 `array(json)` 格式和 `string` 格式上报数据.
 
 ## 使用:
 
-#### 连接
+### 连接
 
 要与 go-cqhttp 建立一个 WebSocket 连接, 需要使用位于 `EleCho.GoCqHttpSdk` 命名空间下的 `CqWsSession` 来创建一个会话
 
@@ -27,7 +29,7 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
 > 指定 *UseApiEndPoint* 和 *UseEventEndPoint* 将使用独立的 api 和 event 套接字来单独处理功能调用以及事件处理
 > 参考文档: [Onebot11:正向WebSocket](https://github.com/botuniverse/onebot-11/blob/master/communication/ws.md)
 
-#### 上报
+### 上报
 
 上报数据也就是所谓的 "事件", 所有继承了 `EleCho.GoCqHttpSdk.ICqPostSession` 接口的类都将处理上报数据, 该接口规定必须要有一个名为 *PostPipeline* 的 `CqPostPipeline` 成员
 
@@ -69,9 +71,9 @@ session.PostPipeline.UseGroupMsg(async (context, next) =>
 });
 ```
 
-#### 消息发送
+### 消息发送
 
-所有继承了 `EleCho.GoCqHttpSdk.ICqActionSession` 接口的类都将具备使用 "Action" 的能力, 消息发送属于 "Action", 该接口规定必须有一个名为 *ActionSender* 的 `CqActionSender` 成员
+所有继承了 `EleCho.GoCqHttpSdk.ICqActionSession` 接口的类都将具备使用 `Action` 的能力, 消息发送属于 `Action`, 该接口规定必须有一个名为 *ActionSender* 的 `CqActionSender` 成员
 
 `CqActionSender` 是程序向 go-cqhttp 发送 "Action" 的途径, 其中需要实现 `CqAction` 的发送逻辑以及响应逻辑, 你可以直接使用它来调用任何 `CqAction`
 
@@ -93,7 +95,7 @@ context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发
 
 ### 关于数据结构
 
-因为 go-cqhttp 给的数据, json 都是小驼峰, 并且为了用户操作上的便捷, 所以 JSON 解析上使用了以下方法:
+因为 `go-cqhttp` 给的数据, JSON 都是小驼峰, 并且为了用户操作上的便捷, 所以 JSON 解析上使用了以下方法:
 
 1. 分为用户的操作类和具体调用时使用的 Model 类
 2. 在调用接口, 或者解析上报的时候, 两种类会相互转换
@@ -116,7 +118,7 @@ context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发
 }
 ```
 
-如果让用户操作 data, 肯定有些繁琐, 所以在用户操作的类中, 是这样的:
+如果让用户访问 data 然后访问它的成员, 肯定有些繁琐, 所以在用户操作的类中, 是这样的:
 ```csharp
 public class CqXxxMsg : CqMsg
 {
@@ -138,30 +140,37 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 ## 贡献
 
-关于任何对项目上的不满, 例如命名, 设计模式, 或者其他任何方面的问题, 直接提交一个 discussion 就可以啦, 然后咱们就可以讨论讨论具体要采取什么措施啦. ψ(｀∇´)ψ
+关于任何对项目上的意见, 例如命名, 设计模式, 或者其他任何方面的问题, 直接提交一个 discussion 就可以啦, 然后咱们就可以讨论讨论具体要采取什么措施啦. ψ(｀∇´)ψ
+
+如果你有什么好的想法, 也可以直接提交一个 PR, 我们一起来完善这个项目吧!
 
 ### 编写规范
 
+下面是编写时可能提供帮助的一些规范:
+
 #### 各个文件夹的内容
 
-- `Action` : 用户要使用到的各种 CqAction
-- `Action/Sender` : 用来发送 CqAction 的各个协议实现
-- `Action/Model/Params` : CqAction 进行调用时所需要的具体参数 (用户不可见)
-- `Action/Result` : 用户要使用到的各种 CqActionResult
-- `Action/Result/Model/Data` : CqActionResult 返回时要读取的具体数据 (用户不可见)
-- `DataStructure` : CqAction 参数或返回数据中所使用到的各种结构
-- `DataStructure/Model` : CqAction 参数或返回数据中所使用到的各种结构的实际传输声明 (用户不可见)
-- `Enumeration` : 各种枚举类型
-- `Extension` : 各种拓展方法
-- `JsonConverter` : 程序集所需要使用的 JSON 转换器 (用户不可见)
-- `Message` : 用户会用到的各种消息类型
-- `Message/CqCodeDef` : CQ 码操作类
-- `Message/DataModel` : 消息的实际传输数据模型 (用户不可见)
-- `Message/JsonConverter` : 某些特殊消息需要使用到的 JSON 转换器 (用户不可见)
+- `/Action` : 用户要使用到的各种 CqAction
+- `/Action/Sender` : 用来发送 CqAction 的各个协议实现
+- `/Action/Model/Params` : CqAction 进行调用时所需要的具体参数 (用户不可见)
+- `/Action/Result` : 用户要使用到的各种 CqActionResult
+- `/Action/Result/Model/Data` : CqActionResult 返回时要读取的具体数据 (用户不可见)
+- `/DataStructure` : CqAction 参数或返回数据中所使用到的各种结构
+- `/DataStructure/Model` : CqAction 参数或返回数据中所使用到的各种结构的实际传输声明 (用户不可见)
+- `/Enumeration` : 各种枚举类型
+- `/Extension` : 各种拓展方法
+- `/JsonConverter` : 程序集所需要使用的 JSON 转换器 (用户不可见)
+- `/Message` : 用户会用到的各种消息类型
+- `/Message/CqCodeDef` : CQ 码操作类
+- `/Message/DataModel` : 消息的实际传输数据模型 (用户不可见)
+- `/Message/JsonConverter` : 某些特殊消息需要使用到的 JSON 转换器 (用户不可见)
+- `/Post` : 消息上报的各种类型
+- `/Utils` : 各种工具类
+- `/` : 被用户直接访问, 不需要进行归类的内容
 
 #### 编写步骤
 
-编写一个 Action 的步骤:
+编写一个 Action 的参考步骤:
 
 1. 添加 `CqActionType` 成员
 2. 添加 `Consts.ActionType` 成员
@@ -175,11 +184,12 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 #### 命名规范
 
-- 尽量将缩写改为全称, 尽量将奇怪的名称改为正常的名称
+- 尽量将缩写改为全称, 尽量将奇怪的名称改为正常的名称 \
+  例如: SetGroupBan -> BanGroupMember (禁言群成员)
 
-#### 类型声明规范
+#### 类型声明提示
 
-- 在原文档中以 `number` 标识的类型, 统一使用 `long`
+- 在原文档中以 `number` 标识的类型, 统一使用 `long`, 否则可能会溢出
 
 
 

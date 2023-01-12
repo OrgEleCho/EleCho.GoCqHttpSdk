@@ -1,17 +1,16 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure;
-using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqPrivateMsgPostContext : CqMessagePostContext
+    public class CqPrivateMessagePostContext : CqMessagePostContext
     {
         public override CqMessageType MessageType => CqMessageType.Private;
         public CqMessagePrivateType MessageSubType { get; set; }
         public CqTempSource TempSource { get; set; }
         public CqMessageSender Sender { get; set; }
 
-        internal CqPrivateMsgPostContext()
+        internal CqPrivateMessagePostContext()
         { }
 
         internal override void ReadModel(CqPostModel model)

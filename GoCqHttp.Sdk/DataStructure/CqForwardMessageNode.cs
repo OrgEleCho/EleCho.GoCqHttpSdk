@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure
     {
         public override string Type => Consts.MsgType.Node;
 
-        public int? Id { get; set; }
+        public long? Id { get; set; }
         public string? Name { get; set; }
         public long? QQ { get; set; }
         public CqMsg[]? Content { get; set; }
@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure
         internal CqForwardMessageNode()
         { }
 
-        public CqForwardMessageNode(int id)
+        public CqForwardMessageNode(long id)
         {
             Id = id;
         }

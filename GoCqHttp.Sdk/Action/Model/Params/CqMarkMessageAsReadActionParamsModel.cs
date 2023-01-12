@@ -8,9 +8,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
     internal class CqMarkMessageAsReadActionParamsModel : CqActionParamsModel
     {
-        public int message_id { get; set; }
+        public long message_id { get; set; }
 
-        public CqMarkMessageAsReadActionParamsModel(int message_id)
+        public CqMarkMessageAsReadActionParamsModel(long message_id)
         {
             this.message_id = message_id;
         }

@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
     internal class CqGetMessageActionResultDataModel : CqActionResultDataModel
     {
         public bool group { get; set; }
-        public int message_id { get; set; }
+        public long message_id { get; set; }
         public int real_id { get; set; }
         public CqMsgSenderModel sender { get; set; }
         public int time { get; set; }

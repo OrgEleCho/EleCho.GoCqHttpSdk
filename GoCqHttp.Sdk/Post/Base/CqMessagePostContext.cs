@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure;
-using EleCho.GoCqHttpSdk.Enumeration;
+
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Post.Model;
@@ -12,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public override CqPostType EventType => CqPostType.Message;
         public abstract CqMessageType MessageType { get; }
 
-        public int MessageId { get; set; }
+        public long MessageId { get; set; }
         public long UserId { get; set; }
         public CqMsg[] Message { get; set; }
         public string RawMessage { get; set; }

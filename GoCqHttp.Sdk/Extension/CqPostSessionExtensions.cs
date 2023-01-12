@@ -21,10 +21,19 @@ namespace EleCho.GoCqHttpSdk
             });
         }
 
+        public static void UseMiddleware(this ICqPostSession session, CqPostMiddleware plugin)
+        {
+            session.PostPipeline.Use(plugin.Execute);
+        }
+        public static void UsePlugin(this ICqPostSession session, CqPostPlugin plugin)
+        {
+            session.PostPipeline.Use(plugin.Execute);
+        }
+
         public static void UseAny(this ICqPostSession session, Func<CqPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
-        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UsePrivateMsg(this ICqPostSession session, Func<CqPrivateMsgPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMessage(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UsePrivateMessage(this ICqPostSession session, Func<CqPrivateMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
         #region Notice
         public static void UseClientStatusChanged(this ICqPostSession session, Func<CqClientStatusChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);

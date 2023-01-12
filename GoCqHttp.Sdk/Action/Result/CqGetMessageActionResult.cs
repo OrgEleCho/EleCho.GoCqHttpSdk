@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action.Result
     {
         public bool IsGroupMsg { get; set; }
         
-        public int MessageId { get; set; }
+        public long MessageId { get; set; }
         public int RealId { get; set; }
         public CqMessageSender Sender { get; set; }
         public DateTime Time { get; set; }

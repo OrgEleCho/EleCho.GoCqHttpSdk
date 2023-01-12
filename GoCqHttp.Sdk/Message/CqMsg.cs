@@ -15,10 +15,22 @@ namespace EleCho.GoCqHttpSdk.Message
         internal abstract void ReadDataModel(CqMsgDataModel model);
 
         public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
+        
+        // 啧, 需要一个把 CqMsg 一大堆与 CqMsg[] 组合在一起的东西
 
-        public static CqMsg[] Chain(params CqMsg[] msgs)
+        
+        
+        public static CqMsg[] Chain(params CqMsg[] msg)
         {
-            return msgs;
+            return msg;
+        }
+
+        public static CqMsg[] Chain(CqMsg head, params CqMsg[] msg)
+        {
+            var chain = new CqMsg[msg.Length + 1];
+            chain[0] = head;
+            Array.Copy(msg, 0, chain, 1, msg.Length);
+            return chain;
         }
 
         public static CqMsg[] CqCodeChain(string cqCodeMsg)
@@ -86,5 +98,7 @@ namespace EleCho.GoCqHttpSdk.Message
         {
             return new CqMsgModel(msg.Type, msg.GetDataModel());
         }
+
+        public static implicit operator CqMsg(string text) => new CqTextMsg(text);
     }
 }

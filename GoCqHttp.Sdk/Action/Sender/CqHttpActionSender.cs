@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
 using EleCho.GoCqHttpSdk.Action.Result;
 using EleCho.GoCqHttpSdk.Action.Result.Model;
-using EleCho.GoCqHttpSdk.Enumeration;
+
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Diagnostics;
@@ -39,7 +39,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, options: null);
 
 #if DEBUG
-            Debug.WriteLine($"{action.Type} {JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.GetOptions())}");
+            Debug.WriteLine($"{action.Type} {JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
 #endif
 
             if (resultRaw == null)

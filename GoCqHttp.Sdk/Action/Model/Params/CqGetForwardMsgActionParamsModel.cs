@@ -2,8 +2,8 @@
 {
     internal class CqGetForwardMessageActionParamsModel : CqActionParamsModel
     {
-        public CqGetForwardMessageActionParamsModel(int message_id) => this.message_id = message_id;
+        public CqGetForwardMessageActionParamsModel(long message_id) => this.message_id = message_id;
 
-        public int message_id { get; set; }
+        public long message_id { get; set; }
     }
 }

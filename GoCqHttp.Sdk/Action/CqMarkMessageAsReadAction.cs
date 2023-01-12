@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
-using EleCho.GoCqHttpSdk.Enumeration;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,18 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     internal class CqMarkMessageAsReadAction : CqAction
     {
+        public CqMarkMessageAsReadAction(long messageId)
+        {
+            MessageId = messageId;
+        }
+
         public override CqActionType Type => CqActionType.MarkMessageAsRead;
+
+        public long MessageId { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            
+            return new CqMarkMessageAsReadActionParamsModel(MessageId);
         }
     }
 }

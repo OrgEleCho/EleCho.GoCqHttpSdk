@@ -2,11 +2,11 @@
 {
     internal class CqRecallMessageActionParamsModel : CqActionParamsModel
     {
-        public CqRecallMessageActionParamsModel(int message_id)
+        public CqRecallMessageActionParamsModel(long message_id)
         {
             this.message_id = message_id;
         }
 
-        public int message_id { get; set; }
+        public long message_id { get; set; }
     }
 }

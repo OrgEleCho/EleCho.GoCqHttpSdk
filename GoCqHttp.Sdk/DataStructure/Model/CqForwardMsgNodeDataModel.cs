@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
         public CqForwardMsgNodeDataModel()
         { }
 
-        public CqForwardMsgNodeDataModel(int? id, string? name, long? uin, CqMsgModel[]? content, CqMsgModel[]? seq)
+        public CqForwardMsgNodeDataModel(long? id, string? name, long? uin, CqMsgModel[]? content, CqMsgModel[]? seq)
         {
             this.id = id;
             this.name = name;
@@ -20,7 +20,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
             this.seq = seq;
         }
 
-        public int? id { get; set; }
+        public long? id { get; set; }
         public string? name { get; set; }
         public long? uin { get; set; }
         public CqMsgModel[]? content { get; set; }
