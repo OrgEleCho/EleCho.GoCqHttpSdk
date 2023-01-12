@@ -33,7 +33,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal override CqMsgDataModel GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             var m = model as CqReplyMsgDataModel;
             if (m == null)

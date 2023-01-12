@@ -34,7 +34,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal override CqMsgDataModel GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             var m = model as CqVideoMsgDataModel;
             if (m == null)

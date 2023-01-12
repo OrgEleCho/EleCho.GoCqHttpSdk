@@ -42,6 +42,8 @@
             
             public const string Private = "private";
             public const string Group = "group";
+            
+            public const string TTS = "tts";
         }
 
         public static class RequestType

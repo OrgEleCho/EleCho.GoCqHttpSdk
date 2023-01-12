@@ -27,7 +27,7 @@ namespace EleCho.GoCqHttpSdk.Message
             QQ = qq;
         }
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             CqAtMsgDataModel? m = model as CqAtMsgDataModel;
             if (m == null)

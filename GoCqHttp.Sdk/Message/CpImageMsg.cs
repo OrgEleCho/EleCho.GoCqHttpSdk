@@ -51,7 +51,7 @@ namespace EleCho.GoCqHttpSdk.Message
         internal override CqMsgDataModel GetDataModel() =>
             new CqImageMsgDataModel(File, ImageTypeToString(ImageType), ((int)ImageSubType).ToString(), Url, Cache.ToInt(), (int?)ImageEffect, ThreadCount);
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             var m = model as CqImageMsgDataModel;
             if (m == null)

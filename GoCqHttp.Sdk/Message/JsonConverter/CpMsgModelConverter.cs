@@ -3,6 +3,7 @@ using EleCho.GoCqHttpSdk.Message.DataModel;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static EleCho.GoCqHttpSdk.Utils.Consts.MsgType;
 
 namespace EleCho.GoCqHttpSdk.Message.JsonConverter
 {
@@ -46,28 +47,30 @@ namespace EleCho.GoCqHttpSdk.Message.JsonConverter
                 string msgType = typeEle.GetString()!;
                 return msgType switch
                 {
-                    "text" => JsonSerializer.Deserialize<CqMsgModel<CqTextMsgDataModel>>(jsondoc, options),
-                    "image" => JsonSerializer.Deserialize<CqMsgModel<CqImageMsgDataModel>>(jsondoc, options),
-                    "record" => JsonSerializer.Deserialize<CqMsgModel<CqRecordMsgDataModel>>(jsondoc, options),
-                    "location" => JsonSerializer.Deserialize<CqMsgModel<CqLocationMsgDataModel>>(jsondoc, options),
-                    "anonymous" => JsonSerializer.Deserialize<CqMsgModel<CqAnonymousMsgDataModel>>(jsondoc, options),
-                    "cardimage" => JsonSerializer.Deserialize<CqMsgModel<CqCardImageMsgDataModel>>(jsondoc, options),
-                    "at" => JsonSerializer.Deserialize<CqMsgModel<CqAtMsgDataModel>>(jsondoc, options),
-                    "rps" => JsonSerializer.Deserialize<CqMsgModel<CqRpsMsgDataModel>>(jsondoc, options),
-                    "shake" => JsonSerializer.Deserialize<CqMsgModel<CqShakeMsgDataModel>>(jsondoc, options),
-                    "contact" => JsonSerializer.Deserialize<CqMsgModel<CqContactMsgDataModel>>(jsondoc, options),
-                    "dice" => JsonSerializer.Deserialize<CqMsgModel<CqDiceMsgDataModel>>(jsondoc, options),
-                    "face" => JsonSerializer.Deserialize<CqMsgModel<CqFaceMsgDataModel>>(jsondoc, options),
-                    "forward" => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgDataModel>>(jsondoc, options),
-                    "node" => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgNodeDataModel>>(jsondoc, options),
-                    "gift" => JsonSerializer.Deserialize<CqMsgModel<CqGiftMsgDataModel>>(jsondoc, options),
-                    "json" => JsonSerializer.Deserialize<CqMsgModel<CqJsonMsgDataModel>>(jsondoc, options),
-                    "xml" => JsonSerializer.Deserialize<CqMsgModel<CqXmlMsgDataModel>>(jsondoc, options),
-                    "poke" => JsonSerializer.Deserialize<CqMsgModel<CqPokeMsgDataModel>>(jsondoc, options),
-                    "redbag" => JsonSerializer.Deserialize<CqMsgModel<CqRedEnvelopeMsgDataModel>>(jsondoc, options),
-                    "reply" => JsonSerializer.Deserialize<CqMsgModel<CqReplyMsgDataModel>>(jsondoc, options),
-                    "video" => JsonSerializer.Deserialize<CqMsgModel<CqVideoMsgDataModel>>(jsondoc, options),
-                    "music" => MusicMsgModelToObject(jsondoc, options),
+                    Text => JsonSerializer.Deserialize<CqMsgModel<CqTextMsgDataModel>>(jsondoc, options),
+                    Image => JsonSerializer.Deserialize<CqMsgModel<CqImageMsgDataModel>>(jsondoc, options),
+                    Record => JsonSerializer.Deserialize<CqMsgModel<CqRecordMsgDataModel>>(jsondoc, options),
+                    Location => JsonSerializer.Deserialize<CqMsgModel<CqLocationMsgDataModel>>(jsondoc, options),
+                    Anonymous => JsonSerializer.Deserialize<CqMsgModel<CqAnonymousMsgDataModel>>(jsondoc, options),
+                    CardImage => JsonSerializer.Deserialize<CqMsgModel<CqCardImageMsgDataModel>>(jsondoc, options),
+                    At => JsonSerializer.Deserialize<CqMsgModel<CqAtMsgDataModel>>(jsondoc, options),
+                    Rps => JsonSerializer.Deserialize<CqMsgModel<CqRpsMsgDataModel>>(jsondoc, options),
+                    Shake => JsonSerializer.Deserialize<CqMsgModel<CqShakeMsgDataModel>>(jsondoc, options),
+                    Contact => JsonSerializer.Deserialize<CqMsgModel<CqContactMsgDataModel>>(jsondoc, options),
+                    Dice => JsonSerializer.Deserialize<CqMsgModel<CqDiceMsgDataModel>>(jsondoc, options),
+                    Face => JsonSerializer.Deserialize<CqMsgModel<CqFaceMsgDataModel>>(jsondoc, options),
+                    Forward => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgDataModel>>(jsondoc, options),
+                    Node => JsonSerializer.Deserialize<CqMsgModel<CqForwardMsgNodeDataModel>>(jsondoc, options),
+                    Gift => JsonSerializer.Deserialize<CqMsgModel<CqGiftMsgDataModel>>(jsondoc, options),
+                    Json => JsonSerializer.Deserialize<CqMsgModel<CqJsonMsgDataModel>>(jsondoc, options),
+                    Xml => JsonSerializer.Deserialize<CqMsgModel<CqXmlMsgDataModel>>(jsondoc, options),
+                    Poke => JsonSerializer.Deserialize<CqMsgModel<CqPokeMsgDataModel>>(jsondoc, options),
+                    Redbag => JsonSerializer.Deserialize<CqMsgModel<CqRedEnvelopeMsgDataModel>>(jsondoc, options),
+                    Reply => JsonSerializer.Deserialize<CqMsgModel<CqReplyMsgDataModel>>(jsondoc, options),
+                    Video => JsonSerializer.Deserialize<CqMsgModel<CqVideoMsgDataModel>>(jsondoc, options),
+                    TTS => JsonSerializer.Deserialize<CqMsgModel<CqTtsMsgDataModel>>(jsondoc, options),
+
+                    Music => MusicMsgModelToObject(jsondoc, options),
 
                     _ => null
                 };

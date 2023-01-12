@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EleCho.GoCqHttpSdk.Message.CqCodeDef
+namespace EleCho.GoCqHttpSdk.Message
 {
     internal class CqCode
     {
@@ -23,9 +23,7 @@ namespace EleCho.GoCqHttpSdk.Message.CqCodeDef
             if (Data.TryGetValue(key, out string? strInt))
             {
                 if (int.TryParse(strInt, out int intValue))
-                {
                     return intValue;
-                }
             }
 
             return null;
@@ -36,9 +34,7 @@ namespace EleCho.GoCqHttpSdk.Message.CqCodeDef
             if (Data.TryGetValue(key, out string? strLong))
             {
                 if (long.TryParse(strLong, out long longValue))
-                {
                     return longValue;
-                }
             }
 
             return null;
@@ -49,9 +45,7 @@ namespace EleCho.GoCqHttpSdk.Message.CqCodeDef
             if (Data.TryGetValue(key, out string? strDouble))
             {
                 if (double.TryParse(strDouble, out double doubleValue))
-                {
                     return doubleValue;
-                }
             }
 
             return null;
@@ -60,9 +54,7 @@ namespace EleCho.GoCqHttpSdk.Message.CqCodeDef
         public string? GetString(string key)
         {
             if (Data.TryGetValue(key, out string? strValue))
-            {
                 return strValue;
-            }
 
             return null;
         }

@@ -1,5 +1,4 @@
 ﻿using EleCho.GoCqHttpSdk;
-using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
@@ -12,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal abstract CqMsgDataModel GetDataModel();
 
-        internal abstract void ReadDataModel(CqMsgDataModel model);
+        internal abstract void ReadDataModel(CqMsgDataModel? model);
 
         public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
         
@@ -85,6 +84,8 @@ namespace EleCho.GoCqHttpSdk.Message
                 Consts.MsgType.Share => new CqShareMsg(),
                 Consts.MsgType.Video => new CqVideoMsg(),
                 Consts.MsgType.Xml => new CqXmlMsg(),
+                Consts.MsgType.TTS => new CqTtsMsg(),
+                
                 Consts.MsgType.Music => MusicFromModel(model),
 
                 _ => new CqTextMsg(),

@@ -61,7 +61,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal override CqMsgDataModel GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             var m = model as CqCustomMusicMsgDataModel;
             if (m == null)

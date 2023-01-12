@@ -1,5 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Message.CqCodeDef;
-using EleCho.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;

@@ -44,7 +44,7 @@ namespace EleCho.GoCqHttpSdk
                 Array.ConvertAll(Content ?? Array.Empty<CqMsg>(), ToModel),
                 Array.ConvertAll(Seq ?? Array.Empty<CqMsg>(), ToModel));
 
-        internal override void ReadDataModel(CqMsgDataModel model)
+        internal override void ReadDataModel(CqMsgDataModel? model)
         {
             var m = model as CqForwardMsgNodeDataModel;
             if (m == null)
