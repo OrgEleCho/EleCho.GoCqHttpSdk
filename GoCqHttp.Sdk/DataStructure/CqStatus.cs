@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk.DataStructure
+﻿namespace EleCho.GoCqHttpSdk
 {
     public class CqStatus
     {

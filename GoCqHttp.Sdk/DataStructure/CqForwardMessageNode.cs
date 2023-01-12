@@ -1,10 +1,10 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+﻿using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
-namespace EleCho.GoCqHttpSdk.DataStructure
+namespace EleCho.GoCqHttpSdk
 {
     public class CqForwardMessageNode : CqMsg
     {

@@ -4,7 +4,7 @@ using EleCho.GoCqHttpSdk.Message.DataModel;
 
 #pragma warning disable CS8618
 
-namespace EleCho.GoCqHttpSdk.DataStructure.Model
+namespace EleCho.GoCqHttpSdk.Model
 {
     internal class CqForwardMsgNodeDataModel : CqMsgDataModel
     {

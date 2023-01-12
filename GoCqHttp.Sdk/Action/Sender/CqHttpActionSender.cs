@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
-using EleCho.GoCqHttpSdk.Action.Result;
-using EleCho.GoCqHttpSdk.Action.Result.Model;
+using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Action.Model;
 
 using EleCho.GoCqHttpSdk.Utils;
 using System;

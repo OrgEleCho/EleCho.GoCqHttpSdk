@@ -1,11 +1,11 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
-using EleCho.GoCqHttpSdk.DataStructure;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
+using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetMessageActionResult : CqActionResult
     {

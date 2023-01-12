@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqHandleFriendRequestActionResultDataModel : CqActionResultDataModel
     {

@@ -1,6 +1,6 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+﻿using EleCho.GoCqHttpSdk.Model;
 
-namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqGetForwardMessageActionResultDataModel : CqActionResultDataModel
     {

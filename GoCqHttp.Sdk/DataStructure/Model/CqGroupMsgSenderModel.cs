@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure;
+﻿using EleCho.GoCqHttpSdk;
 
 
 namespace EleCho.GoCqHttpSdk.Post

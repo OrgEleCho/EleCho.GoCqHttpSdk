@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Invoker;
-using EleCho.GoCqHttpSdk.Action.Result.Model;
+using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;

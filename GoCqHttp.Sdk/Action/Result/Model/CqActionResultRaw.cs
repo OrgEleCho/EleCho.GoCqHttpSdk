@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Model;
 using System.Text.Json;
 
-namespace EleCho.GoCqHttpSdk.Action.Result.Model
+namespace EleCho.GoCqHttpSdk.Action.Model
 {
     internal class CqActionResultRaw : CqWsDataModel
     {

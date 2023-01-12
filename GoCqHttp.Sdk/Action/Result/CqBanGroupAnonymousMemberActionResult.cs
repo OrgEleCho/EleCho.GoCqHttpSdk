@@ -1,11 +1,11 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EleCho.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqBanGroupAnonymousMemberActionResult : CqActionResult
     {

@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Post;
 
-namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqGetMessageActionResultDataModel : CqActionResultDataModel
     {

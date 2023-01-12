@@ -1,9 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
-using EleCho.GoCqHttpSdk.DataStructure;
-using EleCho.GoCqHttpSdk.DataStructure.Model;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
+using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Model;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetForwardMessageActionResult : CqActionResult
     {

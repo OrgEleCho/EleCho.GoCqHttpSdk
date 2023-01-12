@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Action.Result;
-using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
 using System;
 using System.Threading.Tasks;

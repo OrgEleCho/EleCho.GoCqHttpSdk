@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
-namespace EleCho.GoCqHttpSdk.DataStructure
+namespace EleCho.GoCqHttpSdk
 {
     public class CqStatusStatistics
     {

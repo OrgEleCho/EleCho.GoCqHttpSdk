@@ -3,7 +3,7 @@ using System;
 using System.Text.Json;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
-namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqActionResultDataModel
     {

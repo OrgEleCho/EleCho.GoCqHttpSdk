@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+﻿using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;

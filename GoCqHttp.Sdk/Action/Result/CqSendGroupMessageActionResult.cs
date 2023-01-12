@@ -1,6 +1,6 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
+﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
 
-namespace EleCho.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendGroupMessageActionResult : CqSendMessageActionResult
     {

@@ -1,11 +1,11 @@
 ﻿using System;
-using EleCho.GoCqHttpSdk.Action.Result.Model;
-using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
+using EleCho.GoCqHttpSdk.Action.Model;
+using EleCho.GoCqHttpSdk.Action.Model.Data;
 
 using EleCho.GoCqHttpSdk.Utils;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
-namespace EleCho.GoCqHttpSdk.Action.Result
+namespace EleCho.GoCqHttpSdk.Action
 {
     public abstract class CqActionResult
     {

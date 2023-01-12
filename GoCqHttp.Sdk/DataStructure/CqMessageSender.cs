@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Post;
 using System;
 
-namespace EleCho.GoCqHttpSdk.DataStructure
+namespace EleCho.GoCqHttpSdk
 {
     public class CqMessageSender
     {

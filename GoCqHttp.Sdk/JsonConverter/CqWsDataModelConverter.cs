@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model;
+﻿using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post.Model;
 using System;
