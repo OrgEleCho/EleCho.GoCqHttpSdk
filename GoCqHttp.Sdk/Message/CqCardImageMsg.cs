@@ -26,6 +26,18 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal override CqMsgDataModel GetDataModel() => new CqCardImageMsgDataModel(File, MinWidth, MinHeight, MaxWidth, MaxHeight, Source, Icon);
 
-        internal override void ReadDataModel(CqMsgDataModel? model) => throw new NotImplementedException();
+        internal override void ReadDataModel(CqMsgDataModel? model)
+        {
+            if (model is not CqCardImageMsgDataModel m)
+                throw new ArgumentException();
+
+            File = m.file;
+            MinWidth = m.minwidth;
+            MinHeight = m.minheight;
+            MaxWidth = m.maxwidth;
+            MaxHeight = m.maxheight;
+            Source = m.source;
+            Icon = m.icon;
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqHonorChangedPostContext : CqPostContext
     {
-        public override CqPostType EventType => throw new System.NotImplementedException();
+        public override CqPostType EventType => CqPostType.Notice;
 
         public CqHonorType HonorType { get; set; }
         public long GroupId { get; set; }
