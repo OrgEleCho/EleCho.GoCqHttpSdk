@@ -3,7 +3,7 @@ using EleCho.GoCqHttpSdk.Post;
 
 namespace EleCho.GoCqHttpSdk.DataStructure
 {
-    public class CqGroupMsgSender : CqMsgSender
+    public class CqGroupMsgSender : CqMessageSender
     {
         internal CqGroupMsgSender(CqGroupMsgSenderModel model) : base(model)
         {

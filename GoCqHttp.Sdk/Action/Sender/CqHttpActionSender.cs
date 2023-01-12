@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Action.Result;
 using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Enumeration;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -22,11 +22,11 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             Client = client;
         }
 
-        public override async Task<CqActionResult?> SendActionAsync(CqAction action)
+        public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
             string actionType = CqEnum.GetString(action.Type) ?? "";
             CqActionParamsModel? paramsModel = action.GetParamsModel();
-            string json = JsonSerializer.Serialize(paramsModel, paramsModel.GetType(), JsonHelper.GetOptions());
+            string json = JsonSerializer.Serialize(paramsModel, paramsModel.GetType(), JsonHelper.Options);
             StringContent content = new StringContent(json, GlobalConfig.TextEncoding, "application/json");
 
             HttpResponseMessage response = await Client.PostAsync(actionType, content);

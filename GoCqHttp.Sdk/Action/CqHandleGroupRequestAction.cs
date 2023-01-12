@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSetGroupAddRequestActionParamsModel(Flag, CqEnum.GetString(RequestType) ?? "", Approve, Reason);
+            return new CqHandleGroupRequestActionParamsModel(Flag, CqEnum.GetString(RequestType) ?? "", Approve, Reason);
         }
     }
 }

@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace EleCho.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Utils
 {
     internal static class UnixTime
     {
         public static long DateToUnix(DateTime time)
         {
-            return (long)(time - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
+            return new DateTimeOffset(time).ToUnixTimeSeconds();
         }
 
         public static DateTime DateFromUnix(long unixTime)
         {
-            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(unixTime);
+            return DateTimeOffset.FromUnixTimeSeconds(unixTime).DateTime;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.Action.Result;
 using EleCho.GoCqHttpSdk.DataStructure;
-using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
 using System;
 using System.Threading.Tasks;
@@ -10,100 +9,135 @@ namespace EleCho.GoCqHttpSdk
 {
     public static class CqActionSessionExtensions
     {
-        public static async Task<TActionResult?> SendAsync<TAction, TActionResult>(this ICqActionSession session, TAction action)
+        public static async Task<TActionResult?> InvokeActionAsync<TAction, TActionResult>(this ICqActionSession session, TAction action)
             where TAction : CqAction
             where TActionResult : CqActionResult
         {
-            CqActionResult? rst = await session.ActionSender.SendActionAsync(action);
+            CqActionResult? rst = await session.ActionSender.InvokeActionAsync(action);
             return rst as TActionResult;
         }
 
-        public static async Task<CqSendPrivateMsgActionResult?> SendPrivateMsgAsync(this ICqActionSession session, long userId, params CqMsg[] message)
+        public static async Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, params CqMsg[] message)
         {
-            return await session.SendAsync<CqSendPrivateMsgAction, CqSendPrivateMsgActionResult>(new CqSendPrivateMsgAction(userId, 0, message));
+            return await session.InvokeActionAsync<CqSendPrivateMsgAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMsgAction(userId, 0, message));
         }
 
-        public static async Task<CqSendPrivateMsgActionResult?> SendPrivateMsgAsync(this ICqActionSession session, long userId, long groupId, params CqMsg[] message)
+        public static async Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, long groupId, params CqMsg[] message)
         {
-            return await session.SendAsync<CqSendPrivateMsgAction, CqSendPrivateMsgActionResult>(new CqSendPrivateMsgAction(userId, groupId, message));
+            return await session.InvokeActionAsync<CqSendPrivateMsgAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMsgAction(userId, groupId, message));
         }
 
-        public static async Task<CqSendGroupMsgActionResult?> SendGroupMsgAsync(this ICqActionSession session, long groupId, params CqMsg[] message)
+        public static async Task<CqSendGroupMessageActionResult?> SendGroupMessageAsync(this ICqActionSession session, long groupId, params CqMsg[] message)
         {
-            return await session.SendAsync<CqSendGroupMsgAction, CqSendGroupMsgActionResult>(new CqSendGroupMsgAction(groupId, message));
+            return await session.InvokeActionAsync<CqSendGroupMsgAction, CqSendGroupMessageActionResult>(new CqSendGroupMsgAction(groupId, message));
         }
 
-        public static async Task<CqSendMsgActionResult?> SendMsgAsync(this ICqActionSession session, CqMessageType messageType, long? userId, long? groupId, params CqMsg[] message)
+        public static async Task<CqSendMessageActionResult?> SendMessageAsync(this ICqActionSession session, CqMessageType messageType, long? userId, long? groupId, params CqMsg[] message)
         {
-            return await session.SendAsync<CqSendMsgAction, CqSendMsgActionResult>(new CqSendMsgAction(messageType, userId, groupId, message));
+            return await session.InvokeActionAsync<CqSendMessageAction, CqSendMessageActionResult>(new CqSendMessageAction(messageType, userId, groupId, message));
         }
 
-        public static async Task<CqSendMsgActionResult?> SendMsgAsync(this ICqActionSession session, long? userId, long? groupId, params CqMsg[] message)
+        public static async Task<CqSendMessageActionResult?> SendMessageAsync(this ICqActionSession session, long? userId, long? groupId, params CqMsg[] message)
         {
-            return await session.SendAsync<CqSendMsgAction, CqSendMsgActionResult>(new CqSendMsgAction(userId, groupId, message));
+            return await session.InvokeActionAsync<CqSendMessageAction, CqSendMessageActionResult>(new CqSendMessageAction(userId, groupId, message));
         }
 
-        public static async Task<CqDeleteMsgActionResult?> DeleteMsgAsync(this ICqActionSession session, int messageId)
+        public static async Task<CqRecallMessageActionResult?> RecallMessageAsync(this ICqActionSession session, int messageId)
         {
-            return await session.SendAsync<CqDeleteMsgAction, CqDeleteMsgActionResult>(new CqDeleteMsgAction(messageId));
+            return await session.InvokeActionAsync<CqRecallMessageAction, CqRecallMessageActionResult>(new CqRecallMessageAction(messageId));
         }
 
-        public static async Task<CqSendGroupForwardMsgActionResult?> SendGroupForwardMsg(this ICqActionSession session, long groupId, params CqForwardMsgNode[] messages)
+        public static async Task<CqSendGroupForwardMessageActionResult?> SendGroupForwardMessage(this ICqActionSession session, long groupId, params CqForwardMessageNode[] messages)
         {
-            return await session.SendAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMsgActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));
+            return await session.InvokeActionAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));
         }
-        public static async Task<CqGetMsgActionResult?> GetMsg(this ICqActionSession session, int messageId)
+        public static async Task<CqGetMessageActionResult?> GetMessage(this ICqActionSession session, int messageId)
         {
-            return await session.SendAsync<CqGetMsgAction, CqGetMsgActionResult>(new CqGetMsgAction(messageId));
+            return await session.InvokeActionAsync<CqGetMessageAction, CqGetMessageActionResult>(new CqGetMessageAction(messageId));
         }
 
-        public static async Task<CqGetForwardMsgActionResult?> GetForwardMsg(this ICqActionSession session, int messageId)
+        public static async Task<CqGetForwardMessageActionResult?> GetForwardMessage(this ICqActionSession session, int messageId)
         {
-            return await session.SendAsync<CqGetForwardMsgAction, CqGetForwardMsgActionResult>(new CqGetForwardMsgAction(messageId));
+            return await session.InvokeActionAsync<CqGetForwardMessageAction, CqGetForwardMessageActionResult>(new CqGetForwardMessageAction(messageId));
         }
         public static async Task<CqGetImageActionResult?> GetImage(this ICqActionSession session, string filename)
         {
-            return await session.SendAsync<CqGetImageAction, CqGetImageActionResult>(new CqGetImageAction(filename));
+            return await session.InvokeActionAsync<CqGetImageAction, CqGetImageActionResult>(new CqGetImageAction(filename));
         }
 
         public static async Task<CqBanGroupMemberActionResult?> BanGroupMember(this ICqActionSession session, long groupId, long userId, TimeSpan duration)
         {
-            return await session.SendAsync<CqBanGroupMemberAction, CqBanGroupMemberActionResult>(new CqBanGroupMemberAction(groupId, userId, duration));
+            return await session.InvokeActionAsync<CqBanGroupMemberAction, CqBanGroupMemberActionResult>(new CqBanGroupMemberAction(groupId, userId, duration));
+        }
+
+        public static async Task<CqBanGroupMemberActionResult?> CancelBanGroupMember(this ICqActionSession session, long groupId, long userId)
+        {
+            return await session.InvokeActionAsync<CqBanGroupMemberAction, CqBanGroupMemberActionResult>(new CqBanGroupMemberAction(groupId, userId, TimeSpan.Zero));
+        }
+
+        public static async Task<CqBanGroupAnonymousMemberActionResult?> BanGroupAnonymousMember(this ICqActionSession session, long groupId, CqAnonymousInfomation anonymous, TimeSpan duration)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAnonymousMemberAction, CqBanGroupAnonymousMemberActionResult>(new CqBanGroupAnonymousMemberAction(groupId, anonymous, duration));
+        }
+
+        public static async Task<CqBanGroupAnonymousMemberActionResult?> BanGroupAnonymousMember(this ICqActionSession session, long groupId, string anonymousFlag, TimeSpan duration)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAnonymousMemberAction, CqBanGroupAnonymousMemberActionResult>(new CqBanGroupAnonymousMemberAction(groupId, anonymousFlag, duration));
+        }
+
+        public static async Task<CqBanGroupAnonymousMemberActionResult?> CancelBanGroupAnonymousMember(this ICqActionSession session, long groupId, CqAnonymousInfomation anonymous)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAnonymousMemberAction, CqBanGroupAnonymousMemberActionResult>(new CqBanGroupAnonymousMemberAction(groupId, anonymous, TimeSpan.Zero));
+        }
+
+        public static async Task<CqBanGroupAnonymousMemberActionResult?> CancelBanGroupAnonymousMember(this ICqActionSession session, long groupId, string anonymousFlag)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAnonymousMemberAction, CqBanGroupAnonymousMemberActionResult>(new CqBanGroupAnonymousMemberAction(groupId, anonymousFlag, TimeSpan.Zero));
+        }
+
+        public static async Task<CqBanGroupAllMembersActionResult?> BanGroupAllMembers(this ICqActionSession session, long groupId)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAllMembersAction, CqBanGroupAllMembersActionResult>(new CqBanGroupAllMembersAction(groupId, true));
+        }
+
+        public static async Task<CqBanGroupAllMembersActionResult?> CancelBanGroupAllMembers(this ICqActionSession session, long groupId)
+        {
+            return await session.InvokeActionAsync<CqBanGroupAllMembersAction, CqBanGroupAllMembersActionResult>(new CqBanGroupAllMembersAction(groupId, false));
         }
 
         public static async Task<CqKickGroupMemberActionResult?> KickGroupMember(this ICqActionSession session, long groupId, long userId, bool rejectRequest)
         {
-            return await session.SendAsync<CqKickGroupMemberAction, CqKickGroupMemberActionResult>(new CqKickGroupMemberAction(groupId, userId, rejectRequest));
+            return await session.InvokeActionAsync<CqKickGroupMemberAction, CqKickGroupMemberActionResult>(new CqKickGroupMemberAction(groupId, userId, rejectRequest));
         }
 
         public static async Task<CqHandleFriendRequestActionResult?> HandleFriendRequest(this ICqActionSession session, string flag, bool approve, string? remark)
         {
-            return await session.SendAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, approve, remark));
+            return await session.InvokeActionAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, approve, remark));
         }
 
         public static async Task<CqHandleFriendRequestActionResult?> ApproveFriendRequest(this ICqActionSession session, string flag, string? remark)
         {
-            return await session.SendAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, true, remark));
+            return await session.InvokeActionAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, true, remark));
         }
 
         public static async Task<CqHandleFriendRequestActionResult?> RejectFriendRequest(this ICqActionSession session, string flag)
         {
-            return await session.SendAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, false, null));
+            return await session.InvokeActionAsync<CqHandleFriendRequestAction, CqHandleFriendRequestActionResult>(new CqHandleFriendRequestAction(flag, false, null));
         }
 
         public static async Task<CqHandleGroupRequestActionResult?> HandleGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType, bool approve, string? reason)
         {
-            return await session.SendAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, approve, reason));
+            return await session.InvokeActionAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, approve, reason));
         }
 
         public static async Task<CqHandleGroupRequestActionResult?> ApproveGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType)
         {
-            return await session.SendAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, true, null));
+            return await session.InvokeActionAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, true, null));
         }
 
         public static async Task<CqHandleGroupRequestActionResult?> RejectGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType, string? reason)
         {
-            return await session.SendAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, false, reason));
+            return await session.InvokeActionAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, false, reason));
         }
     }
 }

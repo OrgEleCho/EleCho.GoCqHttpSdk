@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.DataStructure

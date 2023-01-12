@@ -1,14 +1,14 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
 using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendGroupMsgAction : CqAction
     {
-        public override CqActionType Type => CqActionType.SendGroupMsg;
+        public override CqActionType Type => CqActionType.SendGroupMessage;
 
         public CqSendGroupMsgAction(long groupId, CqMsg[] message)
         {

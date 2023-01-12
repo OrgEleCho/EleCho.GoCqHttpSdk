@@ -6,6 +6,6 @@ namespace EleCho.GoCqHttpSdk
 {
     public abstract class CqActionSender
     {
-        public abstract Task<CqActionResult?> SendActionAsync(CqAction action);
+        public abstract Task<CqActionResult?> InvokeActionAsync(CqAction action);
     }
 }

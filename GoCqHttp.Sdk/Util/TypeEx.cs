@@ -1,4 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Util
+﻿using System;
+
+namespace EleCho.GoCqHttpSdk.Utils
 {
     internal static class TypeEx
     {
@@ -26,6 +28,11 @@
         public static bool ToBool(this int value)
         {
             return value != 0;
+        }
+
+        public static long ToLongTotalSeconds(this TimeSpan timeSpan)
+        {
+            return timeSpan.Ticks / TimeSpan.TicksPerSecond;
         }
     }
 }

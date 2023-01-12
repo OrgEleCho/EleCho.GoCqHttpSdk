@@ -7,7 +7,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public abstract class CqMsgPostContext : CqPostContext
+    public abstract class CqMessagePostContext : CqPostContext
     {
         public override CqPostType EventType => CqPostType.Message;
         public abstract CqMessageType MessageType { get; }

@@ -1,5 +1,7 @@
-﻿using EleCho.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Utils;
+using System;
 using System.Text.Json;
+using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
 {
@@ -13,22 +15,42 @@ namespace EleCho.GoCqHttpSdk.Action.Result.Model.Data
             JsonElement dataValue = data.Value;
             return actionType switch
             {
-                Consts.ActionType.SendPrivateMsg => JsonSerializer.Deserialize<CqSendPrivateMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SendGroupMsg => JsonSerializer.Deserialize<CqSendGroupMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SendMsg => JsonSerializer.Deserialize<CqSendMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.DeleteMsg => JsonSerializer.Deserialize<CqDeleteMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SendGroupForwardMsg => JsonSerializer.Deserialize<CqSendGroupForwardMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.GetMsg => JsonSerializer.Deserialize<CqGetMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.GetForwardMsg => JsonSerializer.Deserialize<CqGetForwardMsgActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.GetImage => JsonSerializer.Deserialize<CqGetImageActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SetGroupBan => JsonSerializer.Deserialize<CqSetGroupBanActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SetGroupKick => JsonSerializer.Deserialize<CqSetGroupKickActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                SendPrivateMsg => JsonSerializer.Deserialize<CqSendPrivateMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                SendGroupMsg => JsonSerializer.Deserialize<CqSendGroupMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                SendMsg => JsonSerializer.Deserialize<CqSendMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                DeleteMsg => JsonSerializer.Deserialize<CqRecallMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                SendGroupForwardMsg => JsonSerializer.Deserialize<CqSendGroupForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                
+                GetMsg => JsonSerializer.Deserialize<CqGetMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetForwardMsg => JsonSerializer.Deserialize<CqGetForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetImage => JsonSerializer.Deserialize<CqGetImageActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetLoginInfo => JsonSerializer.Deserialize<CqGetLoginInformationActionResultDataModel>(dataValue, JsonHelper.Options),
 
-                Consts.ActionType.SetFriendAddRequest => JsonSerializer.Deserialize<CqSetFriendAddRequestActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
-                Consts.ActionType.SetGroupAddRequest => JsonSerializer.Deserialize<CqSetGroupAddRequestActionResultDataModel>(dataValue, JsonHelper.GetOptions()),
+                SetGroupBan => JsonSerializer.Deserialize<CqBanGroupMemberActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupAnonymousBan => JsonSerializer.Deserialize<CqBanGroupAnonymousMemberActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupWholeBan => JsonSerializer.Deserialize<CqBanGroupAllMembersActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupKick => JsonSerializer.Deserialize<CqKickGroupMemberActionResultDataModel>(dataValue, JsonHelper.Options),
 
-                _ => null
+                SetFriendAddRequest => JsonSerializer.Deserialize<CqHandleFriendRequestActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupAddRequest => JsonSerializer.Deserialize<CqHandleGroupRequestActionResultDataModel>(dataValue, JsonHelper.Options),
+
+                MarkMsgAsRead => JsonSerializer.Deserialize<CqMarkMessageAsReadResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupAdmin => JsonSerializer.Deserialize<CqSetGroupAdministratorActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupAnonymous => JsonSerializer.Deserialize<CqSetGroupAnonymousActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupCard => JsonSerializer.Deserialize<CqSetGroupNicknameActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupName => JsonSerializer.Deserialize<CqSetGroupNameActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupLeave => JsonSerializer.Deserialize<CqLeaveGroupActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetGroupSpecialTitle => JsonSerializer.Deserialize<CqSetGroupSpecialTitleActionResultDataModel>(dataValue, JsonHelper.Options),
+
+                SendGroupSign => JsonSerializer.Deserialize<CqGroupSignInActionResultDataModel>(dataValue, JsonHelper.Options),
+
+                _ => throw new NotImplementedException()
             };
         }
+    }
+
+    internal class  CqSetGroupWholeBanActionResultDataModel : CqActionResultDataModel
+    {
+        
     }
 }

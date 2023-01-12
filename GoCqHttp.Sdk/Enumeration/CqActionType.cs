@@ -1,18 +1,29 @@
-﻿namespace EleCho.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk
 {
     public enum CqActionType
     {
-        SendPrivateMsg,
-        SendGroupMsg,
-        SendMsg,
-        RecallMsg,
-        SendGroupForwardMsg,
-        GetMsg,
-        GetForwardMsg,
-        HandleFriendRequest,
+        SendPrivateMessage,
+        SendGroupMessage,
+        SendMessage,
+        RecallMessage,
+        SendGroupForwardMessage,
+        GetMessage,
+        GetForwardMessage,
         GetImage,
         BanGroupMember,
+        BanGroupAnonymousMember,
+        BanAllGroupMembers,
         KickGroupMember,
-        HandleGroupRequest
+        HandleFriendRequest,
+        HandleGroupRequest,
+        MarkMessageAsRead,
+        SetGroupAdministrator,
+        SetGroupAnonymous,
+        SetGroupNickname,
+        SetGroupName,
+        LeaveGroup,
+        SetGroupSpecialTitle,
+        GroupSignIn,
+        GetLoginInformation,
     }
 }

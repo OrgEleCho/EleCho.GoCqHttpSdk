@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 
-namespace EleCho.GoCqHttpSdk.Enumeration
+namespace EleCho.GoCqHttpSdk
 {
     internal static class CqEnum
     {
@@ -103,13 +103,13 @@ namespace EleCho.GoCqHttpSdk.Enumeration
         {
             return type switch
             {
-                CqActionType.SendPrivateMsg => Consts.ActionType.SendPrivateMsg,
-                CqActionType.SendGroupMsg => Consts.ActionType.SendGroupMsg,
-                CqActionType.SendMsg => Consts.ActionType.SendMsg,
-                CqActionType.RecallMsg => Consts.ActionType.DeleteMsg,
-                CqActionType.SendGroupForwardMsg => Consts.ActionType.SendGroupForwardMsg,
-                CqActionType.GetMsg => Consts.ActionType.GetMsg,
-                CqActionType.GetForwardMsg => Consts.ActionType.GetForwardMsg,
+                CqActionType.SendPrivateMessage => Consts.ActionType.SendPrivateMsg,
+                CqActionType.SendGroupMessage => Consts.ActionType.SendGroupMsg,
+                CqActionType.SendMessage => Consts.ActionType.SendMsg,
+                CqActionType.RecallMessage => Consts.ActionType.DeleteMsg,
+                CqActionType.SendGroupForwardMessage => Consts.ActionType.SendGroupForwardMsg,
+                CqActionType.GetMessage => Consts.ActionType.GetMsg,
+                CqActionType.GetForwardMessage => Consts.ActionType.GetForwardMsg,
                 CqActionType.GetImage => Consts.ActionType.GetImage,
                 CqActionType.BanGroupMember => Consts.ActionType.SetGroupBan,
                 CqActionType.KickGroupMember => Consts.ActionType.SetGroupKick,

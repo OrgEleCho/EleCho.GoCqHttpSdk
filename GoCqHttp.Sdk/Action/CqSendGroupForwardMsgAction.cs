@@ -2,23 +2,23 @@
 using EleCho.GoCqHttpSdk.DataStructure;
 using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendGroupForwardMsgAction : CqAction
     {
-        public CqSendGroupForwardMsgAction(long groupId, CqForwardMsgNode[] messages)
+        public CqSendGroupForwardMsgAction(long groupId, CqForwardMessageNode[] messages)
         {
             GroupId = groupId;
             Messages = messages;
         }
 
-        public override CqActionType Type => CqActionType.SendGroupForwardMsg;
+        public override CqActionType Type => CqActionType.SendGroupForwardMessage;
 
         public long GroupId { get; set; }
-        public CqForwardMsgNode[] Messages { get; set; }
+        public CqForwardMessageNode[] Messages { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()
         {

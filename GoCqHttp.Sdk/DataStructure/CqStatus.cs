@@ -8,6 +8,6 @@
         public bool AppGood { get; set; }
         public bool Online { get; set; }
         public bool Good { get; set; }
-        public CqStatusStatistics Statistics { get; set; }
+        public CqStatusStatistics? Statistics { get; set; }
     }
 }

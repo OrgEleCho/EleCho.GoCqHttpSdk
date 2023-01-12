@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Post.Model;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -12,9 +12,16 @@ namespace EleCho.GoCqHttpSdk.Post
             Time = DateTime.Now;
         }
 
+        public CqSession Session { get; private set; }
+
         public abstract CqPostType EventType { get; }
         public long SelfId { get; set; }
         public DateTime Time { get; set; }
+
+        internal void SetSession(CqSession session)
+        {
+            Session = session;
+        }
 
         internal static CqPostContext? FromModel(CqPostModel? model)
         {
@@ -50,7 +57,7 @@ namespace EleCho.GoCqHttpSdk.Post
             return model?.message_type switch
             {
                 Consts.MsgType.Private => new CqPrivateMsgPostContext(),
-                Consts.MsgType.Group => new CqGroupMsgPostContext(),
+                Consts.MsgType.Group => new CqGroupMessagePostContext(),
 
                 _ => null,
             };
@@ -79,9 +86,9 @@ namespace EleCho.GoCqHttpSdk.Post
                 Consts.NoticeType.GroupDecrease => new CqGroupMemberDecreasedPostContext(),
                 Consts.NoticeType.GroupCard => new CqGroupMemberCardChangedPostContext(),
                 Consts.NoticeType.GroupBan => new CqGroupBanChangedPostContext(),
-                Consts.NoticeType.GroupRecall => new CqGroupMsgRecalledPostContext(),
+                Consts.NoticeType.GroupRecall => new CqGroupMessageRecalledPostContext(),
                 Consts.NoticeType.FriendAdd => new CqFriendAddedPostContext(),
-                Consts.NoticeType.FriendRecall => new CqFriendMsgRecalledPostContext(),
+                Consts.NoticeType.FriendRecall => new CqFriendMessageRecalledPostContext(),
                 Consts.NoticeType.OfflineFile => new CqOfflineFileUploadedPostContext(),
 
                 Consts.NoticeType.Notify => NotifyFromModel(model),

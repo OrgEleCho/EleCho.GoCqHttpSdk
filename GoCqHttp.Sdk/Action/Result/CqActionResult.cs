@@ -1,8 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Action.Result.Model;
+﻿using System;
+using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Action.Result.Model.Data;
 using EleCho.GoCqHttpSdk.Enumeration;
-using EleCho.GoCqHttpSdk.Util;
-using System;
+using EleCho.GoCqHttpSdk.Utils;
+using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action.Result
 {
@@ -11,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Action.Result
         public CqActionStatus Status { get; set; }
         public CqActionRetCode RetCode { get; set; }
         /// <summary>
-        /// 回声数据, 尽在请求指定了 EchoData 时有效
+        /// 回声数据, 仅在请求指定了 EchoData 时有效
         /// </summary>
         public string? EchoData { get; set; }
         /// <summary>
@@ -32,24 +33,42 @@ namespace EleCho.GoCqHttpSdk.Action.Result
             if (raw == null)
                 return null;
 
-            CqActionResultDataModel? dataModel = CqActionResultDataModel.FromRaw(raw.data, actionType);
+            CqActionResultDataModel? dataModel =
+                CqActionResultDataModel.FromRaw(raw.data, actionType);
+
             CqActionResult? rst = actionType switch
             {
-                Consts.ActionType.SendPrivateMsg => new CqSendPrivateMsgActionResult(),
-                Consts.ActionType.SendGroupMsg => new CqSendGroupMsgActionResult(),
-                Consts.ActionType.SendMsg => new CqSendMsgActionResult(),
-                Consts.ActionType.DeleteMsg => new CqDeleteMsgActionResult(),
-                Consts.ActionType.SendGroupForwardMsg => new CqSendGroupForwardMsgActionResult(),
-                Consts.ActionType.GetMsg => new CqGetMsgActionResult(),
-                Consts.ActionType.GetForwardMsg => new CqGetForwardMsgActionResult(),
-                Consts.ActionType.GetImage => new CqGetImageActionResult(),
-                Consts.ActionType.SetGroupBan => new CqBanGroupMemberActionResult(),
-                Consts.ActionType.SetGroupKick => new CqKickGroupMemberActionResult(),
+                SendPrivateMsg => new CqSendPrivateMessageActionResult(),
+                SendGroupMsg => new CqSendGroupMessageActionResult(),
+                SendMsg => new CqSendMessageActionResult(),
+                DeleteMsg => new CqRecallMessageActionResult(),
+                SendGroupForwardMsg => new CqSendGroupForwardMessageActionResult(),
+                
+                GetMsg => new CqGetMessageActionResult(),
+                GetForwardMsg => new CqGetForwardMessageActionResult(),
+                GetImage => new CqGetImageActionResult(),
+                GetLoginInfo => new CqGetLoginInformationActionResult(),
 
-                Consts.ActionType.SetFriendAddRequest => new CqHandleFriendRequestActionResult(),
-                Consts.ActionType.SetGroupAddRequest => new CqHandleGroupRequestActionResult(),
+                SetGroupBan => new CqBanGroupMemberActionResult(),
+                SetGroupAnonymousBan => new CqBanGroupAnonymousMemberActionResult(),
+                SetGroupWholeBan => new CqBanGroupAllMembersActionResult(),
+                SetGroupKick => new CqKickGroupMemberActionResult(),
 
-                _ => null
+                SetFriendAddRequest => new CqHandleFriendRequestActionResult(),
+                SetGroupAddRequest => new CqHandleGroupRequestActionResult(),
+
+                MarkMsgAsRead => new CqMarkMessageAsReadActionResult(),
+                SetGroupAdmin => new CqSetGroupAdministratorActionResult(),
+                SetGroupAnonymous => new CqSetGroupAnonymousActionResult(),
+                SetGroupCard => new CqSetGroupNicknameActionResult(),
+                SetGroupName => new CqSetGroupNameActionResult(),
+                SetGroupLeave => new CqLeaveGroupActionResult(),
+                SetGroupSpecialTitle => new CqSetGroupSpecialTitleActionResult(),
+                
+                SendGroupSign => new CqGroupSignInActionResult(),
+                
+
+                _ => throw new NotImplementedException()
             };
 
             if (rst == null)
@@ -60,19 +79,10 @@ namespace EleCho.GoCqHttpSdk.Action.Result
             rst.ErrorMsg = raw.msg;
             rst.ErrorInfo = raw.wording;
             rst.EchoData = raw.echo;
-
-
+            
             rst.ReadDataModel(dataModel);
 
             return rst;
-        }
-    }
-
-    public class CqHandleGroupRequestActionResult : CqActionResult
-    {
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            
         }
     }
 }

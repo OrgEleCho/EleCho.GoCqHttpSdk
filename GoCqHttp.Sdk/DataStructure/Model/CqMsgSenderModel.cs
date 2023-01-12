@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public CqMsgSenderModel()
         { }
 
-        public CqMsgSenderModel(CqMsgSender srcData)
+        public CqMsgSenderModel(CqMessageSender srcData)
         {
             user_id = srcData.UserId;
             nickname = srcData.Nickname;

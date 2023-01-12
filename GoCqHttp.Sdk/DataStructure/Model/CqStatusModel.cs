@@ -18,12 +18,12 @@ namespace EleCho.GoCqHttpSdk.Post
             stat = new CqStatusStatisticsModel(srcData.Statistics);
         }
 
-        public bool app_initialized { get; set; }
-        public bool app_enabled { get; set; }
-        public bool plugins_good { get; set; }
-        public bool app_good { get; set; }
-        public bool online { get; set; }
-        public bool good { get; set; }
-        public CqStatusStatisticsModel stat { get; set; }
+        public bool? app_initialized { get; set; }
+        public bool? app_enabled { get; set; }
+        public bool? plugins_good { get; set; }
+        public bool? app_good { get; set; }
+        public bool? online { get; set; }
+        public bool? good { get; set; }
+        public CqStatusStatisticsModel? stat { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk
 
         public static void UseAny(this ICqPostSession session, Func<CqPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
-        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMsgPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMsg(this ICqPostSession session, Func<CqGroupMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UsePrivateMsg(this ICqPostSession session, Func<CqPrivateMsgPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
         #region Notice
@@ -35,10 +35,10 @@ namespace EleCho.GoCqHttpSdk
         public static void UseGroupMemberCardChanged(this ICqPostSession session, Func<CqGroupMemberCardChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMemberIncreased(this ICqPostSession session, Func<CqGroupMemberIncreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMemberDecreased(this ICqPostSession session, Func<CqGroupMemberDecreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupMsgRecalled(this ICqPostSession session, Func<CqGroupMsgRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMsgRecalled(this ICqPostSession session, Func<CqGroupMessageRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         
         public static void UseFriendAdded(this ICqPostSession session, Func<CqFriendAddedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseFriendMsgRecalled(this ICqPostSession session, Func<CqFriendMsgRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseFriendMsgRecalled(this ICqPostSession session, Func<CqFriendMessageRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
         public static void UseOfflineFileUploaded(this ICqPostSession session, Func<CqOfflineFileUploadedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 

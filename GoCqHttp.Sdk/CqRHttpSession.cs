@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.IO;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqRHttpSession : ICqPostSession
+    public class CqRHttpSession : CqSession, ICqPostSession
     {
         readonly Uri baseUri;
         readonly string? accessToken;
@@ -79,10 +79,11 @@ namespace EleCho.GoCqHttpSdk
                 if (Verify(context.Request.Headers["X-Signature"], data))
                 {
                     string json = GlobalConfig.TextEncoding.GetString(data);
-                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
+                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.Options);
                     if (wsDataModel is CqPostModel postModel)
                     {
                         CqPostContext? postContext = CqPostContext.FromModel(postModel);
+                        postContext?.SetSession(this);
 
                         if (postContext is CqPostContext)
                         {

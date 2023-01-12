@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace EleCho.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Utils
 {
     public static class GlobalConfig
     {

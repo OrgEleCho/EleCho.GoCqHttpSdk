@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Util;
+﻿using EleCho.GoCqHttpSdk.Utils;
 
 namespace EleCho.GoCqHttpSdk.Post.Model
 {

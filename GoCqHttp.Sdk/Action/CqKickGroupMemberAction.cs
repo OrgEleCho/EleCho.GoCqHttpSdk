@@ -33,7 +33,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSetGroupKickActionParamsModel(GroupId, UserId, RejectRequest);
+            return new CqKickGroupMemberActionParamsModel(GroupId, UserId, RejectRequest);
         }
     }
 }

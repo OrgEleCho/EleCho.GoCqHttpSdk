@@ -22,7 +22,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSetFriendAddRequestActionParamsModel(Flag, Approve, Remark);
+            return new CqHandleFriendRequestActionParamsModel(Flag, Approve, Remark);
         }
     }
 }

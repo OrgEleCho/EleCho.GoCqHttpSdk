@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk
     /// 正向 HTTP 会话
     /// 可用来发送 Action
     /// </summary>
-    public class CqHttpSession : ICqActionSession
+    public class CqHttpSession : CqSession, ICqActionSession
     {
         private HttpClient httpClient;
         private CqHttpActionSender actionSender;

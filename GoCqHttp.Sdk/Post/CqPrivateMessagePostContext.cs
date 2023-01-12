@@ -4,12 +4,12 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqPrivateMsgPostContext : CqMsgPostContext
+    public class CqPrivateMsgPostContext : CqMessagePostContext
     {
         public override CqMessageType MessageType => CqMessageType.Private;
         public CqMessagePrivateType MessageSubType { get; set; }
         public CqTempSource TempSource { get; set; }
-        public CqMsgSender Sender { get; set; }
+        public CqMessageSender Sender { get; set; }
 
         internal CqPrivateMsgPostContext()
         { }
@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
             MessageSubType = CqEnum.GetMessagePrivateType(msgModel.sub_type);
             TempSource = (CqTempSource)msgModel.temp_source;
-            Sender = new CqMsgSender(msgModel.sender);
+            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 

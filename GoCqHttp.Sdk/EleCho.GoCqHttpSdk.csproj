@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.0;net461</TargetFrameworks>
+		<TargetFrameworks>net6.0;netcoreapp3.1;netstandard2.0;net462</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<Authors>SlimeNull</Authors>
@@ -30,13 +30,6 @@
 
 	<ItemGroup Condition="'$(TargetFramework)'=='net461'">
 	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
 	</ItemGroup>
 
 </Project>

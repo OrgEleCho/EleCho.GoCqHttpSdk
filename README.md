@@ -140,6 +140,47 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 关于任何对项目上的不满, 例如命名, 设计模式, 或者其他任何方面的问题, 直接提交一个 discussion 就可以啦, 然后咱们就可以讨论讨论具体要采取什么措施啦. ψ(｀∇´)ψ
 
+### 编写规范
+
+#### 各个文件夹的内容
+
+- `Action` : 用户要使用到的各种 CqAction
+- `Action/Sender` : 用来发送 CqAction 的各个协议实现
+- `Action/Model/Params` : CqAction 进行调用时所需要的具体参数 (用户不可见)
+- `Action/Result` : 用户要使用到的各种 CqActionResult
+- `Action/Result/Model/Data` : CqActionResult 返回时要读取的具体数据 (用户不可见)
+- `DataStructure` : CqAction 参数或返回数据中所使用到的各种结构
+- `DataStructure/Model` : CqAction 参数或返回数据中所使用到的各种结构的实际传输声明 (用户不可见)
+- `Enumeration` : 各种枚举类型
+- `Extension` : 各种拓展方法
+- `JsonConverter` : 程序集所需要使用的 JSON 转换器 (用户不可见)
+- `Message` : 用户会用到的各种消息类型
+- `Message/CqCodeDef` : CQ 码操作类
+- `Message/DataModel` : 消息的实际传输数据模型 (用户不可见)
+- `Message/JsonConverter` : 某些特殊消息需要使用到的 JSON 转换器 (用户不可见)
+
+#### 编写步骤
+
+编写一个 Action 的步骤:
+
+1. 添加 `CqActionType` 成员
+2. 添加 `Consts.ActionType` 成员
+3. 编写它的 `CqAction` 类
+4. 编写它的 `CqActionParamsModel` 类
+5. 编写它的 `CqActionResult` 类
+6. 编写它的 `CqActionResultDataModel` 类
+7. 实现 `CqActionResult.FromRaw`
+8. 实现 `CqActionResultDataModel.FromRaw`
+9. 在 `CqActionSessionExtensions` 中添加对应拓展方法
+
+#### 命名规范
+
+- 尽量将缩写改为全称, 尽量将奇怪的名称改为正常的名称
+
+#### 类型声明规范
+
+- 在原文档中以 `number` 标识的类型, 统一使用 `long`
+
 
 
 

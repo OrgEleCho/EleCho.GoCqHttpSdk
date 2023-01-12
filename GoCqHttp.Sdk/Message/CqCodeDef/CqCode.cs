@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;

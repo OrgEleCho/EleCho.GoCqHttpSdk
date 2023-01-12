@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Message
@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// @某人
     /// </summary>
-    public class CqAtMsg : CqMsg
+    public class CqAtMessage : CqMsg
     {
         public override string Type => Consts.MsgType.At;
 
@@ -19,10 +19,10 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public string? Name { get; set; }
 
-        internal CqAtMsg()
+        internal CqAtMessage()
         { }
 
-        public CqAtMsg(long qq)
+        public CqAtMessage(long qq)
         {
             QQ = qq;
         }

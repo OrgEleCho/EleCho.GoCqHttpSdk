@@ -1,7 +1,7 @@
 ﻿#pragma warning disable CS8618
 
 using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Message

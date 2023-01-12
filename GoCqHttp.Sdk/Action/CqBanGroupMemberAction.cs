@@ -33,7 +33,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSetGroupBanActionParamsModel(GroupId, UserId, Duration.Ticks / TimeSpan.TicksPerSecond);
+            return new CqBanGroupMemberActionParamsModel(GroupId, UserId, Duration.Ticks / TimeSpan.TicksPerSecond);
         }
     }
 }

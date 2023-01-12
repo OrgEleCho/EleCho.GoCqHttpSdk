@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Action.Result;
 using EleCho.GoCqHttpSdk.Action.Result.Model;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -65,7 +65,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 try
                 {
                     string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
-                    CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.GetOptions());
+                    CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.Options);
                     if (resultRaw != null)
                         PutResult(resultRaw);
                 }
@@ -97,7 +97,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             }
         }
 
-        public override async Task<CqActionResult?> SendActionAsync(CqAction action)
+        public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
             // 生成唯一标识符
             string echo = Guid.NewGuid().ToString();
@@ -107,7 +107,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             actionModel.echo = echo;
 
             // 序列化
-            string json = JsonSerializer.Serialize(actionModel, JsonHelper.GetOptions());
+            string json = JsonSerializer.Serialize(actionModel, JsonHelper.Options);
             byte[] buffer = GlobalConfig.TextEncoding.GetBytes(json);
 
             // 发送请求

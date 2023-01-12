@@ -3,7 +3,7 @@ using EleCho.GoCqHttpSdk.Action.Result.Model;
 using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.IO;
 using System.Net.WebSockets;
@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk
     /// 正向 WebSocket 会话
     /// 可处理上报, 以及发送 Action
     /// </summary>
-    public class CqWsSession : ICqPostSession, ICqActionSession, IDisposable
+    public class CqWsSession : CqSession, ICqPostSession, ICqActionSession, IDisposable
     {
         // 基础接入点地址和访问令牌
         private readonly Uri baseUri;
@@ -88,6 +88,7 @@ namespace EleCho.GoCqHttpSdk
                 if (wsDataModel is CqPostModel postModel)
                 {
                     CqPostContext? postContext = CqPostContext.FromModel(postModel);
+                    postContext?.SetSession(this);
 
                     // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
                     if (postContext != null)
@@ -146,7 +147,7 @@ namespace EleCho.GoCqHttpSdk
 #endif
                     // 反序列化为 WebSocket 数据 (自己抽的类
                     string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
-                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.GetOptions());
+                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.Options);
 
                     // 处理 WebSocket 数据
                     ProcWsDataAsync(wsDataModel);

@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
 
-namespace EleCho.GoCqHttpSdk.Util
+namespace EleCho.GoCqHttpSdk.Utils
 {
     internal static class JsonHelper
     {
@@ -39,14 +39,12 @@ namespace EleCho.GoCqHttpSdk.Util
             };
         }
 
-        public static JsonSerializerOptions GetOptions()
-        {
+        public static JsonSerializerOptions Options =>
 #if DEBUG
-            return debugOptions.Value;
+            debugOptions.Value;
 #else
-            return options.Value;
+            options.Value;
 #endif
-        }
 
 #if DEBUG
         private static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
@@ -79,10 +77,5 @@ namespace EleCho.GoCqHttpSdk.Util
         }
 
 #endif
-
-        public static T? ToObject<T>(this JsonElement el, JsonSerializerOptions? options)
-        {
-            return JsonSerializer.Deserialize<T>(el, options);
-        }
     }
 }

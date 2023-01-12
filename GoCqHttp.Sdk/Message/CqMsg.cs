@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure;
 using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Util;
+using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk.Message
@@ -57,14 +57,14 @@ namespace EleCho.GoCqHttpSdk.Message
                 Consts.MsgType.Location => new CqLocationMsg(),
                 Consts.MsgType.Anonymous => new CqAnonymousMsg(),
                 Consts.MsgType.Face => new CqFaceMsg(),
-                Consts.MsgType.At => new CqAtMsg(),
+                Consts.MsgType.At => new CqAtMessage(),
                 Consts.MsgType.Rps => new CqRpsMsg(),
                 Consts.MsgType.Shake => new CqShakeMsg(),
                 Consts.MsgType.CardImage => new CqCardImageMsg(),
                 Consts.MsgType.Contact => new CqContactMsg(),
                 Consts.MsgType.Dice => new CqDiceMsg(),
                 Consts.MsgType.Forward => new CqForwardMsg(),
-                Consts.MsgType.Node => new CqForwardMsgNode(),
+                Consts.MsgType.Node => new CqForwardMessageNode(),
                 Consts.MsgType.Gift => new CqGiftMsg(),
                 Consts.MsgType.Json => new CqJsonMsg(),
                 Consts.MsgType.Poke => new CqPokeMsg(),

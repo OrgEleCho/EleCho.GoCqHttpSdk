@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk.Enumeration
+﻿namespace EleCho.GoCqHttpSdk
 {
     public enum CqMessageGroupType
     {
