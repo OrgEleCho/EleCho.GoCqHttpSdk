@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// @某人
     /// </summary>
-    public class CqAtMessage : CqMsg
+    public class CqAtMsg : CqMsg
     {
         public override string Type => Consts.MsgType.At;
 
@@ -19,10 +19,10 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public string? Name { get; set; }
 
-        internal CqAtMessage()
+        internal CqAtMsg()
         { }
 
-        public CqAtMessage(long qq)
+        public CqAtMsg(long qq)
         {
             QQ = qq;
         }

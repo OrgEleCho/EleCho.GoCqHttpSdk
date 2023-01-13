@@ -78,6 +78,7 @@
             public const string SetGroupName = "set_group_name";
             public const string SetGroupLeave = "set_group_leave";
             public const string SetGroupSpecialTitle = "set_group_special_title";
+            public const string SetQqProfile = "set_qq_profile";
 
             public const string SendGroupSign = "send_group_sign";
 

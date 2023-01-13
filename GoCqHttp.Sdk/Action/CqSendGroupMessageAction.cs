@@ -6,11 +6,11 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    public class CqSendGroupMsgAction : CqAction
+    public class CqSendGroupMessageAction : CqAction
     {
         public override CqActionType Type => CqActionType.SendGroupMessage;
 
-        public CqSendGroupMsgAction(long groupId, CqMsg[] message)
+        public CqSendGroupMessageAction(long groupId, CqMsg[] message)
         {
             GroupId = groupId;
             Message = message;
@@ -22,6 +22,9 @@ namespace EleCho.GoCqHttpSdk.Action
         [Obsolete("该属性无用")]
         public bool AutoEscape { get; set; }
 
-        internal override CqActionParamsModel GetParamsModel() => new CqSendGroupMsgActionParamsModel(GroupId, Array.ConvertAll(Message ?? Array.Empty<CqMsg>(), CqMsg.ToModel), AutoEscape);
+        internal override CqActionParamsModel GetParamsModel()
+#pragma warning disable CS0618 // Type or member is obsolete
+            => new CqSendGroupMessageActionParamsModel(GroupId, Array.ConvertAll(Message ?? Array.Empty<CqMsg>(), CqMsg.ToModel), AutoEscape);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

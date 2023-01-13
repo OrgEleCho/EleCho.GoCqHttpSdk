@@ -65,9 +65,9 @@ namespace EleCho.GoCqHttpSdk.Action
                 SetGroupName => new CqSetGroupNameActionResult(),
                 SetGroupLeave => new CqLeaveGroupActionResult(),
                 SetGroupSpecialTitle => new CqSetGroupSpecialTitleActionResult(),
+                SetQqProfile => new CqSetAccountProfileActionResult(),
                 
                 SendGroupSign => new CqGroupSignInActionResult(),
-
                 
 
                 _ => throw new NotImplementedException()

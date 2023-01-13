@@ -1,13 +1,14 @@
 ﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Utils;
+using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// (虽然很奇怪, 但是这里确实是大写)
+    /// </summary>
     internal class CqStatusStatisticsModel
     {
-        public CqStatusStatisticsModel()
-        { }
-
         public CqStatusStatisticsModel(CqStatusStatistics srcData)
         {
             PacketReceived = srcData.PacketReceived;
@@ -18,6 +19,19 @@ namespace EleCho.GoCqHttpSdk.Post
             DisconnectTimes = srcData.DisconnectTimes;
             LostTimes = srcData.LostTimes;
             LastMessageTime = UnixTime.DateToUnix(srcData.LastMessageTime);
+        }
+
+        [JsonConstructor]
+        public CqStatusStatisticsModel(ulong packetReceived, ulong packetSent, ulong packetLost, ulong messageReceived, ulong messageSent, uint disconnectTimes, uint lostTimes, long lastMessageTime)
+        {
+            PacketReceived = packetReceived;
+            PacketSent = packetSent;
+            PacketLost = packetLost;
+            MessageReceived = messageReceived;
+            MessageSent = messageSent;
+            DisconnectTimes = disconnectTimes;
+            LostTimes = lostTimes;
+            LastMessageTime = lastMessageTime;
         }
 
         public ulong PacketReceived { get; set; }

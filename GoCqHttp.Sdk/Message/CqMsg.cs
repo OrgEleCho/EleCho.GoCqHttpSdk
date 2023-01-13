@@ -24,13 +24,71 @@ namespace EleCho.GoCqHttpSdk.Message
             return msg;
         }
 
-        public static CqMsg[] Chain(CqMsg head, params CqMsg[] msg)
+        public static CqMsg[] Chain(CqMsg head, CqMsg[] msg)
         {
             var chain = new CqMsg[msg.Length + 1];
             chain[0] = head;
             Array.Copy(msg, 0, chain, 1, msg.Length);
             return chain;
         }
+
+        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg[] msg)
+        {
+            var chain = new CqMsg[msg.Length + 2];
+            chain[0] = head1;
+            chain[1] = head2;
+            Array.Copy(msg, 0, chain, 2, msg.Length);
+            return chain;
+        }
+
+        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg head3, CqMsg[] msg)
+        {
+            var chain = new CqMsg[msg.Length + 3];
+            chain[0] = head1;
+            chain[1] = head2;
+            chain[2] = head3;
+            Array.Copy(msg, 0, chain, 3, msg.Length);
+            return chain;
+        }
+
+        public static CqMsg[] Chain(CqMsg[] msg, params CqMsg[] tails)
+        {
+            var chain = new CqMsg[msg.Length + tails.Length];
+            Array.Copy(msg, 0, chain, 0, msg.Length);
+            Array.Copy(tails, 0, chain, msg.Length, tails.Length);
+            return chain;
+        }
+
+        public static CqMsg[] Chain(CqMsg head, CqMsg[] msg, params CqMsg[] tails)
+        {
+            var chain = new CqMsg[msg.Length + tails.Length + 1];
+            chain[0] = head;
+            Array.Copy(msg, 0, chain, 1, msg.Length);
+            Array.Copy(tails, 0, chain, msg.Length + 1, tails.Length);
+            return chain;
+        }
+
+        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg[] msg, params CqMsg[] tails)
+        {
+            var chain = new CqMsg[msg.Length + tails.Length + 2];
+            chain[0] = head1;
+            chain[1] = head2;
+            Array.Copy(msg, 0, chain, 2, msg.Length);
+            Array.Copy(tails, 0, chain, msg.Length + 2, tails.Length);
+            return chain;
+        }
+
+        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg head3, CqMsg[] msg, params CqMsg[] tails)
+        {
+            var chain = new CqMsg[msg.Length + tails.Length + 3];
+            chain[0] = head1;
+            chain[1] = head2;
+            chain[2] = head3;
+            Array.Copy(msg, 0, chain, 3, msg.Length);
+            Array.Copy(tails, 0, chain, msg.Length + 3, tails.Length);
+            return chain;
+        }
+            
 
         public static CqMsg[] CqCodeChain(string cqCodeMsg)
         {
@@ -68,7 +126,7 @@ namespace EleCho.GoCqHttpSdk.Message
                 Consts.MsgType.Location => new CqLocationMsg(),
                 Consts.MsgType.Anonymous => new CqAnonymousMsg(),
                 Consts.MsgType.Face => new CqFaceMsg(),
-                Consts.MsgType.At => new CqAtMessage(),
+                Consts.MsgType.At => new CqAtMsg(),
                 Consts.MsgType.Rps => new CqRpsMsg(),
                 Consts.MsgType.Shake => new CqShakeMsg(),
                 Consts.MsgType.CardImage => new CqCardImageMsg(),

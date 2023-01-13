@@ -1,11 +1,13 @@
 ﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using System.Text.Json.Serialization;
 
+#pragma warning disable IDE1006 // Naming Styles
+
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqSendGroupMsgActionParamsModel : CqActionParamsModel
+    internal class CqSendGroupMessageActionParamsModel : CqActionParamsModel
     {
-        public CqSendGroupMsgActionParamsModel(long group_id, CqMsgModel[] message, bool auto_escape)
+        public CqSendGroupMessageActionParamsModel(long group_id, CqMsgModel[] message, bool auto_escape)
         {
             this.group_id = group_id;
             this.message = message;

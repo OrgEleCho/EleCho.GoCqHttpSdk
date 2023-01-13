@@ -5,17 +5,17 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqMessageSender
     {
-        internal CqMessageSender(CqMsgSenderModel model)
+        internal CqMessageSender(CqMessageSenderModel model)
         {
             UserId = model.user_id;
             Nickname = model.nickname;
-            Sex = model.sex;
+            Gender = CqEnum.GetGender(model.sex);
             Age = model.age;
         }
 
         public long UserId { get; set; }
         public string Nickname { get; set; }
-        public string Sex { get; set; }
+        public CqGender Gender { get; set; }
         public int Age { get; set; }
     }
 }

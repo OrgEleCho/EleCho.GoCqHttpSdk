@@ -1,7 +1,8 @@
 ﻿using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
+using System.Text.Json.Serialization;
 
-#pragma warning disable CS8618
+#pragma warning disable IDE1006 // Naming Styles
 
 namespace EleCho.GoCqHttpSdk.Model
 {
@@ -10,6 +11,7 @@ namespace EleCho.GoCqHttpSdk.Model
         public CqForwardMsgNodeDataModel()
         { }
 
+        [JsonConstructor]
         public CqForwardMsgNodeDataModel(long? id, string? name, long? uin, CqMsgModel[]? content, CqMsgModel[]? seq)
         {
             this.id = id;

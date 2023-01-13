@@ -99,6 +99,18 @@ namespace EleCho.GoCqHttpSdk
             };
         }
 
+        public static string? GetString(CqGender gender)
+        {
+            return gender switch
+            {
+                CqGender.Male => "mail",
+                CqGender.Female => "female",
+                CqGender.Unknown => "unknown",
+                
+                _ => null,
+            };
+        }
+
         public static string? GetString(CqActionType type)
         {
             return type switch
@@ -259,6 +271,17 @@ namespace EleCho.GoCqHttpSdk
                 "member" => CqRole.Member,
 
                 _ => CqRole.Unknown
+            };
+        }
+
+        public static CqGender GetGender(string? str)
+        {
+            return str switch
+            {
+                "male" => CqGender.Male,
+                "female" => CqGender.Female,
+
+                _ => CqGender.Unknown,
             };
         }
     }

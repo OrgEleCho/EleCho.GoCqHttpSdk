@@ -42,6 +42,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
                 SetGroupName => JsonSerializer.Deserialize<CqSetGroupNameActionResultDataModel>(dataValue, JsonHelper.Options),
                 SetGroupLeave => JsonSerializer.Deserialize<CqLeaveGroupActionResultDataModel>(dataValue, JsonHelper.Options),
                 SetGroupSpecialTitle => JsonSerializer.Deserialize<CqSetGroupSpecialTitleActionResultDataModel>(dataValue, JsonHelper.Options),
+                SetQqProfile => JsonSerializer.Deserialize<CqSetAccountProfileActionResultDataModel>(dataValue, JsonHelper.Options),
 
                 SendGroupSign => JsonSerializer.Deserialize<CqGroupSignInActionResultDataModel>(dataValue, JsonHelper.Options),
 

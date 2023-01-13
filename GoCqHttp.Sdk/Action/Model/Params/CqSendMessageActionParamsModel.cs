@@ -2,6 +2,8 @@
 using System;
 using System.Text.Json.Serialization;
 
+#pragma warning disable IDE1006 // Naming Styles
+
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
     internal class CqSendMessageActionParamsModel : CqActionParamsModel

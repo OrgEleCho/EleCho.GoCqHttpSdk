@@ -23,31 +23,31 @@ namespace TestConsole
             string textMsg = context.Message.GetText();
             Console.WriteLine(textMsg);
 
-            if (context.RawMessage.Contains("喵"))        // 喵喵复读机
+            if (context.RawMessage.Contains('喵'))        // 喵喵复读机
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg("喵喵喵?"));
+                await apiSession.SendGroupMessageAsync(context.GroupId, "喵喵喵?");
             }
             else if (context.RawMessage.StartsWith("echo "))     // echo 复读机
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(context.RawMessage.Substring(5)));
+                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(context.RawMessage[5..]));
             }
             else if (context.RawMessage.Contains("热重载"))       // 憨批关键词
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg("好耶, C# 太棒惹!"));
+                await apiSession.SendGroupMessageAsync(context.GroupId, "好耶, C# 太棒惹!");
             }
             else if (context.RawMessage.Contains("辰辰"))        // 起哄专用
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg("爆! 照~~"));
+                await apiSession.SendGroupMessageAsync(context.GroupId, "爆! 照~~");
             }
             else if (context.RawMessage.Contains("亲我"))        // 自我安慰.jpg
             {
                 if (context.RawMessage.Contains("悄咪咪"))
                 {
-                    await apiSession.SendPrivateMessageAsync(context.UserId, new CqTextMsg("mua~"));
+                    await apiSession.SendPrivateMessageAsync(context.UserId, "mua~");
                 }
                 else
                 {
-                    var rst = await apiSession.SendGroupMessageAsync(context.GroupId, new CqAtMessage(context.UserId), new CqTextMsg("mua~"));
+                    var rst = await apiSession.SendGroupMessageAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
                 }
             }
             else if (context.RawMessage.Contains("骂我"))        // 奇怪的癖好?
@@ -108,11 +108,11 @@ namespace TestConsole
             }
             else if (textMsg.StartsWith("="))
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(textMsg.Substring(1)));
+                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(textMsg[1..]));
             }
             else if (textMsg.Contains("禁言"))
             {
-                CqAtMessage? cqMsg = context.Message.FirstOrDefault((msg) => msg is CqAtMessage) as CqAtMessage;
+                CqAtMsg? cqMsg = context.Message.FirstOrDefault((msg) => msg is CqAtMsg) as CqAtMsg;
                 if (cqMsg == null)
                     return;
 

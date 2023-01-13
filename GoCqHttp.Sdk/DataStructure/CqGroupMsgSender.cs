@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqGroupMsgSender : CqMessageSender
     {
-        internal CqGroupMsgSender(CqGroupMsgSenderModel model) : base(model)
+        internal CqGroupMsgSender(CqGroupMessageSenderModel model) : base(model)
         {
             Card = model.card;
             Area = model.area;

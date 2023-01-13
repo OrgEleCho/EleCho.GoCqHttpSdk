@@ -1,10 +1,7 @@
-﻿using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk;
-using EleCho.GoCqHttpSdk.Message;
-using System;
+﻿using System;
 using System.Threading.Tasks;
-using static EleCho.GoCqHttpSdk.Utils.Consts;
+using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Message;
 
 namespace EleCho.GoCqHttpSdk
 {
@@ -19,11 +16,11 @@ namespace EleCho.GoCqHttpSdk
         }
 
         public static Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, params CqMsg[] message)
-             => session.InvokeActionAsync<CqSendPrivateMsgAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMsgAction(userId, 0, message));
+             => session.InvokeActionAsync<CqSendPrivateMessageAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMessageAction(userId, message));
         public static Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, long groupId, params CqMsg[] message)
-            => session.InvokeActionAsync<CqSendPrivateMsgAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMsgAction(userId, groupId, message));
+            => session.InvokeActionAsync<CqSendPrivateMessageAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMessageAction(userId, groupId, message));
         public static Task<CqSendGroupMessageActionResult?> SendGroupMessageAsync(this ICqActionSession session, long groupId, params CqMsg[] message)
-            => session.InvokeActionAsync<CqSendGroupMsgAction, CqSendGroupMessageActionResult>(new CqSendGroupMsgAction(groupId, message));
+            => session.InvokeActionAsync<CqSendGroupMessageAction, CqSendGroupMessageActionResult>(new CqSendGroupMessageAction(groupId, message));
         public static Task<CqSendMessageActionResult?> SendMessageAsync(this ICqActionSession session, CqMessageType messageType, long? userId, long? groupId, params CqMsg[] message)
             => session.InvokeActionAsync<CqSendMessageAction, CqSendMessageActionResult>(new CqSendMessageAction(messageType, userId, groupId, message));
         public static Task<CqSendMessageActionResult?> SendMessageAsync(this ICqActionSession session, long? userId, long? groupId, params CqMsg[] message)
@@ -31,7 +28,8 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqRecallMessageActionResult?> RecallMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqRecallMessageAction, CqRecallMessageActionResult>(new CqRecallMessageAction(messageId));
         public static Task<CqSendGroupForwardMessageActionResult?> SendGroupForwardMessageAsync(this ICqActionSession session, long groupId, params CqForwardMessageNode[] messages)
-            => session.InvokeActionAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));        public static Task<CqGetMessageActionResult?> GetMessageAsync(this ICqActionSession session, long messageId)
+            => session.InvokeActionAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));
+        public static Task<CqGetMessageActionResult?> GetMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqGetMessageAction, CqGetMessageActionResult>(new CqGetMessageAction(messageId));
         public static Task<CqGetForwardMessageActionResult?> GetForwardMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqGetForwardMessageAction, CqGetForwardMessageActionResult>(new CqGetForwardMessageAction(messageId));
@@ -87,7 +85,8 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqSetGroupSpecialTitleAction, CqSetGroupSpecialTitleActionResult>(new CqSetGroupSpecialTitleAction(groupId, userId, specialTitle));
         public static Task<CqGroupSignInActionResult?> GroupSignIn(this ICqActionSession session, long groupId)
             => session.InvokeActionAsync<CqGroupSignInAction, CqGroupSignInActionResult>(new CqGroupSignInAction(groupId));
-
+        public static Task<CqSetAccountProfileActionResult?> SetAccountProfile(this ICqActionSession session, string nickname, string company, string email, string college, string personalNote)
+            => session.InvokeActionAsync<CqSetAccountProfileAction, CqSetAccountProfileActionResult>(new CqSetAccountProfileAction(nickname, company, email, college, personalNote));
 
     }
 }
