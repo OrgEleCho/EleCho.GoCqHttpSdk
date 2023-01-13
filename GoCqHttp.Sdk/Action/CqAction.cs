@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Action.Model.Params;
-
+using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Action
         internal static CqActionModel ToModel(CqAction action)
         {
             return new CqActionModel(
-                CqEnum.GetString(action.Type) ?? "",
+                CqEnum.GetString(action.Type) ?? throw new Exception("Unknown action"),
                 action.GetParamsModel(),
                 action.EchoData);
         }

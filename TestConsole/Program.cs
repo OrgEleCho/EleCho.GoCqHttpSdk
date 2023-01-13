@@ -46,6 +46,26 @@ namespace TestConsole
 
             await session.ConnectAsync();
 
+            foreach (var c in "哼哼哼啊啊啊啊啊啊啊啊啊")
+            {
+                await session.SetGroupSpecialTitle(687864919, 1587496147, c.ToString());
+                await Task.Delay(3000);
+            }
+
+
+            await session.SetGroupSpecialTitle(687864919, 1587496147, "设置啥好呢...");
+            await Task.Delay(2500);
+            await session.SetGroupSpecialTitle(687864919, 1587496147, ".");
+            await Task.Delay(2500);
+            await session.SetGroupSpecialTitle(687864919, 1587496147, "..");
+            await Task.Delay(2500);
+            await session.SetGroupSpecialTitle(687864919, 1587496147, "...");
+            await Task.Delay(2500);
+            await session.SetGroupSpecialTitle(687864919, 1587496147, "那就合法正太吧~");
+            await Task.Delay(1500);
+            await session.SetGroupSpecialTitle(687864919, 1587496147, "合法正太");
+            await Task.Delay(1500);
+
             while (true)
                 Console.ReadKey(true);
         }

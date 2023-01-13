@@ -12,7 +12,7 @@
         GetImage,
         BanGroupMember,
         BanGroupAnonymousMember,
-        BanAllGroupMembers,
+        BanGroupAllMembers,
         KickGroupMember,
         HandleFriendRequest,
         HandleGroupRequest,

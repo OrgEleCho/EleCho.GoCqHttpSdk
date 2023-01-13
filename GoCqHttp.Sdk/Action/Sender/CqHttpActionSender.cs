@@ -24,15 +24,20 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
 
         public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
-            string actionType = CqEnum.GetString(action.Type) ?? "";
+            // 转为 Model
+            string actionType = CqEnum.GetString(action.Type) ?? throw new Exception("Uknown action");
             CqActionParamsModel? paramsModel = action.GetParamsModel();
+            
+            // 转为 JSON 和 HTTP 内容
             string json = JsonSerializer.Serialize(paramsModel, paramsModel.GetType(), JsonHelper.Options);
             StringContent content = new StringContent(json, GlobalConfig.TextEncoding, "application/json");
 
+            // 发送请求
             HttpResponseMessage response = await Client.PostAsync(actionType, content);
             if (!response.IsSuccessStatusCode)
                 return null;
 
+            // 读取响应
             MemoryStream ms = new MemoryStream();
             await response.Content.CopyToAsync(ms);
             string rstjson = GlobalConfig.TextEncoding.GetString(ms.ToArray());

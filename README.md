@@ -219,13 +219,14 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 1. 添加 `CqActionType` 成员
 2. 添加 `Consts.ActionType` 成员
-3. 编写它的 `CqAction` 类
-4. 编写它的 `CqActionParamsModel` 类 (internal, 有一个全参构造函数, 成员名称为原始名称)
-5. 编写它的 `CqActionResult` 类 (不能有公开构造函数, 因为用户不能创建它的实例)
-6. 编写它的 `CqActionResultDataModel` 类 (internal, 无构造函数, 成员名称为原始名称)
-7. 实现 `CqActionResult.FromRaw`
-8. 实现 `CqActionResultDataModel.FromRaw`
-9. 在 `CqActionSessionExtensions` 中添加对应拓展方法
+3. 在 `CqEnum` 中实现 `CqActionType` 转字符串
+4. 编写它的 `CqAction` 类
+5. 编写它的 `CqActionParamsModel` 类 (internal, 有一个全参构造函数, 成员名称为原始名称)
+6. 编写它的 `CqActionResult` 类 (不能有公开构造函数, 因为用户不能创建它的实例)
+7. 编写它的 `CqActionResultDataModel` 类 (internal, 无构造函数, 成员名称为原始名称)
+8. 实现 `CqActionResult.FromRaw`
+9. 实现 `CqActionResultDataModel.FromRaw`
+10. 在 `CqActionSessionExtensions` 中添加对应拓展方法
 
 编写一个 CqMsg 的参考步骤:
 

@@ -3,6 +3,8 @@ using System.Data;
 using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.Utils;
 
+using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
+
 namespace EleCho.GoCqHttpSdk
 {
     internal static class CqEnum
@@ -115,22 +117,34 @@ namespace EleCho.GoCqHttpSdk
         {
             return type switch
             {
-                CqActionType.SendPrivateMessage => Consts.ActionType.SendPrivateMsg,
-                CqActionType.SendGroupMessage => Consts.ActionType.SendGroupMsg,
-                CqActionType.SendMessage => Consts.ActionType.SendMsg,
-                CqActionType.RecallMessage => Consts.ActionType.DeleteMsg,
-                CqActionType.SendGroupForwardMessage => Consts.ActionType.SendGroupForwardMsg,
-                CqActionType.GetMessage => Consts.ActionType.GetMsg,
-                CqActionType.GetForwardMessage => Consts.ActionType.GetForwardMsg,
-                CqActionType.GetImage => Consts.ActionType.GetImage,
-                CqActionType.BanGroupMember => Consts.ActionType.SetGroupBan,
-                CqActionType.KickGroupMember => Consts.ActionType.SetGroupKick,
+                CqActionType.SendPrivateMessage => SendPrivateMsg,
+                CqActionType.SendGroupMessage => SendGroupMsg,
+                CqActionType.SendMessage => SendMsg,
+                CqActionType.RecallMessage => DeleteMsg,
+                CqActionType.SendGroupForwardMessage => SendGroupForwardMsg,
+                CqActionType.GetMessage => GetMsg,
+                CqActionType.GetForwardMessage => GetForwardMsg,
+                CqActionType.GetImage => GetImage,
+                CqActionType.BanGroupMember => SetGroupBan,
+                CqActionType.BanGroupAnonymousMember => SetGroupAnonymousBan,
+                CqActionType.BanGroupAllMembers => SetGroupWholeBan,
+                CqActionType.KickGroupMember => SetGroupKick,
                 
-                CqActionType.HandleFriendRequest => Consts.ActionType.SetFriendAddRequest,
-                CqActionType.HandleGroupRequest => Consts.ActionType.SetGroupAddRequest,
+                CqActionType.HandleFriendRequest => SetFriendAddRequest,
+                CqActionType.HandleGroupRequest => SetGroupAddRequest,
 
-
-
+                CqActionType.MarkMessageAsRead => MarkMsgAsRead,
+                CqActionType.SetGroupAdministrator => SetGroupAdmin,
+                CqActionType.SetGroupAnonymous => SetGroupAnonymous,
+                CqActionType.SetGroupNickname => SetGroupCard,
+                CqActionType.SetGroupName => SetGroupName,
+                CqActionType.LeaveGroup => SetGroupLeave,
+                CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
+                CqActionType.GroupSignIn => SendGroupSign,
+                CqActionType.GetLoginInformation => GetLoginInfo,
+                CqActionType.GetStrangerInformation => GetStrangerInfo,
+                CqActionType.SetAccountProfile => SetQqProfile,
+                
                 _ => null,
             };
         }
