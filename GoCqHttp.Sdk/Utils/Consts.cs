@@ -85,6 +85,9 @@
             public const string SetGroupAddRequest = "set_group_add_request";
 
             public const string MarkMsgAsRead = "mark_msg_as_read";
+            
+            public const string GetStrangerInfo = "get_stranger_info";
+            
         }
 
         public static class NoticeType

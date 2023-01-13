@@ -139,5 +139,10 @@ namespace EleCho.GoCqHttpSdk
         {
             return await session.InvokeActionAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, false, reason));
         }
+        
+        public static async Task<CqGetStrangerInfoActionResult?> RejectGroupRequestAsync(this ICqActionSession session, long userId,bool noCache)
+        {
+            return await session.InvokeActionAsync<CqGetStrangerInfoAction, CqGetStrangerInfoActionResult>(new CqGetStrangerInfoAction(userId,noCache));
+        }
     }
 }

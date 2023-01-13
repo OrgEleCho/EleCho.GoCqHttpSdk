@@ -44,6 +44,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
 
                 SendGroupSign => JsonSerializer.Deserialize<CqGroupSignInActionResultDataModel>(dataValue, JsonHelper.Options),
 
+                GetStrangerInfo => JsonSerializer.Deserialize<CqGetStrangerInfoActionResultDataModel>(dataValue, JsonHelper.Options),
+
                 _ => throw new NotImplementedException()
             };
         }

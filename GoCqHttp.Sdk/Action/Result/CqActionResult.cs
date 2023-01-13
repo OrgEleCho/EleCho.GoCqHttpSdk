@@ -66,6 +66,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 SetGroupSpecialTitle => new CqSetGroupSpecialTitleActionResult(),
                 
                 SendGroupSign => new CqGroupSignInActionResult(),
+
+                GetStrangerInfo => new CqGetStrangerInfoActionResult(),
                 
 
                 _ => throw new NotImplementedException()
