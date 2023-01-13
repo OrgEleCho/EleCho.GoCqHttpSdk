@@ -16,11 +16,11 @@ namespace TestConsole
             string text = context.Message.GetText();
             if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
             {
-                await actionSession.SendGroupMessageAsync(context.GroupId, new CqTtsMsg(text.Substring(3)));
+                await actionSession.SendGroupMessageAsync(context.GroupId, new CqTtsMsg(text[4..]));
             }
             else if (text.StartsWith("ToFace:"))
             {
-                if (CqFaceMsg.FromName(text.Substring(7)) is CqFaceMsg face)
+                if (CqFaceMsg.FromName(text[7..]) is CqFaceMsg face)
                 
                 await actionSession.SendGroupMessageAsync(context.GroupId, face);
             }

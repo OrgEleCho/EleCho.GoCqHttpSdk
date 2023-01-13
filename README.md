@@ -54,7 +54,7 @@ session.PostPipeline.Use(async (context, next) =>
 
 ```csharp
 CqWsSession session;   // 要处理上报数据的会话
-session.PostPipeline.UseGroupMsg(async (context, next) =>
+session.PostPipeline.UseGroupMessage(async (context, next) =>
 {
     // context 为 CqGroupMessagePostContext, 其中包含了群聊消息的具体信息
     
@@ -90,6 +90,51 @@ context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发
 ```
 
 > `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
+
+### 使用插件
+
+在本库中, 你可以为能够进行上报的会话添加插件, 它本质还是一个中间件, 但是插件中, 它分离了所有类型的上报. 如果要处理某种类型的上报, 只需要 override 对应的方法即可.
+
+```csharp
+class MyPostPlugin : CqPostPlugin
+{
+    public override async Task OnGroupMessageAsync(CqGroupMessagePostContext context)
+    {
+        if (context.Session is not ICqActionSession actionSession)   // 判断是否能够发送 Action
+            return;
+        
+        string text = context.Message.GetText();
+        if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
+        {
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqTtsMsg(text[4..]));
+        }
+        else if (text.StartsWith("ToFace:"))
+        {
+            if (CqFaceMsg.FromName(text[7..]) is CqFaceMsg face)
+            
+            await actionSession.SendGroupMessageAsync(context.GroupId, face);
+        }
+    }
+
+    public override async Task OnGroupMessageRecalledAsync(CqGroupMessageRecalledPostContext context)
+    {
+        if (context.Session is not ICqActionSession actionSession)   // 判断是否能够发送 Action
+            return;
+
+        var msg = (await actionSession.GetMessageAsync(context.MessageId));
+
+        await actionSession.SendGroupMessageAsync(context.GroupId, CqMsg.Chain("让我康康你撤回了什么: ", msg.Message));
+    }
+}
+```
+
+它的使用也非常简单, 只需要在会话上调用 `UsePlugin` 方法即可
+
+```csharp
+session.UsePlugin(new MyPostPlugin());
+```
+
+> 与 ICqPostSession 的拓展方法 Use 不同, 一个插件拥有处理多种类型上报的能力, 但它本质是单个中间件, 而诸如 UseGroupMessage 这种拓展方法, 在使用的时候, 会创建一个新的中间件并添加到上报处理管线.
 
 ## 项目
 
@@ -175,12 +220,19 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 1. 添加 `CqActionType` 成员
 2. 添加 `Consts.ActionType` 成员
 3. 编写它的 `CqAction` 类
-4. 编写它的 `CqActionParamsModel` 类
+4. 编写它的 `CqActionParamsModel` 类 (internal, 有一个全参构造函数, 成员名称为原始名称)
 5. 编写它的 `CqActionResult` 类
-6. 编写它的 `CqActionResultDataModel` 类
+6. 编写它的 `CqActionResultDataModel` 类 (internal, 无构造函数, 成员名称为原始名称)
 7. 实现 `CqActionResult.FromRaw`
 8. 实现 `CqActionResultDataModel.FromRaw`
 9. 在 `CqActionSessionExtensions` 中添加对应拓展方法
+
+编写一个 CqMsg 的参考步骤:
+
+1. 添加 `CqMsgType` 成员
+2. 编写它的 `CqMsg` 类
+3. 编写它的 `CqMsgDataModel` 类 (internal, 一个无参构造函数, 一个全参构造函数)
+4. 实现它在 CqMsgModelConverter 中的转换
 
 #### 命名规范
 

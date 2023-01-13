@@ -19,6 +19,7 @@ namespace TestConsole
             UseApiEndPoint = true,
             UseEventEndPoint = true,
         });
+        
         static CqHttpSession httpSession = new CqHttpSession(new CqHttpSessionOptions()
         {
             BaseUri = new Uri("http://127.0.0.1:5700"),
@@ -26,26 +27,18 @@ namespace TestConsole
 
         private static async Task Main(string[] args)
         {
-            var 我的一堆中间件 = new ManyMiddlewares(httpSession);
+            var manyMiddlewares = new ManyMiddlewares(httpSession);
 
             session.UsePlugin(new MyPostPlugin());
 
-            //session.UseGroupMsgRecalled(async (context, next) =>              // 防撤回
-            //{
-            //    CqMsg[] message = (await session.GetMessage((int)context.MessageId))!.Message;
-            //    await session.SendGroupMessageAsync(context.GroupId, CqMsg.Chain(new CqAtMessage(context.UserId), new CqTextMsg("发送了: ")).Concat(message).ToArray());
-            //});
-
+            session.UseGroupMessage(manyMiddlewares.WaterWaterWater);
             session.UseGroupRequest(async (context, next) =>
             {
                 await httpSession.ApproveGroupRequestAsync(context.Flag, context.SubRequestType);     // 自动同意群聊邀请
             });
 
-            session.UseGroupMessage(我的一堆中间件.WaterWaterWater);
 
             await session.ConnectAsync();
-
-            //rHttpSession.Start();
 
             while (true)
                 Console.ReadKey(true);
