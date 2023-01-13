@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    internal class CqMarkMessageAsReadAction : CqAction
+    public class CqMarkMessageAsReadAction : CqAction
     {
         public CqMarkMessageAsReadAction(long messageId)
         {
