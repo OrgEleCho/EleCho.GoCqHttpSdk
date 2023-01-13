@@ -6,10 +6,13 @@
 		<LangVersion>latest</LangVersion>
 		<Authors>SlimeNull</Authors>
 		<Company>SlimeNull</Company>
-		<Description>.NET SDK for go-cqhttp. go-cqhttp 的 .NET SDK</Description>
+		<Description>Go-CqHttp 的 .NET SDK</Description>
 		<RepositoryUrl>https://github.com/SlimeNull/EleCho.GoCqHttpSdk</RepositoryUrl>
-		<Version>1.0.0-alpha1</Version>
+		<Version>1.0.0-alpha2</Version>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Copyright>Copyright (c) EleCho 2023</Copyright>
+		<PackageProjectUrl>https://github.com/EleChoNet/EleCho.GoCqHttpSdk</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -30,6 +33,13 @@
 
 	<ItemGroup Condition="'$(TargetFramework)'=='net462'">
 	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
