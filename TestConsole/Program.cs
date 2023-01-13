@@ -5,6 +5,7 @@ using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -70,8 +71,12 @@ namespace TestConsole
                     throw new Exception($"{actionParamsModel.FullName} 是 public");
 
             foreach (var actionResult in cqActionResultTypes)
+            {
                 if (!actionResult.IsPublic)
                     throw new Exception($"{actionResult.FullName} 不是 public");
+                if (actionResult.GetConstructors().Length > 0)
+                    throw new Exception($"{actionResult} 有公共的构造函数!");
+            }
 
             foreach (var actionResultDataModel in cqActionResultDataModelTypes)
                 if (actionResultDataModel.IsPublic)
