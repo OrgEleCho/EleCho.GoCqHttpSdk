@@ -3,14 +3,14 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    public class CqGetStrangerInfoAction : CqAction
+    public class CqGetStrangerInformationAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetStrangerInfo;
+        public override CqActionType Type => CqActionType.GetStrangerInformation;
 
         public long UserId { get; set; }
         public bool NoCache { get; set; }
 
-        public CqGetStrangerInfoAction(long userId, bool noCache)
+        public CqGetStrangerInformationAction(long userId, bool noCache)
         {
             UserId = userId;
             NoCache = noCache;
@@ -18,7 +18,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqGetStrangerInfoActionParamsModel(UserId, NoCache);
+            return new CqGetStrangerInformationActionParamsModel(UserId, NoCache);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    public class CqGetStrangerInfoActionResult : CqActionResult
+    public class CqGetStrangerInformationActionResult : CqActionResult
     {
 
         //QQ 号
@@ -21,12 +21,12 @@ namespace EleCho.GoCqHttpSdk.Action
         //等级
         public int LoginDays { get; set; }
 
-        internal CqGetStrangerInfoActionResult()
+        internal CqGetStrangerInformationActionResult()
         { }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
-            if (model is CqGetStrangerInfoActionResultDataModel dataModel)
+            if (model is CqGetStrangerInformationActionResultDataModel dataModel)
             {
                 UserId = dataModel.user_id;
                 Nickname = dataModel.nickname;

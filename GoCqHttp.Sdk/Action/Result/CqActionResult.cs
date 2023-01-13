@@ -48,6 +48,7 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetForwardMsg => new CqGetForwardMessageActionResult(),
                 GetImage => new CqGetImageActionResult(),
                 GetLoginInfo => new CqGetLoginInformationActionResult(),
+                GetStrangerInfo => new CqGetStrangerInformationActionResult(),
 
                 SetGroupBan => new CqBanGroupMemberActionResult(),
                 SetGroupAnonymousBan => new CqBanGroupAnonymousMemberActionResult(),
@@ -67,7 +68,6 @@ namespace EleCho.GoCqHttpSdk.Action
                 
                 SendGroupSign => new CqGroupSignInActionResult(),
 
-                GetStrangerInfo => new CqGetStrangerInfoActionResult(),
                 
 
                 _ => throw new NotImplementedException()

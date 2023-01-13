@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
-    internal class CqGetStrangerInfoActionResultDataModel : CqActionResultDataModel
+    internal class CqGetStrangerInformationActionResultDataModel : CqActionResultDataModel
     {
-        public CqGetStrangerInfoActionResultDataModel(long user_id, string nickname, string sex, int age, string qid, int level, int login_days)
+        public CqGetStrangerInformationActionResultDataModel(long user_id, string nickname, string sex, int age, string qid, int level, int login_days)
         {
             this.user_id = user_id;
             this.nickname = nickname;

@@ -1,8 +1,8 @@
 ﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqGetStrangerInfoActionParamsModel : CqActionParamsModel
+    internal class CqGetStrangerInformationActionParamsModel : CqActionParamsModel
     {
-        public CqGetStrangerInfoActionParamsModel(long user_id, bool no_cache)
+        public CqGetStrangerInformationActionParamsModel(long user_id, bool no_cache)
         {
             this.user_id = user_id;
             this.no_cache = no_cache;

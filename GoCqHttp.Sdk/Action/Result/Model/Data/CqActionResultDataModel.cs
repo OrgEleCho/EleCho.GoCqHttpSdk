@@ -25,6 +25,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
                 GetForwardMsg => JsonSerializer.Deserialize<CqGetForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),
                 GetImage => JsonSerializer.Deserialize<CqGetImageActionResultDataModel>(dataValue, JsonHelper.Options),
                 GetLoginInfo => JsonSerializer.Deserialize<CqGetLoginInformationActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetStrangerInfo => JsonSerializer.Deserialize<CqGetStrangerInformationActionResultDataModel>(dataValue, JsonHelper.Options),
 
                 SetGroupBan => JsonSerializer.Deserialize<CqBanGroupMemberActionResultDataModel>(dataValue, JsonHelper.Options),
                 SetGroupAnonymousBan => JsonSerializer.Deserialize<CqBanGroupAnonymousMemberActionResultDataModel>(dataValue, JsonHelper.Options),
@@ -44,7 +45,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
 
                 SendGroupSign => JsonSerializer.Deserialize<CqGroupSignInActionResultDataModel>(dataValue, JsonHelper.Options),
 
-                GetStrangerInfo => JsonSerializer.Deserialize<CqGetStrangerInfoActionResultDataModel>(dataValue, JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

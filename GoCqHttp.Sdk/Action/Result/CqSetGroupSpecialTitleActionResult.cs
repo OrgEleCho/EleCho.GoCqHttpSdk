@@ -2,7 +2,7 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    internal class CqSetGroupSpecialTitleActionResult : CqActionResult
+    public class CqSetGroupSpecialTitleActionResult : CqActionResult
     {
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

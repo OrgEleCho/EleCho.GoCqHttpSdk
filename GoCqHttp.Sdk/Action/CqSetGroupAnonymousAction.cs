@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    internal class CqSetGroupAnonymousAction : CqAction
+    public class CqSetGroupAnonymousAction : CqAction
     {
+        public CqSetGroupAnonymousAction(long groupId, bool enable)
+        {
+            GroupId = groupId;
+            Enable = enable;
+        }
+
         public override CqActionType Type => CqActionType.SetGroupAnonymous;
 
         public long GroupId { get; set; }

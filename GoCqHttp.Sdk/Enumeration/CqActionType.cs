@@ -25,6 +25,6 @@
         SetGroupSpecialTitle,
         GroupSignIn,
         GetLoginInformation,
-        GetStrangerInfo
+        GetStrangerInformation
     }
 }
