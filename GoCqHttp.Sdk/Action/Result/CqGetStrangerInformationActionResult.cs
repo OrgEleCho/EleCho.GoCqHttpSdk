@@ -9,20 +9,20 @@ namespace EleCho.GoCqHttpSdk.Action
         //QQ 号
         public long UserId { get; set; }
         //昵称
-        public string Nickname { get; set; }
+        public string Nickname { get; set; } = null!;
         //性别, male 或 female 或 unknown
-        public string Sex { get; set; }
+        public string Sex { get; set; } = null!;
         //年龄
         public int Age { get; set; }
         //qid ID身份卡
-        public string Qid { get; set; }
+        public string Qid { get; set; } = null!;
         //等级
         public int Level { get; set; }
         //等级
         public int LoginDays { get; set; }
 
-        internal CqGetStrangerInformationActionResult()
-        { }
+
+        internal CqGetStrangerInformationActionResult() { }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

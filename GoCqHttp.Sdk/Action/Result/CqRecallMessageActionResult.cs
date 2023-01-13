@@ -4,6 +4,10 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqRecallMessageActionResult : CqActionResult
     {
+        internal CqRecallMessageActionResult()
+        {
+        }
+
         internal override void ReadDataModel(CqActionResultDataModel? model)
         { }
     }

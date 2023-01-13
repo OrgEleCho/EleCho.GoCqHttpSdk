@@ -9,6 +9,8 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public abstract class CqActionResult
     {
+        internal CqActionResult() { }
+
         public CqActionStatus Status { get; set; }
         public CqActionRetCode RetCode { get; set; }
         /// <summary>

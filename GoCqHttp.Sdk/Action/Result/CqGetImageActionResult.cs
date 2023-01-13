@@ -5,11 +5,10 @@ namespace EleCho.GoCqHttpSdk.Action
     public class CqGetImageActionResult : CqActionResult
     {
         public int Size { get; set; }
-        public string Filename { get; set; }
-        public string Url { get; set; }
-
-        internal CqGetImageActionResult()
-        { }
+        public string Filename { get; set; } = null!;
+        public string Url { get; set; } = null!;
+        
+        internal CqGetImageActionResult() { }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

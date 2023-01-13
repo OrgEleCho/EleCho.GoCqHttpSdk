@@ -1,6 +1,4 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model;
-using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;
@@ -16,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
     public class CqWsActionSender : CqActionSender
     {
         // 响应存储
-        private Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
+        private readonly Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
 
         // 基础套接字
         public WebSocket Ws { get; }

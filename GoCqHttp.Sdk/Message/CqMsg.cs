@@ -118,6 +118,7 @@ namespace EleCho.GoCqHttpSdk.Message
             }
 
             CqMsg rst;
+#pragma warning disable CS0618 // Type or member is obsolete
             rst = model.type switch
             {
                 Consts.MsgType.Text => new CqTextMsg(),
@@ -148,6 +149,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
                 _ => new CqTextMsg(),
             };
+#pragma warning restore CS0618 // Type or member is obsolete
 
             rst.ReadDataModel(model.data);
             return rst;

@@ -13,15 +13,12 @@ namespace EleCho.GoCqHttpSdk.Action
         
         public long MessageId { get; set; }
         public int RealId { get; set; }
-        public CqMessageSender Sender { get; set; }
+        public CqMessageSender Sender { get; set; } = null!;
         public DateTime Time { get; set; }
-        public CqMsg[] Message { get; set; }
-        public string RawMessage { get; set; }
+        public CqMsg[] Message { get; set; } = null!;
+        public string RawMessage { get; set; } = null!;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        internal CqGetMessageActionResult()
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        { }
+        internal CqGetMessageActionResult() { }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

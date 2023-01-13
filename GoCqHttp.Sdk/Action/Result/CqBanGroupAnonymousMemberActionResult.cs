@@ -9,6 +9,8 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqBanGroupAnonymousMemberActionResult : CqActionResult
     {
+        internal CqBanGroupAnonymousMemberActionResult() { }
+
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
             // no data

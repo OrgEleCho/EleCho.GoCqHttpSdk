@@ -4,6 +4,8 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendMessageActionResult : CqActionResult
     {
+        internal CqSendMessageActionResult() { }
+
         public long MessageId { get; set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

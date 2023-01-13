@@ -9,6 +9,8 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSetGroupNameActionResult : CqActionResult
     {
+        internal CqSetGroupNameActionResult() { }
+
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
             // no data

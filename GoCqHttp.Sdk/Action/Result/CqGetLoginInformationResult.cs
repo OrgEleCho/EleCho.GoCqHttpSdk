@@ -9,6 +9,8 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetLoginInformationActionResult : CqActionResult
     {
+        internal CqGetLoginInformationActionResult() { }
+
         public long UserId { get; set; }
         public string Nickname { get; set; } = null!;
 

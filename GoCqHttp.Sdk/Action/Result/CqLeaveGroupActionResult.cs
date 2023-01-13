@@ -9,6 +9,10 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqLeaveGroupActionResult : CqActionResult
     {
+        internal CqLeaveGroupActionResult()
+        {
+        }
+
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
             // no data
