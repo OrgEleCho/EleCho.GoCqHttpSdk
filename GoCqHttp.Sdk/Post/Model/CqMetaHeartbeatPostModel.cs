@@ -9,6 +9,8 @@ namespace EleCho.GoCqHttpSdk.Post.Model
     {
         public override string meta_event_type => Consts.MetaEventType.Heartbeat;
 
+        public CqStatusModel status { get; set; }
+
         /// <summary>
         /// ms
         /// </summary>
