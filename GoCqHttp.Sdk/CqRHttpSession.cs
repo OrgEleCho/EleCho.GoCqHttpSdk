@@ -30,19 +30,22 @@ namespace EleCho.GoCqHttpSdk
 
         public CqRHttpSession(CqRHttpSessionOptions options)
         {
+            if (options.BaseUri == null)
+                throw new ArgumentNullException(nameof(options.BaseUri), "BaseUri can't be null");
+
             baseUri = options.BaseUri;
             secret = options.Secret;
             postPipeline = new CqPostPipeline();
 
             listener = new HttpListener();
-            listener.Prefixes.Add(baseUri.ToString());
+            listener.Prefixes.Add(baseUri.ToString());        // 之所以让用户传入 Uri 又自己转为 String, 是为了避免用户少写一个 "/" 而报错 (Uri 会自动补上这个
 
             if (secret != null)
             {
                 byte[] tokenBin = Encoding.UTF8.GetBytes(secret);
                 sha1 = new HMACSHA1(tokenBin);
             }
-
+            
             _ = HttpListenerLoopAsync();
         }
 
