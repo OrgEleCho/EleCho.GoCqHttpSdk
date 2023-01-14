@@ -16,8 +16,8 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         {
             this.text = text;
         }
-        
-        public string text { get; set; }
+
+        public string text { get; set; } = string.Empty;
 
         public static CqTtsMsgDataModel FromCqCode(CqCode code)
         {
