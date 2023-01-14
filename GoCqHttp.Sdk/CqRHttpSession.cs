@@ -16,14 +16,14 @@ namespace EleCho.GoCqHttpSdk
     public class CqRHttpSession : CqSession, ICqPostSession
     {
         readonly Uri baseUri;
-        readonly string? accessToken;
+        readonly string? secret;
         CqPostPipeline postPipeline;
         HMACSHA1? sha1;
 
         private HttpListener listener;
 
         public Uri BaseUri => baseUri;
-        public string? AccessToken { get; set; }
+        public string? Secret { get; set; }
         public HttpListener Listener => listener;
 
         public CqPostPipeline PostPipeline => postPipeline;
@@ -31,15 +31,15 @@ namespace EleCho.GoCqHttpSdk
         public CqRHttpSession(CqRHttpSessionOptions options)
         {
             baseUri = options.BaseUri;
-            accessToken = options.AccessToken;
+            secret = options.Secret;
             postPipeline = new CqPostPipeline();
 
             listener = new HttpListener();
             listener.Prefixes.Add(baseUri.ToString());
 
-            if (accessToken != null)
+            if (secret != null)
             {
-                byte[] tokenBin = Encoding.UTF8.GetBytes(accessToken);
+                byte[] tokenBin = Encoding.UTF8.GetBytes(secret);
                 sha1 = new HMACSHA1(tokenBin);
             }
 
