@@ -87,6 +87,9 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqGroupSignInAction, CqGroupSignInActionResult>(new CqGroupSignInAction(groupId));
         public static Task<CqSetAccountProfileActionResult?> SetAccountProfile(this ICqActionSession session, string nickname, string company, string email, string college, string personalNote)
             => session.InvokeActionAsync<CqSetAccountProfileAction, CqSetAccountProfileActionResult>(new CqSetAccountProfileAction(nickname, company, email, college, personalNote));
-
+        public static Task<CqGetFriendListActionResult?> GetFriendListAsync(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetFriendListAction, CqGetFriendListActionResult>(new CqGetFriendListAction());
+        public static Task<CqGetUnidirectionalFriendListActionResult?> GetUnidirectionalFriendListAsync(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetUnidirectionalFriendListAction, CqGetUnidirectionalFriendListActionResult>(new CqGetUnidirectionalFriendListAction());
     }
 }

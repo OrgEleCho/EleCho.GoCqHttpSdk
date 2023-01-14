@@ -144,6 +144,8 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.GetLoginInformation => GetLoginInfo,
                 CqActionType.GetStrangerInformation => GetStrangerInfo,
                 CqActionType.SetAccountProfile => SetQqProfile,
+                CqActionType.GetFriendList => GetFriendList,
+                CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
                 
                 _ => null,
             };

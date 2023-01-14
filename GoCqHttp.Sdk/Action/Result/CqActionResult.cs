@@ -51,6 +51,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetImage => new CqGetImageActionResult(),
                 GetLoginInfo => new CqGetLoginInformationActionResult(),
                 GetStrangerInfo => new CqGetStrangerInformationActionResult(),
+                GetFriendList => new CqGetFriendListActionResult(),
+                GetUnidirectionalFriendList => new CqGetUnidirectionalFriendListActionResult(),
 
                 SetGroupBan => new CqBanGroupMemberActionResult(),
                 SetGroupAnonymousBan => new CqBanGroupAnonymousMemberActionResult(),

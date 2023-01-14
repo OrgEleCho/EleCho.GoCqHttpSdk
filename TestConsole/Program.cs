@@ -4,6 +4,8 @@ using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -29,10 +31,25 @@ namespace TestConsole
 
         private static async Task Main(string[] args)
         {
+            CqRHttpSession cqRHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
+            {
+                BaseUri = new Uri("http://127.0.0.1:11451")
+            });
+
+            cqRHttpSession.UseAny(async (context, next) =>
+            {
+                Console.WriteLine(context);
+            });
+
+            cqRHttpSession.Start();
+
+            Console.ReadLine();
+
+
+            
             Assembly asm = typeof(CqWsSession).Assembly;
             CheckAssemblyTypes(asm);
-
-
+            
             var manyMiddlewares = new ManyMiddlewares(httpSession);
 
             session.UsePlugin(new MyPostPlugin());
@@ -46,25 +63,10 @@ namespace TestConsole
 
             await session.ConnectAsync();
 
-            foreach (var c in "哼哼哼啊啊啊啊啊啊啊啊啊")
-            {
-                await session.SetGroupSpecialTitle(687864919, 1587496147, c.ToString());
-                await Task.Delay(3000);
-            }
-
-
-            await session.SetGroupSpecialTitle(687864919, 1587496147, "设置啥好呢...");
-            await Task.Delay(2500);
-            await session.SetGroupSpecialTitle(687864919, 1587496147, ".");
-            await Task.Delay(2500);
-            await session.SetGroupSpecialTitle(687864919, 1587496147, "..");
-            await Task.Delay(2500);
-            await session.SetGroupSpecialTitle(687864919, 1587496147, "...");
-            await Task.Delay(2500);
-            await session.SetGroupSpecialTitle(687864919, 1587496147, "那就合法正太吧~");
-            await Task.Delay(1500);
-            await session.SetGroupSpecialTitle(687864919, 1587496147, "合法正太");
-            await Task.Delay(1500);
+            var friends = (await session.GetFriendListAsync())?.Friends ?? throw new Exception("无法获取好友列表");
+            Console.WriteLine("好友列表:");
+            foreach (var friend in friends)
+                Console.WriteLine($"QQ: {friend.UserId}, 昵称: {friend.Nickname}");
 
             while (true)
                 Console.ReadKey(true);

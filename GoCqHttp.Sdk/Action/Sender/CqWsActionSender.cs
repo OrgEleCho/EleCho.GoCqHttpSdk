@@ -63,7 +63,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
 
                 try
                 {
-                    string rstjson = GlobalConfig.TextEncoding.GetString(wsMs!.ToArray()); // 文本
+                    string rstjson = GlobalConfig.TextEncoding.GetString(wsMs.ToArray()); // 文本
                     CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.Options);
                     if (resultRaw != null)
                         PutResult(resultRaw);

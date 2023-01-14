@@ -1,6 +1,6 @@
-﻿using EleCho.GoCqHttpSdk.Utils;
-using System;
+﻿using System;
 using System.Text.Json;
+using EleCho.GoCqHttpSdk.Utils;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Data
@@ -26,6 +26,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
                 GetImage => JsonSerializer.Deserialize<CqGetImageActionResultDataModel>(dataValue, JsonHelper.Options),
                 GetLoginInfo => JsonSerializer.Deserialize<CqGetLoginInformationActionResultDataModel>(dataValue, JsonHelper.Options),
                 GetStrangerInfo => JsonSerializer.Deserialize<CqGetStrangerInformationActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetFriendList => JsonSerializer.Deserialize<CqGetFriendListActionResultDataModel>(dataValue, JsonHelper.Options),
+                GetUnidirectionalFriendList => JsonSerializer.Deserialize<CqGetUnidirectionalFriendListActionResultDataModel>(dataValue, JsonHelper.Options),
 
                 SetGroupBan => JsonSerializer.Deserialize<CqBanGroupMemberActionResultDataModel>(dataValue, JsonHelper.Options),
                 SetGroupAnonymousBan => JsonSerializer.Deserialize<CqBanGroupAnonymousMemberActionResultDataModel>(dataValue, JsonHelper.Options),

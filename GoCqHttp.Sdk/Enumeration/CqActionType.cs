@@ -26,6 +26,8 @@
         GroupSignIn,
         GetLoginInformation,
         GetStrangerInformation,
-        SetAccountProfile
+        SetAccountProfile,
+        GetFriendList,
+        GetUnidirectionalFriendList
     }
 }

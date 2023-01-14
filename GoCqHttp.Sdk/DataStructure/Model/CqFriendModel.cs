@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.DataStructure.Model
+namespace EleCho.GoCqHttpSdk.Model
 {
     internal class CqFriendModel
     {
@@ -17,8 +17,8 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
             this.remark = remark;
         }
 
-        long user_id { get; set; }
-        string nickname { get; set; }
-        string remark { get; set; }
+        public long user_id { get; set; }
+        public string nickname { get; set; }
+        public string remark { get; set; }
     }
 }

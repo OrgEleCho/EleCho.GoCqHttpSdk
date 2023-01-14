@@ -67,6 +67,8 @@
             public const string GetForwardMsg = "get_forward_msg";
             public const string GetImage = "get_image";
             public const string GetLoginInfo = "get_login_info";
+            public const string GetFriendList = "get_friend_list";
+            public const string GetUnidirectionalFriendList = "get_unidirectional_friend_list";
 
             public const string SetGroupBan = "set_group_ban";
             public const string SetGroupAnonymousBan = "set_group_anonymous_ban";
