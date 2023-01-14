@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqGetStrangerInformationActionResultDataModel : CqActionResultDataModel
     {
+        [JsonConstructor]
         public CqGetStrangerInformationActionResultDataModel(long user_id, string nickname, string sex, int age, string qid, int level, int login_days)
         {
             this.user_id = user_id;

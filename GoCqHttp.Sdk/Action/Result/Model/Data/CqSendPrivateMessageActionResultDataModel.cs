@@ -1,7 +1,12 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Data
+﻿using System.Text.Json.Serialization;
+
+namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
     internal class CqSendPrivateMessageActionResultDataModel : CqSendMessageActionResultDataModel
     {
-        // 继承父类属性
+        [JsonConstructor]
+        public CqSendPrivateMessageActionResultDataModel(long message_id) : base(message_id)
+        {
+        }
     }
 }

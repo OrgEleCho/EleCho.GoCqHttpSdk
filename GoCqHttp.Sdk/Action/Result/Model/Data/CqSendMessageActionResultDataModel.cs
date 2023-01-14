@@ -1,5 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Post;
+using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
@@ -8,6 +9,12 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
     /// </summary>
     internal class CqSendMessageActionResultDataModel : CqActionResultDataModel
     {
+        [JsonConstructor]
+        public CqSendMessageActionResultDataModel(long message_id)
+        {
+            this.message_id = message_id;
+        }
+
         public long message_id { get; set; }
     }
 }
