@@ -15,8 +15,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long OperatorId { get; set; }
         public TimeSpan Duration { get; set; }
 
-        internal CqGroupBanChangedPostContext()
-        { }
+        internal CqGroupBanChangedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

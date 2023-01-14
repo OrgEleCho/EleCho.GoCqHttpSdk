@@ -12,8 +12,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long OperatorId { get; set; }
         public long MessageId { get; set; }
 
-        internal CqGroupMessageRecalledPostContext()
-        { }
+        internal CqGroupMessageRecalledPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

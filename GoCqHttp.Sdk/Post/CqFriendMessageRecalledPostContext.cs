@@ -9,8 +9,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long UserId { get; set; }
         public long MessageId { get; set; }
 
-        internal CqFriendMessageRecalledPostContext()
-        { }
+        internal CqFriendMessageRecalledPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

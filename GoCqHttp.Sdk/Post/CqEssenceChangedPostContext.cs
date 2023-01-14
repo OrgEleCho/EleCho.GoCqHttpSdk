@@ -5,6 +5,8 @@ namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqEssenceChangedPostContext : CqNoticePostContext
     {
+        internal CqEssenceChangedPostContext() { }
+
         public override CqNoticeType NoticeType => CqNoticeType.Essence;
 
         public CqEssenceChangeType ChangeType { get; set; }

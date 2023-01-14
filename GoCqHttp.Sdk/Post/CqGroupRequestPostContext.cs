@@ -6,15 +6,14 @@ namespace EleCho.GoCqHttpSdk.Post
     public class CqGroupRequestPostContext : CqRequestPostContext
     {
         public override CqRequestType RequestType => CqRequestType.Group;
-
-        internal CqGroupRequestPostContext()
-        { }
+        
+        internal CqGroupRequestPostContext() { }
 
         public CqGroupRequestType SubRequestType { get; set; }
         public long GroupId { get; set; }
         public long UserId { get; set; }
-        public string Comment { get; set; }
-        public string Flag { get; set; }
+        public string Comment { get; set; } = string.Empty;
+        public string Flag { get; set; } = string.Empty;
 
         internal override void ReadModel(CqPostModel model)
         {

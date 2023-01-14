@@ -9,11 +9,10 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public long GroupId { get; set; }
         public long UserId { get; set; }
-        public string NewCard { get; set; }
-        public string OldCard { get; set; }
-
-        internal CqGroupMemberCardChangedPostContext()
-        { }
+        public string NewCard { get; set; } = string.Empty;
+        public string OldCard { get; set; } = string.Empty;
+        
+        internal CqGroupMemberCardChangedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

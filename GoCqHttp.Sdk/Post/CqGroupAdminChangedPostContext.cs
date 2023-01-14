@@ -11,8 +11,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long GroupId { get; set; }
         public long UserId { get; set; }
 
-        internal CqGroupAdminChangedPostContext()
-        { }
+        internal CqGroupAdminChangedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

@@ -8,8 +8,9 @@ namespace EleCho.GoCqHttpSdk.Post
     {
         public override CqNoticeType NoticeType => CqNoticeType.ClientStatus;
 
-        internal CqClientStatusChangedPostContext()
-        { }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        internal CqClientStatusChangedPostContext() { }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         public bool IsOnline { get; set; }
         public CqDevice Client { get; set; }

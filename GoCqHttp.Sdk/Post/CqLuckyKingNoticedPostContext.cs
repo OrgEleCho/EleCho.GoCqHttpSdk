@@ -12,8 +12,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long TargetId { get; set; }
 
 
-        internal CqLuckyKingNoticedPostContext()
-        { }
+        internal CqLuckyKingNoticedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

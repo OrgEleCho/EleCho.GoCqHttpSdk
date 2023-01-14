@@ -11,8 +11,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long UserId { get; set; }
         public long OperatorId { get; set; }
 
-        internal CqGroupMemberDecreasedPostContext()
-        { }
+        internal CqGroupMemberDecreasedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

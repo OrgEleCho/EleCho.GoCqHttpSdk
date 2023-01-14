@@ -9,11 +9,10 @@ namespace EleCho.GoCqHttpSdk.Post
         public override CqRequestType RequestType => CqRequestType.Friend;
 
         public long UserId { get; set; }
-        public string Comment { get; set; }
-        public string Flag { get; set; }
-
-        internal CqFriendRequestPostContext()
-        { }
+        public string Comment { get; set; } = string.Empty;
+        public string Flag { get; set; } = string.Empty;
+        
+        internal CqFriendRequestPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {
