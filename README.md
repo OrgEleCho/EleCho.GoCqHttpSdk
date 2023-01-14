@@ -1,16 +1,30 @@
+<div align="center">
+
 # EleCho.GoCqHttpSdk
 
-欸嘿, 是 `go-cqhttp` 的一个 .NET SDK! (但是目前仍在开发中qwq)
+_✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷于优雅的通信 SDK ✨_
+
+![LICENSE](https://img.shields.io/github/license/EleChoNet/EleCho.GoCqHttpSdk) 
+![nuget](https://img.shields.io/nuget/vpre/EleCho.GoCqHttpSdk)
+
+</div>
+
+## 简介:
+
+虽然有很多的 OneBot 通信 SDK, 但没有一个是专为 `go-cqhttp` 打造的 .NET SDK. 秉持着 C# 的优雅开发理念, 这个库诞生了.
+
+用户可以享受到完全遵守 C# 编码风格, 高度封装的各种接口, 以及优化过命名的接口, 事件, 数据成员, 枚举类型等.
 
 > 如果你不了解 `go-cqhttp`, 可以从这里了解一下: [go-cqhttp 文档](https://docs.go-cqhttp.org/) / [go-cqhttp 仓库](https://github.com/Mrs4s/go-cqhttp)
 
-## 支持:
-
-协议支持: 正反向 HTTP 与正向 WebSocket.
-
-> 同时支持 `array(json)` 格式和 `string` 格式上报数据.
-
 ## 使用:
+
+你可以在 nuget.org 下载到本库的发布包, 也可以直接在 Visual Studio 中为项目添加引用.
+
+> 目前库仍处于开发阶段, 你需要勾选 "包含预发布版本" 才能搜索到结果
+
+> 协议支持: 正反向 HTTP 与正向 WebSocket. \
+> 上报格式支持 `array(json)`, `string`.
 
 ### 连接
 
@@ -139,6 +153,7 @@ session.UsePlugin(new MyPostPlugin());
 ### 小提示
 
 1. `CqMsg` 类中包含了对于消息的一写帮助方法, 例如将多个 CqMsg 拼合为一个 CqMsg[], 或者从 CQ 码转换为 CqMsg[]
+2. `CqFaceMsg` 是 QQ 小黄脸消息, 它还提供了从中文名称转换为对应类型的方法, 例如 "斜眼笑", "可怜" 等中文名称.
 
 ## 项目
 
@@ -193,9 +208,13 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 如果你有什么好的想法, 也可以直接提交一个 PR, 我们一起来完善这个项目吧!
 
+> 球球了, 有问题请直接提出来, 不要犹豫, 咱真的很需要用户意见, 尤其是如何提升这个库的 "优雅程度".
+
 ### 编写规范
 
 下面是编写时可能提供帮助的一些规范:
+
+> 虽然库的有些内部代码真的很丑(例如命名), 但这是为了外部访问的便捷而做出的妥协, 实属无奈之举.
 
 #### 各个文件夹的内容
 
