@@ -47,6 +47,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
                 SetQqProfile => JsonSerializer.Deserialize<CqSetAccountProfileActionResultDataModel>(dataValue, JsonHelper.Options),
 
                 SendGroupSign => JsonSerializer.Deserialize<CqGroupSignInActionResultDataModel>(dataValue, JsonHelper.Options),
+                
+                DeleteFriend => JsonSerializer.Deserialize<CqDeleteFriendActionResultDataModel>(dataValue, JsonHelper.Options),
+                DeleteUnidirectionalFriend => JsonSerializer.Deserialize<CqDeleteUnidirectionalFriendActionResultDataModel>(dataValue, JsonHelper.Options),
 
 
                 _ => throw new NotImplementedException()

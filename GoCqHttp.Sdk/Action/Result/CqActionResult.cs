@@ -72,6 +72,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 SetQqProfile => new CqSetAccountProfileActionResult(),
                 
                 SendGroupSign => new CqGroupSignInActionResult(),
+                DeleteFriend => new CqDeleteFriendActionResult(),
+                DeleteUnidirectionalFriend => new CqDeleteUnidirectionalFriendActionResult(),
                 
 
                 _ => throw new NotImplementedException()

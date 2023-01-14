@@ -28,6 +28,8 @@
         GetStrangerInformation,
         SetAccountProfile,
         GetFriendList,
-        GetUnidirectionalFriendList
+        GetUnidirectionalFriendList,
+        DeleteFriend,
+        DeleteUnidirectionalFriend
     }
 }

@@ -138,7 +138,6 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.SetGroupAnonymous => SetGroupAnonymous,
                 CqActionType.SetGroupNickname => SetGroupCard,
                 CqActionType.SetGroupName => SetGroupName,
-                CqActionType.LeaveGroup => SetGroupLeave,
                 CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
                 CqActionType.GroupSignIn => SendGroupSign,
                 CqActionType.GetLoginInformation => GetLoginInfo,
@@ -146,8 +145,12 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.SetAccountProfile => SetQqProfile,
                 CqActionType.GetFriendList => GetFriendList,
                 CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
-                
-                _ => null,
+
+                CqActionType.LeaveGroup => SetGroupLeave,
+                CqActionType.DeleteFriend => DeleteFriend,
+                CqActionType.DeleteUnidirectionalFriend => DeleteUnidirectionalFriend,
+
+                _ => throw new ArgumentException($"Unknown Action type: {type}")
             };
         }
 

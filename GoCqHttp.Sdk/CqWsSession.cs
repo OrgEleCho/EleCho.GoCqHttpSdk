@@ -18,14 +18,8 @@ namespace EleCho.GoCqHttpSdk
     /// </summary>
     public class CqWsSession : CqSession, ICqPostSession, ICqActionSession, IDisposable
     {
-        // 基础接入点地址和访问令牌
-        private readonly Uri baseUri;
-
-        // 访问令牌
-        private readonly string? accessToken;
-
-        public Uri BaseUri => baseUri;
-        public string? AccessToken => accessToken;
+        public Uri BaseUri { get; }
+        public string? AccessToken { get; }
 
         // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
@@ -33,12 +27,10 @@ namespace EleCho.GoCqHttpSdk
         private ClientWebSocket? apiWebSocketClient;
         private ClientWebSocket? eventWebSocketClient;
 
-
-        private bool isConnected;
-        public bool IsConnected => isConnected;
+        public bool IsConnected { get; private set; }
 
         // websocket 缓冲区大小
-        public static int BufferSize { get; set; } = 1024;
+        public int BufferSize { get; set; } = 1024;
 
         // 用来发送 API 请求
         private readonly CqWsActionSender actionSender;
@@ -51,9 +43,13 @@ namespace EleCho.GoCqHttpSdk
 
         public CqWsSession(CqWsSessionOptions options)
         {
+            if (options.BaseUri == null)
+                throw new ArgumentNullException(nameof(options.BaseUri), "BaseUri can't be null");
+
             // 设定基础地址和访问令牌
-            this.baseUri = options.BaseUri;
-            this.accessToken = options.AccessToken;
+            BaseUri = options.BaseUri;
+            AccessToken = options.AccessToken;
+            BufferSize = options.BufferSize;
 
             // 如果使用 api 接入点, 那么则初始化 api 套接字
             if (options.UseApiEndPoint)
@@ -119,9 +115,9 @@ namespace EleCho.GoCqHttpSdk
             MemoryStream ms = new MemoryStream();
             while (true)
             {
-                isConnected = webSocket2Listen.State == WebSocketState.Open;
+                IsConnected = webSocket2Listen.State == WebSocketState.Open;
                 
-                if (!isConnected)
+                if (!IsConnected)
                 {
                     await Task.Delay(100);
                     continue;
@@ -165,7 +161,7 @@ namespace EleCho.GoCqHttpSdk
         // 连接
         public async Task ConnectAsync()
         {
-            string accessTokenHeaderValue = $"Bearer {accessToken}";
+            string accessTokenHeaderValue = $"Bearer {AccessToken}";
 
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocketClient != null)
@@ -174,7 +170,7 @@ namespace EleCho.GoCqHttpSdk
                     return;
 
                 apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
-                string apiUriStr = Path.Combine(baseUri.ToString(), "api");
+                string apiUriStr = Path.Combine(BaseUri.ToString(), "api");
                 await apiWebSocketClient.ConnectAsync(new Uri(apiUriStr), default);
             }
 
@@ -185,7 +181,7 @@ namespace EleCho.GoCqHttpSdk
                     return;
 
                 eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
-                string eventUriStr = Path.Combine(baseUri.ToString(), "event");
+                string eventUriStr = Path.Combine(BaseUri.ToString(), "event");
                 await eventWebSocketClient.ConnectAsync(new Uri(eventUriStr), default);
             }
 
@@ -196,11 +192,11 @@ namespace EleCho.GoCqHttpSdk
                     return;
 
                 webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
-                await webSocketClient.ConnectAsync(baseUri, default);
+                await webSocketClient.ConnectAsync(BaseUri, default);
             }
 
             // 已连接设定为 true
-            isConnected = true;
+            IsConnected = true;
         }
 
         public async Task CloseAsync()
@@ -213,7 +209,7 @@ namespace EleCho.GoCqHttpSdk
             if (webSocketClient != null)
                 await webSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
 
-            isConnected = false;
+            IsConnected = false;
         }
 
         public void Dispose()

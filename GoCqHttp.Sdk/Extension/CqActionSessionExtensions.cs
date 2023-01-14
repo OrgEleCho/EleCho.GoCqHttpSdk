@@ -91,5 +91,9 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqGetFriendListAction, CqGetFriendListActionResult>(new CqGetFriendListAction());
         public static Task<CqGetUnidirectionalFriendListActionResult?> GetUnidirectionalFriendListAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetUnidirectionalFriendListAction, CqGetUnidirectionalFriendListActionResult>(new CqGetUnidirectionalFriendListAction());
+        public static Task<CqDeleteFriendActionResult?> DeleteFriend(this ICqActionSession session, long userId)
+            => session.InvokeActionAsync<CqDeleteFriendAction, CqDeleteFriendActionResult>(new CqDeleteFriendAction(userId));
+        public static Task<CqDeleteUnidirectionalFriendActionResult?> DeleteUnidirectionalFriend(this ICqActionSession session, long userId)
+            => session.InvokeActionAsync<CqDeleteUnidirectionalFriendAction, CqDeleteUnidirectionalFriendActionResult>(new CqDeleteUnidirectionalFriendAction(userId));
     }
 }

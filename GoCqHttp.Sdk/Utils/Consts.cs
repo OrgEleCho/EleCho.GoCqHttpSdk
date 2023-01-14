@@ -67,8 +67,12 @@
             public const string GetForwardMsg = "get_forward_msg";
             public const string GetImage = "get_image";
             public const string GetLoginInfo = "get_login_info";
+            public const string GetStrangerInfo = "get_stranger_info";
             public const string GetFriendList = "get_friend_list";
             public const string GetUnidirectionalFriendList = "get_unidirectional_friend_list";
+
+            public const string DeleteFriend = "delete_friend";
+            public const string DeleteUnidirectionalFriend = "delete_unidirectional_friend";
 
             public const string SetGroupBan = "set_group_ban";
             public const string SetGroupAnonymousBan = "set_group_anonymous_ban";
@@ -89,7 +93,6 @@
 
             public const string MarkMsgAsRead = "mark_msg_as_read";
             
-            public const string GetStrangerInfo = "get_stranger_info";
             
         }
 

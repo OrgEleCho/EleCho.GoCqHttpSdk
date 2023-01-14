@@ -136,6 +136,10 @@ session.UsePlugin(new MyPostPlugin());
 
 > 与 ICqPostSession 的拓展方法 Use 不同, 一个插件拥有处理多种类型上报的能力, 但它本质是单个中间件, 而诸如 UseGroupMessage 这种拓展方法, 在使用的时候, 会创建一个新的中间件并添加到上报处理管线.
 
+### 小提示
+
+1. `CqMsg` 类中包含了对于消息的一写帮助方法, 例如将多个 CqMsg 拼合为一个 CqMsg[], 或者从 CQ 码转换为 CqMsg[]
+
 ## 项目
 
 ### 关于数据结构
@@ -233,7 +237,8 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 1. 添加 `CqMsgType` 成员
 2. 编写它的 `CqMsg` 类
 3. 编写它的 `CqMsgDataModel` 类 (internal, 一个无参构造函数, 一个全参构造函数)
-4. 实现它在 CqMsgModelConverter 中的转换
+4. 实现它在 `CqMsgModelConverter` 中的转换
+5. 实现它在 `CqCode.ModelChainFromCqCodeString` 中的转换
 
 #### 命名规范
 

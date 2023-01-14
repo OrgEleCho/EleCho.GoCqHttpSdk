@@ -7,10 +7,14 @@ namespace EleCho.GoCqHttpSdk
     /// </summary>
     public struct CqWsSessionOptions
     {
+        public CqWsSessionOptions()
+        {
+        }
+
         /// <summary>
         /// 基础路径
         /// </summary>
-        public Uri BaseUri { get; set; }
+        public Uri? BaseUri { get; set; }
         /// <summary>
         /// 使用 /api 接入点
         /// </summary>
@@ -24,5 +28,7 @@ namespace EleCho.GoCqHttpSdk
         /// 访问令牌 (鉴权用)
         /// </summary>
         public string? AccessToken { get; set; }
+
+        public int BufferSize { get; set; } = 1024;
     }
 }

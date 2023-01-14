@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using static EleCho.GoCqHttpSdk.Utils.Consts.MsgType;
+
 namespace EleCho.GoCqHttpSdk.Message
 {
     internal class CqCode
@@ -100,7 +102,7 @@ namespace EleCho.GoCqHttpSdk.Message
             start = -1;
             offset = -1;
 
-            int startIndex = str.IndexOf("[CQ:", index);
+            int startIndex = str.IndexOf("[CQ:", index, StringComparison.OrdinalIgnoreCase);
             if (startIndex == -1)
                 return null;
 
@@ -161,31 +163,32 @@ namespace EleCho.GoCqHttpSdk.Message
 
                 CqMsgDataModel? dataModel = code.Type switch
                 {
-                    Consts.MsgType.Text => CqTextMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Image => CqImageMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Record => CqRecordMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Location => CqLocationMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Anonymous => CqAnonymousMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Face => CqFaceMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.At => CqAtMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Rps => CqRpsMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Shake => CqShakeMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.CardImage => CqCardImageMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Contact => CqContactMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Dice => CqDiceMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Forward => CqForwardMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Node => CqForwardMsgNodeDataModel.FromCqCode(code),
-                    Consts.MsgType.Gift => CqGiftMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Json => CqJsonMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Poke => CqPokeMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Redbag => CqRedEnvelopeMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Reply => CqReplyMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Share => CqShareMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Video => CqVideoMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Xml => CqXmlMsgDataModel.FromCqCode(code),
-                    Consts.MsgType.Music => CqMusicMsgDataModel.FromCqCode(code),
+                    Text => CqTextMsgDataModel.FromCqCode(code),
+                    Image => CqImageMsgDataModel.FromCqCode(code),
+                    Record => CqRecordMsgDataModel.FromCqCode(code),
+                    Location => CqLocationMsgDataModel.FromCqCode(code),
+                    Anonymous => CqAnonymousMsgDataModel.FromCqCode(code),
+                    Face => CqFaceMsgDataModel.FromCqCode(code),
+                    At => CqAtMsgDataModel.FromCqCode(code),
+                    Rps => CqRpsMsgDataModel.FromCqCode(code),
+                    Shake => CqShakeMsgDataModel.FromCqCode(code),
+                    CardImage => CqCardImageMsgDataModel.FromCqCode(code),
+                    Contact => CqContactMsgDataModel.FromCqCode(code),
+                    Dice => CqDiceMsgDataModel.FromCqCode(code),
+                    Forward => CqForwardMsgDataModel.FromCqCode(code),
+                    Node => CqForwardMsgNodeDataModel.FromCqCode(code),
+                    Gift => CqGiftMsgDataModel.FromCqCode(code),
+                    Json => CqJsonMsgDataModel.FromCqCode(code),
+                    Poke => CqPokeMsgDataModel.FromCqCode(code),
+                    Redbag => CqRedEnvelopeMsgDataModel.FromCqCode(code),
+                    Reply => CqReplyMsgDataModel.FromCqCode(code),
+                    Share => CqShareMsgDataModel.FromCqCode(code),
+                    Video => CqVideoMsgDataModel.FromCqCode(code),
+                    Xml => CqXmlMsgDataModel.FromCqCode(code),
+                    Music => CqMusicMsgDataModel.FromCqCode(code),
+                    TTS => CqTtsMsgDataModel.FromCqCode(code),
 
-                    _ => null
+                    _ => throw new ArgumentException($"Unknown CQCode type: {code.Type}"),
                 };
 
                 rst.Add(new CqMsgModel(code.Type, dataModel));

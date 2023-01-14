@@ -31,20 +31,6 @@ namespace TestConsole
 
         private static async Task Main(string[] args)
         {
-            CqRHttpSession cqRHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
-            {
-                BaseUri = new Uri("http://127.0.0.1:11451")
-            });
-
-            cqRHttpSession.UseAny(async (context, next) =>
-            {
-                Console.WriteLine(context);
-            });
-
-            cqRHttpSession.Start();
-
-            Console.ReadLine();
-
 
             
             Assembly asm = typeof(CqWsSession).Assembly;
@@ -62,6 +48,8 @@ namespace TestConsole
 
 
             await session.ConnectAsync();
+
+            await session.SendGroupMessageAsync(687864919, CqMsg.CqCodeChain("测试捏[cq:cardimage,file=C:\\Users\\slime\\Pictures\\v2-8704ed02c12ce08ea5f06599dd88cdad_r.jpg]"));
 
             var friends = (await session.GetFriendListAsync())?.Friends ?? throw new Exception("无法获取好友列表");
             Console.WriteLine("好友列表:");
