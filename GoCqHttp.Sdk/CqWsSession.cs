@@ -148,6 +148,9 @@ namespace EleCho.GoCqHttpSdk
                     // 处理 WebSocket 数据
                     ProcWsDataAsync(wsDataModel);
 
+#if DEBUG
+                    Console.WriteLine($"Received: {json}");
+#endif
 #if RELEASE
                 }
                 catch (JsonException)

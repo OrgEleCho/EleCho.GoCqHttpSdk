@@ -31,11 +31,10 @@ namespace TestConsole
 
         private static async Task Main(string[] args)
         {
-
-            
             Assembly asm = typeof(CqWsSession).Assembly;
             CheckAssemblyTypes(asm);
             
+            Console.WriteLine("逻辑测试开始运行");
             var manyMiddlewares = new ManyMiddlewares(httpSession);
 
             session.UsePlugin(new MyPostPlugin());
@@ -86,11 +85,17 @@ namespace TestConsole
                     throw new Exception($"{actionResult.FullName} 不是 public");
                 if (actionResult.GetConstructors().Length > 0)
                     throw new Exception($"{actionResult} 有公共的构造函数!");
+                if (actionResult.Namespace?.StartsWith("EleCho.GoCqHttpSdk.Action.Result") ?? throw new Exception($"怪了, {actionResult} 没命名空间"))
+                    throw new Exception($"{actionResult.FullName} 在 EleCho.GoCqHttpSdk.Action.Result 命名空间下");
             }
 
             foreach (var actionResultDataModel in cqActionResultDataModelTypes)
+            {
                 if (actionResultDataModel.IsPublic)
                     throw new Exception($"{actionResultDataModel.FullName} 是 public");
+                if (actionResultDataModel.Namespace?.StartsWith("EleCho.GoCqHttpSdk.Action.Result") ?? throw new Exception($"怪了, {actionResultDataModel} 没命名空间"))
+                    throw new Exception($"{actionResultDataModel} 命名空间不对劲");
+            }
 
             Console.WriteLine("类型访问级别检查通过");
         }
