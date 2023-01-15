@@ -21,7 +21,7 @@ namespace TestConsole
         public async Task WaterWaterWater(CqGroupMessagePostContext context, Func<Task> next)
         {
             string textMsg = context.Message.GetText();
-            Console.WriteLine(textMsg);
+            Console.WriteLine($"[Group:{context.GroupId}] {context.UserId}: {textMsg}");
 
             if (context.RawMessage.Contains('喵'))        // 喵喵复读机
             {
