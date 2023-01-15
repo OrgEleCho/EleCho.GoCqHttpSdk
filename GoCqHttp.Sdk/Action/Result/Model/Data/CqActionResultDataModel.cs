@@ -20,6 +20,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Data
                 SendMsg => JsonSerializer.Deserialize<CqSendMessageActionResultDataModel>(dataValue, JsonHelper.Options),
                 DeleteMsg => JsonSerializer.Deserialize<CqRecallMessageActionResultDataModel>(dataValue, JsonHelper.Options),
                 SendGroupForwardMsg => JsonSerializer.Deserialize<CqSendGroupForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),
+                SendPrivateForwardMsg => JsonSerializer.Deserialize<CqSendPrivateForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),
                 
                 GetMsg => JsonSerializer.Deserialize<CqGetMessageActionResultDataModel>(dataValue, JsonHelper.Options),
                 GetForwardMsg => JsonSerializer.Deserialize<CqGetForwardMessageActionResultDataModel>(dataValue, JsonHelper.Options),

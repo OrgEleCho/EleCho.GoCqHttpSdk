@@ -2,10 +2,10 @@
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Data
 {
-    internal class CqSendGroupForwardMessageActionResultDataModel : CqActionResultDataModel
+    internal class CqSendPrivateForwardMessageActionResultDataModel : CqActionResultDataModel
     {
         [JsonConstructor]
-        public CqSendGroupForwardMessageActionResultDataModel(long message_id, string forward_id)
+        public CqSendPrivateForwardMessageActionResultDataModel(long message_id, string forward_id)
         {
             this.message_id = message_id;
             this.forward_id = forward_id;
