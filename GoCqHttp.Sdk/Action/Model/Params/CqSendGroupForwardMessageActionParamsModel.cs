@@ -4,9 +4,9 @@
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqSendGroupForwardMsgActionParamsModel : CqActionParamsModel
+    internal class CqSendGroupForwardMessageActionParamsModel : CqActionParamsModel
     {
-        public CqSendGroupForwardMsgActionParamsModel(long group_id, CqMsgModel[] messages)
+        public CqSendGroupForwardMessageActionParamsModel(long group_id, CqMsgModel[] messages)
         {
             this.group_id = group_id;
             this.messages = messages;
