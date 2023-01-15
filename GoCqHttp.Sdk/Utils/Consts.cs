@@ -62,6 +62,7 @@
             public const string SendMsg = "send_msg";
             public const string DeleteMsg = "delete_msg";
             public const string SendGroupForwardMsg = "send_group_forward_msg";
+            public const string SendPrivateForwardMsg = "send_private_forward_msg";
 
             public const string GetMsg = "get_msg";
             public const string GetForwardMsg = "get_forward_msg";
