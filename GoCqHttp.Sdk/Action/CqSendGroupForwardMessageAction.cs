@@ -7,9 +7,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    public class CqSendGroupForwardMsgAction : CqAction
+    public class CqSendGroupForwardMessageAction : CqAction
     {
-        public CqSendGroupForwardMsgAction(long groupId, CqForwardMessageNode[] messages)
+        public CqSendGroupForwardMessageAction(long groupId, CqForwardMessageNode[] messages)
         {
             GroupId = groupId;
             Messages = messages;
