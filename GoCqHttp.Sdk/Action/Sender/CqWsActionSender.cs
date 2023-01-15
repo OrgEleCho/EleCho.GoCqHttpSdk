@@ -1,13 +1,14 @@
-﻿using EleCho.GoCqHttpSdk.Action.Model;
-using EleCho.GoCqHttpSdk.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net.WebSockets;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Action.Model;
+using EleCho.GoCqHttpSdk.Model;
+using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Utils;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
@@ -16,17 +17,22 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         // 响应存储
         private readonly Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
 
-        // 基础套接字
-        public WebSocket Ws { get; }
+        // 父 Session
+        public CqWsSession? Session { get; }
 
+        // 基础套接字
+        public WebSocket Connection { get; }
+
+        // 是否读取结果
         public bool ReadResult { get; }
 
         // 响应等待超时
         public TimeSpan WaitTimeout { get; set; } = GlobalConfig.WaitTimeout;
 
-        public CqWsActionSender(WebSocket ws, bool readResult)
+        public CqWsActionSender(CqWsSession? session, WebSocket connection, bool readResult)
         {
-            Ws = ws;
+            Session = session;
+            Connection = connection;
             ReadResult = readResult;
             results = new Dictionary<string, (AutoResetEvent, CqActionResultRaw?)>();
 
@@ -41,7 +47,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
 
             while (true)
             {
-                if (Ws.State != WebSocketState.Open)
+                if (Connection.State != WebSocketState.Open)
                 {
                     await Task.Delay(100);
                     continue;
@@ -52,7 +58,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 {
 #endif
                     wsMs.SetLength(0);
-                    await Ws.ReadMessageAsync(wsMs, wsBuffer, default);
+                    await Connection.ReadMessageAsync(wsMs, wsBuffer, default);
 #if RELEASE
                 }
                 catch
@@ -64,12 +70,14 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 try
                 {
                     string rstjson = GlobalConfig.TextEncoding.GetString(wsMs.ToArray()); // 文本
-                    CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, JsonHelper.Options);
-                    if (resultRaw != null)
-                        PutResult(resultRaw);
+                    CqWsDataModel? resultRaw = JsonSerializer.Deserialize<CqWsDataModel>(rstjson, JsonHelper.Options);
+                    if (resultRaw is CqActionResultRaw rstRaw)
+                        PutResult(rstRaw);
+                    else if (resultRaw is CqPostModel postModel)
+                        Session?.ProcPostModelAsync(postModel);
                     
 #if DEBUG
-                    Debug.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
+                    Console.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
 #endif
                 }
                 catch (System.Text.DecoderFallbackException)
@@ -111,7 +119,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
 
             // 发送请求
             ArraySegment<byte> bufferSegment = new ArraySegment<byte>(buffer);
-            await Ws.SendAsync(bufferSegment, WebSocketMessageType.Text, true, default);
+            await Connection.SendAsync(bufferSegment, WebSocketMessageType.Text, true, default);
 
             CqActionResult? rst;
 
