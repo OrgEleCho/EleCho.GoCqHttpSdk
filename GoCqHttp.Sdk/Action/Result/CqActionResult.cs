@@ -45,6 +45,7 @@ namespace EleCho.GoCqHttpSdk.Action
                 SendMsg => new CqSendMessageActionResult(),
                 DeleteMsg => new CqRecallMessageActionResult(),
                 SendGroupForwardMsg => new CqSendGroupForwardMessageActionResult(),
+                SendPrivateForwardMsg => new CqSendPrivateForwardMessageActionResult(),
                 
                 GetMsg => new CqGetMessageActionResult(),
                 GetForwardMsg => new CqGetForwardMessageActionResult(),
@@ -88,7 +89,8 @@ namespace EleCho.GoCqHttpSdk.Action
             rst.ErrorInfo = raw.wording;
             rst.EchoData = raw.echo;
             
-            rst.ReadDataModel(dataModel);
+            if (rst.RetCode == CqActionRetCode.Okay)
+                rst.ReadDataModel(dataModel);
 
             return rst;
         }

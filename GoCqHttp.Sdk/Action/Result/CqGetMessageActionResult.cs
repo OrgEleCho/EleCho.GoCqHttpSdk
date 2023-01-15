@@ -13,10 +13,10 @@ namespace EleCho.GoCqHttpSdk.Action
         
         public long MessageId { get; set; }
         public int RealId { get; set; }
-        public CqMessageSender Sender { get; set; } = null!;
+        public CqMessageSender Sender { get; set; } = new CqMessageSender();
         public DateTime Time { get; set; }
-        public CqMsg[] Message { get; set; } = null!;
-        public string RawMessage { get; set; } = null!;
+        public CqMsg[] Message { get; set; } = Array.Empty<CqMsg>();
+        public string RawMessage { get; set; } = string.Empty;
 
         internal CqGetMessageActionResult() { }
 

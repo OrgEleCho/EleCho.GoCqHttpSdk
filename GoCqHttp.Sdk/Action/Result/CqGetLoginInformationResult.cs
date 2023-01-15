@@ -12,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Action
         internal CqGetLoginInformationActionResult() { }
 
         public long UserId { get; set; }
-        public string Nickname { get; set; } = null!;
+        public string Nickname { get; set; } = string.Empty;
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

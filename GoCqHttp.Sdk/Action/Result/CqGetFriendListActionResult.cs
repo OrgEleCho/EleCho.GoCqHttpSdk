@@ -12,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqGetFriendListActionResult() { }
 
-        public IReadOnlyList<CqFriend> Friends { get; set; } = null!;
+        public IReadOnlyList<CqFriend> Friends { get; set; } = new List<CqFriend>(0).AsReadOnly();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

@@ -9,13 +9,13 @@ namespace EleCho.GoCqHttpSdk.Action
         //QQ 号
         public long UserId { get; set; }
         //昵称
-        public string Nickname { get; set; } = null!;
+        public string Nickname { get; set; } = string.Empty;
         //性别, male 或 female 或 unknown
-        public string Sex { get; set; } = null!;
+        public string Sex { get; set; } = string.Empty;
         //年龄
         public int Age { get; set; }
         //qid ID身份卡
-        public string Qid { get; set; } = null!;
+        public string Qid { get; set; } = string.Empty;
         //等级
         public int Level { get; set; }
         //等级
