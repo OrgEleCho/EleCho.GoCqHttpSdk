@@ -39,7 +39,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public string? Image { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqShareMsgDataModel(Url, Title, Content, Image);
+        internal override CqMsgDataModel? GetDataModel() => new CqShareMsgDataModel(Url, Title, Content, Image);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

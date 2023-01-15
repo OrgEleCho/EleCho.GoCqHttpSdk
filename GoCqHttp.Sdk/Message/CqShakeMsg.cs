@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Shake;
 
-        internal override CqMsgDataModel GetDataModel() => new CqShakeMsgDataModel();
+        internal override CqMsgDataModel? GetDataModel() => new CqShakeMsgDataModel();
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         { }

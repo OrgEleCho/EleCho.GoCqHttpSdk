@@ -23,6 +23,6 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
             this.data = data;
         }
 
-        public new TData? data { get => (base.data as TData)!; set => base.data = value; }
+        public new TData? data { get => base.data as TData; set => base.data = value; }
     }
 }

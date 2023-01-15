@@ -37,7 +37,7 @@ namespace EleCho.GoCqHttpSdk.Message
             Name = m.name;
         }
 
-        internal override CqMsgDataModel GetDataModel()
+        internal override CqMsgDataModel? GetDataModel()
         {
             return new CqAtMsgDataModel(QQ.ToString(), Name);
         }

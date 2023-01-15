@@ -31,7 +31,7 @@ namespace EleCho.GoCqHttpSdk.Message
         public DateTime Time { get; set; }
         public long Seq { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
+        internal override CqMsgDataModel? GetDataModel() => new CqReplyMsgDataModel(Id, Text, QQ, UnixTime.DateToUnix(Time), Seq);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

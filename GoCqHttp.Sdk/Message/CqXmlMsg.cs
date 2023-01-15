@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk.Message
         public string Data { get; set; }
         public int ResId { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqXmlMsgDataModel(Data, ResId.ToString());
+        internal override CqMsgDataModel? GetDataModel() => new CqXmlMsgDataModel(Data, ResId.ToString());
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

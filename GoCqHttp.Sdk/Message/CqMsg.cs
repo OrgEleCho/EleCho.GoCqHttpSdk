@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     {
         public abstract string Type { get; }
 
-        internal abstract CqMsgDataModel GetDataModel();
+        internal abstract CqMsgDataModel? GetDataModel();
 
         internal abstract void ReadDataModel(CqMsgDataModel? model);
 

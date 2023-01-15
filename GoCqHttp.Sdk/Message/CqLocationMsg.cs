@@ -41,7 +41,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public string? Content { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqLocationMsgDataModel(Lat, Lon, Title, Content);
+        internal override CqMsgDataModel? GetDataModel() => new CqLocationMsgDataModel(Lat, Lon, Title, Content);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

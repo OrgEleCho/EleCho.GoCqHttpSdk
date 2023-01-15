@@ -32,7 +32,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public virtual long Id { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqMusicMsgDataModel(GetMusicTypeFromEnum(MusicType), Id);
+        internal override CqMsgDataModel? GetDataModel() => new CqMusicMsgDataModel(GetMusicTypeFromEnum(MusicType), Id);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

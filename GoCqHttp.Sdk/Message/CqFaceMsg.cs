@@ -21,7 +21,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqFaceMsg(int id) => Id = id;
 
-        internal override CqMsgDataModel GetDataModel() => new CqFaceMsgDataModel(Id);
+        internal override CqMsgDataModel? GetDataModel() => new CqFaceMsgDataModel(Id);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public int? Ignore { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqAnonymousMsgDataModel();
+        internal override CqMsgDataModel? GetDataModel() => new CqAnonymousMsgDataModel();
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         { }

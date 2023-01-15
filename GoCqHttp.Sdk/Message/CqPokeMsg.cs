@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqPokeMsg(long qq) => QQ = qq;
 
-        internal override CqMsgDataModel GetDataModel() => new CqPokeMsgDataModel(QQ);
+        internal override CqMsgDataModel? GetDataModel() => new CqPokeMsgDataModel(QQ);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

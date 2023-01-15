@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqForwardMsg(string id) => Id = id;
 
-        internal override CqMsgDataModel GetDataModel() => new CqForwardMsgDataModel(Id);
+        internal override CqMsgDataModel? GetDataModel() => new CqForwardMsgDataModel(Id);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

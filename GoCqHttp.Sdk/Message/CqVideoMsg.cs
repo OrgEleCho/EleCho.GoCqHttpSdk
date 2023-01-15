@@ -32,7 +32,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqVideoMsg(string file) => File = file;
 
-        internal override CqMsgDataModel GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
+        internal override CqMsgDataModel? GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

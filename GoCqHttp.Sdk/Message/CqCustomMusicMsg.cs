@@ -59,7 +59,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public override long Id { get => base.Id; set => base.Id = value; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
+        internal override CqMsgDataModel? GetDataModel() => new CqCustomMusicMsgDataModel("custom", Url, Audio, Title, Content, Image);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

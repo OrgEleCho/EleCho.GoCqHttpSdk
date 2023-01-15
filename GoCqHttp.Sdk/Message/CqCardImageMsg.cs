@@ -24,7 +24,7 @@ namespace EleCho.GoCqHttpSdk.Message
         public string? Source { get; set; }
         public string? Icon { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqCardImageMsgDataModel(File, MinWidth, MinHeight, MaxWidth, MaxHeight, Source, Icon);
+        internal override CqMsgDataModel? GetDataModel() => new CqCardImageMsgDataModel(File, MinWidth, MinHeight, MaxWidth, MaxHeight, Source, Icon);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

@@ -32,7 +32,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// </summary>
         public long Id { get; set; }
 
-        internal override CqMsgDataModel GetDataModel() => new CqContactMsgDataModel(CqEnum.GetString(ContactType), Id);
+        internal override CqMsgDataModel? GetDataModel() => new CqContactMsgDataModel(CqEnum.GetString(ContactType), Id);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {

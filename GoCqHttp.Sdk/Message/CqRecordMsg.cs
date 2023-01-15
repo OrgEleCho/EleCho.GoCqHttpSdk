@@ -49,7 +49,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqRecordMsg(string file) => File = file;
 
-        internal override CqMsgDataModel GetDataModel() => new CqRecordMsgDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout);
+        internal override CqMsgDataModel? GetDataModel() => new CqRecordMsgDataModel(File, Magic.ToInt(), Url, Cache.ToInt(), Proxy.ToInt(), Timeout);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {
