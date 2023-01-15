@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Post
         }
 
         [JsonConstructor]
-        public CqStatusModel(bool app_initialized, bool app_enabled, bool plugins_good, bool app_good, bool online, bool good, CqStatusStatisticsModel stat)
+        public CqStatusModel(bool app_initialized, bool app_enabled, bool? plugins_good, bool app_good, bool online, bool good, CqStatusStatisticsModel stat)
         {
             this.app_initialized = app_initialized;
             this.app_enabled = app_enabled;
@@ -30,7 +30,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public bool app_initialized { get; set; }
         public bool app_enabled { get; set; }
-        public bool plugins_good { get; set; }
+        public bool? plugins_good { get; set; }
         public bool app_good { get; set; }
         public bool online { get; set; }
         public bool good { get; set; }

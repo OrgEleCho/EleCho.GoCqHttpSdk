@@ -30,6 +30,7 @@
         GetFriendList,
         GetUnidirectionalFriendList,
         DeleteFriend,
-        DeleteUnidirectionalFriend
+        DeleteUnidirectionalFriend,
+        SendPrivateForwardMessage
     }
 }

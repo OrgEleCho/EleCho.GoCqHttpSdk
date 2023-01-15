@@ -39,7 +39,7 @@ namespace EleCho.GoCqHttpSdk
             Seq = seq;
         }
 
-        internal override CqMsgDataModel GetDataModel() =>
+        internal override CqMsgDataModel? GetDataModel() =>
             new CqForwardMsgNodeDataModel(Id, Name, QQ,
                 Array.ConvertAll(Content ?? Array.Empty<CqMsg>(), ToModel),
                 Array.ConvertAll(Seq ?? Array.Empty<CqMsg>(), ToModel));

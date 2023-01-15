@@ -122,6 +122,7 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.SendMessage => SendMsg,
                 CqActionType.RecallMessage => DeleteMsg,
                 CqActionType.SendGroupForwardMessage => SendGroupForwardMsg,
+                CqActionType.SendPrivateForwardMessage => SendPrivateForwardMsg,
                 CqActionType.GetMessage => GetMsg,
                 CqActionType.GetForwardMessage => GetForwardMsg,
                 CqActionType.GetImage => GetImage,

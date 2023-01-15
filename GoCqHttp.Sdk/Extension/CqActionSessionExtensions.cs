@@ -28,7 +28,9 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqRecallMessageActionResult?> RecallMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqRecallMessageAction, CqRecallMessageActionResult>(new CqRecallMessageAction(messageId));
         public static Task<CqSendGroupForwardMessageActionResult?> SendGroupForwardMessageAsync(this ICqActionSession session, long groupId, params CqForwardMessageNode[] messages)
-            => session.InvokeActionAsync<CqSendGroupForwardMsgAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMsgAction(groupId, messages));
+            => session.InvokeActionAsync<CqSendGroupForwardMessageAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMessageAction(groupId, messages));
+        public static Task<CqSendPrivateForwardMessageActionResult?> SendPrivateForwardMessageAsync(this ICqActionSession session, long userId, params CqForwardMessageNode[] messages)
+            => session.InvokeActionAsync<CqSendPrivateForwardMsgAction, CqSendPrivateForwardMessageActionResult>(new CqSendPrivateForwardMsgAction(userId, messages));
         public static Task<CqGetMessageActionResult?> GetMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqGetMessageAction, CqGetMessageActionResult>(new CqGetMessageAction(messageId));
         public static Task<CqGetForwardMessageActionResult?> GetForwardMessageAsync(this ICqActionSession session, long messageId)
