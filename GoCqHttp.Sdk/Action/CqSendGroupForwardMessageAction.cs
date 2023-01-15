@@ -22,7 +22,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSendGroupForwardMsgActionParamsModel(GroupId, Array.ConvertAll(Messages ?? Array.Empty<CqMsg>(), CqMsg.ToModel));
+            return new CqSendGroupForwardMessageActionParamsModel(GroupId, Array.ConvertAll(Messages ?? Array.Empty<CqMsg>(), CqMsg.ToModel));
         }
     }
 }
