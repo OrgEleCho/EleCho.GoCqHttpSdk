@@ -3,7 +3,10 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqGroupAdminChangedPostContext : CqNoticePostContext
+    /// <summary>
+    /// 群管理员变更
+    /// </summary>
+    public class CqGroupAdministratorChangedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.GroupAdmin;
 
@@ -11,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long GroupId { get; set; }
         public long UserId { get; set; }
 
-        internal CqGroupAdminChangedPostContext() { }
+        internal CqGroupAdministratorChangedPostContext() { }
 
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)

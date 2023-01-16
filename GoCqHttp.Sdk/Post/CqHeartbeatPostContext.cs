@@ -4,6 +4,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 心跳包
+    /// </summary>
     public class CqHeartbeatPostContext : CqMetaEventPostContext
     {
         public override CqMetaEventType MetaEventType => CqMetaEventType.Heartbeat;

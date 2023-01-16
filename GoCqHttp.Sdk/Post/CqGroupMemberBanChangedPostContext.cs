@@ -4,7 +4,10 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqGroupBanChangedPostContext : CqNoticePostContext
+    /// <summary>
+    /// 群成员禁言状态变更
+    /// </summary>
+    public class CqGroupMemberBanChangedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.GroupBan;
 
@@ -15,7 +18,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long OperatorId { get; set; }
         public TimeSpan Duration { get; set; }
 
-        internal CqGroupBanChangedPostContext() { }
+        internal CqGroupMemberBanChangedPostContext() { }
 
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)

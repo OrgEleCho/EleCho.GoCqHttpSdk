@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 群消息撤回
+    /// </summary>
     public class CqGroupMessageRecalledPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.GroupRecall;

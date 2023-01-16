@@ -3,11 +3,14 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 戳一戳 (如果是群聊, 那么 GroupId 不为空)
+    /// </summary>
     public class CqPokedPostContext : CqNotifyNoticePostContext
     {
         public override CqNotifyType NotifyType => CqNotifyType.Poke;
 
-        public long GroupId { get; set; }
+        public long? GroupId { get; set; }
         public long UserId { get; set; }
         public long SenderId { get; set; }
         public long TargetId { get; set; }

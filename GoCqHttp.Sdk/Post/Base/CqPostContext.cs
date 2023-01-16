@@ -78,14 +78,14 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             return model?.notice_type switch
             {
-                Consts.NoticeType.Essence => new CqEssenceChangedPostContext(),
+                Consts.NoticeType.Essence => new CqGroupEssenceChangedPostContext(),
                 Consts.NoticeType.ClientStatus => new CqClientStatusChangedPostContext(),
                 Consts.NoticeType.GroupUpload => new CqGroupFileUploadedPostContext(),
-                Consts.NoticeType.GroupAdmin => new CqGroupAdminChangedPostContext(),
+                Consts.NoticeType.GroupAdmin => new CqGroupAdministratorChangedPostContext(),
                 Consts.NoticeType.GroupIncrease => new CqGroupMemberIncreasedPostContext(),
                 Consts.NoticeType.GroupDecrease => new CqGroupMemberDecreasedPostContext(),
-                Consts.NoticeType.GroupCard => new CqGroupMemberCardChangedPostContext(),
-                Consts.NoticeType.GroupBan => new CqGroupBanChangedPostContext(),
+                Consts.NoticeType.GroupCard => new CqGroupMemberNicknameChangedPostContext(),
+                Consts.NoticeType.GroupBan => new CqGroupMemberBanChangedPostContext(),
                 Consts.NoticeType.GroupRecall => new CqGroupMessageRecalledPostContext(),
                 Consts.NoticeType.FriendAdd => new CqFriendAddedPostContext(),
                 Consts.NoticeType.FriendRecall => new CqFriendMessageRecalledPostContext(),
@@ -116,9 +116,9 @@ namespace EleCho.GoCqHttpSdk.Post
             return notifyModel.sub_type switch
             {
                 Consts.NotifyType.Poke => new CqPokedPostContext(),
-                Consts.NotifyType.LuckyKing => new CqLuckyKingNoticedPostContext(),
-                Consts.NotifyType.Honor => new CqHonorChangedPostContext(),
-                Consts.NotifyType.Title => new CqMemberTitleChangeNoticedPostContext(),
+                Consts.NotifyType.LuckyKing => new CqGroupLuckyKingNoticedPostContext(),
+                Consts.NotifyType.Honor => new CqGroupMemberHonorChangedPostContext(),
+                Consts.NotifyType.Title => new CqGroupMemberTitleChangeNoticedPostContext(),
 
                 _ => null,
             };

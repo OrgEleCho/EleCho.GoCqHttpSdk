@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 加群请求
+    /// </summary>
     public class CqGroupRequestPostContext : CqRequestPostContext
     {
         public override CqRequestType RequestType => CqRequestType.Group;

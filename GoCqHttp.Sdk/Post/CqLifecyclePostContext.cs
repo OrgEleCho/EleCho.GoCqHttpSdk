@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 生命周期
+    /// </summary>
     public class CqLifecyclePostContext : CqMetaEventPostContext
     {
         public override CqMetaEventType MetaEventType => CqMetaEventType.Lifecycle;

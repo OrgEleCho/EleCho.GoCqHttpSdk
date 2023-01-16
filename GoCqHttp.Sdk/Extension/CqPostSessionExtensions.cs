@@ -37,11 +37,11 @@ namespace EleCho.GoCqHttpSdk
 
         #region Notice
         public static void UseClientStatusChanged(this ICqPostSession session, Func<CqClientStatusChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseEssenceChanged(this ICqPostSession session, Func<CqEssenceChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupAdminChanged(this ICqPostSession session, Func<CqGroupAdminChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupBanChanged(this ICqPostSession session, Func<CqGroupBanChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseEssenceChanged(this ICqPostSession session, Func<CqGroupEssenceChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupAdminChanged(this ICqPostSession session, Func<CqGroupAdministratorChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupBanChanged(this ICqPostSession session, Func<CqGroupMemberBanChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupFileUploaded(this ICqPostSession session, Func<CqGroupFileUploadedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseGroupMemberCardChanged(this ICqPostSession session, Func<CqGroupMemberCardChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseGroupMemberCardChanged(this ICqPostSession session, Func<CqGroupMemberNicknameChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMemberIncreased(this ICqPostSession session, Func<CqGroupMemberIncreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMemberDecreased(this ICqPostSession session, Func<CqGroupMemberDecreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMsgRecalled(this ICqPostSession session, Func<CqGroupMessageRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
@@ -54,11 +54,11 @@ namespace EleCho.GoCqHttpSdk
         #region Notify - Sys
 
         #endregion
-        public static void UseHonorChanged(this ICqPostSession session, Func<CqHonorChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        public static void UseLuckyKingNoticed(this ICqPostSession session, Func<CqLuckyKingNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseHonorChanged(this ICqPostSession session, Func<CqGroupMemberHonorChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseLuckyKingNoticed(this ICqPostSession session, Func<CqGroupLuckyKingNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UsePoked(this ICqPostSession session, Func<CqPokedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
-        public static void UseMemberTitleChanged(this ICqPostSession session, Func<CqMemberTitleChangeNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        public static void UseMemberTitleChanged(this ICqPostSession session, Func<CqGroupMemberTitleChangeNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         #endregion
 
         #region Request

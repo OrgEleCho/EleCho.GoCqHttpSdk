@@ -4,6 +4,9 @@ using EleCho.GoCqHttpSdk.Utils;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 加好友请求
+    /// </summary>
     public class CqFriendRequestPostContext : CqRequestPostContext
     {
         public override CqRequestType RequestType => CqRequestType.Friend;

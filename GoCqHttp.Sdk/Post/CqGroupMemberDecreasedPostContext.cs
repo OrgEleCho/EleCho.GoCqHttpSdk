@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 群成员减少
+    /// </summary>
     public class CqGroupMemberDecreasedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.GroupDecrease;

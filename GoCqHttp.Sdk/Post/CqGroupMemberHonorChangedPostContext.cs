@@ -3,7 +3,10 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqHonorChangedPostContext : CqPostContext
+    /// <summary>
+    /// 群成员群荣誉变更
+    /// </summary>
+    public class CqGroupMemberHonorChangedPostContext : CqPostContext
     {
         public override CqPostType EventType => CqPostType.Notice;
 
@@ -11,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long GroupId { get; set; }
         public long UserId { get; set; }
 
-        internal CqHonorChangedPostContext() { }
+        internal CqGroupMemberHonorChangedPostContext() { }
 
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)

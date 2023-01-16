@@ -26,7 +26,7 @@ namespace EleCho.GoCqHttpSdk
                     OnLifecycle(lifecyclePC);
                     await OnLifecycleAsync(lifecyclePC);
                     break;
-                case CqEssenceChangedPostContext essenceChangedPC:
+                case CqGroupEssenceChangedPostContext essenceChangedPC:
                     OnEssenceChanged(essenceChangedPC);
                     await OnEssenceChangedAsync(essenceChangedPC);
                     break;
@@ -38,7 +38,7 @@ namespace EleCho.GoCqHttpSdk
                     OnGroupFileUploaded(groupFileUploadedPC);
                     await OnGroupFileUploadedAsync(groupFileUploadedPC);
                     break;
-                case CqGroupAdminChangedPostContext groupAdminChangedPC:
+                case CqGroupAdministratorChangedPostContext groupAdminChangedPC:
                     OnGroupAdminChanged(groupAdminChangedPC);
                     await OnGroupAdminChangedAsync(groupAdminChangedPC);
                     break;
@@ -50,11 +50,11 @@ namespace EleCho.GoCqHttpSdk
                     OnGroupMemberDecreased(groupMemberDecreasedPC);
                     await OnGroupMemberDecreasedAsync(groupMemberDecreasedPC);
                     break;
-                case CqGroupMemberCardChangedPostContext groupMemberCardChangedPC:
+                case CqGroupMemberNicknameChangedPostContext groupMemberCardChangedPC:
                     OnGroupMemberCardChanged(groupMemberCardChangedPC);
                     await OnGroupMemberCardChangedAsync(groupMemberCardChangedPC);
                     break;
-                case CqGroupBanChangedPostContext groupBanChangedPC:
+                case CqGroupMemberBanChangedPostContext groupBanChangedPC:
                     OnGroupBanChanged(groupBanChangedPC);
                     await OnGroupBanChangedAsync(groupBanChangedPC);
                     break;
@@ -86,15 +86,15 @@ namespace EleCho.GoCqHttpSdk
                     OnPoked(pokedPC);
                     await OnPokedAsync(pokedPC);
                     break;
-                case CqLuckyKingNoticedPostContext luckyKingNoticedPC:
+                case CqGroupLuckyKingNoticedPostContext luckyKingNoticedPC:
                     OnLuckyKingNoticed(luckyKingNoticedPC);
                     await OnLuckyKingNoticedAsync(luckyKingNoticedPC);
                     break;
-                case CqHonorChangedPostContext honorChangedPC:
+                case CqGroupMemberHonorChangedPostContext honorChangedPC:
                     OnHonorChanged(honorChangedPC);
                     await OnHonorChangedAsync(honorChangedPC);
                     break;
-                case CqMemberTitleChangeNoticedPostContext memberTitleChangeNoticedPostContext:
+                case CqGroupMemberTitleChangeNoticedPostContext memberTitleChangeNoticedPostContext:
                     OnMemberTitleChanged(memberTitleChangeNoticedPostContext);
                     await OnMemberTitleChangedAsync(memberTitleChangeNoticedPostContext);
                     break;
@@ -107,14 +107,14 @@ namespace EleCho.GoCqHttpSdk
         public virtual void OnGroupMessage(CqGroupMessagePostContext context) { }
         public virtual void OnHeartbeat(CqHeartbeatPostContext context) { }
         public virtual void OnLifecycle(CqLifecyclePostContext context) { }
-        public virtual void OnEssenceChanged(CqEssenceChangedPostContext context) { }
+        public virtual void OnEssenceChanged(CqGroupEssenceChangedPostContext context) { }
         public virtual void OnClientStatusChanged(CqClientStatusChangedPostContext context) { }
         public virtual void OnGroupFileUploaded(CqGroupFileUploadedPostContext context) { }
-        public virtual void OnGroupAdminChanged(CqGroupAdminChangedPostContext context) { }
+        public virtual void OnGroupAdminChanged(CqGroupAdministratorChangedPostContext context) { }
         public virtual void OnGroupMemberIncreased(CqGroupMemberIncreasedPostContext context) { }
         public virtual void OnGroupMemberDecreased(CqGroupMemberDecreasedPostContext context) { }
-        public virtual void OnGroupMemberCardChanged(CqGroupMemberCardChangedPostContext context) { }
-        public virtual void OnGroupBanChanged(CqGroupBanChangedPostContext context) { }
+        public virtual void OnGroupMemberCardChanged(CqGroupMemberNicknameChangedPostContext context) { }
+        public virtual void OnGroupBanChanged(CqGroupMemberBanChangedPostContext context) { }
         public virtual void OnGroupMessageRecalled(CqGroupMessageRecalledPostContext context) { }
         public virtual void OnFriendAdded(CqFriendAddedPostContext context) { }
         public virtual void OnFriendMessageRecalled(CqFriendMessageRecalledPostContext context) { }
@@ -122,23 +122,23 @@ namespace EleCho.GoCqHttpSdk
         public virtual void OnFriendRequest(CqFriendRequestPostContext context) { }
         public virtual void OnGroupRequest(CqGroupRequestPostContext context) { }
         public virtual void OnPoked(CqPokedPostContext context) { }
-        public virtual void OnLuckyKingNoticed(CqLuckyKingNoticedPostContext context) { }
-        public virtual void OnHonorChanged(CqHonorChangedPostContext context) { }
-        public virtual void OnMemberTitleChanged(CqMemberTitleChangeNoticedPostContext context) { }
+        public virtual void OnLuckyKingNoticed(CqGroupLuckyKingNoticedPostContext context) { }
+        public virtual void OnHonorChanged(CqGroupMemberHonorChangedPostContext context) { }
+        public virtual void OnMemberTitleChanged(CqGroupMemberTitleChangeNoticedPostContext context) { }
 
 
         public virtual Task OnPrivateMessageAsync(CqPrivateMessagePostContext context) => Task.CompletedTask;
         public virtual Task OnGroupMessageAsync(CqGroupMessagePostContext context) => Task.CompletedTask;
         public virtual Task OnHeartbeatAsync(CqHeartbeatPostContext context) => Task.CompletedTask;
         public virtual Task OnLifecycleAsync(CqLifecyclePostContext context) => Task.CompletedTask;
-        public virtual Task OnEssenceChangedAsync(CqEssenceChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnEssenceChangedAsync(CqGroupEssenceChangedPostContext context) => Task.CompletedTask;
         public virtual Task OnClientStatusChangedAsync(CqClientStatusChangedPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupFileUploadedAsync(CqGroupFileUploadedPostContext context) => Task.CompletedTask;
-        public virtual Task OnGroupAdminChangedAsync(CqGroupAdminChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnGroupAdminChangedAsync(CqGroupAdministratorChangedPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupMemberIncreasedAsync(CqGroupMemberIncreasedPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupMemberDecreasedAsync(CqGroupMemberDecreasedPostContext context) => Task.CompletedTask;
-        public virtual Task OnGroupMemberCardChangedAsync(CqGroupMemberCardChangedPostContext context) => Task.CompletedTask;
-        public virtual Task OnGroupBanChangedAsync(CqGroupBanChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnGroupMemberCardChangedAsync(CqGroupMemberNicknameChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnGroupBanChangedAsync(CqGroupMemberBanChangedPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupMessageRecalledAsync(CqGroupMessageRecalledPostContext context) => Task.CompletedTask;
         public virtual Task OnFriendAddedAsync(CqFriendAddedPostContext context) => Task.CompletedTask;
         public virtual Task OnFriendMessageRecalledAsync(CqFriendMessageRecalledPostContext context) => Task.CompletedTask;
@@ -146,8 +146,8 @@ namespace EleCho.GoCqHttpSdk
         public virtual Task OnFriendRequestAsync(CqFriendRequestPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupRequestAsync(CqGroupRequestPostContext context) => Task.CompletedTask;
         public virtual Task OnPokedAsync(CqPokedPostContext context) => Task.CompletedTask;
-        public virtual Task OnLuckyKingNoticedAsync(CqLuckyKingNoticedPostContext context) => Task.CompletedTask;
-        public virtual Task OnHonorChangedAsync(CqHonorChangedPostContext context) => Task.CompletedTask;
-        public virtual Task OnMemberTitleChangedAsync(CqMemberTitleChangeNoticedPostContext context) => Task.CompletedTask;
+        public virtual Task OnLuckyKingNoticedAsync(CqGroupLuckyKingNoticedPostContext context) => Task.CompletedTask;
+        public virtual Task OnHonorChangedAsync(CqGroupMemberHonorChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnMemberTitleChangedAsync(CqGroupMemberTitleChangeNoticedPostContext context) => Task.CompletedTask;
     }
 }

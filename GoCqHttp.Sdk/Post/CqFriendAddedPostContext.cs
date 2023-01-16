@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 好友已添加
+    /// </summary>
     public class CqFriendAddedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.FriendAdd;

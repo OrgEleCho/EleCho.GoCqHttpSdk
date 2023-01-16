@@ -4,6 +4,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 群消息
+    /// </summary>
     public class CqGroupMessagePostContext : CqMessagePostContext
     {
         public override CqMessageType MessageType => CqMessageType.Group;

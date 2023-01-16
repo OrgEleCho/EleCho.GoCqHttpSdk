@@ -3,9 +3,12 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqEssenceChangedPostContext : CqNoticePostContext
+    /// <summary>
+    /// 群精华消息变更
+    /// </summary>
+    public class CqGroupEssenceChangedPostContext : CqNoticePostContext
     {
-        internal CqEssenceChangedPostContext() { }
+        internal CqGroupEssenceChangedPostContext() { }
 
         public override CqNoticeType NoticeType => CqNoticeType.Essence;
 

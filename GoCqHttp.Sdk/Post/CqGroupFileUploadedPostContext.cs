@@ -4,6 +4,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 群文件上传
+    /// </summary>
     public class CqGroupFileUploadedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.GroupUpload;

@@ -49,7 +49,7 @@ namespace TestConsole
             await actionSession.SendGroupMessageAsync(context.GroupId, CqMsg.Chain(new CqAtMsg(context.UserId), "让我康康你撤回了什么: ", msg.Message, "\n嘿嘿, 撤回失败了吧~"));
         }
 
-        public override async Task OnMemberTitleChangedAsync(CqMemberTitleChangeNoticedPostContext context)
+        public override async Task OnMemberTitleChangedAsync(CqGroupMemberTitleChangeNoticedPostContext context)
         {
             //if(context.GroupId != 860355679) return;
 

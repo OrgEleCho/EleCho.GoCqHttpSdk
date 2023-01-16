@@ -3,7 +3,10 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqMemberTitleChangeNoticedPostContext : CqNotifyNoticePostContext
+    /// <summary>
+    /// 群成员头衔变更
+    /// </summary>
+    public class CqGroupMemberTitleChangeNoticedPostContext : CqNotifyNoticePostContext
     {
         public override CqNotifyType NotifyType => CqNotifyType.Title;
 
@@ -11,10 +14,11 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public long UserId { get; set; }
 
-        public string NewTitle { get; set; } = string;
+        public string NewTitle { get; set; } = string.Empty;
 
+        internal override object? QuickOperationModel => null;
 
-        internal CqMemberTitleChangeNoticedPostContext() { }
+        internal CqGroupMemberTitleChangeNoticedPostContext() { }
 
         internal override void ReadModel(CqPostModel model)
         {

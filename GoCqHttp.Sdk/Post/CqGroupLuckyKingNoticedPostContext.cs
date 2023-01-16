@@ -3,7 +3,7 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqLuckyKingNoticedPostContext : CqNotifyNoticePostContext
+    public class CqGroupLuckyKingNoticedPostContext : CqNotifyNoticePostContext
     {
         public override CqNotifyType NotifyType => CqNotifyType.LuckyKing;
 
@@ -12,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long TargetId { get; set; }
 
 
-        internal CqLuckyKingNoticedPostContext() { }
+        internal CqGroupLuckyKingNoticedPostContext() { }
 
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)

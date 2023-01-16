@@ -4,6 +4,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 离线文件上传
+    /// </summary>
     public class CqOfflineFileUploadedPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.OfflineFile;

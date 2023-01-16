@@ -6,6 +6,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 私聊消息 (可能是好友, 也有可能是临时会话)
+    /// </summary>
     public partial class CqPrivateMessagePostContext : CqMessagePostContext
     {
         public override CqMessageType MessageType => CqMessageType.Private;

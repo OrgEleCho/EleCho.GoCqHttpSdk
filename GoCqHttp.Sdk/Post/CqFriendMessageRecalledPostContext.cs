@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 好友消息撤回
+    /// </summary>
     public class CqFriendMessageRecalledPostContext : CqNoticePostContext
     {
         public override CqNoticeType NoticeType => CqNoticeType.FriendRecall;
