@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EleCho.GoCqHttpSdk.Model;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqGetUnidirectionalFriendListActionResultDataModel : CqActionResultDataModel, IList<CqFriendModel>
     {

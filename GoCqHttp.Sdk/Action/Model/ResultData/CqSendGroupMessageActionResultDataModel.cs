@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqSendGroupMessageActionResultDataModel : CqSendMessageActionResultDataModel
     {

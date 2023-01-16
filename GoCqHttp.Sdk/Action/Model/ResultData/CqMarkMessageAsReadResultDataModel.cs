@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqMarkMessageAsReadResultDataModel : CqActionResultDataModel
     {

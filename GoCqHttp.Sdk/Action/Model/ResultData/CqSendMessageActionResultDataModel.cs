@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Post;
 using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     /// <summary>
     /// 私聊消息和群聊消息的响应数据模型父类

@@ -1,11 +1,10 @@
-﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqGetGroupMemberInformationActionResultDataModel : CqActionResultDataModel
     {

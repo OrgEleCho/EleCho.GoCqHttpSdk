@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Post;
 using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Data
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqGetMessageActionResultDataModel : CqActionResultDataModel
     {

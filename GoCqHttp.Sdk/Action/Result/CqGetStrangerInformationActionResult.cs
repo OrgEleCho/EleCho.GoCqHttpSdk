@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
+﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 using System.Security.Cryptography;
 
 namespace EleCho.GoCqHttpSdk.Action

@@ -1,9 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Action.Model.Data;
-using EleCho.GoCqHttpSdk;
+﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
