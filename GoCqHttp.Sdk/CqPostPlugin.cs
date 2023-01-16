@@ -1,5 +1,5 @@
-﻿using EleCho.GoCqHttpSdk.Post;
-using System;
+﻿using System;
+using EleCho.GoCqHttpSdk.Post;
 using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk

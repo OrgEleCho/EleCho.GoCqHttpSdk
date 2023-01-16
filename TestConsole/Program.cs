@@ -32,6 +32,11 @@ namespace TestConsole
         private static async Task Main(string[] args)
         {
             AssemblyTest.Run();
+
+            string pluginCode = CqPostPluginCodeGen.Generate();
+            
+
+            return;
             
             Console.WriteLine("逻辑测试开始运行");
             var manyMiddlewares = new ManyMiddlewares(httpSession);
