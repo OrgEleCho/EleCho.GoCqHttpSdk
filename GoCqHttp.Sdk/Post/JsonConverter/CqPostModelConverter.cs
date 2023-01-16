@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 {
-    internal class CqEventModelConverter : JsonConverter<CqPostModel>
+    internal class CqPostModelConverter : JsonConverter<CqPostModel>
     {
         public override CqPostModel? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
