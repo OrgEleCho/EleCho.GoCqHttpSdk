@@ -115,7 +115,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         private static CqPostContext? FromNotifyModel(CqPostModel? model)
         {
-            if(model is not CqNoticeNotifyPostModel notifyModel)
+            if (model is not CqNoticeNotifyPostModel notifyModel)
                 return null;
 
             return notifyModel.sub_type switch
