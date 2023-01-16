@@ -17,6 +17,11 @@ namespace TestConsole
             await session.SendGroupMessageAsync(TestGroupId, "小机器人开始测试了捏");
             await session.SendPrivateMessageAsync(TestUserId, "你是人家的测试对象捏");
 
+            await session.GetGroupMemberInformationAsync(TestGroupId, TestUserId);
+            
+
+            await session.SetAccountProfile("新的昵称捏", "", "", "", "小猫猫真可爱捏");
+
             await session.SendGroupForwardMessageAsync(TestGroupId, new CqForwardMessageNode("伞兵一号", TestUserId, "你好呀"));
             await session.SendPrivateForwardMessageAsync(TestUserId, new CqForwardMessageNode("伞兵一号", TestUserId, "你好呀"));
 

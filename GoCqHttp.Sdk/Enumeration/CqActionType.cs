@@ -31,6 +31,9 @@
         GetUnidirectionalFriendList,
         DeleteFriend,
         DeleteUnidirectionalFriend,
-        SendPrivateForwardMessage
+        SendPrivateForwardMessage,
+        GetGroupInformation,
+        GetGroupList,
+        GetGroupMemberInformation
     }
 }

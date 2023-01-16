@@ -67,10 +67,16 @@
             public const string GetMsg = "get_msg";
             public const string GetForwardMsg = "get_forward_msg";
             public const string GetImage = "get_image";
+            public const string GetUnidirectionalFriendList = "get_unidirectional_friend_list";
+
+            public const string GetFriendList = "get_friend_list";
+            public const string GetGroupList = "get_group_list";
+
+
             public const string GetLoginInfo = "get_login_info";
             public const string GetStrangerInfo = "get_stranger_info";
-            public const string GetFriendList = "get_friend_list";
-            public const string GetUnidirectionalFriendList = "get_unidirectional_friend_list";
+            public const string GetGroupInfo = "get_group_info";
+            public const string GetGroupMemberInfo = "get_group_member_info";
 
             public const string DeleteFriend = "delete_friend";
             public const string DeleteUnidirectionalFriend = "delete_unidirectional_friend";

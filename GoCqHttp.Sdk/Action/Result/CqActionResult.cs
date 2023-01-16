@@ -50,10 +50,15 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetMsg => new CqGetMessageActionResult(),
                 GetForwardMsg => new CqGetForwardMessageActionResult(),
                 GetImage => new CqGetImageActionResult(),
+                GetUnidirectionalFriendList => new CqGetUnidirectionalFriendListActionResult(),
+                
+                GetFriendList => new CqGetFriendListActionResult(),
+                GetGroupList => new CqGetGroupListActionResult(),
+
                 GetLoginInfo => new CqGetLoginInformationActionResult(),
                 GetStrangerInfo => new CqGetStrangerInformationActionResult(),
-                GetFriendList => new CqGetFriendListActionResult(),
-                GetUnidirectionalFriendList => new CqGetUnidirectionalFriendListActionResult(),
+                GetGroupInfo => new CqGetGroupInformationActionResult(),
+                GetGroupMemberInfo => new CqGetGroupMemberInformationActionResult(),
 
                 SetGroupBan => new CqBanGroupMemberActionResult(),
                 SetGroupAnonymousBan => new CqBanGroupAnonymousMemberActionResult(),

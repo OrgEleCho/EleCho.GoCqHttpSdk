@@ -16,6 +16,12 @@ namespace EleCho.GoCqHttpSdk.Action
             NoCache = noCache;
         }
 
+        public CqGetStrangerInformationAction(long userId)
+        {
+            UserId = userId;
+            NoCache = false;
+        }
+
         internal override CqActionParamsModel GetParamsModel()
         {
             return new CqGetStrangerInformationActionParamsModel(UserId, NoCache);

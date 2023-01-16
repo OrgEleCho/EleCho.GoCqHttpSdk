@@ -1,15 +1,8 @@
-﻿using EleCho.GoCqHttpSdk;
-using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Message;
-using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Utils;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
+﻿using System;
+using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk;
 
 #nullable enable
 
@@ -32,7 +25,10 @@ namespace TestConsole
         private static async Task Main(string[] args)
         {
             AssemblyTest.Run();
-            
+
+            HttpClient client = new HttpClient();
+
+
             Console.WriteLine("逻辑测试开始运行");
             var manyMiddlewares = new ManyMiddlewares(httpSession);
 
@@ -55,6 +51,11 @@ namespace TestConsole
 
         private static void CheckAssemblyTypes(Assembly asm)
         {
+        }
+
+        private static void Mode(int num1, int num2)
+        {
+            
         }
     }
 }

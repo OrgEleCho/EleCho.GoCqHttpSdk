@@ -69,8 +69,18 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqHandleGroupRequestAction, CqHandleGroupRequestActionResult>(new CqHandleGroupRequestAction(flag, requestType, false, reason));
         public static Task<CqGetLoginInformationActionResult?> GetLoginInformationAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetLoginInformationAction, CqGetLoginInformationActionResult>(new CqGetLoginInformationAction());
+        public static Task<CqGetStrangerInformationActionResult?> GetStrangerInformationAsync(this ICqActionSession session, long userId)
+            => session.InvokeActionAsync<CqGetStrangerInformationAction, CqGetStrangerInformationActionResult>(new CqGetStrangerInformationAction(userId));
         public static Task<CqGetStrangerInformationActionResult?> GetStrangerInformationAsync(this ICqActionSession session, long userId, bool noCache)
             => session.InvokeActionAsync<CqGetStrangerInformationAction, CqGetStrangerInformationActionResult>(new CqGetStrangerInformationAction(userId, noCache));
+        public static Task<CqGetGroupInformationActionResult?> GetGroupInformationAsync(this ICqActionSession session, long groupId)
+            => session.InvokeActionAsync<CqGetGroupInformationAction, CqGetGroupInformationActionResult>(new CqGetGroupInformationAction(groupId));
+        public static Task<CqGetGroupInformationActionResult?> GetGroupInformationAsync(this ICqActionSession session, long groupId, bool noCache)
+            => session.InvokeActionAsync<CqGetGroupInformationAction, CqGetGroupInformationActionResult>(new CqGetGroupInformationAction(groupId, noCache));
+        public static Task<CqGetGroupMemberInformationActionResult?> GetGroupMemberInformationAsync(this ICqActionSession session, long groupId, long user_id)
+            => session.InvokeActionAsync<CqGetGroupMemberInformationAction, CqGetGroupMemberInformationActionResult>(new CqGetGroupMemberInformationAction(groupId, user_id));
+        public static Task<CqGetGroupMemberInformationActionResult?> GetGroupMemberInformationAsync(this ICqActionSession session, long groupId, long user_id, bool noCache)
+            => session.InvokeActionAsync<CqGetGroupMemberInformationAction, CqGetGroupMemberInformationActionResult>(new CqGetGroupMemberInformationAction(groupId, user_id, noCache));
         public static Task<CqMarkMessageAsReadActionResult?> MarkMessageAsRead(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqMarkMessageAsReadAction, CqMarkMessageAsReadActionResult>(new CqMarkMessageAsReadAction(messageId));
         public static Task<CqSetGroupAnonymousActionResult?> SetGroupAnonymous(this ICqActionSession session, long groupId, bool enable)
@@ -91,6 +101,8 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqSetAccountProfileAction, CqSetAccountProfileActionResult>(new CqSetAccountProfileAction(nickname, company, email, college, personalNote));
         public static Task<CqGetFriendListActionResult?> GetFriendListAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetFriendListAction, CqGetFriendListActionResult>(new CqGetFriendListAction());
+        public static Task<CqGetGroupListActionResult?> GetGroupListAsync(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetGroupListAction, CqGetGroupListActionResult>(new CqGetGroupListAction());
         public static Task<CqGetUnidirectionalFriendListActionResult?> GetUnidirectionalFriendListAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetUnidirectionalFriendListAction, CqGetUnidirectionalFriendListActionResult>(new CqGetUnidirectionalFriendListAction());
         public static Task<CqDeleteFriendActionResult?> DeleteFriend(this ICqActionSession session, long userId)

@@ -141,11 +141,16 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.SetGroupName => SetGroupName,
                 CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
                 CqActionType.GroupSignIn => SendGroupSign,
+                CqActionType.SetAccountProfile => SetQqProfile,
+                CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
+
+                CqActionType.GetFriendList => GetFriendList,
+                CqActionType.GetGroupList => GetGroupList,
+
                 CqActionType.GetLoginInformation => GetLoginInfo,
                 CqActionType.GetStrangerInformation => GetStrangerInfo,
-                CqActionType.SetAccountProfile => SetQqProfile,
-                CqActionType.GetFriendList => GetFriendList,
-                CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
+                CqActionType.GetGroupInformation => GetGroupInfo,
+                CqActionType.GetGroupMemberInformation => GetGroupMemberInfo,
 
                 CqActionType.LeaveGroup => SetGroupLeave,
                 CqActionType.DeleteFriend => DeleteFriend,
