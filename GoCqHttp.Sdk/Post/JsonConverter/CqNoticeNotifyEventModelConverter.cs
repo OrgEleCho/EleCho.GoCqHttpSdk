@@ -11,9 +11,9 @@ namespace EleCho.GoCqHttpSdk.Post.JsonConverter
         public override CqNoticeNotifyPostModel? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             JsonDocument doc = JsonDocument.ParseValue(ref reader);
-            if(doc.RootElement.TryGetProperty("sub_type", out JsonElement notifySubTypeEle))
+            if (doc.RootElement.TryGetProperty("sub_type", out JsonElement notifySubTypeEle))
             {
-                if(notifySubTypeEle.ValueKind != JsonValueKind.String)
+                if (notifySubTypeEle.ValueKind != JsonValueKind.String)
                     return null;
 
                 string notifySubType = notifySubTypeEle.GetString()!;
