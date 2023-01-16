@@ -6,6 +6,10 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqStatusStatistics
     {
+        public CqStatusStatistics()
+        {
+        }
+
         internal CqStatusStatistics(CqStatusStatisticsModel model)
         {
             PacketReceived = model.PacketReceived;

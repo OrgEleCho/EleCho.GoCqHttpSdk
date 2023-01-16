@@ -92,6 +92,10 @@ namespace EleCho.GoCqHttpSdk
                         if (postContext is CqPostContext)
                         {
                             await postPipeline.ExecuteAsync(postContext);
+
+                            if (postContext.QuickOperationModel is object quickActionModel)
+                                JsonSerializer.Serialize(context.Response.OutputStream, quickActionModel, quickActionModel.GetType(), JsonHelper.Options);
+
                             context.Response.StatusCode = (int)HttpStatusCode.OK;
                             context.Response.Close();
                             continue;

@@ -99,8 +99,8 @@
             public const string SetGroupAddRequest = "set_group_add_request";
 
             public const string MarkMsgAsRead = "mark_msg_as_read";
-            
-            
+
+            public const string HandleQuickOperation = ".handle_quick_operation";
         }
 
         public static class NoticeType

@@ -4,6 +4,10 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqOfflineFile
     {
+        internal CqOfflineFile()
+        {
+        }
+
         internal CqOfflineFile(CqOfflineFileModel model)
         {
             Name = model.name;
@@ -18,8 +22,8 @@ namespace EleCho.GoCqHttpSdk
             Url = url;
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public long Size { get; set; }
-        public string Url { get; set; }
+        public string Url { get; set; } = string.Empty;
     }
 }

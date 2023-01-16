@@ -5,9 +5,13 @@ namespace EleCho.GoCqHttpSdk
     public class CqDevice
     {
         public long AppId { get; set; }
-        public string DeviceName { get; set; }
-        public string DeviceKind { get; set; }
-        
+        public string DeviceName { get; set; } = string.Empty;
+        public string DeviceKind { get; set; } = string.Empty;
+
+        internal CqDevice()
+        {
+        }
+
         internal CqDevice(CqDeviceModel model)
         {
             AppId = model.app_id;

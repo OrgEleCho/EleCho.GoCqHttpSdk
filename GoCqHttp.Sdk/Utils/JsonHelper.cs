@@ -24,7 +24,7 @@ namespace EleCho.GoCqHttpSdk.Utils
                 {
                     new CqWsDataModelConverter(),
 
-                    new CqEventModelConverter(),
+                    new CqPostModelConverter(),
                     new CqMessageEventModelConverter(),
 
                     new CqNoticeEventModelConverter(),
@@ -62,7 +62,7 @@ namespace EleCho.GoCqHttpSdk.Utils
                 {
                     new CqWsDataModelConverter(),
 
-                    new CqEventModelConverter(),
+                    new CqPostModelConverter(),
                     new CqMessageEventModelConverter(),
 
                     new CqNoticeEventModelConverter(),

@@ -14,6 +14,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public long OperatorId { get; set; }
         public long MessageId { get; set; }
 
+        internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);

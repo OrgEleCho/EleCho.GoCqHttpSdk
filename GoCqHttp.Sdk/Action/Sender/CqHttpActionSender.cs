@@ -10,6 +10,8 @@ using System.Net.Http;
 using System.Net.Mime;
 using System.Text.Json;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Post.Model;
+using static EleCho.GoCqHttpSdk.Utils.Consts;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
@@ -51,6 +53,28 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
                 return null;
 
             return CqActionResult.FromRaw(resultRaw, actionType);
+        }
+
+        internal override async Task<bool> HandleQuickAction(CqPostModel context, object quickActionModel)
+        {
+            object bodyModel = new
+            {
+                context = context,
+                operation = quickActionModel
+            };
+
+            // 转为 JSON 和 HTTP 内容
+            string json = JsonSerializer.Serialize(bodyModel, bodyModel.GetType(), JsonHelper.Options);
+            StringContent content = new StringContent(json, GlobalConfig.TextEncoding, "application/json");
+
+            // 发送请求
+            HttpResponseMessage response = await Client.PostAsync(Consts.ActionType.HandleQuickOperation, content);
+            if (!response.IsSuccessStatusCode)
+                return false;
+
+            // 未来可能在这里加些逻辑
+            
+            return true;
         }
     }
 }

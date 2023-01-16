@@ -136,5 +136,27 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
 
             return rst;
         }
+
+        internal override async Task<bool> HandleQuickAction(CqPostModel context, object quickActionModel)
+        {
+            object bodyModel = new
+            {
+                context = context,
+                operation = quickActionModel
+            };
+
+            // 获取数据
+            CqActionModel actionModel = new CqActionModel(Consts.ActionType.HandleQuickOperation, bodyModel);
+
+            // 序列化
+            string json = JsonSerializer.Serialize(actionModel, JsonHelper.Options);
+            byte[] buffer = GlobalConfig.TextEncoding.GetBytes(json);
+            
+            // 发送请求
+            ArraySegment<byte> bufferSegment = new ArraySegment<byte>(buffer);
+            await Connection.SendAsync(bufferSegment, WebSocketMessageType.Text, true, default);
+
+            return true;
+        }
     }
 }

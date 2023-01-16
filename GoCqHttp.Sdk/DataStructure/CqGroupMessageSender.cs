@@ -5,6 +5,10 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqGroupMessageSender : CqMessageSender
     {
+        internal CqGroupMessageSender()
+        {
+        }
+
         internal CqGroupMessageSender(CqGroupMessageSenderModel model) : base(model)
         {
             Card = model.card;
@@ -14,10 +18,10 @@ namespace EleCho.GoCqHttpSdk
             Role = CqEnum.GetRole(model.role);
         }
 
-        public string Card { get; set; }
-        public string Area { get; set; }
-        public string Level { get; set; }
-        public string Title { get; set; }
+        public string Card { get; set; } = string.Empty;
+        public string Area { get; set; } = string.Empty;
+        public string Level { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         public CqRole Role { get; set; }
     }
 }

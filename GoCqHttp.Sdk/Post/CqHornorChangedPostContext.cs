@@ -13,6 +13,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         internal CqHonorChangedPostContext() { }
 
+        internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);

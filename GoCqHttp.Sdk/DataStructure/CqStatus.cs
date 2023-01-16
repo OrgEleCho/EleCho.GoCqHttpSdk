@@ -4,6 +4,10 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqStatus
     {
+        internal CqStatus()
+        {
+        }
+
         internal CqStatus(CqStatusModel model)
         {
             AppInitialized = model.app_initialized;
@@ -21,6 +25,6 @@ namespace EleCho.GoCqHttpSdk
         public bool AppGood { get; set; }
         public bool Online { get; set; }
         public bool Good { get; set; }
-        public CqStatusStatistics Statistics { get; set; }
+        public CqStatusStatistics Statistics { get; set; } = new CqStatusStatistics();
     }
 }

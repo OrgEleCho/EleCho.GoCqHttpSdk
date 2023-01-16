@@ -1,19 +1,24 @@
 ﻿using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Post.Model;
+using System;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
-    public class CqPrivateMessagePostContext : CqMessagePostContext
+    public partial class CqPrivateMessagePostContext : CqMessagePostContext
     {
         public override CqMessageType MessageType => CqMessageType.Private;
         public CqMessagePrivateType MessageSubType { get; set; }
         public CqTempSource TempSource { get; set; }
-        public CqMessageSender Sender { get; set; }
-
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public CqMessageSender Sender { get; set; } = new CqMessageSender();
+        
         internal CqPrivateMessagePostContext() { }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
+        public CqPrivateMessagePostQuickOperation QuickOperation { get; }
+            = new CqPrivateMessagePostQuickOperation();
+
+        internal override object? QuickOperationModel => QuickOperation.GetModel();
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);
@@ -26,6 +31,4 @@ namespace EleCho.GoCqHttpSdk.Post
             Sender = new CqMessageSender(msgModel.sender);
         }
     }
-
-    
 }

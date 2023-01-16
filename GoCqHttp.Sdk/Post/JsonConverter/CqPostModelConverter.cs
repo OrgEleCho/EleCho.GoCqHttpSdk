@@ -33,7 +33,7 @@ namespace EleCho.GoCqHttpSdk.Post.JsonConverter
 
         public override void Write(Utf8JsonWriter writer, CqPostModel value, JsonSerializerOptions options)
         {
-            throw new InvalidOperationException();
+            JsonSerializer.Serialize(writer, value, value.GetType(), options);
         }
     }
 }

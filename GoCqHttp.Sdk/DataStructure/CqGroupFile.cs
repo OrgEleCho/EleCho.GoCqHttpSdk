@@ -4,6 +4,10 @@ namespace EleCho.GoCqHttpSdk
 {
     public class CqGroupFile
     {
+        internal CqGroupFile()
+        {
+        }
+
         internal CqGroupFile(CqGroupFileModel model)
         {
             Id = model.id;
@@ -20,8 +24,8 @@ namespace EleCho.GoCqHttpSdk
             BusId = busid;
         }
 
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public long Size { get; set; }
         public long BusId { get; set; }
     }

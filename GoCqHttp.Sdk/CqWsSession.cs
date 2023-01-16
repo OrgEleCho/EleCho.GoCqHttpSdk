@@ -84,7 +84,13 @@ namespace EleCho.GoCqHttpSdk
 
             // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
             if (postContext != null)
+            {
                 await postPipeline.ExecuteAsync(postContext);
+
+                if (postContext.QuickOperationModel is object quickActionModel)
+                    await ActionSender.HandleQuickAction(postModel, quickActionModel);
+            }
+
         }
         
         /// <summary>

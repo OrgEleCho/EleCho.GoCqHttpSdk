@@ -22,6 +22,8 @@ namespace EleCho.GoCqHttpSdk.Post
         public long SelfId { get; set; }
         public DateTime Time { get; set; }
 
+        internal abstract object? QuickOperationModel { get; }
+
         internal void SetSession(CqSession session)
         {
             Session = session;
@@ -49,12 +51,6 @@ namespace EleCho.GoCqHttpSdk.Post
             Time = UnixTime.DateFromUnix(model.time);
             SelfId = model.self_id;
         }
-
-        //internal virtual void WriteModel(CqPostModel model)
-        //{
-        //    model.time = UnixTime.DateToUnix(Time);
-        //    model.self_id = SelfId;
-        //}
 
         private static CqPostContext? FromMessageModel(CqMessagePostModel? model)
         {

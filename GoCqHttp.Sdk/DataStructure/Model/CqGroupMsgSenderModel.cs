@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Post
     internal class CqGroupMessageSenderModel : CqMessageSenderModel
     {
 
-        public CqGroupMessageSenderModel(CqGroupMsgSender srcData) : base(srcData)
+        public CqGroupMessageSenderModel(CqGroupMessageSender srcData) : base(srcData)
         {
             role = CqEnum.GetString(srcData.Role) ?? string.Empty;
             card = srcData.Card;

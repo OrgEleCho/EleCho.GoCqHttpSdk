@@ -9,10 +9,16 @@ namespace TestConsole
 {
     class MyPostPlugin : CqPostPlugin
     {
+        const long TestGroupId = 295322097;
+        const long TestUserId = 3257726229;
+        
         public override async Task OnGroupMessageAsync(CqGroupMessagePostContext context)
         {
             if (context.Session is not ICqActionSession actionSession)
                 return;
+
+            if (context.GroupId == TestGroupId)
+                context.QuickOperation.Reply = CqMsg.Chain("这是一个快速操作回复");
             
             string text = context.Message.GetText();
             if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
