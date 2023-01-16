@@ -137,6 +137,7 @@
             public const string LuckyKing = "lucky_king";
             public const string Poke = "poke";
             public const string Honor = "honor";
+            public const string Title = "title";
         }
     }
 }

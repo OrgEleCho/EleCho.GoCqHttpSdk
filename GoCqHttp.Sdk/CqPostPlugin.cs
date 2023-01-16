@@ -94,6 +94,10 @@ namespace EleCho.GoCqHttpSdk
                     OnHonorChanged(honorChangedPC);
                     await OnHonorChangedAsync(honorChangedPC);
                     break;
+                case CqMemberTitleChangeNoticedPostContext memberTitleChangeNoticedPostContext:
+                    OnMemberTitleChanged(memberTitleChangeNoticedPostContext);
+                    await OnMemberTitleChangedAsync(memberTitleChangeNoticedPostContext);
+                    break;
             }
 
             await next();
@@ -120,6 +124,7 @@ namespace EleCho.GoCqHttpSdk
         public virtual void OnPoked(CqPokedPostContext context) { }
         public virtual void OnLuckyKingNoticed(CqLuckyKingNoticedPostContext context) { }
         public virtual void OnHonorChanged(CqHonorChangedPostContext context) { }
+        public virtual void OnMemberTitleChanged(CqMemberTitleChangeNoticedPostContext context) { }
 
 
         public virtual Task OnPrivateMessageAsync(CqPrivateMessagePostContext context) => Task.CompletedTask;
@@ -143,5 +148,6 @@ namespace EleCho.GoCqHttpSdk
         public virtual Task OnPokedAsync(CqPokedPostContext context) => Task.CompletedTask;
         public virtual Task OnLuckyKingNoticedAsync(CqLuckyKingNoticedPostContext context) => Task.CompletedTask;
         public virtual Task OnHonorChangedAsync(CqHonorChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnMemberTitleChangedAsync(CqMemberTitleChangeNoticedPostContext context) => Task.CompletedTask;
     }
 }

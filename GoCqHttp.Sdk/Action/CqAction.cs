@@ -10,6 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     public abstract class CqAction
     {
         public abstract CqActionType Type { get; }
+
         public string? EchoData { get; set; }
 
         internal abstract CqActionParamsModel GetParamsModel();

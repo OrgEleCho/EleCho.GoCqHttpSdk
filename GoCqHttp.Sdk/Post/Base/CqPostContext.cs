@@ -14,6 +14,7 @@ namespace EleCho.GoCqHttpSdk.Post
             Time = DateTime.Now;
             Session = null!;         // 别警告了, 憨批 VS
                                      // 保证在 new 之后通过 SetSession 设置 Session
+                                     // 为什么不直接在属性后面加 = default! 呢(
         }
 
         public CqSession Session { get; private set; }
@@ -114,14 +115,15 @@ namespace EleCho.GoCqHttpSdk.Post
 
         private static CqPostContext? FromNotifyModel(CqPostModel? model)
         {
-            if (model is not CqNoticeNotifyPostModel notifyModel)
+            if(model is not CqNoticeNotifyPostModel notifyModel)
                 return null;
-            
+
             return notifyModel.sub_type switch
             {
                 Consts.NotifyType.Poke => new CqPokedPostContext(),
                 Consts.NotifyType.LuckyKing => new CqLuckyKingNoticedPostContext(),
                 Consts.NotifyType.Honor => new CqHonorChangedPostContext(),
+                Consts.NotifyType.Title => new CqMemberTitleChangeNoticedPostContext(),
 
                 _ => null,
             };

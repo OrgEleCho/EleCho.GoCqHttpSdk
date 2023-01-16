@@ -11,7 +11,10 @@ namespace TestConsole
     {
         public override async Task OnGroupMessageAsync(CqGroupMessagePostContext context)
         {
-            if (context.Session is not ICqActionSession actionSession)
+            //if(context.GroupId != 860355679) return;
+
+
+            if(context.Session is not ICqActionSession actionSession)
                 return;
             
             string text = context.Message.GetText();
@@ -29,12 +32,28 @@ namespace TestConsole
 
         public override async Task OnGroupMessageRecalledAsync(CqGroupMessageRecalledPostContext context)
         {
-            if (context.Session is not ICqActionSession actionSession)
+            //if(context.GroupId != 860355679) return;
+
+
+            if(context.Session is not ICqActionSession actionSession)
                 return;
 
             var msg = (await actionSession.GetMessageAsync(context.MessageId));
 
             await actionSession.SendGroupMessageAsync(context.GroupId, CqMsg.Chain(new CqAtMsg(context.UserId), "让我康康你撤回了什么: ", msg.Message, "\n嘿嘿, 撤回失败了吧~"));
+        }
+
+        public override async Task OnMemberTitleChangedAsync(CqMemberTitleChangeNoticedPostContext context)
+        {
+            //if(context.GroupId != 860355679) return;
+
+
+            if(context.Session is not ICqActionSession actionSession)
+                return;
+
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg($"有人头衔改变了哦, 内容是{context.NewTitle}"));
+
+
         }
     }
 }

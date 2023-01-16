@@ -2,6 +2,6 @@
 {
     public enum CqNotifyType
     {
-        Poke, LuckyKing, Honor
+        Poke, LuckyKing, Honor, Title
     }
 }
