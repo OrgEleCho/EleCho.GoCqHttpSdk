@@ -156,6 +156,12 @@ session.UsePlugin(new MyPostPlugin());
 
 1. `CqMsg` 类中包含了对于消息的一写帮助方法, 例如将多个 CqMsg 拼合为一个 CqMsg[], 或者从 CQ 码转换为 CqMsg[]
 2. `CqFaceMsg` 是 QQ 小黄脸消息, 它还提供了从中文名称转换为对应类型的方法, 例如 "斜眼笑", "可怜" 等中文名称.
+3. 上报中的 `QuickOperation` 是不推荐使用的, 除非你使用的是反向 HTTP, 这是因为在 WebSocket 中, 快速操作是模拟出来的
+
+### 近期计划:
+
+1. 实现反向 WebSocket 通信
+2. 实现所有 Action
 
 ## 项目
 
