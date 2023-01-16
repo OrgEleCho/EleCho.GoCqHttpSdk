@@ -3,9 +3,9 @@ using EleCho.GoCqHttpSdk.Post;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqGroupMsgSender : CqMessageSender
+    public class CqGroupMessageSender : CqMessageSender
     {
-        internal CqGroupMsgSender(CqGroupMessageSenderModel model) : base(model)
+        internal CqGroupMessageSender(CqGroupMessageSenderModel model) : base(model)
         {
             Card = model.card;
             Area = model.area;
