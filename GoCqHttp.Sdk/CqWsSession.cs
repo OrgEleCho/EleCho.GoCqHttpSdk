@@ -44,7 +44,7 @@ namespace EleCho.GoCqHttpSdk
 
         public CqActionSender ActionSender => actionSender;
         public CqPostPipeline PostPipeline => postPipeline;
-        
+
 
         public CqWsSession(CqWsSessionOptions options)
         {
@@ -86,7 +86,7 @@ namespace EleCho.GoCqHttpSdk
             if (postContext != null)
                 await postPipeline.ExecuteAsync(postContext);
         }
-        
+
         /// <summary>
         /// 处理 WebSocket 数据
         /// </summary>
@@ -124,7 +124,7 @@ namespace EleCho.GoCqHttpSdk
             while (!disposed)
             {
                 IsConnected = webSocket2Listen.State == WebSocketState.Open;
-                
+
                 if (!IsConnected)
                 {
                     await Task.Delay(100);
@@ -149,16 +149,16 @@ namespace EleCho.GoCqHttpSdk
                 try  // 直接捕捉 JSON 反序列化异常
                 {
 #endif
-                    // 反序列化为 WebSocket 数据 (自己抽的类
-                    string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
-                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.Options);
+                // 反序列化为 WebSocket 数据 (自己抽的类
+                string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
+                CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.Options);
 
-                    // 处理 WebSocket 数据
-                    await ProcWsDataAsync(wsDataModel);
-                
+                // 处理 WebSocket 数据
+                await ProcWsDataAsync(wsDataModel);
+
 #if DEBUG
-                    if (wsDataModel is not CqPostModel)
-                        Console.WriteLine($"Received: {json}");
+                if (wsDataModel is not CqPostModel)
+                    Console.WriteLine($"Received: {json}");
 #endif
 #if RELEASE
                 }
@@ -230,7 +230,7 @@ namespace EleCho.GoCqHttpSdk
         {
             if (disposed)
                 return;
-            
+
             apiWebSocketClient?.Dispose();
             eventWebSocketClient?.Dispose();
             webSocketClient?.Dispose();
