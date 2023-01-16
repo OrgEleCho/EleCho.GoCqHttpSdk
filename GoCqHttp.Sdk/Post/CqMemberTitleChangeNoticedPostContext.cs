@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public long UserId { get; set; }
 
-        public string NewTitle { get; set; } = default!;
+        public string NewTitle { get; set; } = string;
 
 
         internal CqMemberTitleChangeNoticedPostContext() { }
