@@ -12,7 +12,7 @@ namespace EleCho.GoCqHttpSdk.Post
         internal CqPostContext()
         {
             Time = DateTime.Now;
-            Session = null!;         // 别警告了, 憨批 VS
+            Session = default!;         // 别警告了, 憨批 VS
                                      // 保证在 new 之后通过 SetSession 设置 Session
         }
 
@@ -112,12 +112,13 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             if (model is not CqNoticeNotifyPostModel notifyModel)
                 return null;
-            
+
             return notifyModel.sub_type switch
             {
                 Consts.NotifyType.Poke => new CqPokedPostContext(),
                 Consts.NotifyType.LuckyKing => new CqLuckyKingNoticedPostContext(),
                 Consts.NotifyType.Honor => new CqHonorChangedPostContext(),
+                Consts.NotifyType.Title => new CqMemberTitleChangeNoticedPostContext(),
 
                 _ => null,
             };

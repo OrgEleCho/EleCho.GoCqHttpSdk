@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk
         {
             session.PostPipeline.Use(async (context, next) =>
             {
-                if (context is IContext specifiedContext)
+                if(context is IContext specifiedContext)
                 {
                     await middleware(specifiedContext, next);
                 }
@@ -45,7 +45,7 @@ namespace EleCho.GoCqHttpSdk
         public static void UseGroupMemberIncreased(this ICqPostSession session, Func<CqGroupMemberIncreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMemberDecreased(this ICqPostSession session, Func<CqGroupMemberDecreasedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseGroupMsgRecalled(this ICqPostSession session, Func<CqGroupMessageRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
-        
+
         public static void UseFriendAdded(this ICqPostSession session, Func<CqFriendAddedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseFriendMsgRecalled(this ICqPostSession session, Func<CqFriendMessageRecalledPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
 
@@ -57,6 +57,8 @@ namespace EleCho.GoCqHttpSdk
         public static void UseHonorChanged(this ICqPostSession session, Func<CqHonorChangedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UseLuckyKingNoticed(this ICqPostSession session, Func<CqLuckyKingNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         public static void UsePoked(this ICqPostSession session, Func<CqPokedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+
+        public static void UseMemberTitleChanged(this ICqPostSession session, Func<CqMemberTitleChangeNoticedPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
         #endregion
 
         #region Request

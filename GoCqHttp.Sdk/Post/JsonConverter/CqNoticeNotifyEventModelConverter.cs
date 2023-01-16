@@ -22,6 +22,7 @@ namespace EleCho.GoCqHttpSdk.Post.JsonConverter
                     "poke" => JsonSerializer.Deserialize<CqNoticePokePostModel>(doc, options),
                     "lucky_king" => JsonSerializer.Deserialize<CqNoticeLuckyKingPostModel>(doc, options),
                     "honor" => JsonSerializer.Deserialize<CqNoticeHonorPostModel>(doc, options),
+                    "title" => JsonSerializer.Deserialize<CqNoticeTitlePostModel>(doc, options),
 
                     _ => null
                 };

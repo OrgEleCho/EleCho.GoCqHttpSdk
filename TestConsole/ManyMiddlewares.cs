@@ -20,6 +20,8 @@ namespace TestConsole
 
         public async Task WaterWaterWater(CqGroupMessagePostContext context, Func<Task> next)
         {
+            //if(context.GroupId != 860355679) return;
+            
             string textMsg = context.Message.GetText();
             Console.WriteLine($"[Group:{context.GroupId}] {context.UserId}: {textMsg}");
 
