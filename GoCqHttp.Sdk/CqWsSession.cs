@@ -188,8 +188,7 @@ namespace EleCho.GoCqHttpSdk
                     return;
 
                 apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
-                string apiUriStr = Path.Combine(BaseUri.ToString(), "api");
-                await apiWebSocketClient.ConnectAsync(new Uri(apiUriStr), default);
+                await apiWebSocketClient.ConnectAsync(new Uri(BaseUri, "api"), default);
             }
 
             // 如果事件套接字不为空, 则连接事件套接字
@@ -199,8 +198,7 @@ namespace EleCho.GoCqHttpSdk
                     return;
 
                 eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
-                string eventUriStr = Path.Combine(BaseUri.ToString(), "event");
-                await eventWebSocketClient.ConnectAsync(new Uri(eventUriStr), default);
+                await eventWebSocketClient.ConnectAsync(new Uri(BaseUri, "event"), default);
             }
 
             // 如果任意一个为空且基础套接字部不为空, 则连接基础套接字

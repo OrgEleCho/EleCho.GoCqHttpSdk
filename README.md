@@ -2,7 +2,7 @@
 
 # EleCho.GoCqHttpSdk
 
-_✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷于优雅的通信 SDK ✨_
+_✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与优雅的通信 SDK ✨_
 
 ![LICENSE](https://img.shields.io/github/license/EleChoNet/EleCho.GoCqHttpSdk) 
 ![nuget](https://img.shields.io/nuget/vpre/EleCho.GoCqHttpSdk)
@@ -23,8 +23,10 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷于
 
 > 目前库仍处于开发阶段, 你需要勾选 "包含预发布版本" 才能搜索到结果
 
-> 协议支持: 正反向 HTTP 与正向 WebSocket. \
-> 上报格式支持 `array(json)`, `string`.
+> 通信协议支持: 正反向 HTTP 与正向 WebSocket. \
+> 上报格式支持: `array(json)`, `string`. \
+> 功能支持: CqCode 转码, API 快速操作 \
+> 设计模式: 上报为中间件模式, 同时也支持基于中间件的插件
 
 ### 连接
 
