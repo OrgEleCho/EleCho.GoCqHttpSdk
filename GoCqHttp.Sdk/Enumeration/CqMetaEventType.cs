@@ -1,6 +1,6 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
-    public enum CqMetaType
+    public enum CqMetaEventType
     {
         Lifecycle, Heartbeat
     }

@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqLifecyclePostContext : CqMetaEventPostContext
     {
-        public override CqMetaType MetaEventType => CqMetaType.Lifecycle;
+        public override CqMetaEventType MetaEventType => CqMetaEventType.Lifecycle;
 
         public CqLifecycleType LifecycleType { get; set; }
 

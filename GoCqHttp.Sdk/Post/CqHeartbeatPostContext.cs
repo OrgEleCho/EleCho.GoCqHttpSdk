@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqHeartbeatPostContext : CqMetaEventPostContext
     {
-        public override CqMetaType MetaEventType => CqMetaType.Heartbeat;
+        public override CqMetaEventType MetaEventType => CqMetaEventType.Heartbeat;
 
         public CqStatus Status { get; set; }
 
