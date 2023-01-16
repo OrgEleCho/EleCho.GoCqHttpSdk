@@ -26,8 +26,10 @@ namespace TestConsole
         {
             AssemblyTest.Run();
 
-            HttpClient client = new HttpClient();
+            string pluginCode = CqPostPluginCodeGen.Generate();
 
+
+            return;
 
             Console.WriteLine("逻辑测试开始运行");
             var manyMiddlewares = new ManyMiddlewares(httpSession);
@@ -51,11 +53,6 @@ namespace TestConsole
 
         private static void CheckAssemblyTypes(Assembly asm)
         {
-        }
-
-        private static void Mode(int num1, int num2)
-        {
-            
         }
     }
 }
