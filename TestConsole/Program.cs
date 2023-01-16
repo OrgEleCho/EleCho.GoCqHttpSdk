@@ -10,32 +10,35 @@ namespace TestConsole
 {
     internal class Program
     {
+        public const int WebSocketPort = 5000; // orig 5701
+        public const int HttpPort = 5700; //orig 5700
+
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {
-            BaseUri = new Uri("ws://127.0.0.1:5701"),
+            BaseUri = new Uri($"ws://127.0.0.1:{WebSocketPort}"),
             UseApiEndPoint = true,
             UseEventEndPoint = true,
         });
 
         static CqHttpSession httpSession = new CqHttpSession(new CqHttpSessionOptions()
         {
-            BaseUri = new Uri("http://127.0.0.1:5700"),
+            BaseUri = new Uri($"http://127.0.0.1:{HttpPort}"),
         });
 
         private static async Task Main(string[] args)
         {
             AssemblyTest.Run();
 
-            string pluginCode = CqPostPluginCodeGen.Generate();
-
-
-            return;
-
             Console.WriteLine("逻辑测试开始运行");
             var manyMiddlewares = new ManyMiddlewares(httpSession);
 
             session.UsePlugin(new MyPostPlugin());
 
+            session.UseMemberTitleChanged(async (c, next) =>
+            {
+                await httpSession.SendGroupMessageAsync(c.GroupId, new CqTextMsg($"qwq这里是新加的title notify哦, 头衔是{c.NewTitle}"));
+                await next();
+            });
             session.UseGroupMessage(manyMiddlewares.WaterWaterWater);
             session.UseGroupRequest(async (context, next) =>
             {
@@ -47,7 +50,7 @@ namespace TestConsole
 
             await ApiTest.RunAsync(session);
 
-            while (true)
+            while(true)
                 Console.ReadKey(true);
         }
 

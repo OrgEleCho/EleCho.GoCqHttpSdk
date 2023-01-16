@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Message
         public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
         
         // 啧, 需要一个把 CqMsg 一大堆与 CqMsg[] 组合在一起的东西
-
+        // -1.16 比如叫做`消息实体`? 同时还可以在内部封装很多方便获取消息节点的方法甚至支持LINQ进行查询
         
         
         public static CqMsg[] Chain(params CqMsg[] msg)
