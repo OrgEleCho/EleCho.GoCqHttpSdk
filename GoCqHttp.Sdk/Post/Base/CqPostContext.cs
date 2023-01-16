@@ -12,9 +12,8 @@ namespace EleCho.GoCqHttpSdk.Post
         internal CqPostContext()
         {
             Time = DateTime.Now;
-            Session = null!;         // 别警告了, 憨批 VS
+            Session = default!;         // 别警告了, 憨批 VS
                                      // 保证在 new 之后通过 SetSession 设置 Session
-                                     // 为什么不直接在属性后面加 = default! 呢(
         }
 
         public CqSession Session { get; private set; }
