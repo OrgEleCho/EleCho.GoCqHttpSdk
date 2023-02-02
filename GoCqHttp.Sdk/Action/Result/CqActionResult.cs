@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 using EleCho.GoCqHttpSdk.Utils;
@@ -6,6 +7,7 @@ using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+
     public abstract class CqActionResult
     {
         internal CqActionResult() { }
@@ -80,6 +82,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 DeleteFriend => new CqDeleteFriendActionResult(),
                 DeleteUnidirectionalFriend => new CqDeleteUnidirectionalFriendActionResult(),
                 
+                CanSendImage => new CqCanSendImageActionResult(),
+                CanSendRecord => new CqCanSendRecordActionResult(),
 
                 _ => throw new NotImplementedException()
             };

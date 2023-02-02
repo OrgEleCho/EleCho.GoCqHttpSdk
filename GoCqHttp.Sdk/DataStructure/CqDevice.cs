@@ -1,4 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Post;
+using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk
 {
@@ -8,10 +9,6 @@ namespace EleCho.GoCqHttpSdk
         public string DeviceName { get; set; } = string.Empty;
         public string DeviceKind { get; set; } = string.Empty;
 
-        internal CqDevice()
-        {
-        }
-
         internal CqDevice(CqDeviceModel model)
         {
             AppId = model.app_id;
@@ -19,6 +16,7 @@ namespace EleCho.GoCqHttpSdk
             DeviceKind = model.device_kind;
         }
 
+        [JsonConstructor]
         public CqDevice(long appId, string deviceName, string deviceKind)
         {
             AppId = appId;

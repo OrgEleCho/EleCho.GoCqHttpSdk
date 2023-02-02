@@ -7,19 +7,19 @@ namespace EleCho.GoCqHttpSdk.Action
     {
 
         //QQ 号
-        public long UserId { get; set; }
+        public long UserId { get; private set; }
         //昵称
-        public string Nickname { get; set; } = string.Empty;
+        public string Nickname { get; private set; } = string.Empty;
         //性别, male 或 female 或 unknown
-        public string Sex { get; set; } = string.Empty;
+        public string Sex { get; private set; } = string.Empty;
         //年龄
-        public int Age { get; set; }
+        public int Age { get; private set; }
         //qid ID身份卡
-        public string Qid { get; set; } = string.Empty;
+        public string Qid { get; private set; } = string.Empty;
         //等级
-        public int Level { get; set; }
+        public int Level { get; private set; }
         //等级
-        public int LoginDays { get; set; }
+        public int LoginDays { get; private set; }
 
 
         internal CqGetStrangerInformationActionResult() { }

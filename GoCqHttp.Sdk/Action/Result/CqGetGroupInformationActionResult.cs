@@ -11,15 +11,15 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqGetGroupInformationActionResult() { }
 
-        public long GroupId { get; set; }
-        public string GroupName { get; set; } = string.Empty;
-        public string GroupMemo { get; set; } = string.Empty;
+        public long GroupId { get; private set; }
+        public string GroupName { get; private set; } = string.Empty;
+        public string GroupMemo { get; private set; } = string.Empty;
 
-        public DateTime GroupCreateTime { get; set; }
-        public uint GroupLevel { get; set; }
+        public DateTime GroupCreateTime { get; private set; }
+        public uint GroupLevel { get; private set; }
 
-        public int MemberCount { get; set; }
-        public int MaxMemberCount { get; set; }
+        public int MemberCount { get; private set; }
+        public int MaxMemberCount { get; private set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

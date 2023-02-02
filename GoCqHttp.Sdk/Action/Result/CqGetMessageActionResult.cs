@@ -9,14 +9,14 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetMessageActionResult : CqActionResult
     {
-        public bool IsGroupMsg { get; set; }
+        public bool IsGroupMsg { get; private set; }
         
-        public long MessageId { get; set; }
-        public int RealId { get; set; }
-        public CqMessageSender Sender { get; set; } = new CqMessageSender();
-        public DateTime Time { get; set; }
-        public CqMsg[] Message { get; set; } = Array.Empty<CqMsg>();
-        public string RawMessage { get; set; } = string.Empty;
+        public long MessageId { get; private set; }
+        public int RealId { get; private set; }
+        public CqMessageSender Sender { get; private set; } = new CqMessageSender();
+        public DateTime Time { get; private set; }
+        public CqMsg[] Message { get; private set; } = Array.Empty<CqMsg>();
+        public string RawMessage { get; private set; } = string.Empty;
 
         internal CqGetMessageActionResult() { }
 

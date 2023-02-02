@@ -101,6 +101,9 @@
             public const string MarkMsgAsRead = "mark_msg_as_read";
 
             public const string HandleQuickOperation = ".handle_quick_operation";
+
+            public const string CanSendImage ="can_send_image";
+            public const string CanSendRecord = "can_send_record";
         }
 
         public static class NoticeType

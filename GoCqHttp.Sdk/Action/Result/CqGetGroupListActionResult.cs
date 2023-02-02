@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqGetGroupListActionResult() { }
 
-        public IReadOnlyList<CqGroup> Groups { get; set; } = new List<CqGroup>(0).AsReadOnly();
+        public IReadOnlyList<CqGroup> Groups { get; private set; } = new List<CqGroup>(0).AsReadOnly();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

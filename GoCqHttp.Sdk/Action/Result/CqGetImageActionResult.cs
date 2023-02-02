@@ -4,9 +4,9 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetImageActionResult : CqActionResult
     {
-        public int Size { get; set; }
-        public string Filename { get; set; } = string.Empty;
-        public string Url { get; set; } = string.Empty;
+        public int Size { get; private set; }
+        public string Filename { get; private set; } = string.Empty;
+        public string Url { get; private set; } = string.Empty;
         
         internal CqGetImageActionResult() { }
 

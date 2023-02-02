@@ -11,21 +11,21 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqGetGroupMemberInformationActionResult() { }
 
-        public long GroupId { get; set; }
-        public long UserId { get; set; }
-        public string Nickname { get; set; } = string.Empty;
-        public string GroupNickname { get; set; } = string.Empty;
-        public CqGender Gender { get; set; }
-        public string Area { get; set; } = string.Empty;
-        public DateTime JoinTime { get; set; }
-        public DateTime LastSentTime { get; set; }
-        public string Level { get; set; } = string.Empty;
-        public CqRole Role { get; set; }
-        public bool Unfriendly { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public DateTime TitleExpireTime { get; set; }
-        public bool GroupNicknameChangeable { get; set; }
-        public DateTime BanExpireTime { get; set; }
+        public long GroupId { get; private set; }
+        public long UserId { get; private set; }
+        public string Nickname { get; private set; } = string.Empty;
+        public string GroupNickname { get; private set; } = string.Empty;
+        public CqGender Gender { get; private set; }
+        public string Area { get; private set; } = string.Empty;
+        public DateTime JoinTime { get; private set; }
+        public DateTime LastSentTime { get; private set; }
+        public string Level { get; private set; } = string.Empty;
+        public CqRole Role { get; private set; }
+        public bool Unfriendly { get; private set; }
+        public string Title { get; private set; } = string.Empty;
+        public DateTime TitleExpireTime { get; private set; }
+        public bool GroupNicknameChangeable { get; private set; }
+        public DateTime BanExpireTime { get; private set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

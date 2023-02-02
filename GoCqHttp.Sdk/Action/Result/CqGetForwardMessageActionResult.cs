@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqGetForwardMessageActionResult() { }
         
-        public CqForwardMessageNode[] Messages { get; set; } = Array.Empty<CqForwardMessageNode>();
+        public CqForwardMessageNode[] Messages { get; private set; } = Array.Empty<CqForwardMessageNode>();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

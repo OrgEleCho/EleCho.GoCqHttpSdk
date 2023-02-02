@@ -34,6 +34,8 @@
         SendPrivateForwardMessage,
         GetGroupInformation,
         GetGroupList,
-        GetGroupMemberInformation
+        GetGroupMemberInformation,
+        CanSendImage,
+        CanSendRecord
     }
 }

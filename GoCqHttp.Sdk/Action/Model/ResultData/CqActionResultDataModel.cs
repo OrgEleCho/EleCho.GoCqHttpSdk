@@ -5,6 +5,7 @@ using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
+
     internal class CqActionResultDataModel
     {
         internal static CqActionResultDataModel? FromRaw(JsonElement? data, string actionType)
@@ -57,6 +58,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 DeleteFriend => dataValue.Deserialize<CqDeleteFriendActionResultDataModel>(JsonHelper.Options),
                 DeleteUnidirectionalFriend => dataValue.Deserialize<CqDeleteUnidirectionalFriendActionResultDataModel>(JsonHelper.Options),
 
+                CanSendImage => dataValue.Deserialize<CqCanSendImageActionResultDataModel>(JsonHelper.Options),
+                CanSendRecord => dataValue.Deserialize<CqCanSendRecordActionResultDataModel>(JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

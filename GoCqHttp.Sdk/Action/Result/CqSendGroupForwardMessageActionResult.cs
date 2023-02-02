@@ -7,8 +7,8 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqSendGroupForwardMessageActionResult() { }
 
-        public long MessageId { get; set; }
-        public string ForwardId { get; set; } = string.Empty;
+        public long MessageId { get; private set; }
+        public string ForwardId { get; private set; } = string.Empty;
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
