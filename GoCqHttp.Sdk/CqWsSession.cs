@@ -19,7 +19,14 @@ namespace EleCho.GoCqHttpSdk
     /// </summary>
     public class CqWsSession : CqSession, ICqPostSession, ICqActionSession, IDisposable
     {
+        /// <summary>
+        /// 基地址
+        /// </summary>
         public Uri BaseUri { get; }
+
+        /// <summary>
+        /// 访问令牌
+        /// </summary>
         public string? AccessToken { get; }
 
         // 主循环线程
@@ -31,9 +38,14 @@ namespace EleCho.GoCqHttpSdk
         private ClientWebSocket? apiWebSocketClient;
         private ClientWebSocket? eventWebSocketClient;
 
+        /// <summary>
+        /// 已连接
+        /// </summary>
         public bool IsConnected { get; private set; }
 
-        // websocket 缓冲区大小
+        /// <summary>
+        /// 缓冲区大小
+        /// </summary>
         public int BufferSize { get; set; } = 1024;
 
         // 用来发送 API 请求
@@ -42,10 +54,22 @@ namespace EleCho.GoCqHttpSdk
         // 用来处理 post 上报事件
         private readonly CqPostPipeline postPipeline;
 
+        /// <summary>
+        /// 操作发送器 (用来调用 Go-CqHttp 的 API)
+        /// </summary>
         public CqActionSender ActionSender => actionSender;
+
+        /// <summary>
+        /// 上报管线 (用来接收 Go-CqHttp 提供的上报数据)
+        /// </summary>
         public CqPostPipeline PostPipeline => postPipeline;
 
 
+        /// <summary>
+        /// 创建 WebSocket 会话的新实例
+        /// </summary>
+        /// <param name="options"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public CqWsSession(CqWsSessionOptions options)
         {
             if (options.BaseUri == null)
@@ -171,7 +195,10 @@ namespace EleCho.GoCqHttpSdk
             }
         }
 
-        // 连接
+        /// <summary>
+        /// 连接
+        /// </summary>
+        /// <returns></returns>
         private async Task ConnectAsync()
         {
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
@@ -210,7 +237,10 @@ namespace EleCho.GoCqHttpSdk
             IsConnected = true;
         }
 
-        // 关闭连接
+        /// <summary>
+        /// 关闭连接
+        /// </summary>
+        /// <returns></returns>
         private async Task CloseAsync()
         {
             // 关闭已连接的套接字
