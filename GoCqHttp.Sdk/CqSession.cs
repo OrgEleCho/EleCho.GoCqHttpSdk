@@ -1,6 +1,6 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
-    public class CqSession
+    public abstract class CqSession
     {
     }
 }
