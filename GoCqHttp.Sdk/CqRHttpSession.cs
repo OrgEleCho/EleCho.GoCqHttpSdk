@@ -55,7 +55,7 @@ namespace EleCho.GoCqHttpSdk
             if (sha1 == null)
                 return false;
 
-            if (signature.StartsWith("sha1="))
+            if (signature.StartsWith("SHA1=", StringComparison.OrdinalIgnoreCase))
                 signature = signature.Substring(5);
 
             byte[] hash = sha1.ComputeHash(data);
