@@ -21,6 +21,7 @@ namespace EleCho.GoCqHttpSdk
         HMACSHA1? sha1;
 
         private HttpListener listener;
+        private Task? mainLoopTask;
 
         public Uri BaseUri => baseUri;
         public string? Secret { get; set; }
@@ -45,8 +46,6 @@ namespace EleCho.GoCqHttpSdk
                 byte[] tokenBin = Encoding.UTF8.GetBytes(secret);
                 sha1 = new HMACSHA1(tokenBin);
             }
-            
-            _ = HttpListenerLoopAsync();
         }
 
         private bool Verify(string? signature, byte[] data)
@@ -115,12 +114,43 @@ namespace EleCho.GoCqHttpSdk
 
         public void Start()
         {
+            if (listener.IsListening)
+                throw new InvalidOperationException("Session is already started");
+
             listener.Start();
+            mainLoopTask = HttpListenerLoopAsync();
         }
 
         public void Stop()
         {
+            if (!listener.IsListening)
+                throw new InvalidOperationException("Session is not started yet");
+            
             listener.Stop();
+        }
+
+        public async Task WaitForShutdownAsync()
+        {
+            if (mainLoopTask == null)
+                throw new InvalidOperationException("Session is not started yet");
+
+            await mainLoopTask;
+        }
+
+        public void WaitForShutdown()
+        {
+            WaitForShutdownAsync().Wait();
+        }
+
+        public async Task RunAsync()
+        {
+            Start();
+            await WaitForShutdownAsync();
+        }
+
+        public void Run()
+        {
+            RunAsync().Wait();
         }
     }
 }
