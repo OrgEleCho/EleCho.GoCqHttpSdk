@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public CqRedEnvelopeMsg(string title) => Title = title;
 
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         internal override CqMsgDataModel? GetDataModel() => new CqRedEnvelopeMsgDataModel(Title);
 

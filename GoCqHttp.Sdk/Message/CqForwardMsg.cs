@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
     {
         public override string Type => Consts.MsgType.Forward;
 
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         internal CqForwardMsg()
         { }

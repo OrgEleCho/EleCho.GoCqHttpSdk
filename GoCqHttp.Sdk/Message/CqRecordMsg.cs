@@ -14,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <summary>
         /// 说明: 语音文件名
         /// </summary>
-        public string File { get; set; }
+        public string File { get; set; } = string.Empty;
 
         /// <summary>
         /// 说明: 发送时可选, 默认 0, 设置为 1 表示变声

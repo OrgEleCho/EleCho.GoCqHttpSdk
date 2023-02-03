@@ -14,8 +14,8 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public long MessageId { get; set; }
         public long UserId { get; set; }
-        public CqMsg[] Message { get; set; }
-        public string RawMessage { get; set; }
+        public CqMsg[] Message { get; set; } = Array.Empty<CqMsg>();
+        public string RawMessage { get; set; } = string.Empty;
         public int Font { get; set; }
 
         internal override void ReadModel(CqPostModel model)
