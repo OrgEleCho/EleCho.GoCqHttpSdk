@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk
         public string? AccessToken { get; }
 
         // 主循环线程
-        private Thread? mainLoopThread;
+        private Task? mainLoopTask;
 
         // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
@@ -113,7 +113,7 @@ namespace EleCho.GoCqHttpSdk
         /// WebSocket 循环
         /// </summary>
         /// <returns></returns>
-        private async void WebSocketLoop()
+        private async Task WebSocketLoop()
         {
             // 初始化 WebSocket (使用 event socket 或者根 socket
             WebSocket? webSocket2Listen = eventWebSocketClient ?? webSocketClient;
@@ -225,25 +225,24 @@ namespace EleCho.GoCqHttpSdk
             IsConnected = false;
         }
 
-        // 在子线程开启主循环
-        public void Start()
+        // 主循环
+        public async Task RunAsync()
         {
-            if (mainLoopThread is Thread thread && thread.IsAlive)
+            if (mainLoopTask is Task task && !task.IsCompleted)
                 throw new InvalidOperationException("Main loop is already running");
-            
-            // 开启套接字循环
-            mainLoopThread = new Thread(WebSocketLoop);
-            mainLoopThread.Start();
+
+            mainLoopTask = WebSocketLoop();
+            await WebSocketLoop();
         }
 
-        // 启动主循环
+        // 同步直接 Wait 主循环
         public void Run()
         {
-            if (mainLoopThread is Thread thread && thread.IsAlive)
+            if (mainLoopTask is Task task && !task.IsCompleted)
                 throw new InvalidOperationException("Main loop is already running");
 
-            mainLoopThread = Thread.CurrentThread;
-            WebSocketLoop();
+            mainLoopTask = RunAsync();
+            mainLoopTask.Wait();
         }
 
 
