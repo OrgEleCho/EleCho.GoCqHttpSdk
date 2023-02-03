@@ -66,7 +66,7 @@ session.PostPipeline.Use(async (context, next) =>
 });
 ```
 
-上述订阅方法将会处理所有的上报, 我们更推荐使用 `EleCho.GoCqHttpSdk.CqActionContextExtensions` 类所提供的拓展方法, 通过它你可以非常便捷的处理任何具体类型的事件
+上述订阅方法将会处理所有的上报, 我们更推荐使用 `EleCho.GoCqHttpSdk.CqPostContextExtensions` 类所提供的拓展方法, 通过它你可以非常便捷的处理任何具体类型的事件
 
 ```csharp
 CqWsSession session;   // 要处理上报数据的会话
@@ -80,7 +80,7 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
     if (context.RawMessage.StartsWith("echo "))
     {
         string msg = context.RawMessage.SubString(5);                  // 获取 "echo " 后的字符
-        context.SendGroupMsgAsync(context.GroupId, new CqTextMsg(msg)); // 发送它 (关于消息发送后面会详细讲解)
+        context.SendGroupMessageAsync(context.GroupId, new CqTextMsg(msg)); // 发送它 (关于消息发送后面会详细讲解)
     }
     
     await next();
@@ -95,14 +95,14 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
 
 ```csharp
 CqWsSession session;   // 要使用 Action 的会话
-session.ActionSender.SendActionAsync(new CqSendGroupMsgAction(群聊ID, new CqMsg[] { new CqTextMsg("一个文本消息") }));
+session.ActionSender.SendActionAsync(new CqSendGroupMessageAction(群聊ID, new CqMsg[] { new CqTextMsg("一个文本消息") }));
 ```
 
 可以看到, 使用 *session.ActionSender* 直接发送 `Action` 的步骤比较繁琐, 所以同样的, 推荐使用拓展方法, 它们由 `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 提供.
 
 ```csharp
 CqWsSession session;   // 要使用 Action 的会话
-context.SendGroupMsgAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
+context.SendGroupMessageAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
 ```
 
 > `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
