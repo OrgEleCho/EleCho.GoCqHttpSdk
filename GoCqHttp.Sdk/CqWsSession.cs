@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk
         public string? AccessToken { get; }
 
         // 主循环线程
-        private Thread mainLoopThread;
+        private Thread? mainLoopThread;
 
         // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
@@ -71,10 +71,6 @@ namespace EleCho.GoCqHttpSdk
             // 初始化 action 发送器 和 post 管道
             actionSender = new CqWsActionSender(this, (apiWebSocketClient ?? webSocketClient)!, options.UseApiEndPoint);
             postPipeline = new CqPostPipeline();
-
-            // 开启套接字循环
-            mainLoopThread = new Thread(WebSocketLoop);
-            mainLoopThread.Start();
         }
 
         internal async Task ProcPostModelAsync(CqPostModel postModel)
@@ -215,6 +211,7 @@ namespace EleCho.GoCqHttpSdk
             IsConnected = true;
         }
 
+        // 关闭连接
         public async Task CloseAsync()
         {
             // 关闭已连接的套接字
@@ -226,6 +223,27 @@ namespace EleCho.GoCqHttpSdk
                 await webSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
 
             IsConnected = false;
+        }
+
+        // 在子线程开启主循环
+        public void Start()
+        {
+            if (mainLoopThread is Thread thread && thread.IsAlive)
+                throw new InvalidOperationException("Main loop is already running");
+            
+            // 开启套接字循环
+            mainLoopThread = new Thread(WebSocketLoop);
+            mainLoopThread.Start();
+        }
+
+        // 启动主循环
+        public void Run()
+        {
+            if (mainLoopThread is Thread thread && thread.IsAlive)
+                throw new InvalidOperationException("Main loop is already running");
+
+            mainLoopThread = Thread.CurrentThread;
+            WebSocketLoop();
         }
 
 
