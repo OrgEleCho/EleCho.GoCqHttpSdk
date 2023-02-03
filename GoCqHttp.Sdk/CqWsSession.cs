@@ -129,8 +129,7 @@ namespace EleCho.GoCqHttpSdk
 
                 if (!IsConnected)
                 {
-                    await Task.Delay(100);
-                    continue;
+                    return;
                 }
 
                 try
@@ -173,7 +172,7 @@ namespace EleCho.GoCqHttpSdk
         }
 
         // 连接
-        public async Task ConnectAsync()
+        private async Task ConnectAsync()
         {
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
 
@@ -212,7 +211,7 @@ namespace EleCho.GoCqHttpSdk
         }
 
         // 关闭连接
-        public async Task CloseAsync()
+        private async Task CloseAsync()
         {
             // 关闭已连接的套接字
             if (apiWebSocketClient != null)
@@ -225,24 +224,83 @@ namespace EleCho.GoCqHttpSdk
             IsConnected = false;
         }
 
-        // 主循环
-        public async Task RunAsync()
+        /// <summary>
+        /// 异步启动会话 (连接并开启主循环)
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException">会话已经启动了</exception>
+        public async Task StartAsync()
         {
-            if (mainLoopTask is Task task && !task.IsCompleted)
-                throw new InvalidOperationException("Main loop is already running");
+            if (mainLoopTask != null)
+                throw new InvalidOperationException("Session is already started");
 
+            await ConnectAsync();
             mainLoopTask = WebSocketLoop();
-            await WebSocketLoop();
         }
 
-        // 同步直接 Wait 主循环
+        /// <summary>
+        /// 启动会话 (异步方法的包装)
+        /// </summary>
+        public void Start()
+        {
+            StartAsync().Wait();
+        }
+
+        /// <summary>
+        /// 异步等待会话关闭 (等待主循环结束)
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException">会话还没启动</exception>
+        public async Task WaitForShutdownAsync()
+        {
+            if (mainLoopTask == null)
+                throw new InvalidOperationException("Session is not started yet");
+
+            await mainLoopTask;
+        }
+
+        /// <summary>
+        /// 同步等待关闭 (异步方法的包装)
+        /// </summary>
+        public void WaitForShutdown()
+        {
+            WaitForShutdownAsync().Wait();
+        }
+
+        /// <summary>
+        /// 异步运行会话 (启动并等待关闭)
+        /// </summary>
+        /// <returns></returns>
+        public async Task RunAsync()
+        {
+            await StartAsync();
+            await WaitForShutdownAsync();
+        }
+
+        /// <summary>
+        /// 同步运行会话 (异步方法的包装)
+        /// </summary>
         public void Run()
         {
-            if (mainLoopTask is Task task && !task.IsCompleted)
-                throw new InvalidOperationException("Main loop is already running");
+            RunAsync().Wait();
+        }
 
-            mainLoopTask = RunAsync();
-            mainLoopTask.Wait();
+        /// <summary>
+        /// 异步关闭会话 (断开连接并终止主循环)
+        /// </summary>
+        /// <returns></returns>
+        public async Task StopAsync()
+        {
+            await CloseAsync();
+            mainLoopTask = null;
+        }
+
+        /// <summary>
+        /// 同步关闭会话 (异步方法的包装)
+        /// </summary>
+        public void Stop()
+        {
+            StopAsync().Wait();
         }
 
 
