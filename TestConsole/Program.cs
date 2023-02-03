@@ -11,7 +11,7 @@ namespace TestConsole
 {
     internal class Program
     {
-        public const int WebSocketPort = 5000; // orig 5701
+        public const int WebSocketPort = 5701; // orig 5701
         public const int HttpPort = 5700; //orig 5700
 
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
@@ -47,7 +47,7 @@ namespace TestConsole
             });
 
 
-            await session.ConnectAsync();
+            await session.StartAsync();
 
             await ApiTest.RunAsync(session);
 

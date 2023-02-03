@@ -1,9 +1,8 @@
-﻿using EleCho.GoCqHttpSdk;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqStatusModel
+    internal record class CqStatusModel
     {
         public CqStatusModel(CqStatus srcData)
         {
@@ -28,12 +27,12 @@ namespace EleCho.GoCqHttpSdk.Post
             this.stat = stat;
         }
 
-        public bool app_initialized { get; set; }
-        public bool app_enabled { get; set; }
-        public bool? plugins_good { get; set; }
-        public bool app_good { get; set; }
-        public bool online { get; set; }
-        public bool good { get; set; }
-        public CqStatusStatisticsModel stat { get; set; }
+        public bool app_initialized { get; }
+        public bool app_enabled { get; }
+        public bool? plugins_good { get; }
+        public bool app_good { get; }
+        public bool online { get; }
+        public bool good { get; }
+        public CqStatusStatisticsModel stat { get; }
     }
 }

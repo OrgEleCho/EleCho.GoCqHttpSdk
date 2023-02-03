@@ -3,7 +3,7 @@
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqXmlMsgDataModel : CqMsgDataModel
+    internal record class CqXmlMsgDataModel : CqMsgDataModel
     {
         public string data { get; set; }
         public string? resid { get; set; }

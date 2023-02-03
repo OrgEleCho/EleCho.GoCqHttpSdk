@@ -1,8 +1,8 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqAnonymousInfomation
+    public record class CqAnonymousInfomation
     {
         internal CqAnonymousInfomation(CqAnonymousInformationModel model)
         {
@@ -18,8 +18,8 @@ namespace EleCho.GoCqHttpSdk
             Flag = flag;
         }
 
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Flag { get; set; }
+        public long Id { get; }
+        public string Name { get; }
+        public string Flag { get; }
     }
 }

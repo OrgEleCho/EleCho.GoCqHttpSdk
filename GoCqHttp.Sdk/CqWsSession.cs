@@ -31,6 +31,7 @@ namespace EleCho.GoCqHttpSdk
 
         // 主循环线程
         private Task? mainLoopTask;
+        private Task? standaloneActionLoopTask;
 
         // 三个接入点的套接字
         private ClientWebSocket? webSocketClient;
@@ -93,7 +94,7 @@ namespace EleCho.GoCqHttpSdk
                 webSocketClient = new ClientWebSocket();
 
             // 初始化 action 发送器 和 post 管道
-            actionSender = new CqWsActionSender(this, (apiWebSocketClient ?? webSocketClient)!, options.UseApiEndPoint);
+            actionSender = new CqWsActionSender(this, apiWebSocketClient ?? webSocketClient ?? throw new InvalidOperationException("This would never happened"));
             postPipeline = new CqPostPipeline();
         }
 
@@ -129,7 +130,7 @@ namespace EleCho.GoCqHttpSdk
             else if (wsDataModel is CqActionResultRaw actionResultRaw)
             {
                 // 将请求放入 ActionSender 进行处理
-                actionSender.PutResult(actionResultRaw);
+                actionSender.PutActionResult(actionResultRaw);
             }
         }
 
@@ -137,19 +138,14 @@ namespace EleCho.GoCqHttpSdk
         /// WebSocket 循环
         /// </summary>
         /// <returns></returns>
-        private async Task WebSocketLoop()
+        private async Task WebSocketLoop(WebSocket webSocket)
         {
-            // 初始化 WebSocket (使用 event socket 或者根 socket
-            WebSocket? webSocket2Listen = eventWebSocketClient ?? webSocketClient;
-            if (webSocket2Listen == null)
-                return;
-
             // 初始化缓冲区
             byte[] buffer = new byte[BufferSize];
             MemoryStream ms = new MemoryStream();
             while (!disposed)
             {
-                IsConnected = webSocket2Listen.State == WebSocketState.Open;
+                IsConnected = webSocket.State == WebSocketState.Open;
 
                 if (!IsConnected)
                 {
@@ -161,7 +157,7 @@ namespace EleCho.GoCqHttpSdk
                     // 重置内存流
                     ms.SetLength(0);
                     // 读取一个消息
-                    await webSocket2Listen.ReadMessageAsync(ms, buffer, default);
+                    await webSocket.ReadMessageAsync(ms, buffer, default);
                 }
                 catch
                 {
@@ -264,8 +260,15 @@ namespace EleCho.GoCqHttpSdk
             if (mainLoopTask != null)
                 throw new InvalidOperationException("Session is already started");
 
+            // 连接所需要的套接字
             await ConnectAsync();
-            mainLoopTask = WebSocketLoop();
+
+            // 首先一定会有一个主循环, 这个主循环可能是通用的套接字, 也可能是单独的上报套接字 (如果使用单独的 API 和上报套接字, 那么主套接字是空的, 所以会 fallback 到事件套接字)
+            mainLoopTask = WebSocketLoop(webSocketClient ?? eventWebSocketClient ?? throw new InvalidOperationException("This would never happened"));
+
+            // 当使用单独的 API 套接字的时候, 我们需要监听 API 套接字
+            if (apiWebSocketClient != null)
+                standaloneActionLoopTask = WebSocketLoop(apiWebSocketClient);
         }
 
         /// <summary>

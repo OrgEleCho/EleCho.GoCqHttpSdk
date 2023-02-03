@@ -6,7 +6,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqShareMsg : CqMsg
+    public record class CqShareMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Share;
 

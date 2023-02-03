@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqGroupHonorOwnerModel
+    internal record class CqGroupHonorOwnerModel
     {
-        public long user_id { get; set; }
-        public string nickname { get; set; } = string.Empty;
-        public string avatar { get; set; } = string.Empty;
-        public string description { get; set; } = string.Empty;
+        [JsonConstructor]
+        public CqGroupHonorOwnerModel(long user_id, string nickname, string avatar, string description)
+        {
+            this.user_id = user_id;
+            this.nickname = nickname;
+            this.avatar = avatar;
+            this.description = description;
+        }
+
+        public long user_id { get; }
+        public string nickname { get; } = string.Empty;
+        public string avatar { get; } = string.Empty;
+        public string description { get; } = string.Empty;
     }
 }

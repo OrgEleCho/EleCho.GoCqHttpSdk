@@ -36,6 +36,11 @@
         GetGroupList,
         GetGroupMemberInformation,
         CanSendImage,
-        CanSendRecord
+        CanSendRecord,
+        SetModelShow,
+        GetModelShow,
+        CheckUrlSafety,
+        GetVersionInformation,
+        GetEssenceMessagesList
     }
 }

@@ -1,12 +1,11 @@
-﻿using EleCho.GoCqHttpSdk;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
 
-    internal class CqGroupMessageSenderModel : CqMessageSenderModel
+    internal record class CqGroupMessageSenderModel : CqMessageSenderModel
     {
 
         public CqGroupMessageSenderModel(CqGroupMessageSender srcData) : base(srcData)
@@ -30,10 +29,10 @@ namespace EleCho.GoCqHttpSdk.Post
             this.title = title;
         }
 
-        public string role { get; set; }
-        public string card { get; set; }
-        public string area { get; set; }
-        public string level { get; set; }
-        public string title { get; set; }
+        public string role { get; }
+        public string card { get; }
+        public string area { get; }
+        public string level { get; }
+        public string title { get; }
     }
 }

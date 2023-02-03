@@ -1,9 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Model;
-using EleCho.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Message.DataModel;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using static EleCho.GoCqHttpSdk.Utils.Consts.MsgType;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk.Message.JsonConverter
 {

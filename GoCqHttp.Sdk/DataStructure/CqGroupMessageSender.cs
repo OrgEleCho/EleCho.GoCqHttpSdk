@@ -1,9 +1,9 @@
 ﻿
-using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqGroupMessageSender : CqMessageSender
+    public record class CqGroupMessageSender : CqMessageSender
     {
         internal CqGroupMessageSender()
         {
@@ -18,10 +18,10 @@ namespace EleCho.GoCqHttpSdk
             Role = CqEnum.GetRole(model.role);
         }
 
-        public string Card { get; set; } = string.Empty;
-        public string Area { get; set; } = string.Empty;
-        public string Level { get; set; } = string.Empty;
-        public string Title { get; set; } = string.Empty;
-        public CqRole Role { get; set; }
+        public string Card { get; } = string.Empty;
+        public string Area { get; } = string.Empty;
+        public string Level { get; } = string.Empty;
+        public string Title { get; } = string.Empty;
+        public CqRole Role { get; }
     }
 }

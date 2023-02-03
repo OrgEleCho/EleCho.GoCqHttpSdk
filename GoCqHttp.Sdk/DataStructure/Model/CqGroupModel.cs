@@ -1,8 +1,9 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Model
+
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqGroupModel
+    internal record class CqGroupModel
     {
         public CqGroupModel(long group_id, string group_name, string group_memo, uint group_create_time, uint group_level, int member_count, int max_member_count)
         {
@@ -15,12 +16,12 @@ namespace EleCho.GoCqHttpSdk.Model
             this.max_member_count = max_member_count;
         }
 
-        public long group_id { get; set; }
-        public string group_name { get; set; }
-        public string group_memo { get; set; }
-        public uint group_create_time { get; set; }
-        public uint group_level { get; set; }
-        public int member_count { get; set; }
-        public int max_member_count { get; set; }
+        public long group_id { get; }
+        public string group_name { get; }
+        public string group_memo { get; }
+        public uint group_create_time { get; }
+        public uint group_level { get; }
+        public int member_count { get; }
+        public int max_member_count { get; }
     }
 }

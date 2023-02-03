@@ -5,7 +5,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public abstract class CqMsg
+    public abstract record class CqMsg
     {
         public abstract string Type { get; }
 

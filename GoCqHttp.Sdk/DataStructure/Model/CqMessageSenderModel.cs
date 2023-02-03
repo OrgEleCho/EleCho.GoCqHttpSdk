@@ -1,9 +1,8 @@
-﻿using EleCho.GoCqHttpSdk;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqMessageSenderModel
+    internal record class CqMessageSenderModel
     {
         public CqMessageSenderModel(CqMessageSender srcData)
         {
@@ -22,9 +21,9 @@ namespace EleCho.GoCqHttpSdk.Post
             this.age = age;
         }
 
-        public long user_id { get; set; }
-        public string nickname { get; set; }
-        public string sex { get; set; }
-        public int age { get; set; }
+        public long user_id { get; }
+        public string nickname { get; }
+        public string sex { get; }
+        public int age { get; }
     }
 }

@@ -3,7 +3,7 @@
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqMsgModel
+    internal record class CqMsgModel
     {
         public CqMsgModel(string type, CqMsgDataModel? data)
         {
@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         public CqMsgDataModel? data { get; set; }
     }
 
-    internal class CqMsgModel<TData> : CqMsgModel where TData : CqMsgDataModel
+    internal record class CqMsgModel<TData> : CqMsgModel where TData : CqMsgDataModel
     {
         public CqMsgModel(string type, TData? data) : base(type, data)
         {

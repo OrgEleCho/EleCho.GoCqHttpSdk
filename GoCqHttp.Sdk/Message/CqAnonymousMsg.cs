@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// 提示: 当收到匿名消息时, 需要通过 消息事件的群消息 的 anonymous 字段判断
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
-    public class CqAnonymousMsg : CqMsg
+    public record class CqAnonymousMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Anonymous;
 

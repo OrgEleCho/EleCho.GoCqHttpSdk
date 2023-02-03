@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
@@ -60,6 +62,14 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 
                 CanSendImage => dataValue.Deserialize<CqCanSendImageActionResultDataModel>(JsonHelper.Options),
                 CanSendRecord => dataValue.Deserialize<CqCanSendRecordActionResultDataModel>(JsonHelper.Options),
+
+                GetEssenceMsgList => dataValue.Deserialize<CqGetEssenceMessageListActionResultDataModel>(JsonHelper.Options),
+
+                GetModelShow => dataValue.Deserialize<CqGetModelShowActionResultDataModel>(JsonHelper.Options),
+                SetModelShow => dataValue.Deserialize<CqSetModelShowActionResultDataModel>(JsonHelper.Options),
+
+                CheckUrlSafety => dataValue.Deserialize<CqCheckUrlSafetyActionResultDataModel>(JsonHelper.Options),
+                GetVersionInfo => dataValue.Deserialize<CqGetVersionInformationActionResultDataModel>(JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

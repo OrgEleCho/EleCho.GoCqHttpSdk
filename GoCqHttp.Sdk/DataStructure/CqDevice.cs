@@ -1,13 +1,17 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqDevice
+    public record class CqDevice
     {
-        public long AppId { get; set; }
-        public string DeviceName { get; set; } = string.Empty;
-        public string DeviceKind { get; set; } = string.Empty;
+        public long AppId { get; }
+        public string DeviceName { get; } = string.Empty;
+        public string DeviceKind { get; } = string.Empty;
+
+        internal CqDevice()
+        {
+        }
 
         internal CqDevice(CqDeviceModel model)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqTtsMsgDataModel : CqMsgDataModel
+    internal record class CqTtsMsgDataModel : CqMsgDataModel
     {
         public CqTtsMsgDataModel()
         {

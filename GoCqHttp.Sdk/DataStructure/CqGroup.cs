@@ -1,9 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Model;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqGroup
+    public record class CqGroup
     {
         internal CqGroup(CqGroupModel model)
         {
@@ -16,12 +16,12 @@ namespace EleCho.GoCqHttpSdk
             MaxMemberCount = model.max_member_count;
         }
 
-        public long GroupId { get; set; }
-        public string GroupName { get; set; }
-        public string GroupMemo { get; set; }
-        public DateTime GroupCreateTime { get; set; }
-        public uint GroupLevel { get; set; }
-        public int MemberCount { get; set; }
-        public int MaxMemberCount { get; set; }
+        public long GroupId { get; }
+        public string GroupName { get; }
+        public string GroupMemo { get; }
+        public DateTime GroupCreateTime { get; }
+        public uint GroupLevel { get; }
+        public int MemberCount { get; }
+        public int MaxMemberCount { get; }
     }
 }

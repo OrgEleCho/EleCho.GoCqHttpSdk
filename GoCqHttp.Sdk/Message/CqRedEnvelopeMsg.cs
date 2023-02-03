@@ -4,7 +4,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqRedEnvelopeMsg : CqMsg
+    public record class CqRedEnvelopeMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Redbag;
 

@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// 掷骰子魔法表情
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
-    public class CqDiceMsg : CqMsg
+    public record class CqDiceMsg : CqMsg
     {
         public CqDiceMsg()
         {

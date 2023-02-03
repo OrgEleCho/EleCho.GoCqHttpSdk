@@ -156,6 +156,17 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.DeleteFriend => DeleteFriend,
                 CqActionType.DeleteUnidirectionalFriend => DeleteUnidirectionalFriend,
 
+                CqActionType.CanSendImage => CanSendImage,
+                CqActionType.CanSendRecord => CanSendRecord,
+
+                CqActionType.GetEssenceMessagesList => GetEssenceMsgList,
+
+                CqActionType.GetModelShow => GetModelShow,
+                CqActionType.SetModelShow => SetModelShow,
+
+                CqActionType.CheckUrlSafety => CheckUrlSafety,
+                CqActionType.GetVersionInformation => GetVersionInfo,
+
                 _ => throw new ArgumentException($"Unknown Action type: {type}")
             };
         }

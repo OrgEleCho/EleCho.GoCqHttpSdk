@@ -3,7 +3,7 @@
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqAnonymousMsgDataModel : CqMsgDataModel
+    internal record class CqAnonymousMsgDataModel : CqMsgDataModel
     {
         public static CqAnonymousMsgDataModel FromCqCode(CqCode code)
         {

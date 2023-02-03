@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using EleCho.GoCqHttpSdk.Model;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {

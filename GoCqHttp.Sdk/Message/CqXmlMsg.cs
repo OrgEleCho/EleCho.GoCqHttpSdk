@@ -4,7 +4,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqXmlMsg : CqMsg
+    public record class CqXmlMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Xml;
 
@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Message
             Data = data;
         }
 
-        public string Data { get; set; }
+        public string Data { get; set; } = string.Empty;
         public int ResId { get; set; }
 
         internal override CqMsgDataModel? GetDataModel() => new CqXmlMsgDataModel(Data, ResId.ToString());
@@ -28,7 +28,9 @@ namespace EleCho.GoCqHttpSdk.Message
                 throw new ArgumentException();
 
             Data = m.data;
-            ResId = int.Parse(m.resid);
+
+            if (m.resid != null)
+                ResId = int.Parse(m.resid);
         }
     }
 }

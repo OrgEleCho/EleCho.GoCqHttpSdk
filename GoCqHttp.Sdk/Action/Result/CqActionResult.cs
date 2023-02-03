@@ -12,22 +12,22 @@ namespace EleCho.GoCqHttpSdk.Action
     {
         internal CqActionResult() { }
 
-        public CqActionStatus Status { get; set; }
-        public CqActionRetCode RetCode { get; set; }
+        public CqActionStatus Status { get; private set; }
+        public CqActionRetCode RetCode { get; private set; }
         /// <summary>
         /// 回声数据, 仅在请求指定了 EchoData 时有效
         /// </summary>
-        public string? EchoData { get; set; }
+        public string? EchoData { get; private set; }
         /// <summary>
         /// 错误消息, 仅在调用失败时有效
         /// 对应源数据中 msg 字段
         /// </summary>
-        public string? ErrorMsg { get; set; }
+        public string? ErrorMsg { get; private set; }
         /// <summary>
         /// 错误信息, 仅在调用失败时有效
         /// 对应源数据中 wording 字段
         /// </summary>
-        public string? ErrorInfo { get; set; }
+        public string? ErrorInfo { get; private set; }
 
         internal abstract void ReadDataModel(CqActionResultDataModel? model);
 
@@ -84,6 +84,14 @@ namespace EleCho.GoCqHttpSdk.Action
                 
                 CanSendImage => new CqCanSendImageActionResult(),
                 CanSendRecord => new CqCanSendRecordActionResult(),
+
+                GetEssenceMsgList => new CqGetEssenceMessageListActionResult(),
+
+                GetModelShow => new CqGetModelShowActionResult(),
+                SetModelShow => new CqSetModelShowActionResult(),
+
+                CheckUrlSafety => new CqCheckUrlSafetyActionResult(),
+                GetVersionInfo => new CqGetVersionInformationActionResult(),
 
                 _ => throw new NotImplementedException()
             };

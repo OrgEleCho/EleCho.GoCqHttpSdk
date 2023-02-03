@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// 相当于戳一戳最基本类型的快捷方式
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
-    public class CqShakeMsg : CqMsg
+    public record class CqShakeMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Shake;
 

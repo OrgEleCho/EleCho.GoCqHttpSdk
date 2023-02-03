@@ -2,7 +2,7 @@
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqGiftMsgDataModel : CqMsgDataModel
+    internal record class CqGiftMsgDataModel : CqMsgDataModel
     {
         public CqGiftMsgDataModel()
         { }

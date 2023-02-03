@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 #pragma warning disable IDE1006 // Naming Styles
 

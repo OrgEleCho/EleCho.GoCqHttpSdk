@@ -1,8 +1,8 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqStatus
+    public record class CqStatus
     {
         internal CqStatus()
         {
@@ -19,12 +19,12 @@ namespace EleCho.GoCqHttpSdk
             Statistics = new CqStatusStatistics(model.stat);
         }
         
-        public bool AppInitialized { get; set; }
-        public bool AppEnabled { get; set; }
-        public bool? PluginsGood { get; set; }
-        public bool AppGood { get; set; }
-        public bool Online { get; set; }
-        public bool Good { get; set; }
-        public CqStatusStatistics Statistics { get; set; } = new CqStatusStatistics();
+        public bool AppInitialized { get; }
+        public bool AppEnabled { get; }
+        public bool? PluginsGood { get; }
+        public bool AppGood { get; }
+        public bool Online { get; }
+        public bool Good { get; }
+        public CqStatusStatistics Statistics { get; } = new CqStatusStatistics();
     }
 }

@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Model;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData

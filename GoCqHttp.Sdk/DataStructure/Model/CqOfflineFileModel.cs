@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqOfflineFileModel
+    internal record class CqOfflineFileModel
     {
         [JsonConstructor]
         public CqOfflineFileModel(string name, long size, string url)
@@ -12,8 +12,8 @@ namespace EleCho.GoCqHttpSdk.Post
             this.url = url;
         }
 
-        public string name { get; set; }
-        public long size { get; set; }
-        public string url { get; set; }
+        public string name { get; }
+        public long size { get; }
+        public string url { get; }
     }
 }

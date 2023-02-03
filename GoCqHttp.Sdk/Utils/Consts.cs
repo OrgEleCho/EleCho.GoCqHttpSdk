@@ -39,10 +39,10 @@
             public const string Video = "video";
             public const string Xml = "xml";
             public const string Music = "music";
-            
+
             public const string Private = "private";
             public const string Group = "group";
-            
+
             public const string TTS = "tts";
         }
 
@@ -104,13 +104,25 @@
 
             public const string CanSendImage ="can_send_image";
             public const string CanSendRecord = "can_send_record";
+
+            public const string GetModelShow = "_get_model_show";
+            public const string SetModelShow = "_set_model_show";
+
+            public const string GetEssenceMsgList = "get_essence_msg_list";
+
+            /// <summary>
+            /// 所以, 官方文档是写错了吧, 怎么可能是 safely 呢
+            /// </summary>
+            public const string CheckUrlSafety = "check_url_safely";
+
+            public const string GetVersionInfo = "get_version_info";
         }
 
         public static class NoticeType
         {
             public const string Essence = "essence";
             public const string ClientStatus = "client_status";
-            
+
             public const string GroupAdmin = "group_admin";
             public const string GroupRecall = "group_recall";
             public const string GroupIncrease = "group_increase";
@@ -118,10 +130,10 @@
             public const string GroupUpload = "group_upload";
             public const string GroupBan = "group_ban";
             public const string GroupCard = "group_card";
-            
+
             public const string FriendAdd = "friend_add";
             public const string FriendRecall = "friend_recall";
-            
+
             public const string OfflineFile = "offline_file";
 
             public const string Notify = "notify";

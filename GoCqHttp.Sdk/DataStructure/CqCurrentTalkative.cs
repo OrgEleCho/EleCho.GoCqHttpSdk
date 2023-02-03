@@ -1,14 +1,14 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.DataStructure
+namespace EleCho.GoCqHttpSdk
 {
-    public class CqCurrentTalkative
+    public record class CqCurrentTalkative
     {
         internal CqCurrentTalkative(CqCurrentTalkativeModel model)
         {
@@ -27,9 +27,9 @@ namespace EleCho.GoCqHttpSdk.DataStructure
             DayCount = dayCount;
         }
 
-        public long UserId { get; set; }
-        public string Nickname { get; set; } = string.Empty;
-        public string Avatar { get; set; } = string.Empty;
-        public int DayCount { get; set; }
+        public long UserId { get; }
+        public string Nickname { get; } = string.Empty;
+        public string Avatar { get; } = string.Empty;
+        public int DayCount { get; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqShakeMsgDataModel : CqMsgDataModel
+    internal record class CqShakeMsgDataModel : CqMsgDataModel
     {
         public static CqShakeMsgDataModel FromCqCode(CqCode code)
         {

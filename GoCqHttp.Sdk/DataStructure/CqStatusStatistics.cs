@@ -1,10 +1,10 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqStatusStatistics
+    public record class CqStatusStatistics
     {
         public CqStatusStatistics()
         {
@@ -41,13 +41,13 @@ namespace EleCho.GoCqHttpSdk
             LastMessageTime = lastMessageTime;
         }
 
-        public ulong PacketReceived { get; set; }
-        public ulong PacketSent { get; set; }
-        public ulong PacketLost { get; set; }
-        public ulong MessageReceived { get; set; }
-        public ulong MessageSent { get; set; }
-        public uint DisconnectTimes { get; set; }
-        public uint LostTimes { get; set; }
-        public DateTime LastMessageTime { get; set; }
+        public ulong PacketReceived { get; }
+        public ulong PacketSent { get; }
+        public ulong PacketLost { get; }
+        public ulong MessageReceived { get; }
+        public ulong MessageSent { get; }
+        public uint DisconnectTimes { get; }
+        public uint LostTimes { get; }
+        public DateTime LastMessageTime { get; }
     }
 }

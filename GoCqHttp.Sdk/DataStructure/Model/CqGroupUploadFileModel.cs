@@ -2,9 +2,9 @@
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqGroupFileModel
+    internal record class CqGroupFileModel
     {
         [JsonConstructor]
         public CqGroupFileModel(string id, string name, long size, long busid)
@@ -15,9 +15,9 @@ namespace EleCho.GoCqHttpSdk.Post
             this.busid = busid;
         }
 
-        public string id { get; set; }
-        public string name { get; set; }
-        public long size { get; set; }
-        public long busid { get; set; }
+        public string id { get; }
+        public string name { get; }
+        public long size { get; }
+        public long busid { get; }
     }
 }

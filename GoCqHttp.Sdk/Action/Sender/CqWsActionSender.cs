@@ -12,87 +12,47 @@ using EleCho.GoCqHttpSdk.Utils;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
+    /// <summary>
+    /// WebSocket 的操作发送器
+    /// </summary>
     public class CqWsActionSender : CqActionSender
     {
         // 响应存储
         private readonly Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
 
-        // 父 Session
+        /// <summary>
+        /// 父 Session
+        /// </summary>
         public CqWsSession? Session { get; }
 
-        // 基础套接字
+        /// <summary>
+        /// 基础网络套接字
+        /// </summary>
         public WebSocket Connection { get; }
 
-        // 是否读取结果
-        public bool ReadResult { get; }
-
-        // 响应等待超时
+        /// <summary>
+        /// 响应超时
+        /// </summary>
         public TimeSpan WaitTimeout { get; set; } = GlobalConfig.WaitTimeout;
 
-        public CqWsActionSender(CqWsSession? session, WebSocket connection, bool readResult)
+        /// <summary>
+        /// 构造新的操作发送器
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="connection"></param>
+        /// <param name="autoReadResult">是否主动开启读取结果的主循环</param>
+        public CqWsActionSender(CqWsSession? session, WebSocket connection)
         {
             Session = session;
             Connection = connection;
-            ReadResult = readResult;
             results = new Dictionary<string, (AutoResetEvent, CqActionResultRaw?)>();
-
-            if (readResult)
-                _ = WebSocketLoopAsync();
         }
 
-        private async Task WebSocketLoopAsync()
-        {
-            MemoryStream wsMs = new MemoryStream();
-            byte[] wsBuffer = new byte[GlobalConfig.WebSocketBufferSize];
-
-            while (true)
-            {
-                if (Connection.State != WebSocketState.Open)
-                {
-                    await Task.Delay(100);
-                    continue;
-                }
-
-#if RELEASE
-                try
-                {
-#endif
-                    wsMs.SetLength(0);
-                    await Connection.ReadMessageAsync(wsMs, wsBuffer, default);
-#if RELEASE
-                }
-                catch
-                {
-                    continue;
-                }
-#endif
-
-                try
-                {
-                    string rstjson = GlobalConfig.TextEncoding.GetString(wsMs.ToArray()); // 文本
-                    CqWsDataModel? resultRaw = JsonSerializer.Deserialize<CqWsDataModel>(rstjson, JsonHelper.Options);
-                    if (resultRaw is CqActionResultRaw rstRaw)
-                        PutResult(rstRaw);
-                    else if (resultRaw is CqPostModel postModel)
-                        Session?.ProcPostModelAsync(postModel);
-                    
-#if DEBUG
-                    Console.WriteLine($"{JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
-#endif
-                }
-                catch (System.Text.DecoderFallbackException)
-                {
-                    // ignore text decode error
-                }
-                catch (JsonException)
-                {
-                    // ignore json error
-                }
-            }
-        }
-
-        // 放入结果
-        internal void PutResult(CqActionResultRaw result)
+        /// <summary>
+        /// 将操作响应结果放入到发送器中, 以使发送器响应对应的操作 (这个应该由 WebSocket 会话调用)
+        /// </summary>
+        /// <param name="result"></param>
+        internal void PutActionResult(CqActionResultRaw result)
         {
             if (result.echo == null)
                 return;
@@ -104,6 +64,11 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             }
         }
 
+        /// <summary>
+        /// 异步执行操作
+        /// </summary>
+        /// <param name="action">要执行的操作</param>
+        /// <returns>可等待的操作结果</returns>
         public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
             // 生成唯一标识符

@@ -1,20 +1,20 @@
-﻿using EleCho.GoCqHttpSdk.Model;
-using EleCho.GoCqHttpSdk.Message;
+﻿using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqForwardMessageNode : CqMsg
+    public record class CqForwardMessageNode : CqMsg
     {
         public override string Type => Consts.MsgType.Node;
 
-        public long? Id { get; set; }
-        public string? Name { get; set; }
-        public long? QQ { get; set; }
-        public CqMsg[]? Content { get; set; }
-        public CqMsg[]? Seq { get; set; }
+        public long? Id { get; private set; }
+        public string? Name { get; private set; }
+        public long? QQ { get; private set; }
+        public CqMsg[]? Content { get; private set; }
+        public CqMsg[]? Seq { get; private set; }
 
         internal CqForwardMessageNode()
         { }

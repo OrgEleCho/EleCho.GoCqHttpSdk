@@ -6,7 +6,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqImageMsg : CqMsg
+    public record class CqImageMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Image;
 

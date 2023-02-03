@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
@@ -41,7 +42,7 @@ namespace EleCho.GoCqHttpSdk.Action
         {
             return new CqBanGroupAnonymousMemberActionParamsModel(
                 GroupId,
-                Anonymous != null ? new Post.CqAnonymousInformationModel(Anonymous) : null,
+                Anonymous != null ? new CqAnonymousInformationModel(Anonymous) : null,
                 AnonymousFlag,
                 Duration.ToLongTotalSeconds());
         }

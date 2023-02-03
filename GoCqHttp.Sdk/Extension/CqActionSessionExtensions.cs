@@ -113,5 +113,18 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqCanSendImageAction, CqCanSendImageActionResult>(new CqCanSendImageAction());
         public static Task<CqCanSendRecordActionResult?> CanSendRecord(this ICqActionSession session)
             => session.InvokeActionAsync<CqCanSendRecordAction, CqCanSendRecordActionResult>(new CqCanSendRecordAction());
+
+
+        public static Task<CqGetEssenceMessageListActionResult?> GetEssenceMessageList(this ICqActionSession session, long groupId)
+            => session.InvokeActionAsync<CqGetEssenceMessageListAction, CqGetEssenceMessageListActionResult>(new CqGetEssenceMessageListAction(groupId));
+
+        public static Task<CqGetModelShowActionResult?> GetModelShow(this ICqActionSession session, string model)
+            => session.InvokeActionAsync<CqGetModelShowAction, CqGetModelShowActionResult>(new CqGetModelShowAction(model));
+        public static Task<CqSetModelShowActionResult?> SetModelShow(this ICqActionSession session, string model, string modelShow)
+            => session.InvokeActionAsync<CqSetModelShowAction, CqSetModelShowActionResult>(new CqSetModelShowAction(model, modelShow));
+        public static Task<CqCheckUrlSafetyActionResult?> CheckUrlSafety(this ICqActionSession session, string url)
+            => session.InvokeActionAsync<CqCheckUrlSafetyAction, CqCheckUrlSafetyActionResult>(new CqCheckUrlSafetyAction(url));
+        public static Task<CqGetVersionInformationActionResult?> GetVersionInformation(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetVersionInformationAction, CqGetVersionInformationActionResult>(new CqGetVersionInformationAction());
     }
 }

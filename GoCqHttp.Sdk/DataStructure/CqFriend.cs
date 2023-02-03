@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Model;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqFriend
+    public record class CqFriend
     {
         internal CqFriend(CqFriendModel model)
         {
@@ -16,8 +16,8 @@ namespace EleCho.GoCqHttpSdk
             Remark = model.remark;
         }
 
-        public long UserId { get; set; }
-        public string Nickname { get; set; }
-        public string Remark { get; set; }
+        public long UserId { get; }
+        public string Nickname { get; }
+        public string Remark { get; }
     }
 }

@@ -1,15 +1,14 @@
-﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.DataStructure
+namespace EleCho.GoCqHttpSdk
 {
-    public class CqGroupHonorOwner
+    public record class CqGroupHonorOwner
     {
         internal CqGroupHonorOwner(CqGroupHonorOwnerModel model)
         {
@@ -28,9 +27,9 @@ namespace EleCho.GoCqHttpSdk.DataStructure
             Description = description;
         }
 
-        public long UserId { get; set; }
-        public string Nickname { get; set; } = string.Empty;
-        public string Avator { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public long UserId { get; }
+        public string Nickname { get; } = string.Empty;
+        public string Avator { get; } = string.Empty;
+        public string Description { get; } = string.Empty;
     }
 }

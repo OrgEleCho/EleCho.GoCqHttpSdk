@@ -15,15 +15,28 @@ using static EleCho.GoCqHttpSdk.Utils.Consts;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
+    /// <summary>
+    /// HTTP 操作发送器
+    /// </summary>
     public class CqHttpActionSender : CqActionSender
     {
         public HttpClient Client { get; }
 
+        /// <summary>
+        /// 新建一个 HTTP 操作发送器
+        /// </summary>
+        /// <param name="client"></param>
         public CqHttpActionSender(HttpClient client)
         {
             Client = client;
         }
 
+        /// <summary>
+        /// 执行操作
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
             // 转为 Model
@@ -55,6 +68,12 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             return CqActionResult.FromRaw(resultRaw, actionType);
         }
 
+        /// <summary>
+        /// 处理快速操作
+        /// </summary>
+        /// <param name="context">上报数据模型</param>
+        /// <param name="quickActionModel">快速操作数据模型</param>
+        /// <returns></returns>
         internal override async Task<bool> HandleQuickAction(CqPostModel context, object quickActionModel)
         {
             object bodyModel = new

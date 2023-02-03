@@ -1,8 +1,8 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqGroupFile
+    public record class CqGroupFile
     {
         internal CqGroupFile()
         {
@@ -24,9 +24,9 @@ namespace EleCho.GoCqHttpSdk
             BusId = busid;
         }
 
-        public string Id { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
-        public long Size { get; set; }
-        public long BusId { get; set; }
+        public string Id { get; } = string.Empty;
+        public string Name { get; } = string.Empty;
+        public long Size { get; }
+        public long BusId { get; }
     }
 }

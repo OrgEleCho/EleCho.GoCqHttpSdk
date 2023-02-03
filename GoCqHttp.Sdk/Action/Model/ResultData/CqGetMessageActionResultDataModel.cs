@@ -1,5 +1,5 @@
-﻿using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Message.DataModel;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData

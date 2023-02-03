@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// 推荐好友/群
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
-    public class CqContactMsg : CqMsg
+    public record class CqContactMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Contact;
 

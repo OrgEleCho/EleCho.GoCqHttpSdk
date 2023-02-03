@@ -4,7 +4,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqTtsMsg : CqMsg
+    public record class CqTtsMsg : CqMsg
     {
         internal CqTtsMsg()
         {

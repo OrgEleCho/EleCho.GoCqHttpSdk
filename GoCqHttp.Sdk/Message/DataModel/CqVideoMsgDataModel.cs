@@ -3,7 +3,7 @@
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
-    internal class CqVideoMsgDataModel : CqMsgDataModel
+    internal record class CqVideoMsgDataModel : CqMsgDataModel
     {
         public CqVideoMsgDataModel()
         { }

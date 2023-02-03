@@ -4,9 +4,9 @@ using System.Text.Json.Serialization;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Model
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqForwardMsgNodeDataModel : CqMsgDataModel
+    internal record class CqForwardMsgNodeDataModel : CqMsgDataModel
     {
         public CqForwardMsgNodeDataModel()
         { }
@@ -21,11 +21,11 @@ namespace EleCho.GoCqHttpSdk.Model
             this.seq = seq;
         }
 
-        public long? id { get; set; }
-        public string? name { get; set; }
-        public long? uin { get; set; }
-        public CqMsgModel[]? content { get; set; }
-        public CqMsgModel[]? seq { get; set; }
+        public long? id { get; private set; }
+        public string? name { get; private set; }
+        public long? uin { get; private set; }
+        public CqMsgModel[]? content { get; private set; }
+        public CqMsgModel[]? seq { get; private set; }
 
         public static CqForwardMsgDataModel FromCqCode(CqCode code)
         {

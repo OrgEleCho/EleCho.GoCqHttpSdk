@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// 音乐分享
     /// </summary>
-    public class CqMusicMsg : CqMsg
+    public record class CqMusicMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Music;
 

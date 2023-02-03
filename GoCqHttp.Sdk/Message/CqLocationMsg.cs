@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// 位置
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
-    public class CqLocationMsg : CqMsg
+    public record class CqLocationMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Location;
 

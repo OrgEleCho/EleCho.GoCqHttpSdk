@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// @某人
     /// </summary>
-    public class CqAtMsg : CqMsg
+    public record class CqAtMsg : CqMsg
     {
         public override string Type => Consts.MsgType.At;
 

@@ -1,9 +1,8 @@
-﻿using EleCho.GoCqHttpSdk;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
     internal class CqAnonymousInformationModel
     {

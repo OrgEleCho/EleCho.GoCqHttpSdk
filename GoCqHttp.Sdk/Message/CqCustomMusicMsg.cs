@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// 音乐自定义分享
     /// </summary>
-    public class CqCustomMusicMsg : CqMusicMsg
+    public record class CqCustomMusicMsg : CqMusicMsg
     {
 #pragma warning disable CS8618
 

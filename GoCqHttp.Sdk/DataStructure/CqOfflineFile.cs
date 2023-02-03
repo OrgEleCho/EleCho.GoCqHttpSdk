@@ -1,8 +1,8 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqOfflineFile
+    public record class CqOfflineFile
     {
         internal CqOfflineFile()
         {
@@ -22,8 +22,8 @@ namespace EleCho.GoCqHttpSdk
             Url = url;
         }
 
-        public string Name { get; set; } = string.Empty;
-        public long Size { get; set; }
-        public string Url { get; set; } = string.Empty;
+        public string Name { get; } = string.Empty;
+        public long Size { get; }
+        public string Url { get; } = string.Empty;
     }
 }

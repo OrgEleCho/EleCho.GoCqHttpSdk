@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Post;
 
@@ -17,16 +18,27 @@ namespace EleCho.GoCqHttpSdk
             middlewares = new List<Func<CqPostContext, Func<Task>, Task>>();
         }
 
-        private Task EmptyFunc() => Task.CompletedTask;
+        private Task EmptyAsyncFunc() => Task.CompletedTask;
 
         /// <summary>
         /// 使用一个中间件
         /// </summary>
         /// <param name="middleware">中间件</param>
-        /// <returns>当前实例</returns>
+        /// <returns>当前上报管线实例</returns>
         public CqPostPipeline Use(Func<CqPostContext, Func<Task>, Task> middleware)
         {
             middlewares.Add(middleware);
+            return this;
+        }
+
+        /// <summary>
+        /// 移除一个中间件
+        /// </summary>
+        /// <param name="middleware">中间件</param>
+        /// <returns>当前上报管线实例</returns>
+        public CqPostPipeline Remove(Func<CqPostContext, Func<Task>, Task> middleware)
+        {
+            middlewares.Remove(middleware);
             return this;
         }
 
@@ -37,17 +49,38 @@ namespace EleCho.GoCqHttpSdk
         /// <returns></returns>
         public Task ExecuteAsync(CqPostContext context)
         {
-            return TaskExecuteAt(context, 0).Invoke();
+            return ExecuteAsync(context, CancellationToken.None);
+        }
+        
+        /// <summary>
+        /// 异步执行
+        /// </summary>
+        /// <param name="context">上报上下文</param>
+        /// <param name="cancellationToken">取消令牌</param>
+        /// <returns></returns>
+        public Task ExecuteAsync(CqPostContext context, CancellationToken cancellationToken)
+        {
+            return TaskExecuteAt(context, 0, cancellationToken).Invoke();
         }
 
-        private Func<Task> TaskExecuteAt(CqPostContext context, int index)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="index"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        private Func<Task> TaskExecuteAt(CqPostContext context, int index, CancellationToken cancellationToken)
         {
+            if (cancellationToken.IsCancellationRequested)
+                return EmptyAsyncFunc;
+            
             if (index < middlewares.Count)
             {
-                return () => middlewares[index](context, TaskExecuteAt(context, index + 1));
+                return () => middlewares[index](context, TaskExecuteAt(context, index + 1, cancellationToken));
             }
 
-            return EmptyFunc;
+            return EmptyAsyncFunc;
         }
     }
 }

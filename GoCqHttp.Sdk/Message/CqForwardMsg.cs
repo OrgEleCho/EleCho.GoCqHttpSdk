@@ -4,7 +4,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqForwardMsg : CqMsg
+    public record class CqForwardMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Forward;
 

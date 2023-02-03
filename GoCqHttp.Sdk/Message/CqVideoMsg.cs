@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// 短视频
     /// </summary>
-    public class CqVideoMsg : CqMsg
+    public record class CqVideoMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Video;
 

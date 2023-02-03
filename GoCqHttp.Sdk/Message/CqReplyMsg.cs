@@ -4,7 +4,7 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
-    public class CqReplyMsg : CqMsg
+    public record class CqReplyMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Reply;
 

@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// QQ 表情
     /// </summary>
-    public class CqFaceMsg : CqMsg
+    public record class CqFaceMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Face;
 

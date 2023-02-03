@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// <summary>
     /// 语音
     /// </summary>
-    public class CqRecordMsg : CqMsg
+    public record class CqRecordMsg : CqMsg
     {
         public override string Type => Consts.MsgType.Record;
 
