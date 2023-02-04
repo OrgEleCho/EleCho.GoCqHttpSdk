@@ -205,7 +205,7 @@ namespace EleCho.GoCqHttpSdk
                 if (apiWebSocketClient.State == WebSocketState.Open)
                     return;
 
-                apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null) apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await apiWebSocketClient.ConnectAsync(new Uri(BaseUri, "api"), default);
             }
 
@@ -215,7 +215,7 @@ namespace EleCho.GoCqHttpSdk
                 if (eventWebSocketClient.State == WebSocketState.Open)
                     return;
 
-                eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null) eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await eventWebSocketClient.ConnectAsync(new Uri(BaseUri, "event"), default);
             }
 
@@ -225,7 +225,7 @@ namespace EleCho.GoCqHttpSdk
                 if (webSocketClient.State == WebSocketState.Open)
                     return;
 
-                webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null) webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await webSocketClient.ConnectAsync(BaseUri, default);
             }
 
