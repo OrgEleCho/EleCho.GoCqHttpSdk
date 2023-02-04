@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Action
             MessageId = messageId;
         }
 
-        public override CqActionType Type => CqActionType.MarkMessageAsRead;
+        public override CqActionType ActionType => CqActionType.MarkMessageAsRead;
 
         public long MessageId { get; set; }
 

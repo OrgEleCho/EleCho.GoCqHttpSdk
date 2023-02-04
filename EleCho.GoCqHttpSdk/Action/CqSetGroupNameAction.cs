@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Action
             GroupName = groupName;
         }
 
-        public override CqActionType Type => CqActionType.SetGroupName;
+        public override CqActionType ActionType => CqActionType.SetGroupName;
 
         public long GroupId { get; set; }
         public string GroupName { get; set; }

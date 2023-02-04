@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
             UserId = userId;
         }
 
-        public override CqActionType Type => CqActionType.DeleteUnidirectionalFriend;
+        public override CqActionType ActionType => CqActionType.DeleteUnidirectionalFriend;
 
         public long UserId { get; set; }
 

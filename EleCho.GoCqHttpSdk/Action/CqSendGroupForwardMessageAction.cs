@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Messages = messages;
         }
 
-        public override CqActionType Type => CqActionType.SendGroupForwardMessage;
+        public override CqActionType ActionType => CqActionType.SendGroupForwardMessage;
 
         public long GroupId { get; set; }
         public CqForwardMessageNode[] Messages { get; set; }

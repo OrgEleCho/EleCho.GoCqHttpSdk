@@ -18,7 +18,7 @@ namespace EleCho.GoCqHttpSdk.Action
             PersonalNote = personalNote;
         }
 
-        public override CqActionType Type => CqActionType.SetAccountProfile;
+        public override CqActionType ActionType => CqActionType.SetAccountProfile;
 
         public string Nickname { get; set; }
         public string Company { get; set; }

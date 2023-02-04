@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Enable = enable;
         }
 
-        public override CqActionType Type => CqActionType.BanGroupAllMembers;
+        public override CqActionType ActionType => CqActionType.BanGroupAllMembers;
 
         public long GroupId { get; set; }
         public bool Enable { get; set; }

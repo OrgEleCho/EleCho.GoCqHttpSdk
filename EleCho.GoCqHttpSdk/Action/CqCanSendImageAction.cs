@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqCanSendImageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.CanSendImage;
+        public override CqActionType ActionType => CqActionType.CanSendImage;
 
         internal override CqActionParamsModel GetParamsModel() => new CqCanSendImageActionParamsModel();
     }

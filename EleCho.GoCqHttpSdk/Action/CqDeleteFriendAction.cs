@@ -14,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Action
             UserId = userId;
         }
 
-        public override CqActionType Type => CqActionType.DeleteFriend;
+        public override CqActionType ActionType => CqActionType.DeleteFriend;
 
         public long UserId { get; set; }
 

@@ -24,7 +24,7 @@ namespace EleCho.GoCqHttpSdk.Action
         public long GroupId { get; set; }
         public bool NoCache { get; set; }
 
-        public override CqActionType Type => CqActionType.GetGroupInformation;
+        public override CqActionType ActionType => CqActionType.GetGroupInformation;
 
         internal override CqActionParamsModel GetParamsModel()
         {

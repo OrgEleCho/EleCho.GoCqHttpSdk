@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqDeleteEssenceMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.DeleteEssenceMessage;
+        public override CqActionType ActionType => CqActionType.DeleteEssenceMessage;
 
         public long MessageId { get; set; }
 

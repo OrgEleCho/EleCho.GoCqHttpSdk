@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetImageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetImage;
+        public override CqActionType ActionType => CqActionType.GetImage;
 
         public string Filename { get; set; }
 

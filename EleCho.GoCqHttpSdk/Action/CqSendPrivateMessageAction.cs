@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendPrivateMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.SendPrivateMessage;
+        public override CqActionType ActionType => CqActionType.SendPrivateMessage;
 
         public CqSendPrivateMessageAction(long userId, long groupId, params CqMsg[] message)
         {

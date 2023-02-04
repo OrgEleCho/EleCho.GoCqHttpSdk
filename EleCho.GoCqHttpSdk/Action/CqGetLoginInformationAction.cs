@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetLoginInformationAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetLoginInformation;
+        public override CqActionType ActionType => CqActionType.GetLoginInformation;
 
         internal override CqActionParamsModel GetParamsModel()
         {

@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Enable = enable;
         }
 
-        public override CqActionType Type => CqActionType.SetGroupAnonymous;
+        public override CqActionType ActionType => CqActionType.SetGroupAnonymous;
 
         public long GroupId { get; set; }
         public bool Enable { get; set; }

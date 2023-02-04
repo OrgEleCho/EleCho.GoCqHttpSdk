@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqHandleFriendRequestAction : CqAction
     {
-        public override CqActionType Type => CqActionType.HandleFriendRequest;
+        public override CqActionType ActionType => CqActionType.HandleFriendRequest;
 
         public CqHandleFriendRequestAction(string flag, bool approve, string? remark)
         {

@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetCookiesAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetCookies;
+        public override CqActionType ActionType => CqActionType.GetCookies;
 
         public string Domain { get; set; } = string.Empty;
 
@@ -20,7 +20,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            
+            return new CqGetCookiesActionParamsModel(Domain);
         }
     }
 }

@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
-using EleCho.GoCqHttpSdk.MessageMatching;
 using EleCho.GoCqHttpSdk.Post;
+//using EleCho.GoCqHttpSdk.MessageMatching;
 
 #nullable enable
 
@@ -34,7 +34,7 @@ namespace TestConsole
         {
             AssemblyTest.Run();
             
-            session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
+            //session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
             
             await session.RunAsync();
         }
@@ -44,31 +44,31 @@ namespace TestConsole
         }
     }
 
-    public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
-    {
-        const long TestGroupId = 295322097;
+    //public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
+    //{
+    //    const long TestGroupId = 295322097;
 
-        public MyMessageMatchPlugin(ICqActionSession actionSession)
-        {
-            ActionSession = actionSession;
-        }
+    //    public MyMessageMatchPlugin(ICqActionSession actionSession)
+    //    {
+    //        ActionSession = actionSession;
+    //    }
 
-        public ICqActionSession ActionSession { get; }
+    //    public ICqActionSession ActionSession { get; }
 
-        [CqMessageMatch(@"\[(?<content>.*?)\]")]
-        public async Task MyMessageMatchPluginMethod(string content)
-        {
-            long grpId = TestGroupId;
-            if (CurrentContext is CqGroupMessagePostContext grpMsgContext)
-                grpId = grpMsgContext.GroupId;
+    //    [CqMessageMatch(@"\[(?<content>.*?)\]")]
+    //    public async Task MyMessageMatchPluginMethod(string content)
+    //    {
+    //        long grpId = TestGroupId;
+    //        if (CurrentContext is CqGroupMessagePostContext grpMsgContext)
+    //            grpId = grpMsgContext.GroupId;
             
-            await ActionSession.SendGroupMessageAsync(grpId, $"Captured content: {content}");
-        }
+    //        await ActionSession.SendGroupMessageAsync(grpId, $"Captured content: {content}");
+    //    }
 
-        [CqMessageMatch(@"")]
-        public void LogAllMessages(CqMessagePostContext context)
-        {
-            Console.WriteLine(context.Message.GetText());
-        }
-    }
+    //    [CqMessageMatch(@"")]
+    //    public void LogAllMessages(CqMessagePostContext context)
+    //    {
+    //        Console.WriteLine(context.Message.GetText());
+    //    }
+    //}
 }

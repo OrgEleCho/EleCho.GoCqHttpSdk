@@ -20,7 +20,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Duration = duration;
         }
 
-        public override CqActionType Type => CqActionType.SetGroupSpecialTitle;
+        public override CqActionType ActionType => CqActionType.SetGroupSpecialTitle;
         
         public long GroupId { get; set; }
         public long UserId { get; set; }

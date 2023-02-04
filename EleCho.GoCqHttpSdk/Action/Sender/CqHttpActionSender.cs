@@ -40,7 +40,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         public override async Task<CqActionResult?> InvokeActionAsync(CqAction action)
         {
             // 转为 Model
-            string actionType = CqEnum.GetString(action.Type) ?? throw new Exception("Uknown action");
+            string actionType = CqEnum.GetString(action.ActionType) ?? throw new Exception("Uknown action");
             CqActionParamsModel? paramsModel = action.GetParamsModel();
             
             // 转为 JSON 和 HTTP 内容
@@ -59,7 +59,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             CqActionResultRaw? resultRaw = JsonSerializer.Deserialize<CqActionResultRaw>(rstjson, options: null);
 
 #if DEBUG
-            Debug.WriteLine($"{action.Type} {JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
+            Debug.WriteLine($"{action.ActionType} {JsonSerializer.Serialize(JsonDocument.Parse(rstjson), JsonHelper.Options)}");
 #endif
 
             if (resultRaw == null)

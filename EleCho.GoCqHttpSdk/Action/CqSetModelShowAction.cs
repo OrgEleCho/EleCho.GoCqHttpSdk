@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Action
             ModelShow = modelShow;
         }
 
-        public override CqActionType Type => CqActionType.SetModelShow;
+        public override CqActionType ActionType => CqActionType.SetModelShow;
 
         public string Model { get; set; }
         public string? ModelShow { get; set; }

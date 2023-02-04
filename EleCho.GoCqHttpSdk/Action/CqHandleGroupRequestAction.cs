@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqHandleGroupRequestAction : CqAction
     {
-        public override CqActionType Type => CqActionType.HandleGroupRequest;
+        public override CqActionType ActionType => CqActionType.HandleGroupRequest;
 
         public CqHandleGroupRequestAction(string flag, CqGroupRequestType requestType, bool approve, string? reason)
         {

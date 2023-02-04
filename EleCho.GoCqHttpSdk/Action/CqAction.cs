@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// </summary>
     public abstract class CqAction
     {
-        public abstract CqActionType Type { get; }
+        public abstract CqActionType ActionType { get; }
 
         public string? EchoData { get; set; }
 
@@ -18,7 +18,7 @@ namespace EleCho.GoCqHttpSdk.Action
         internal static CqActionModel ToModel(CqAction action)
         {
             return new CqActionModel(
-                CqEnum.GetString(action.Type) ?? throw new Exception("Unknown action"),
+                CqEnum.GetString(action.ActionType) ?? throw new Exception("Unknown action"),
                 action.GetParamsModel(),
                 action.EchoData);
         }

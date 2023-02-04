@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// </summary>
     public class CqKickGroupMemberAction : CqAction
     {
-        public override CqActionType Type => CqActionType.KickGroupMember;
+        public override CqActionType ActionType => CqActionType.KickGroupMember;
 
         public CqKickGroupMemberAction(long groupId, long userId, bool rejectRequest)
         {

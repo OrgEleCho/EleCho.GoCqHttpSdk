@@ -9,25 +9,25 @@ namespace EleCho.GoCqHttpSdk.Action
         {
         }
 
-        public string AppName { get; set; } = string.Empty;
-        public string AppFullName { get; set; } = string.Empty;
-        public string AppVersion { get; set; } = string.Empty;
+        public string AppName { get; private set; } = string.Empty;
+        public string AppFullName { get; private set; } = string.Empty;
+        public string AppVersion { get; private set; } = string.Empty;
 
-        public string CoolqEdition { get; set; } = string.Empty;
-        public string CoolqDirectory { get; set; } = string.Empty;
+        public string CoolqEdition { get; private set; } = string.Empty;
+        public string CoolqDirectory { get; private set; } = string.Empty;
 
-        public bool IsGoCqHttp { get; set; }
-        public string PluginVersion { get; set; } = string.Empty;
-        public int PluginBuildNumber { get; set; }
-        public string PluginBuildConfiguration { get; set; } = string.Empty;
+        public bool IsGoCqHttp { get; private set; }
+        public string PluginVersion { get; private set; } = string.Empty;
+        public int PluginBuildNumber { get; private set; }
+        public string PluginBuildConfiguration { get; private set; } = string.Empty;
 
-        public string RuntimeOS { get; set; } = string.Empty;
-        public string RuntimeVersion { get; set; } = string.Empty;
+        public string RuntimeOS { get; private set; } = string.Empty;
+        public string RuntimeVersion { get; private set; } = string.Empty;
 
-        public string Version { get; set; } = string.Empty;
+        public string Version { get; private set; } = string.Empty;
         
-        public int Protocol { get; set; }
-        public string ProtocolVersion { get; set; } = string.Empty;
+        public int Protocol { get; private set; }
+        public string ProtocolVersion { get; private set; } = string.Empty;
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {

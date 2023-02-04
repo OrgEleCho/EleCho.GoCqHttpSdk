@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Action
             GroupId = groupId;
         }
 
-        public override CqActionType Type => CqActionType.GroupSignIn;
+        public override CqActionType ActionType => CqActionType.GroupSignIn;
 
         public long GroupId { get; set; }
 

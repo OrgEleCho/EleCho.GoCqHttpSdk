@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Messages = messages;
         }
 
-        public override CqActionType Type => CqActionType.SendPrivateForwardMessage;
+        public override CqActionType ActionType => CqActionType.SendPrivateForwardMessage;
 
         public long UserId { get; set; }
         public CqForwardMessageNode[] Messages { get; set; }

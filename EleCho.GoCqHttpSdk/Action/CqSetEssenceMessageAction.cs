@@ -4,7 +4,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSetEssenceMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.SetEssenceMessage;
+        public override CqActionType ActionType => CqActionType.SetEssenceMessage;
 
         public long MessageId { get; set; }
 

@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetMessage;
+        public override CqActionType ActionType => CqActionType.GetMessage;
 
         public long MessageId { get; set; }
 

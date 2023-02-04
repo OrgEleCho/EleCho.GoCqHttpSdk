@@ -20,7 +20,7 @@ namespace EleCho.GoCqHttpSdk.Action
             DismissGroup = dismissGroup;
         }
 
-        public override CqActionType Type => CqActionType.LeaveGroup;
+        public override CqActionType ActionType => CqActionType.LeaveGroup;
 
         public long GroupId { get; set; }
         public bool DismissGroup { get; set; }

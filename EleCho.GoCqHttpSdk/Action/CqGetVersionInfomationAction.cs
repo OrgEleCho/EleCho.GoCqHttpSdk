@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetVersionInformationAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetVersionInformation;
+        public override CqActionType ActionType => CqActionType.GetVersionInformation;
 
         internal override CqActionParamsModel GetParamsModel()
         {

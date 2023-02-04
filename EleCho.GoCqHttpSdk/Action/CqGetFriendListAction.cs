@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetFriendListAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetFriendList;
+        public override CqActionType ActionType => CqActionType.GetFriendList;
 
         internal override CqActionParamsModel GetParamsModel()
         {

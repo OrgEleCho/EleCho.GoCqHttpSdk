@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetStrangerInformationAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetStrangerInformation;
+        public override CqActionType ActionType => CqActionType.GetStrangerInformation;
 
         public long UserId { get; set; }
         public bool NoCache { get; set; }

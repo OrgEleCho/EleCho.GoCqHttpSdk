@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// </summary>
     public class CqBanGroupMemberAction : CqAction
     {
-        public override CqActionType Type => CqActionType.BanGroupMember;
+        public override CqActionType ActionType => CqActionType.BanGroupMember;
 
         public CqBanGroupMemberAction(long groupId, long userId, TimeSpan duration)
         {

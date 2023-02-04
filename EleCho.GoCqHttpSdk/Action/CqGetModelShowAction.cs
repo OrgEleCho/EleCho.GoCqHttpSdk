@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Model = model;
         }
 
-        public override CqActionType Type => CqActionType.GetModelShow;
+        public override CqActionType ActionType => CqActionType.GetModelShow;
 
         public string Model { get; set; }
 

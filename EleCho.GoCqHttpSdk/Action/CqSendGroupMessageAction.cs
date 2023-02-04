@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendGroupMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.SendGroupMessage;
+        public override CqActionType ActionType => CqActionType.SendGroupMessage;
 
         public CqSendGroupMessageAction(long groupId, CqMsg[] message)
         {

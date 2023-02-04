@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Enable = enable;
         }
 
-        public override CqActionType Type => CqActionType.SetGroupAdministrator;
+        public override CqActionType ActionType => CqActionType.SetGroupAdministrator;
 
         public long GroupId { get; set; }
         public long UserId { get; set; }

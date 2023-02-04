@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqRecallMessageAction : CqAction
     {
-        public override CqActionType Type => CqActionType.RecallMessage;
+        public override CqActionType ActionType => CqActionType.RecallMessage;
 
         public long MessageId { get; set; }
 

@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetEssenceMessageListAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetEssenceMessagesList;
+        public override CqActionType ActionType => CqActionType.GetEssenceMessagesList;
 
         public long GroupId { get; set; }
 

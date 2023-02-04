@@ -24,7 +24,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Message = message;
         }
 
-        public override CqActionType Type => CqActionType.SendMessage;
+        public override CqActionType ActionType => CqActionType.SendMessage;
 
         public CqMessageType MessageType { get; set; } = CqMessageType.Unknown;
         public long? UserId { get; set; }

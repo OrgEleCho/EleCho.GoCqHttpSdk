@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqCheckUrlSafetyAction : CqAction
     {
-        public override CqActionType Type => CqActionType.CheckUrlSafety;
+        public override CqActionType ActionType => CqActionType.CheckUrlSafety;
 
         public string Url { get; set; }
 

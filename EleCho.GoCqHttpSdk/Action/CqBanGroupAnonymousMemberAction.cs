@@ -27,7 +27,7 @@ namespace EleCho.GoCqHttpSdk.Action
             Duration = duration;
         }
 
-        public override CqActionType Type => CqActionType.BanGroupAnonymousMember;
+        public override CqActionType ActionType => CqActionType.BanGroupAnonymousMember;
 
         public long GroupId { get; set; }
 

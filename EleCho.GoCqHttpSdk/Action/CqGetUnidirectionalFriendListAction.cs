@@ -4,7 +4,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetUnidirectionalFriendListAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetUnidirectionalFriendList;
+        public override CqActionType ActionType => CqActionType.GetUnidirectionalFriendList;
 
         internal override CqActionParamsModel GetParamsModel()
         {

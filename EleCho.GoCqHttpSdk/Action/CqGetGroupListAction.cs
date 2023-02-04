@@ -4,7 +4,7 @@ namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqGetGroupListAction : CqAction
     {
-        public override CqActionType Type => CqActionType.GetGroupList;
+        public override CqActionType ActionType => CqActionType.GetGroupList;
 
         internal override CqActionParamsModel GetParamsModel()
         {
