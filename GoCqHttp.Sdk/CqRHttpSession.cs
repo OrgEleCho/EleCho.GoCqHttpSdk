@@ -62,7 +62,7 @@ namespace EleCho.GoCqHttpSdk
             string realSignature = string.Join(null, hash.Select(bt => Convert.ToString(bt, 16).PadLeft(2, '0')));
             return signature == realSignature;
         }
-        
+
         private async Task HttpListenerLoopAsync()
         {
             while (true)
@@ -125,7 +125,7 @@ namespace EleCho.GoCqHttpSdk
         {
             if (!listener.IsListening)
                 throw new InvalidOperationException("Session is not started yet");
-            
+
             listener.Stop();
         }
 
