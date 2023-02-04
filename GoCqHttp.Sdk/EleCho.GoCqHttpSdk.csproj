@@ -11,7 +11,7 @@
 		<Version>1.0.0-alpha5</Version>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>Copyright (c) EleCho 2023</Copyright>
-		<PackageProjectUrl>https://github.com/EleChoNet/EleCho.GoCqHttpSdk</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/OrgEleCho/EleCho.GoCqHttpSdk</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo-rect.png</PackageIcon>
 	</PropertyGroup>

@@ -12,13 +12,13 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
 
         public CqMessageMatchAttribute(string pattern)
         {
-            Pattern = pattern;
+            Pattern = pattern ?? string.Empty;
             Regex = new(pattern);
         }
 
         public CqMessageMatchAttribute(string pattern, RegexOptions options)
         {
-            Pattern = pattern;
+            Pattern = pattern ?? string.Empty;
             Regex = new(pattern, options);
         }
     }

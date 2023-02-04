@@ -33,21 +33,45 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
 
                     var parameters = method.GetParameters();
 
-                    if (parameters.Length < 1)
-                        throw new ArgumentException("参数数量不正确");
-                    if (!typeof(CqMessagePostContext).IsAssignableFrom(parameters[0].ParameterType))
-                        throw new ArgumentException("参数类型不正确, 第一个参数必须是 CqMessagePostContext 的子类, 它用于判断方法截取群消息还是私聊消息, 以及接收消息上报相关数据");
-                    if (parameters[1].ParameterType != typeof(Match))
-                        throw new ArgumentException("参数类型不正确");
                     if (method.ReturnType != typeof(void) && !typeof(Task).IsAssignableFrom(method.ReturnType))
-                        throw new ArgumentException("返回类型不正确, 必须是 void 或可等待的 Task");
+                        throw new ArgumentException($"返回类型不正确, 必须是 void 或可等待的 {nameof(Task)}");
 
+                    // 用户需要处理的消息类型
+                    CqMessageType msgType = CqMessageType.Unknown;
+
+                    // 方法参数的值获取器
                     Func<CqMessagePostContext, Match, object>[] parameterGetters = new Func<CqMessagePostContext, Match, object>[parameters.Length];
 
-                    for (int i = 1; i < parameters.Length; i++)
+                    // 根据方法参数类型, 指定所有方法参数获取器
+                    for (int i = 0; i < parameters.Length; i++)
                     {
                         ParameterInfo parameter = parameters[i];
-                        if (parameter.ParameterType == typeof(Match))
+
+                        if (typeof(CqMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                        {
+                            if (typeof(CqPrivateMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                            {
+                                if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Private)
+                                    throw new ArgumentException($"方法参数类型不正确, 定义了多个不同的 {nameof(CqMessagePostContext)}");
+
+                                parameterGetters[i] = (context, match) => (CqPrivateMessagePostContext)context;
+                                msgType = CqMessageType.Private;
+                            }
+                            else if (typeof(CqGroupMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                            {
+                                parameterGetters[i] = (context, match) => (CqGroupMessagePostContext)context;
+                                msgType = CqMessageType.Group;
+                            }
+                            else if (typeof(CqMessagePostContext) == parameter.ParameterType)
+                            {
+                                parameterGetters[i] = (context, match) => context;
+                            }
+                            else
+                            {
+                                throw new ArgumentException($"方法参数类型不正确, 它应该是 {nameof(CqMessagePostContext)}, {nameof(CqPrivateMessagePostContext)}  或 {nameof(CqGroupMessagePostContext)}");
+                            }
+                        }
+                        else if (parameter.ParameterType == typeof(Match))
                         {
                             parameterGetters[i] = (context, match) => match;
                         }
@@ -64,6 +88,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         }
                     }
 
+                    // 包装一个方法执行逻辑, 该逻辑会将所有所需参数从 context 和 match 中拿到, 并调用, 如果返回值可等待, 那么就等待
                     Func<CqMessagePostContext, Match, Task> action = (context, match) =>
                     {
                         object rst = method.Invoke(this, Array.ConvertAll(parameterGetters, getter => getter.Invoke(context, match)));
@@ -72,19 +97,26 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         return Task.CompletedTask;
                     };
 
-                    if (typeof(CqPrivateMessagePostContext).IsAssignableFrom(parameters[0].ParameterType))
+                    // 根据从参数中判断得到的应该处理的消息类型, 把方法存储添加到对应的列表中
+                    if (msgType == CqMessageType.Private)
                     {
-                        parameterGetters[0] = (context, match) => (CqPrivateMessagePostContext)context;
                         privateMessageMatchMethods.Add(new(method, attribute, action));
                     }
-                    else if (typeof(CqGroupMessagePostContext).IsAssignableFrom(parameters[0].ParameterType))
+                    else if (msgType == CqMessageType.Group)
                     {
-                        parameterGetters[0] = (context, match) => (CqGroupMessagePostContext)context;
+                        groupMessageMatchMethods.Add(new(method, attribute, action));
+                    }
+                    else
+                    {
+                        privateMessageMatchMethods.Add(new(method, attribute, action));
                         groupMessageMatchMethods.Add(new(method, attribute, action));
                     }
                 }
             }
         }
+
+        private CqMessagePostContext? currentContext;
+        public CqMessagePostContext? CurrentContext => currentContext;
 
         public async Task Execute(CqPostContext context, Func<Task> next)
         {
@@ -100,7 +132,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         var match = msgMatchMethod.Attribute.Regex.Match(privateMsgContext.Message.GetText());
                         if (match.Success)
                         {
+                            currentContext = msgContext;
                             await msgMatchMethod.Action.Invoke(privateMsgContext, match);
+                            currentContext = null;
                             return;
                         }
                     }
@@ -112,7 +146,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         var match = msgMatchMethod.Attribute.Regex.Match(groupMsgContext.Message.GetText());
                         if (match.Success)
                         {
+                            currentContext = msgContext;
                             await msgMatchMethod.Action.Invoke(groupMsgContext, match);
+                            currentContext = null;
                             return;
                         }
                     }

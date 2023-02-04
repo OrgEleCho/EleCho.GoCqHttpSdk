@@ -46,6 +46,8 @@ namespace TestConsole
 
     public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
     {
+        const long TestGroupId = 295322097;
+
         public MyMessageMatchPlugin(ICqActionSession actionSession)
         {
             ActionSession = actionSession;
@@ -54,9 +56,19 @@ namespace TestConsole
         public ICqActionSession ActionSession { get; }
 
         [CqMessageMatch(@"\[(?<content>.*?)\]")]
-        public async Task MyMessageMatchPluginMethod(CqGroupMessagePostContext context, Match match, string content)
+        public async Task MyMessageMatchPluginMethod(string content)
         {
-            await ActionSession.SendGroupMessageAsync(context.GroupId, $"Captured content: {content}, index: {match.Index}");
+            long grpId = TestGroupId;
+            if (CurrentContext is CqGroupMessagePostContext grpMsgContext)
+                grpId = grpMsgContext.GroupId;
+            
+            await ActionSession.SendGroupMessageAsync(grpId, $"Captured content: {content}");
+        }
+
+        [CqMessageMatch(@"")]
+        public void LogAllMessages(CqMessagePostContext context)
+        {
+            Console.WriteLine(context.Message.GetText());
         }
     }
 }
