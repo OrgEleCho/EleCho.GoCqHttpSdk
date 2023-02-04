@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Post;
@@ -73,6 +75,11 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     await next.Invoke();
                 }
             });
+        }
+
+        public static void UseMessageMatchPlugin(this ICqPostSession session, CqMessageMatchPostPlugin plugin)
+        {
+            session.UseAny(plugin.Execute);
         }
     }
 }
