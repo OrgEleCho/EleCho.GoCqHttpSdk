@@ -160,6 +160,7 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.CanSendRecord => CanSendRecord,
 
                 CqActionType.GetCookies => GetCookies,
+                CqActionType.GetCsrfToken => GetCsrfToken,
 
                 CqActionType.SetEssenceMessage => SetEssenceMsg,
                 CqActionType.DeleteEssenceMessage => DeleteEssenceMsg,

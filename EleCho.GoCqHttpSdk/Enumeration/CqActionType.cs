@@ -46,5 +46,6 @@
         DeleteEssenceMessage,
         GetEssenceMessagesList,
         GetCookies,
+        GetCsrfToken,
     }
 }

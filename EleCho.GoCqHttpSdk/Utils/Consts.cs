@@ -106,6 +106,7 @@
             public const string CanSendRecord = "can_send_record";
 
             public const string GetCookies = "get_cookies";
+            public const string GetCsrfToken = "get_csrf_token";
 
             public const string GetModelShow = "_get_model_show";
             public const string SetModelShow = "_set_model_show";

@@ -64,6 +64,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 CanSendRecord => dataValue.Deserialize<CqCanSendRecordActionResultDataModel>(JsonHelper.Options),
 
                 GetCookies => dataValue.Deserialize<CqGetCookiesActionResultDataModel>(JsonHelper.Options),
+                GetCsrfToken => dataValue.Deserialize<CqGetCsrfTokenActionResultDataModel>(JsonHelper.Options),
 
                 SetEssenceMsg => dataValue.Deserialize<CqSetEssenceMessageActionResultDataModel>(JsonHelper.Options),
                 DeleteEssenceMsg => dataValue.Deserialize<CqDeleteEssenceMessageActionResultDataModel>(JsonHelper.Options),

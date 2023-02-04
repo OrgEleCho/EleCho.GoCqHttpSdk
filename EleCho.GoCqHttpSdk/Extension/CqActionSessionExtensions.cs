@@ -116,6 +116,8 @@ namespace EleCho.GoCqHttpSdk
         
         public static Task<CqGetCookiesActionResult?> GetCookies(this ICqActionSession session, string domain)
             => session.InvokeActionAsync<CqGetCookiesAction, CqGetCookiesActionResult>(new CqGetCookiesAction(domain));
+        public static Task<CqGetCsrfTokenActionResult?> GetCsrfToken(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetCsrfTokenAction, CqGetCsrfTokenActionResult>(new CqGetCsrfTokenAction());
 
         public static Task<CqSetEssenceMessageActionResult?> SetEssenceMessage(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqSetEssenceMessageAction, CqSetEssenceMessageActionResult>(new CqSetEssenceMessageAction(messageId));
