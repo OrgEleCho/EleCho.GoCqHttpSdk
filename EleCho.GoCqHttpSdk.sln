@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EleCho.GoCqHttpSdk", "GoCqHttp.Sdk\EleCho.GoCqHttpSdk.csproj", "{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EleCho.GoCqHttpSdk", "EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj", "{5E3EDE9B-B63F-47BE-8550-1157D1EB70FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{4294F893-450D-48D7-A1BA-538BF0A1429B}"
 EndProject
