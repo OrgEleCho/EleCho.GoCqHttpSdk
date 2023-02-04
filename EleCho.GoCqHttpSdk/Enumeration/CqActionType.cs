@@ -45,5 +45,6 @@
         SetEssenceMessage,
         DeleteEssenceMessage,
         GetEssenceMessagesList,
+        GetCookies,
     }
 }

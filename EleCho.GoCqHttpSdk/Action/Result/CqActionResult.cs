@@ -85,6 +85,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 CanSendImage => new CqCanSendImageActionResult(),
                 CanSendRecord => new CqCanSendRecordActionResult(),
 
+                GetCookies => new CqGetCookiesActionResult(),
+
                 GetEssenceMsgList => new CqGetEssenceMessageListActionResult(),
 
                 GetModelShow => new CqGetModelShowActionResult(),
