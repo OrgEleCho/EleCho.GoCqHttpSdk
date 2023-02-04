@@ -13,7 +13,7 @@ namespace TestConsole
     {
         public static void Run()
         {
-            Assembly asm = typeof(CqWsSession).Assembly;
+            Assembly asm = typeof(CqSession).Assembly;
             
             Type[] allTypes = asm.GetTypes();
 
@@ -49,6 +49,24 @@ namespace TestConsole
                     throw new Exception($"{actionResultDataModel.FullName} 是 public");
                 if (actionResultDataModel.Namespace?.StartsWith("EleCho.GoCqHttpSdk.Action.Result") ?? throw new Exception($"怪了, {actionResultDataModel} 没命名空间"))
                     throw new Exception($"{actionResultDataModel} 命名空间不对劲");
+            }
+
+
+            Type cqenum = asm.GetType("EleCho.GoCqHttpSdk.CqEnum", true, false);
+            MethodInfo cqenumtostring = cqenum.GetMethod("GetString", new Type[] { typeof(CqActionType) });
+            Func<CqActionType, string> cqenumtostringfunc = cqenumtostring.CreateDelegate<Func<CqActionType, string>>();
+
+
+            foreach (var actionType in Enum.GetValues<CqActionType>())
+            {
+                try
+                {
+                    cqenumtostringfunc.Invoke(actionType);
+                }
+                catch
+                {
+                    throw new Exception($"没有提供从 {actionType} 到字符串的转换实现");
+                }
             }
 
             Console.WriteLine("类型访问级别检查通过");

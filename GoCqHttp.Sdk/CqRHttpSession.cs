@@ -112,23 +112,27 @@ namespace EleCho.GoCqHttpSdk
             }
         }
 
-        public void Start()
+        public Task StartAsync()
         {
             if (listener.IsListening)
                 throw new InvalidOperationException("Session is already started");
 
             listener.Start();
             mainLoopTask = HttpListenerLoopAsync();
+
+            return Task.CompletedTask;
         }
 
-        public void Stop()
+        public Task StopAsync()
         {
             if (!listener.IsListening)
                 throw new InvalidOperationException("Session is not started yet");
 
             listener.Stop();
-        }
 
+            return Task.CompletedTask;
+        }
+        
         public async Task WaitForShutdownAsync()
         {
             if (mainLoopTask == null)
@@ -136,21 +140,16 @@ namespace EleCho.GoCqHttpSdk
 
             await mainLoopTask;
         }
-
-        public void WaitForShutdown()
-        {
-            WaitForShutdownAsync().Wait();
-        }
-
+        
         public async Task RunAsync()
         {
-            Start();
+            await StartAsync();
             await WaitForShutdownAsync();
         }
-
-        public void Run()
-        {
-            RunAsync().Wait();
-        }
+        
+        public void Start() => StartAsync().Wait();
+        public void Stop() => StopAsync().Wait();
+        public void Run() => RunAsync().Wait();
+        public void WaitForShutdown() => WaitForShutdownAsync().Wait();
     }
 }

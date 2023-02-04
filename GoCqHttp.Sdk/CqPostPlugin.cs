@@ -4,6 +4,11 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk
 {
+    // 注意：这个文件是自动生成的，不要手动修改
+
+    /// <summary>
+    /// 用来处理上报的插件
+    /// </summary>
     public class CqPostPlugin
     {
         public async Task Execute(CqPostContext context, Func<Task> next)

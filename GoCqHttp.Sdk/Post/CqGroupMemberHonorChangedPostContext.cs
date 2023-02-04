@@ -6,9 +6,10 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员群荣誉变更
     /// </summary>
-    public class CqGroupMemberHonorChangedPostContext : CqPostContext
+    public class CqGroupMemberHonorChangedPostContext : CqNoticePostContext
     {
         public override CqPostType EventType => CqPostType.Notice;
+        public override CqNoticeType NoticeType => CqNoticeType.Notify;
 
         public CqHonorType HonorType { get; set; }
         public long GroupId { get; set; }
@@ -17,6 +18,8 @@ namespace EleCho.GoCqHttpSdk.Post
         internal CqGroupMemberHonorChangedPostContext() { }
 
         internal override object? QuickOperationModel => null;
+
+
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);

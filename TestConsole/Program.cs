@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Net.Http;
 using System.Reflection;
+using System.Reflection.Metadata;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.MessageMatching;
 
 #nullable enable
 
@@ -30,29 +33,19 @@ namespace TestConsole
         {
             AssemblyTest.Run();
 
+            Console.WriteLine(CqPostSessionExtensionsCodeGen.Generate());
+            Console.ReadLine();
+
             Console.WriteLine("逻辑测试开始运行");
-            var manyMiddlewares = new ManyMiddlewares(httpSession);
 
-            session.UsePlugin(new MyPostPlugin());
 
-            session.UseMemberTitleChanged(async (c, next) =>
+            session.UseGroupMessageMatch(@"\[(?<content>.*?)\]", async (context, match, next) =>
             {
-                await httpSession.SendGroupMessageAsync(c.GroupId, new CqTextMsg($"qwq这里是新加的title notify哦, 头衔是{c.NewTitle}"));
-                await next();
-            });
-            session.UseGroupMessage(manyMiddlewares.WaterWaterWater);
-            session.UseGroupRequest(async (context, next) =>
-            {
-                await httpSession.ApproveGroupRequestAsync(context.Flag, context.SubRequestType);     // 自动同意群聊邀请
+                await session.SendGroupMessageAsync(context.GroupId, $"Captured content: {match.Groups["content"].Value}, index: {match.Index}");
             });
 
 
-            await session.StartAsync();
-
-            await ApiTest.RunAsync(session);
-
-            while(true)
-                Console.ReadKey(true);
+            await session.RunAsync();
         }
 
         private static void CheckAssemblyTypes(Assembly asm)

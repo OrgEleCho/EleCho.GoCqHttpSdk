@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-    internal class CqGetEssenceMessageListAction : CqAction
+    public class CqGetEssenceMessageListAction : CqAction
     {
         public override CqActionType Type => CqActionType.GetEssenceMessagesList;
 

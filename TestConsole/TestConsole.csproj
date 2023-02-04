@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EleCho.GoCqHttpSdk.MessageMatching\EleCho.GoCqHttpSdk.MessageMatching.csproj" />
     <ProjectReference Include="..\GoCqHttp.Sdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 

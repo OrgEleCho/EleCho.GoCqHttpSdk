@@ -28,18 +28,28 @@ namespace TestConsole
                 .ToList();
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("using System;");
-            sb.AppendLine("using EleCho.GoCqHttpSdk.Post;");
-            sb.AppendLine("using System.Threading.Tasks;");
 
-            sb.AppendLine("namespace EleCho.GoCqHttpSdk");
-            sb.AppendLine("{");
-            sb.AppendLine("    public class CqPostPlugin");
-            sb.AppendLine("    {");
-            sb.AppendLine("        public async Task Execute(CqPostContext context, Func<Task> next)");
-            sb.AppendLine("        {");
-            sb.AppendLine("            switch (context)");
-            sb.AppendLine("            {");
+
+            sb.AppendLine(
+                """
+                using System;
+                using EleCho.GoCqHttpSdk.Post;
+                using System.Threading.Tasks;
+
+                namespace EleCho.GoCqHttpSdk
+                {
+                    // 注意：这个文件是自动生成的，不要手动修改
+
+                    /// <summary>
+                    /// 用来处理上报的插件
+                    /// </summary>
+                    public class CqPostPlugin
+                    {
+                        public async Task Execute(CqPostContext context, Func<Task> next)
+                        {
+                            switch (context)
+                            {
+                """);
             
             foreach (var info in allTypesInfo)
             {
@@ -48,11 +58,14 @@ namespace TestConsole
                 sb.AppendLine($"                    await {info.asyncMethodName}({info.fieldName});");
                 sb.AppendLine($"                    break;");
             }
-            
-            sb.AppendLine("            }");
-            sb.AppendLine();
-            sb.AppendLine("            await next()");
-            sb.AppendLine("        }");
+
+            sb.AppendLine(
+                """
+                            }
+
+                            await next();
+                        }
+                """);
 
             sb.AppendLine();
 
@@ -64,8 +77,11 @@ namespace TestConsole
             foreach (var info in allTypesInfo)
                 sb.AppendLine($"        public virtual  Task {info.methodName}(Cq{info.baseName}PostContext context) => Task.CompletedTask");
 
-            sb.AppendLine("    }");
-            sb.AppendLine("}");
+            sb.AppendLine(
+                """
+                    }
+                }
+                """);
 
             return sb.ToString();
         }
