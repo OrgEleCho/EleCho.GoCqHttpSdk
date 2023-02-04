@@ -41,6 +41,9 @@
         GetModelShow,
         CheckUrlSafety,
         GetVersionInformation,
-        GetEssenceMessagesList
+        
+        SetEssenceMessage,
+        DeleteEssenceMessage,
+        GetEssenceMessagesList,
     }
 }

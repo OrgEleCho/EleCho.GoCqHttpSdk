@@ -114,7 +114,10 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqCanSendRecordActionResult?> CanSendRecord(this ICqActionSession session)
             => session.InvokeActionAsync<CqCanSendRecordAction, CqCanSendRecordActionResult>(new CqCanSendRecordAction());
 
-
+        public static Task<CqSetEssenceMessageActionResult?> SetEssenceMessage(this ICqActionSession session, long messageId)
+            => session.InvokeActionAsync<CqSetEssenceMessageAction, CqSetEssenceMessageActionResult>(new CqSetEssenceMessageAction(messageId));
+        public static Task<CqDeleteEssenceMessageActionResult?> DeleteEssenceMessage(this ICqActionSession session, long messageId)
+            => session.InvokeActionAsync<CqDeleteEssenceMessageAction, CqDeleteEssenceMessageActionResult>(new CqDeleteEssenceMessageAction(messageId));
         public static Task<CqGetEssenceMessageListActionResult?> GetEssenceMessageList(this ICqActionSession session, long groupId)
             => session.InvokeActionAsync<CqGetEssenceMessageListAction, CqGetEssenceMessageListActionResult>(new CqGetEssenceMessageListAction(groupId));
 

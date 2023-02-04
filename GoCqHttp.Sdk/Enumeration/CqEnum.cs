@@ -159,6 +159,8 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.CanSendImage => CanSendImage,
                 CqActionType.CanSendRecord => CanSendRecord,
 
+                CqActionType.SetEssenceMessage => SetEssenceMsg,
+                CqActionType.DeleteEssenceMessage => DeleteEssenceMsg,
                 CqActionType.GetEssenceMessagesList => GetEssenceMsgList,
 
                 CqActionType.GetModelShow => GetModelShow,

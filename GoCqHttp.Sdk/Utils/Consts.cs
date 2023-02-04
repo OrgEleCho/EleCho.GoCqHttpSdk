@@ -108,6 +108,8 @@
             public const string GetModelShow = "_get_model_show";
             public const string SetModelShow = "_set_model_show";
 
+            public const string SetEssenceMsg = "set_essence_msg";
+            public const string DeleteEssenceMsg = "delete_essence_msg";
             public const string GetEssenceMsgList = "get_essence_msg_list";
 
             /// <summary>

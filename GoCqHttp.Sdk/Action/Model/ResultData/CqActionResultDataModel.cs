@@ -63,6 +63,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 CanSendImage => dataValue.Deserialize<CqCanSendImageActionResultDataModel>(JsonHelper.Options),
                 CanSendRecord => dataValue.Deserialize<CqCanSendRecordActionResultDataModel>(JsonHelper.Options),
 
+                SetEssenceMsg => dataValue.Deserialize<CqSetEssenceMessageActionResultDataModel>(JsonHelper.Options),
+                DeleteEssenceMsg => dataValue.Deserialize<CqDeleteEssenceMessageActionResultDataModel>(JsonHelper.Options),
                 GetEssenceMsgList => dataValue.Deserialize<CqGetEssenceMessageListActionResultDataModel>(JsonHelper.Options),
 
                 GetModelShow => dataValue.Deserialize<CqGetModelShowActionResultDataModel>(JsonHelper.Options),
