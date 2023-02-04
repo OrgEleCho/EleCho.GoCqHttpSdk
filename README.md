@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="logo.png" width="200"/>
+
 # EleCho.GoCqHttpSdk
 
 _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与优雅的通信 SDK ✨_
