@@ -62,3 +62,7 @@ public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
 ```
 
 > 使用插件, 只需要调用 UseMessageMatchPlugin 拓展方法即可
+
+---
+
+> ~~EleCho.GoCqHttpSdk 提供了甚至令人难以坐和放宽的拓展功能，从此再也不需要使用令人难以琢磨的标记，按下功率，享受轻松光亮的拓展背包吧~~
