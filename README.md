@@ -9,7 +9,7 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与
 
 </div>
 
-## 简介:
+## 📖 简介:
 
 虽然有很多的 OneBot 通信 SDK, 但没有一个是专为 `go-cqhttp` 打造的 .NET SDK. 秉持着 C# 的优雅开发理念, 这个库诞生了.
 
@@ -17,7 +17,7 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与
 
 > 如果你不了解 `go-cqhttp`, 可以从这里了解一下: [go-cqhttp 文档](https://docs.go-cqhttp.org/) / [go-cqhttp 仓库](https://github.com/Mrs4s/go-cqhttp)
 
-## 使用:
+## 🚀 使用:
 
 你可以在 nuget.org 下载到本库的发布包, 也可以直接在 Visual Studio 中为项目添加引用.
 
@@ -28,7 +28,7 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与
 > 功能支持: CqCode 转码, API 快速操作 \
 > 设计模式: 上报为中间件模式, 同时也支持基于中间件的插件
 
-### 连接
+### 🔗 连接
 
 要与 go-cqhttp 建立一个 WebSocket 连接, 需要使用位于 `EleCho.GoCqHttpSdk` 命名空间下的 `CqWsSession` 来创建一个会话
 
@@ -45,7 +45,7 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
 > 指定 *UseApiEndPoint* 和 *UseEventEndPoint* 将使用独立的 api 和 event 套接字来单独处理功能调用以及事件处理
 > 参考文档: [Onebot11:正向WebSocket](https://github.com/botuniverse/onebot-11/blob/master/communication/ws.md)
 
-### 上报
+### 📩 上报
 
 上报数据也就是所谓的 "事件", 所有继承了 `EleCho.GoCqHttpSdk.ICqPostSession` 接口的类都将处理上报数据, 该接口规定必须要有一个名为 *PostPipeline* 的 `CqPostPipeline` 成员
 
@@ -87,7 +87,7 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
 });
 ```
 
-### 消息发送
+### 📝 消息发送
 
 所有继承了 `EleCho.GoCqHttpSdk.ICqActionSession` 接口的类都将具备使用 `Action` 的能力, 消息发送属于 `Action`, 该接口规定必须有一个名为 *ActionSender* 的 `CqActionSender` 成员
 
@@ -107,7 +107,7 @@ context.SendGroupMessageAsync(群聊ID, new CqTextMsg("一个文本消息")); //
 
 > `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
 
-### 使用插件
+### 📦 使用插件
 
 在本库中, 你可以为能够进行上报的会话添加插件, 它本质还是一个中间件, 但是插件中, 它分离了所有类型的上报. 如果要处理某种类型的上报, 只需要 override 对应的方法即可.
 
@@ -152,20 +152,20 @@ session.UsePlugin(new MyPostPlugin());
 
 > 与 ICqPostSession 的拓展方法 Use 不同, 一个插件拥有处理多种类型上报的能力, 但它本质是单个中间件, 而诸如 UseGroupMessage 这种拓展方法, 在使用的时候, 会创建一个新的中间件并添加到上报处理管线.
 
-### 小提示
+### 📎 小提示
 
 1. `CqMsg` 类中包含了对于消息的一写帮助方法, 例如将多个 CqMsg 拼合为一个 CqMsg[], 或者从 CQ 码转换为 CqMsg[]
 2. `CqFaceMsg` 是 QQ 小黄脸消息, 它还提供了从中文名称转换为对应类型的方法, 例如 "斜眼笑", "可怜" 等中文名称.
 3. 上报中的 `QuickOperation` 是不推荐使用的, 除非你使用的是反向 HTTP, 这是因为在 WebSocket 中, 快速操作是模拟出来的
 
-### 近期计划:
+### 📃 近期计划:
 
 1. 实现反向 WebSocket 通信
 2. 实现所有 Action
 
-## 项目
+## 🧬 项目
 
-### 关于数据结构
+### 💼 关于数据结构
 
 因为 `go-cqhttp` 给的数据, JSON 都是小驼峰, 并且为了用户操作上的便捷, 所以 JSON 解析上使用了以下方法:
 
@@ -175,7 +175,7 @@ session.UsePlugin(new MyPostPlugin());
 
 同时, 为了用户操作的便捷, 用户所操作的类与实际传输使用的类, 字段格式是不一样的, 例如在 Music 消息中 sub_type 表示该 Music 消息的音乐类型, 于是在用户的操作类中, 它使用 MusicType 命名.
 
-#### 消息
+#### 📄 消息
 
 首先是 `go-cqhttp` 中的基础消息类型, 也就是 CQ 码(CQ Code):
 
@@ -200,17 +200,17 @@ public class CqXxxMsg : CqMsg
 }
 ```
 
-#### 上报
+#### 📥 上报
 
 上报的原始数据 JSON 格式中, 并没有专门为数据抽出一个 data 字段, 所以不做特殊处理.
 
-#### Action
+#### ✋ Action
 
 Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一个 params 字段, 然后将所有参数放在这个字段中. 所以在这方面, 做了与消息类型近似的处理, 也就是直接将参数独立出来, 而不是放在 params 字段中.
 
 同样, ActionResult(Action 调用的返回结果) 也将数据放在了 data 字段中, 所以同样做了特殊处理.
 
-## 贡献
+## 🎉 贡献
 
 关于任何对项目上的意见, 例如命名, 设计模式, 或者其他任何方面的问题, 直接提交一个 discussion 就可以啦, 然后咱们就可以讨论讨论具体要采取什么措施啦. ψ(｀∇´)ψ
 
@@ -218,13 +218,13 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 > 球球了, 有问题请直接提出来, 不要犹豫, 咱真的很需要用户意见, 尤其是如何提升这个库的 "优雅程度".
 
-### 编写规范
+### 📚 编写规范
 
 下面是编写时可能提供帮助的一些规范:
 
 > 虽然库的有些内部代码真的很丑(例如命名), 但这是为了外部访问的便捷而做出的妥协, 实属无奈之举.
 
-#### 各个文件夹的内容
+#### 🗂️ 各个文件夹的内容
 
 - `/Action` : 用户要使用到的各种 CqAction
 - `/Action/Sender` : 用来发送 CqAction 的各个协议实现
@@ -244,7 +244,7 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 - `/Utils` : 各种工具类
 - `/` : 被用户直接访问, 不需要进行归类的内容
 
-#### 编写步骤
+#### 🛠️ 编写步骤
 
 编写一个 Action 的参考步骤:
 
@@ -267,12 +267,14 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 4. 实现它在 `CqMsgModelConverter` 中的转换
 5. 实现它在 `CqCode.ModelChainFromCqCodeString` 中的转换
 
-#### 命名规范
+#### 📃 命名规范
 
 - 尽量将缩写改为全称, 尽量将奇怪的名称改为正常的名称 \
   例如: SetGroupBan -> BanGroupMember (禁言群成员)
+- 尽量将错误的名称改为正确的名称 \
+  例如: CheckUrlSafely -> CheckUrlSafety (检查链接安全性)
 
-#### 类型声明提示
+#### 📎 类型声明提示
 
 - 在原文档中以 `number` 标识的类型, 统一使用 `long`, 否则可能会溢出
 - 在原文档中, 消息 ID 有的地方声明为 `int32`, 有的地方声明为 `int64`, 在本库中, 将统一使用 `int64`
