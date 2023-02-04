@@ -9,10 +9,24 @@
     <Copyright>Copyright (c) EleCho 2023</Copyright>
     <RepositoryUrl>https://github.com/OrgEleCho/EleCho.GoCqHttpSdk</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageTags>Go-CqHttp;go-cqhttp;OneBot</PackageTags>
+    <PackageIcon>logo-rect.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.0.0-alpha5" />
+    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.0.0-alpha6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\logo-rect.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
