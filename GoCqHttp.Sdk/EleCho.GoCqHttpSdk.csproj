@@ -8,11 +8,12 @@
 		<Company>SlimeNull</Company>
 		<Description>Go-CqHttp 的 .NET SDK</Description>
 		<RepositoryUrl>https://github.com/SlimeNull/EleCho.GoCqHttpSdk</RepositoryUrl>
-		<Version>1.0.0-alpha4</Version>
+		<Version>1.0.0-alpha5</Version>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>Copyright (c) EleCho 2023</Copyright>
 		<PackageProjectUrl>https://github.com/EleChoNet/EleCho.GoCqHttpSdk</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>logo-rect.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,6 +37,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\logo-rect.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	  <None Include="..\README.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
