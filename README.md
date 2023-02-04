@@ -42,6 +42,7 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
     UseApiEndPoint = true,                     // 使用 api 终结点
     UseEventEndPoint = true,                   // 使用事件终结点
 });
+session.Start(); //开始连接
 ```
 
 > 指定 *UseApiEndPoint* 和 *UseEventEndPoint* 将使用独立的 api 和 event 套接字来单独处理功能调用以及事件处理

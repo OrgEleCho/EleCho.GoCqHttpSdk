@@ -51,7 +51,7 @@ namespace EleCho.GoCqHttpSdk
         {
             return ExecuteAsync(context, CancellationToken.None);
         }
-        
+
         /// <summary>
         /// 异步执行
         /// </summary>
@@ -74,7 +74,7 @@ namespace EleCho.GoCqHttpSdk
         {
             if (cancellationToken.IsCancellationRequested)
                 return EmptyAsyncFunc;
-            
+
             if (index < middlewares.Count)
             {
                 return () => middlewares[index](context, TaskExecuteAt(context, index + 1, cancellationToken));
