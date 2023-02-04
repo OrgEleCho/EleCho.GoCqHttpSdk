@@ -14,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <summary>
         /// 说明: 视频地址, 支持http和file发送
         /// </summary>
-        public string File { get; set; }
+        public string File { get; set; } = string.Empty;
 
         /// <summary>
         /// 说明: 视频封面, 支持http, file和base64发送, 格式必须为jpg

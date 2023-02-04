@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Message
             Data = data;
         }
 
-        public string Data { get; set; }
+        public string Data { get; set; } = string.Empty;
         public int ResId { get; set; }
 
         internal override CqMsgDataModel? GetDataModel() => new CqJsonMsgDataModel(Data, ResId);

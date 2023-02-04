@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         public override string Type => Consts.MsgType.TTS;
 
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
 
         internal override CqMsgDataModel? GetDataModel()
         {
