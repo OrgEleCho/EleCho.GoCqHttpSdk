@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// </summary>
     public class CqGroupMemberHonorChangedPostContext : CqNoticePostContext
     {
-        public override CqPostType EventType => CqPostType.Notice;
+        public override CqPostType PostType => CqPostType.Notice;
         public override CqNoticeType NoticeType => CqNoticeType.Notify;
 
         public CqHonorType HonorType { get; set; }

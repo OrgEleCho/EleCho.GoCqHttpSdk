@@ -21,18 +21,18 @@ namespace AssemblyCheck
                 return;
 
             if (context.GroupId == TestGroupId)
-                context.QuickOperation.Reply = CqMsg.Chain("这是一个快速操作回复");
+                context.QuickOperation.Reply = new CqMessage("这是一个快速操作回复");
             
-            string text = context.Message.GetText();
+            string text = context.Message.Text;
             if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
             {
-                await actionSession.SendGroupMessageAsync(context.GroupId, new CqTtsMsg(text[4..]));
+                await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(text[4..]));
             }
             else if (text.StartsWith("ToFace:"))
             {
                 if (CqFaceMsg.FromName(text[7..]) is CqFaceMsg face)
                 
-                await actionSession.SendGroupMessageAsync(context.GroupId, face);
+                await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(face));
             }
         }
 
@@ -46,7 +46,7 @@ namespace AssemblyCheck
 
             var msg = (await actionSession.GetMessageAsync(context.MessageId));
 
-            await actionSession.SendGroupMessageAsync(context.GroupId, CqMsg.Chain(new CqAtMsg(context.UserId), "让我康康你撤回了什么: ", msg.Message, "\n嘿嘿, 撤回失败了吧~"));
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(new CqAtMsg(context.UserId), "让我康康你撤回了什么: ", msg.Message, "\n嘿嘿, 撤回失败了吧~"));
         }
 
         public override async Task OnMemberTitleChangedAsync(CqGroupMemberTitleChangeNoticedPostContext context)
@@ -57,7 +57,7 @@ namespace AssemblyCheck
             if(context.Session is not ICqActionSession actionSession)
                 return;
 
-            await actionSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg($"有人头衔改变了哦, 内容是{context.NewTitle}"));
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(new CqTextMsg($"有人头衔改变了哦, 内容是{context.NewTitle}")));
 
 
         }

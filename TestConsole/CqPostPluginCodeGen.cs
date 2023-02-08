@@ -45,6 +45,12 @@ namespace AssemblyCheck
                     /// </summary>
                     public class CqPostPlugin
                     {
+                        /// <summary>
+                        /// 处理上报
+                        /// </summary>
+                        /// <param name="context">上报上下文</param>
+                        /// <param name="next">下一个中间件</param>
+                        /// <returns>异步任务</returns>
                         public async Task Execute(CqPostContext context, Func<Task> next)
                         {
                             switch (context)

@@ -7,12 +7,21 @@ using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
-
+    /// <summary>
+    /// 一个 CQ Action 结果
+    /// </summary>
     public abstract class CqActionResult
     {
         internal CqActionResult() { }
 
+        /// <summary>
+        /// 操作状态
+        /// </summary>
         public CqActionStatus Status { get; private set; }
+
+        /// <summary>
+        /// 操作返回码
+        /// </summary>
         public CqActionRetCode RetCode { get; private set; }
         /// <summary>
         /// 回声数据, 仅在请求指定了 EchoData 时有效

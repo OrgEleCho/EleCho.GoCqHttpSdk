@@ -6,6 +6,9 @@ using EleCho.GoCqHttpSdk.Message;
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// CQ 动作执行会话拓展
+    /// </summary>
     public static class CqActionSessionExtensions
     {
         public static async Task<TActionResult?> InvokeActionAsync<TAction, TActionResult>(this ICqActionSession session, TAction action)

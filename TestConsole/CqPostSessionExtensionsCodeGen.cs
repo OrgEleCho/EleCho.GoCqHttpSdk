@@ -130,75 +130,124 @@ namespace AssemblyCheck
 
                             return session;
                         }
-
-                        public static ICqPostSession UseMiddleware(this ICqPostSession session, CqPostMiddleware plugin)
+                                
+                        /// <summary>
+                        /// 使用一个中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">中间件</param>
+                        /// <returns>传入的上报会话</returns>
+                        public static ICqPostSession UseMiddleware(this ICqPostSession session, CqPostMiddleware middleware)
                         {
-                            session.PostPipeline.Use(plugin.Execute);
+                            session.PostPipeline.Use(middleware.Execute);
                             return session;
                         }
+                                
+                        /// <summary>
+                        /// 使用一个插件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="plugin">插件</param>
+                        /// <returns>传入的上报会话</returns>
                         public static ICqPostSession UsePlugin(this ICqPostSession session, CqPostPlugin plugin)
                         {
                             session.PostPipeline.Use(plugin.Execute);
                             return session;
                         }
-
+                                
+                        /// <summary>
+                        /// 使用任何一个中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">中间件</param>
+                        /// <returns>传入的上报会话</returns>
                         public static void UseAny(this ICqPostSession session, Func<CqPostContext, Func<Task>, Task> middleware) => Use(session, middleware);
                 
                 """);
 
-            sb.AppendLine(
-                "        #region Message");
+            // 异步, 带有下一个中间件参数的
+            string summary1 =
+                """
+                        /// <summary>
+                        /// 使用一个能处理特定上报的中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">异步, 带有下一个中间件参数的中间件. async (context, next) => { }</param>
+                        /// <returns>传入的上报会话</returns>
+                """;
+
+            // 同步, 带有下一个中间件参数的
+            string summary2 =
+                """
+                        /// <summary>
+                        /// 使用一个能处理特定上报的中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">同步, 带有下一个中间件参数的中间件. (context, next) => { }</param>
+                        /// <returns>传入的上报会话</returns>
+                """;
+
+            // 异步, 不带有下一个中间件参数的
+            string summary3 =
+                """
+                        /// <summary>
+                        /// 使用一个能处理特定上报的中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">异步, 不带有下一个中间件参数的中间件. async context => { }</param>
+                        /// <returns>传入的上报会话</returns>
+                """;
+
+            // 同步, 不带有下一个中间件参数的
+            string summary4 =
+                """
+                        /// <summary>
+                        /// 使用一个能处理特定上报的中间件
+                        /// </summary>
+                        /// <param name="session">上报会话</param>
+                        /// <param name="middleware">同步, 不带有下一个中间件参数的中间件. context => { }</param>
+                        /// <returns>传入的上报会话</returns>
+                """;
+
+            void AddMethodsForPostType(string postType)
+            {
+                sb.AppendLine(summary1);
+                sb.AppendLine($"        public static ICqPostSession Use{postType}(this ICqPostSession session, Func<Cq{postType}PostContext, Func<Task>, Task> middleware) => Use(session, middleware);");
+                sb.AppendLine(summary2);
+                sb.AppendLine($"        public static ICqPostSession Use{postType}(this ICqPostSession session, Action<Cq{postType}PostContext, Func<Task>> middleware) => Use(session, middleware);");
+                sb.AppendLine(summary3);
+                sb.AppendLine($"        public static ICqPostSession Use{postType}(this ICqPostSession session, Func<Cq{postType}PostContext, Task> middleware) => Use(session, middleware);");
+                sb.AppendLine(summary4);
+                sb.AppendLine($"        public static ICqPostSession Use{postType}(this ICqPostSession session, Action<Cq{postType}PostContext> middleware) => Use(session, middleware);");
+            }
+
+
+
+            sb.AppendLine("        #region Message");
             foreach (string msgType in msgTypesInfo)
-            {
-                sb.AppendLine($"        public static ICqPostSession Use{msgType}(this ICqPostSession session, Func<Cq{msgType}PostContext, Func<Task>, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{msgType}(this ICqPostSession session, Action<Cq{msgType}PostContext, Func<Task>> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{msgType}(this ICqPostSession session, Func<Cq{msgType}PostContext, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{msgType}(this ICqPostSession session, Action<Cq{msgType}PostContext> middleware) => Use(session, middleware);");
-            }
-            sb.AppendLine(
-            "        #endregion Message");
+                AddMethodsForPostType(msgType);
+            sb.AppendLine("        #endregion Message");
 
 
             sb.AppendLine();
-            sb.AppendLine(
-                "        #region Notice");
+            sb.AppendLine("        #region Notice");
             foreach (string noticeType in noticeTypesInfo)
-            {
-                sb.AppendLine($"        public static ICqPostSession Use{noticeType}(this ICqPostSession session, Func<Cq{noticeType}PostContext, Func<Task>, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{noticeType}(this ICqPostSession session, Action<Cq{noticeType}PostContext, Func<Task>> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{noticeType}(this ICqPostSession session, Func<Cq{noticeType}PostContext, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{noticeType}(this ICqPostSession session, Action<Cq{noticeType}PostContext> middleware) => Use(session, middleware);");
-            }
-            sb.AppendLine(
-            "        #endregion Notice");
+                AddMethodsForPostType(noticeType);
+            sb.AppendLine("        #endregion Notice");
 
 
             sb.AppendLine();
-            sb.AppendLine(
-                "        #region Request");
+            sb.AppendLine("        #region Request");
             foreach (string requestType in requestTypesInfo)
-            {
-                sb.AppendLine($"        public static ICqPostSession Use{requestType}(this ICqPostSession session, Func<Cq{requestType}PostContext, Func<Task>, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{requestType}(this ICqPostSession session, Action<Cq{requestType}PostContext, Func<Task>> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{requestType}(this ICqPostSession session, Func<Cq{requestType}PostContext, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{requestType}(this ICqPostSession session, Action<Cq{requestType}PostContext> middleware) => Use(session, middleware);");
-            }
-            sb.AppendLine(
-            "        #endregion Request");
+                AddMethodsForPostType(requestType);
+            sb.AppendLine("        #endregion Request");
 
 
             sb.AppendLine();
-            sb.AppendLine(
-                "        #region MetaEvent");
+            sb.AppendLine("        #region MetaEvent");
             foreach (string metaeventType in metaeventTypesInfo)
-            {
-                sb.AppendLine($"        public static ICqPostSession Use{metaeventType}(this ICqPostSession session, Func<Cq{metaeventType}PostContext, Func<Task>, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{metaeventType}(this ICqPostSession session, Action<Cq{metaeventType}PostContext, Func<Task>> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{metaeventType}(this ICqPostSession session, Func<Cq{metaeventType}PostContext, Task> middleware) => Use(session, middleware);");
-                sb.AppendLine($"        public static ICqPostSession Use{metaeventType}(this ICqPostSession session, Action<Cq{metaeventType}PostContext> middleware) => Use(session, middleware);");
-            }
-            sb.AppendLine(
-            "        #endregion MetaEvent");
+                AddMethodsForPostType(metaeventType);
+            sb.AppendLine("        #endregion MetaEvent");
 
             sb.AppendLine(
                 """

@@ -8,15 +8,44 @@ using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 消息上报上下文
+    /// </summary>
     public abstract class CqMessagePostContext : CqPostContext
     {
-        public override CqPostType EventType => CqPostType.Message;
+        /// <summary>
+        /// 上报类型: 消息
+        /// </summary>
+        public override CqPostType PostType => CqPostType.Message;
+
+        /// <summary>
+        /// 消息类型
+        /// </summary>
         public abstract CqMessageType MessageType { get; }
 
+        /// <summary>
+        /// 消息 ID
+        /// </summary>
         public long MessageId { get; set; }
+
+        /// <summary>
+        /// 用户 ID
+        /// </summary>
         public long UserId { get; set; }
+
+        /// <summary>
+        /// 消息实例
+        /// </summary>
         public CqMessage Message { get; set; } = new CqMessage(0);
+
+        /// <summary>
+        /// 原始消息 (CQ 码)
+        /// </summary>
         public string RawMessage { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 字体
+        /// </summary>
         public int Font { get; set; }
 
         internal override void ReadModel(CqPostModel model)

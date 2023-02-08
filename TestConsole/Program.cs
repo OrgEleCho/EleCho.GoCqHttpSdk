@@ -26,17 +26,8 @@ namespace AssemblyCheck
 
         private static async Task Main(string[] args)
         {
-            session
-                .UseGroupMessage(async context =>
-                {
-                    
-                })
-                .UsePrivateMessage(async context =>
-                {
-
-                });
-
-            await session.RunAsync();
+            Console.WriteLine(CqPostSessionExtensionsCodeGen.Generate());
+            return;
         }
 
         private static void CheckAssemblyTypes(Assembly asm)

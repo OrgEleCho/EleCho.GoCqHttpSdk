@@ -16,10 +16,24 @@ namespace EleCho.GoCqHttpSdk.Post
                                      // 保证在 new 之后通过 SetSession 设置 Session
         }
 
+        /// <summary>
+        /// 当前上报的会话
+        /// </summary>
         public CqSession Session { get; private set; }
 
-        public abstract CqPostType EventType { get; }
+        /// <summary>
+        /// 上报类型
+        /// </summary>
+        public abstract CqPostType PostType { get; }
+
+        /// <summary>
+        /// 机器人 QQ ID
+        /// </summary>
         public long SelfId { get; set; }
+
+        /// <summary>
+        /// 上报时间
+        /// </summary>
         public DateTime Time { get; set; }
 
         internal abstract object? QuickOperationModel { get; }

@@ -11,8 +11,14 @@ namespace EleCho.GoCqHttpSdk.Action
     /// </summary>
     public abstract class CqAction
     {
+        /// <summary>
+        /// 当前操作的类型
+        /// </summary>
         public abstract CqActionType ActionType { get; }
 
+        /// <summary>
+        /// 回显数据 (用来标记请求)
+        /// </summary>
         public string? EchoData { get; set; }
 
         internal abstract CqActionParamsModel GetParamsModel();

@@ -8,6 +8,9 @@ using EleCho.GoCqHttpSdk.Post;
 
 namespace EleCho.GoCqHttpSdk.MessageMatching
 {
+    /// <summary>
+    /// 消息匹配插件
+    /// </summary>
     public abstract class CqMessageMatchPostPlugin
     {
         private record struct MessageMatchMethod(MethodInfo Method, CqMessageMatchAttribute Attribute, Func<CqMessagePostContext, Match, Task> Action);
@@ -118,6 +121,12 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         private CqMessagePostContext? currentContext;
         public CqMessagePostContext? CurrentContext => currentContext;
 
+        /// <summary>
+        /// 执行消息匹配方法
+        /// </summary>
+        /// <param name="context">上报上下文</param>
+        /// <param name="next">下一个中间件</param>
+        /// <returns>异步任务</returns>
         public async Task Execute(CqPostContext context, Func<Task> next)
         {
             if (privateMessageMatchMethods == null || groupMessageMatchMethods == null)

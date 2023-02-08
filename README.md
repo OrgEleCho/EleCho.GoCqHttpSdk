@@ -82,8 +82,8 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
     // 简单实现一个复读机:
     if (context.RawMessage.StartsWith("echo "))
     {
-        string msg = context.RawMessage.SubString(5);                  // 获取 "echo " 后的字符
-        context.SendGroupMessageAsync(context.GroupId, msg); // 发送它 (关于消息发送后面会详细讲解)
+        string msg = context.RawMessage.SubString(5);                       // 获取 "echo " 后的字符
+        context.SendGroupMessageAsync(context.GroupId, new CqMessage(msg)); // 发送它 (关于消息发送后面会详细讲解)
     }
     
     await next();
@@ -98,14 +98,14 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
 
 ```csharp
 CqWsSession session;   // 要使用 Action 的会话
-session.ActionSender.SendActionAsync(new CqSendGroupMessageAction(群聊ID, new CqMsg[] { new CqTextMsg("一个文本消息") }));
+session.ActionSender.SendActionAsync(new CqSendGroupMessageAction(群聊ID, new CqMessage { new CqTextMsg("一个文本消息") }));
 ```
 
 可以看到, 使用 *session.ActionSender* 直接发送 `Action` 的步骤比较繁琐, 所以同样的, 推荐使用拓展方法, 它们由 `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 提供.
 
 ```csharp
 CqWsSession session;   // 要使用 Action 的会话
-context.SendGroupMessageAsync(群聊ID, new CqTextMsg("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
+context.SendGroupMessageAsync(群聊ID, new CqMessage("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
 ```
 
 > `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
@@ -280,7 +280,6 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 - 在原文档中以 `number` 标识的类型, 统一使用 `long`, 否则可能会溢出
 - 在原文档中, 消息 ID 有的地方声明为 `int32`, 有的地方声明为 `int64`, 在本库中, 将统一使用 `int64`
-
 
 
 
