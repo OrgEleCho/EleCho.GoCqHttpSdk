@@ -5,7 +5,7 @@ using EleCho.GoCqHttpSdk.Post;
 using System;
 using System.Threading.Tasks;
 
-namespace TestConsole
+namespace AssemblyCheck
 {
     class MyPostPlugin : CqPostPlugin
     {

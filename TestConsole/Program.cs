@@ -11,7 +11,7 @@ using EleCho.GoCqHttpSdk.Post;
 
 #nullable enable
 
-namespace TestConsole
+namespace AssemblyCheck
 {
     internal class Program
     {
@@ -32,8 +32,6 @@ namespace TestConsole
 
         private static async Task Main(string[] args)
         {
-            AssemblyTest.Run();
-            
             //session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
             
             await session.RunAsync();

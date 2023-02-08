@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace TestConsole
+namespace AssemblyCheck
 {
     internal class ManyMiddlewares
     {

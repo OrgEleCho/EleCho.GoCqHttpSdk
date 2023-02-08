@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace TestConsole
+namespace AssemblyCheck
 {
     internal static class CqPostSessionExtensionsCodeGen
     {

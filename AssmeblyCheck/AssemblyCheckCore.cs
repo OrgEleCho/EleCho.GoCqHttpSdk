@@ -9,9 +9,9 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace TestConsole
+namespace AssemblyCheck
 {
-    internal static class AssemblyTest
+    internal static class AssemblyCheckCore
     {
         /// <summary>
         /// 对 EleCho.GoCqHttpSdk 的程序集进行基础测试
