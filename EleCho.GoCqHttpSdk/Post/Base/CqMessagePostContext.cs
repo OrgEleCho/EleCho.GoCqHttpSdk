@@ -4,6 +4,7 @@ using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Post.Model;
 using System;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
@@ -14,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         public long MessageId { get; set; }
         public long UserId { get; set; }
-        public CqMsg[] Message { get; set; } = Array.Empty<CqMsg>();
+        public CqMessage Message { get; set; } = new CqMessage(0);
         public string RawMessage { get; set; } = string.Empty;
         public int Font { get; set; }
 
@@ -27,7 +28,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
             MessageId = msgModel.message_id;
             UserId = msgModel.user_id;
-            Message = Array.ConvertAll(msgModel.message ?? Array.Empty<CqMsgModel>(), CqMsg.FromModel);
+            Message = new CqMessage(msgModel.message.Select(CqMsg.FromModel));
             RawMessage = msgModel.raw_message;
             Font = msgModel.font;
         }

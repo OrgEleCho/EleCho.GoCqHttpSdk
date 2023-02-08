@@ -14,12 +14,22 @@ namespace EleCho.GoCqHttpSdk.Message
         public string Type { get; set; }
         public Dictionary<string, string> Data { get; set; }
 
+        /// <summary>
+        /// 表示一个简单的 CQ 码
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="data"></param>
         public CqCode(string type, Dictionary<string, string> data)
         {
             Type = type;
             Data = data;
         }
 
+        /// <summary>
+        /// 从 CQ 码中取一个整数
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public int? GetInt(string key)
         {
             if (Data.TryGetValue(key, out string? strInt))
@@ -31,6 +41,11 @@ namespace EleCho.GoCqHttpSdk.Message
             return null;
         }
 
+        /// <summary>
+        /// 从 CQ 码中取一个长整数
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public long? GetLong(string key)
         {
             if (Data.TryGetValue(key, out string? strLong))
@@ -42,6 +57,11 @@ namespace EleCho.GoCqHttpSdk.Message
             return null;
         }
 
+        /// <summary>
+        /// 从 CQ 码中取一个浮点数
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public double? GetDouble(string key)
         {
             if (Data.TryGetValue(key, out string? strDouble))
@@ -53,6 +73,11 @@ namespace EleCho.GoCqHttpSdk.Message
             return null;
         }
 
+        /// <summary>
+        /// 从 CQ 码中取一个字符串
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public string? GetString(string key)
         {
             if (Data.TryGetValue(key, out string? strValue))
@@ -61,6 +86,11 @@ namespace EleCho.GoCqHttpSdk.Message
             return null;
         }
 
+        /// <summary>
+        /// 将字符串进行 CQ 码转义
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string Escape(string str)
         {
             StringBuilder sb = new StringBuilder(str);
@@ -70,6 +100,11 @@ namespace EleCho.GoCqHttpSdk.Message
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 将转移后的 CQ 码字符串还原
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string Unescape(string str)
         {
             StringBuilder sb = new StringBuilder(str);
@@ -79,28 +114,50 @@ namespace EleCho.GoCqHttpSdk.Message
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 将 CQ 码对象转换为与之对应的字符串
+        /// </summary>
+        /// <param name="cqCode"></param>
+        /// <returns></returns>
         public static string ToCqCodeString(CqCode cqCode)
         {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append("[CQ:");
-            sb.Append(Escape(cqCode.Type));
-            foreach (var item in cqCode.Data)
+            if (cqCode.Type.Equals("TEXT", StringComparison.OrdinalIgnoreCase))
             {
-                sb.Append(',');
-                sb.Append(Escape(item.Key));
-                sb.Append('=');
-                sb.Append(Escape(item.Value));
+                return Escape(
+                    cqCode.GetString("text") ??
+                    cqCode.GetString("TEXT") ??
+                    string.Empty);
             }
-            sb.Append(']');
+            else
+            {
+                StringBuilder sb = new StringBuilder();
 
-            return sb.ToString();
+                sb.Append("[CQ:");
+                sb.Append(Escape(cqCode.Type));
+                foreach (var item in cqCode.Data)
+                {
+                    sb.Append(',');
+                    sb.Append(Escape(item.Key));
+                    sb.Append('=');
+                    sb.Append(Escape(item.Value));
+                }
+                sb.Append(']');
+                return sb.ToString();
+            }
         }
 
-        public static CqCode? FromCqCodeString(string str, int index, out int start, out int offset)
+        /// <summary>
+        /// 从指定字符串中查找一个 CQ 码并输出这个 CQ 码的开始位置和长度
+        /// </summary>
+        /// <param name="str">要查找的字符串</param>
+        /// <param name="index">开始索引</param>
+        /// <param name="start">CQ 码的开始值, 如果找不到, 则是 -1</param>
+        /// <param name="length">CQ 码的长度, 如果找不到, 则是 -1</param>
+        /// <returns>返回一个 CQ 码, 如果找不到, 则是 null</returns>
+        public static CqCode? FromCqCodeString(string str, int index, out int start, out int length)
         {
             start = -1;
-            offset = -1;
+            length = -1;
 
             int startIndex = str.IndexOf("[CQ:", index, StringComparison.OrdinalIgnoreCase);
             if (startIndex == -1)
@@ -111,7 +168,7 @@ namespace EleCho.GoCqHttpSdk.Message
                 return null;
 
             start = startIndex;
-            offset = endIndex - startIndex + 1;
+            length = endIndex - startIndex + 1;
 
             int codeValueStart = startIndex + 4;              // 跳过 "[CQ:" 的CQ码值起始索引
             int codeValueLen = endIndex - codeValueStart;     // 计算CQ码值长度 不包括最后的 ']'
@@ -134,6 +191,12 @@ namespace EleCho.GoCqHttpSdk.Message
             return new CqCode(type, data);
         }
 
+        /// <summary>
+        /// 从一个 CQ 码序列中解析出所有 Cq 消息段
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static CqMsgModel[] ModelChainFromCqCodeString(string sequence)
         {
             int curIndex = 0;

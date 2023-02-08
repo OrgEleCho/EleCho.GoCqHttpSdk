@@ -15,8 +15,7 @@ namespace AssemblyCheck
 {
     internal class Program
     {
-        public const int WebSocketPort = 5701; // orig 5701
-        public const int HttpPort = 5700;      //orig 5700
+        public const int WebSocketPort = 5701;
 
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {
@@ -25,15 +24,17 @@ namespace AssemblyCheck
             UseEventEndPoint = true,
         });
 
-        static CqHttpSession httpSession = new CqHttpSession(new CqHttpSessionOptions()
-        {
-            BaseUri = new Uri($"http://127.0.0.1:{HttpPort}"),
-        });
-
         private static async Task Main(string[] args)
         {
-            Console.WriteLine(CqPostSessionExtensionsCodeGen.Generate());
-            return;
+            session
+                .UseGroupMessage(async context =>
+                {
+                    
+                })
+                .UsePrivateMessage(async context =>
+                {
+
+                });
 
             await session.RunAsync();
         }
@@ -42,32 +43,4 @@ namespace AssemblyCheck
         {
         }
     }
-
-    //public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
-    //{
-    //    const long TestGroupId = 295322097;
-
-    //    public MyMessageMatchPlugin(ICqActionSession actionSession)
-    //    {
-    //        ActionSession = actionSession;
-    //    }
-
-    //    public ICqActionSession ActionSession { get; }
-
-    //    [CqMessageMatch(@"\[(?<content>.*?)\]")]
-    //    public async Task MyMessageMatchPluginMethod(string content)
-    //    {
-    //        long grpId = TestGroupId;
-    //        if (CurrentContext is CqGroupMessagePostContext grpMsgContext)
-    //            grpId = grpMsgContext.GroupId;
-            
-    //        await ActionSession.SendGroupMessageAsync(grpId, $"Captured content: {content}");
-    //    }
-
-    //    [CqMessageMatch(@"")]
-    //    public void LogAllMessages(CqMessagePostContext context)
-    //    {
-    //        Console.WriteLine(context.Message.GetText());
-    //    }
-    //}
 }

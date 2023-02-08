@@ -2,12 +2,13 @@
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqPrivateMessagePostQuickOperation : CqPostQuickOperation
     {
-        public CqMsg[]? Reply { get; set; }
+        public CqMessage? Reply { get; set; }
 
         [Obsolete("在本 SDK 中此字段无用")]
         public bool AutoEscape { get; set; }
@@ -16,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             return new
             {
-                reply = Reply != null ? Array.ConvertAll(Reply, CqMsg.ToModel) : null
+                reply = Reply == null ? null : Reply.Select(CqMsg.ToModel).ToArray()
                 // auto_escape  // 字段无用, 不传
             };
         }

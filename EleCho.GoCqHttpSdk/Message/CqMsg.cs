@@ -2,9 +2,13 @@
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Collections.Generic;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// 消息段, 是完整消息中的组成部分
+    /// </summary>
     public abstract record class CqMsg
     {
         public abstract string Type { get; }
@@ -13,87 +17,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal abstract void ReadDataModel(CqMsgDataModel? model);
 
-        public const string NotSupportedCqCodeTip = "该 CQcode 暂未被 go-cqhttp 支持, 您可以提交 pr 以使该 CQcode 被支持";
-        
-        // 啧, 需要一个把 CqMsg 一大堆与 CqMsg[] 组合在一起的东西
-        // -1.16 比如叫做`消息实体`? 同时还可以在内部封装很多方便获取消息节点的方法甚至支持LINQ进行查询
-        
-        
-        public static CqMsg[] Chain(params CqMsg[] msg)
-        {
-            return msg;
-        }
-
-        public static CqMsg[] Chain(CqMsg head, CqMsg[] msg)
-        {
-            var chain = new CqMsg[msg.Length + 1];
-            chain[0] = head;
-            Array.Copy(msg, 0, chain, 1, msg.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg[] msg)
-        {
-            var chain = new CqMsg[msg.Length + 2];
-            chain[0] = head1;
-            chain[1] = head2;
-            Array.Copy(msg, 0, chain, 2, msg.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg head3, CqMsg[] msg)
-        {
-            var chain = new CqMsg[msg.Length + 3];
-            chain[0] = head1;
-            chain[1] = head2;
-            chain[2] = head3;
-            Array.Copy(msg, 0, chain, 3, msg.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg[] msg, params CqMsg[] tails)
-        {
-            var chain = new CqMsg[msg.Length + tails.Length];
-            Array.Copy(msg, 0, chain, 0, msg.Length);
-            Array.Copy(tails, 0, chain, msg.Length, tails.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg head, CqMsg[] msg, params CqMsg[] tails)
-        {
-            var chain = new CqMsg[msg.Length + tails.Length + 1];
-            chain[0] = head;
-            Array.Copy(msg, 0, chain, 1, msg.Length);
-            Array.Copy(tails, 0, chain, msg.Length + 1, tails.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg[] msg, params CqMsg[] tails)
-        {
-            var chain = new CqMsg[msg.Length + tails.Length + 2];
-            chain[0] = head1;
-            chain[1] = head2;
-            Array.Copy(msg, 0, chain, 2, msg.Length);
-            Array.Copy(tails, 0, chain, msg.Length + 2, tails.Length);
-            return chain;
-        }
-
-        public static CqMsg[] Chain(CqMsg head1, CqMsg head2, CqMsg head3, CqMsg[] msg, params CqMsg[] tails)
-        {
-            var chain = new CqMsg[msg.Length + tails.Length + 3];
-            chain[0] = head1;
-            chain[1] = head2;
-            chain[2] = head3;
-            Array.Copy(msg, 0, chain, 3, msg.Length);
-            Array.Copy(tails, 0, chain, msg.Length + 3, tails.Length);
-            return chain;
-        }
-            
-
-        public static CqMsg[] CqCodeChain(string cqCodeMsg)
-        {
-            return CqCode.ChainFromCqCodeString(cqCodeMsg);
-        }
+        public const string NotSupportedCqCodeTip = "该 CQ Code 暂未被 go-cqhttp 支持, 您可以提交 PR 以使该 CQ Code 被支持";
 
         internal static CqMsg FromModel(CqMsgModel model)
         {

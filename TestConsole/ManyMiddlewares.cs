@@ -22,40 +22,40 @@ namespace AssemblyCheck
         {
             //if(context.GroupId != 860355679) return;
             
-            string textMsg = context.Message.GetText();
+            string textMsg = context.Message.Text;
             Console.WriteLine($"[Group:{context.GroupId}] {context.UserId}: {textMsg}");
 
             if (context.RawMessage.Contains('喵'))        // 喵喵复读机
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, "喵喵喵?");
+                await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage("喵喵喵?"));
             }
             else if (context.RawMessage.StartsWith("echo "))     // echo 复读机
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(context.RawMessage[5..]));
+                await apiSession.SendGroupMessageAsync(context.GroupId, CqMessage.FromCqCode(context.RawMessage[5..]));
             }
             else if (context.RawMessage.Contains("热重载"))       // 憨批关键词
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, "好耶, C# 太棒惹!");
+                await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage("好耶, C# 太棒惹!"));
             }
             else if (context.RawMessage.Contains("辰辰"))        // 起哄专用
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, "爆! 照~~");
+                await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage("爆! 照~~"));
             }
             else if (context.RawMessage.Contains("亲我"))        // 自我安慰.jpg
             {
                 if (context.RawMessage.Contains("悄咪咪"))
                 {
-                    await apiSession.SendPrivateMessageAsync(context.UserId, "mua~");
+                    await apiSession.SendPrivateMessageAsync(context.UserId, new CqMessage("mua~"));
                 }
                 else
                 {
-                    var rst = await apiSession.SendGroupMessageAsync(context.GroupId, new CqAtMsg(context.UserId), new CqTextMsg("mua~"));
+                    var rst = await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage(new CqAtMsg(context.UserId), new CqTextMsg("mua~")));
                 }
             }
             else if (context.RawMessage.Contains("骂我"))        // 奇怪的癖好?
             {
                 if (context.RawMessage.Contains("狠狠"))
-                    await apiSession.SendPrivateMessageAsync(context.UserId, new CqTextMsg("cnm"));
+                    await apiSession.SendPrivateMessageAsync(context.UserId, new CqMessage("cnm"));
                 else
                 {
                     string[] awa = new string[]
@@ -71,14 +71,14 @@ namespace AssemblyCheck
 
                     int randindex = new Random().Next(0, awa.Length);
 
-                    var rst =  await apiSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg(awa[randindex]));    // 发送脏话
+                    var rst =  await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage(awa[randindex]));    // 发送脏话
 
                     await Task.Delay(2000);                                                                       // 等待 2 秒
 
                     if (rst != null && rst.Status == CqActionStatus.Okay)
                     {
                         await apiSession.RecallMessageAsync(rst!.MessageId);                                             // 撤回消息
-                        await apiSession.SendGroupMessageAsync(context.GroupId, new CqTextMsg("打错字惹qwq (小仙女怎么可以骂脏话呢)"));     // 发错了.jpg
+                        await apiSession.SendGroupMessageAsync(context.GroupId, new CqMessage("打错字惹qwq (小仙女怎么可以骂脏话呢)"));     // 发错了.jpg
                     }
                 }
             }
@@ -94,12 +94,12 @@ namespace AssemblyCheck
 
                 int randindex = new Random().Next(0, awa.Length);
 
-                await apiSession.SendMessageAsync(null, context.GroupId, new CqTextMsg(awa[randindex]));
+                await apiSession.SendMessageAsync(null, context.GroupId, new CqMessage(awa[randindex]));
                 //var rst =  await session.SendGroupMsgAsync(context.GroupId, new CqTextMsg(awa[randindex]));
             }
             else if (textMsg.Contains("假装卖萌"))
             {
-                CqMsg[] fakeMsg = CqMsg.CqCodeChain("嘤嘤嘤~");
+                CqMessage fakeMsg = new CqMessage("嘤嘤嘤");
                 await apiSession.SendGroupForwardMessageAsync(context.GroupId,
                     new CqForwardMessageNode(context.Sender.Nickname, context.UserId, fakeMsg, fakeMsg));
             }
@@ -110,7 +110,7 @@ namespace AssemblyCheck
             }
             else if (textMsg.StartsWith("="))
             {
-                await apiSession.SendGroupMessageAsync(context.GroupId, CqMsg.CqCodeChain(textMsg[1..]));
+                await apiSession.SendGroupMessageAsync(context.GroupId, CqMessage.FromCqCode(textMsg[1..]));
             }
             else if (textMsg.Contains("禁言"))
             {

@@ -3,20 +3,21 @@
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
     public class CqSendMessageAction : CqAction
     {
-        public CqSendMessageAction(long? userId, long? groupId, CqMsg[] message)
+        public CqSendMessageAction(long? userId, long? groupId, CqMessage message)
         {
             UserId = userId;
             GroupId = groupId;
             Message = message;
         }
 
-        public CqSendMessageAction(CqMessageType messageType, long? userId, long? groupId, CqMsg[] message)
+        public CqSendMessageAction(CqMessageType messageType, long? userId, long? groupId, CqMessage message)
         {
             MessageType = messageType;
             UserId = userId;
@@ -29,7 +30,7 @@ namespace EleCho.GoCqHttpSdk.Action
         public CqMessageType MessageType { get; set; } = CqMessageType.Unknown;
         public long? UserId { get; set; }
         public long? GroupId { get; set; }
-        public CqMsg[] Message { get; set; }
+        public CqMessage Message { get; set; }
 
         [JsonIgnore]
         [Obsolete("该字段不可用")]
@@ -37,7 +38,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSendMessageActionParamsModel(CqEnum.GetString(MessageType), UserId, GroupId, Array.ConvertAll(Message, CqMsg.ToModel));
+            return new CqSendMessageActionParamsModel(CqEnum.GetString(MessageType), UserId, GroupId, Message.Select(CqMsg.ToModel).ToArray());
         }
     }
 }

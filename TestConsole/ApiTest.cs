@@ -1,4 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace AssemblyCheck
             var url = "https://bing.com";
 
             var safety = await session.CheckUrlSafety(url);
-            await session.SendGroupMessageAsync(TestGroupId, $"连接安全性: {url} {safety.Level}");
+            await session.SendGroupMessageAsync(TestGroupId, new CqMessage($"连接安全性: {url} {safety.Level}"));
 
             var versionInfo = await session.GetVersionInformation();
-            await session.SendGroupMessageAsync(TestGroupId, JsonSerializer.Serialize(versionInfo));
+            await session.SendGroupMessageAsync(TestGroupId, new CqMessage(JsonSerializer.Serialize(versionInfo)));
         }
     }
 }

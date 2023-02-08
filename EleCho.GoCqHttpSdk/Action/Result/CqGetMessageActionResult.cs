@@ -4,6 +4,7 @@ using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
@@ -15,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Action
         public int RealId { get; private set; }
         public CqMessageSender Sender { get; private set; } = new CqMessageSender();
         public DateTime Time { get; private set; }
-        public CqMsg[] Message { get; private set; } = Array.Empty<CqMsg>();
+        public CqMessage Message { get; private set; } = new CqMessage(0);
         public string RawMessage { get; private set; } = string.Empty;
 
         internal CqGetMessageActionResult() { }
@@ -29,7 +30,7 @@ namespace EleCho.GoCqHttpSdk.Action
                 RealId = dataModel.real_id;
                 Sender = new CqMessageSender(dataModel.sender);
                 Time = UnixTime.DateFromUnix(dataModel.time);
-                Message = Array.ConvertAll(dataModel.message ?? Array.Empty<CqMsgModel>(), CqMsg.FromModel);
+                Message = new CqMessage(dataModel.message.Select(CqMsg.FromModel));
                 RawMessage = dataModel.raw_message;
             }
         }

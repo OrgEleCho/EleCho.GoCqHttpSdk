@@ -1,12 +1,13 @@
 ﻿using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
     public class CqGroupMessagePostQuickOperation : CqPostQuickOperation
     {
-        public CqMsg[]? Reply { get; set; }
+        public CqMessage? Reply { get; set; }
         public bool AtSender { get; set; }
         public bool Recall { get; set; }
         public bool Kick { get; set; }
@@ -20,7 +21,7 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             return new
             {
-                reply = Reply != null ? Array.ConvertAll(Reply, CqMsg.ToModel) : null,
+                reply = Reply == null ? null : Reply.Select(CqMsg.ToModel).ToArray(),
                 at_sender = AtSender,
                 delete = Recall,
                 kick = Kick,

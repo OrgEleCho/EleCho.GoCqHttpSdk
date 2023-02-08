@@ -3,6 +3,7 @@ using EleCho.GoCqHttpSdk.Message.DataModel;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk
 {
@@ -13,8 +14,8 @@ namespace EleCho.GoCqHttpSdk
         public long? Id { get; private set; }
         public string? Name { get; private set; }
         public long? QQ { get; private set; }
-        public CqMsg[]? Content { get; private set; }
-        public CqMsg[]? Seq { get; private set; }
+        public CqMessage? Content { get; private set; }
+        public CqMessage? Seq { get; private set; }
 
         internal CqForwardMessageNode()
         { }
@@ -24,14 +25,14 @@ namespace EleCho.GoCqHttpSdk
             Id = id;
         }
 
-        public CqForwardMessageNode(string name, long qq, params CqMsg[] content)
+        public CqForwardMessageNode(string name, long qq, CqMessage content)
         {
             Name = name;
             QQ = qq;
             Content = content;
         }
 
-        public CqForwardMessageNode(string name, long qq, CqMsg[] content, CqMsg[] seq)
+        public CqForwardMessageNode(string name, long qq, CqMessage content, CqMessage seq)
         {
             Name = name;
             QQ = qq;
@@ -41,8 +42,8 @@ namespace EleCho.GoCqHttpSdk
 
         internal override CqMsgDataModel? GetDataModel() =>
             new CqForwardMsgNodeDataModel(Id, Name, QQ,
-                Array.ConvertAll(Content ?? Array.Empty<CqMsg>(), ToModel),
-                Array.ConvertAll(Seq ?? Array.Empty<CqMsg>(), ToModel));
+                Content?.Select(CqMsg.ToModel).ToArray(),
+                Seq?.Select(CqMsg.ToModel).ToArray());
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {
@@ -53,8 +54,8 @@ namespace EleCho.GoCqHttpSdk
             Id = m.id;
             Name = m.name;
             QQ = m.uin;
-            Content = Array.ConvertAll(m.content ?? Array.Empty<CqMsgModel>(), FromModel);
-            Seq = Array.ConvertAll(m.seq ?? Array.Empty<CqMsgModel>(), FromModel);
+            Content = m.content == null ? null : new CqMessage(m.content.Select(CqMsg.FromModel));
+            Seq = m.seq == null ? null : new CqMessage(m.seq.Select(CqMsg.FromModel));
         }
     }
 }
