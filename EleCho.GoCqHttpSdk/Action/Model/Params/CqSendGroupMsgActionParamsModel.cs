@@ -14,10 +14,10 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.auto_escape = auto_escape;
         }
 
-        public long group_id { get; set; }
-        public CqMsgModel[] message { get; set; }
+        public long group_id { get; }
+        public CqMsgModel[] message { get; }
         
         [JsonIgnore]
-        public bool auto_escape { get; set; }
+        public bool auto_escape { get; }
     }
 }

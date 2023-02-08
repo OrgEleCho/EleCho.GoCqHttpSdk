@@ -13,6 +13,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.domain = domain;
         }
 
-        public string domain { get; set; } = string.Empty;
+        public string domain { get; } = string.Empty;
     }
 }

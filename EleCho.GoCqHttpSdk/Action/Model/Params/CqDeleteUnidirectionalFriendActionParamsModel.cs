@@ -7,6 +7,6 @@
             this.user_id = user_id;
         }
 
-        public long user_id { get; set; }
+        public long user_id { get; }
     }
 }

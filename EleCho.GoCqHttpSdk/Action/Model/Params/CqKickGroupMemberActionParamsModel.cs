@@ -11,8 +11,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.reject_add_request = reject_add_request;
         }
 
-        public long group_id { get; set; }
-        public long user_id { get; set; }
-        public bool reject_add_request { get; set; }
+        public long group_id { get; }
+        public long user_id { get; }
+        public bool reject_add_request { get; }
     }
 }

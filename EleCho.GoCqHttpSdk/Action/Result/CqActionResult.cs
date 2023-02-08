@@ -31,15 +31,9 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal abstract void ReadDataModel(CqActionResultDataModel? model);
 
-        internal static CqActionResult? FromRaw(CqActionResultRaw? raw, string actionType)
+        internal static CqActionResult CreateActionResultFromActionType(string actionType)
         {
-            if (raw == null)
-                return null;
-
-            CqActionResultDataModel? dataModel =
-                CqActionResultDataModel.FromRaw(raw.data, actionType);
-
-            CqActionResult? rst = actionType switch
+            return actionType switch
             {
                 SendPrivateMsg => new CqSendPrivateMessageActionResult(),
                 SendGroupMsg => new CqSendGroupMessageActionResult(),
@@ -47,12 +41,12 @@ namespace EleCho.GoCqHttpSdk.Action
                 DeleteMsg => new CqRecallMessageActionResult(),
                 SendGroupForwardMsg => new CqSendGroupForwardMessageActionResult(),
                 SendPrivateForwardMsg => new CqSendPrivateForwardMessageActionResult(),
-                
+
                 GetMsg => new CqGetMessageActionResult(),
                 GetForwardMsg => new CqGetForwardMessageActionResult(),
                 GetImage => new CqGetImageActionResult(),
                 GetUnidirectionalFriendList => new CqGetUnidirectionalFriendListActionResult(),
-                
+
                 GetFriendList => new CqGetFriendListActionResult(),
                 GetGroupList => new CqGetGroupListActionResult(),
 
@@ -74,20 +68,26 @@ namespace EleCho.GoCqHttpSdk.Action
                 SetGroupAnonymous => new CqSetGroupAnonymousActionResult(),
                 SetGroupCard => new CqSetGroupNicknameActionResult(),
                 SetGroupName => new CqSetGroupNameActionResult(),
+                SetGroupPortrait => new CqSetGroupAvatarActionResult(),
                 SetGroupLeave => new CqLeaveGroupActionResult(),
                 SetGroupSpecialTitle => new CqSetGroupSpecialTitleActionResult(),
                 SetQqProfile => new CqSetAccountProfileActionResult(),
-                
+
                 SendGroupSign => new CqGroupSignInActionResult(),
                 DeleteFriend => new CqDeleteFriendActionResult(),
                 DeleteUnidirectionalFriend => new CqDeleteUnidirectionalFriendActionResult(),
-                
+
                 CanSendImage => new CqCanSendImageActionResult(),
                 CanSendRecord => new CqCanSendRecordActionResult(),
 
                 GetCookies => new CqGetCookiesActionResult(),
                 GetCsrfToken => new CqGetCsrfTokenActionResult(),
 
+                DownloadFile => new CqDownloadFileActionResult(),
+                GetOnlineClients => new CqGetOnlineClientsActionResult(),
+
+                SetEssenceMsg => new CqSetEssenceMessageActionResult(),
+                DeleteEssenceMsg => new CqDeleteEssenceMessageActionResult(),
                 GetEssenceMsgList => new CqGetEssenceMessageListActionResult(),
 
                 GetModelShow => new CqGetModelShowActionResult(),
@@ -96,8 +96,22 @@ namespace EleCho.GoCqHttpSdk.Action
                 CheckUrlSafety => new CqCheckUrlSafetyActionResult(),
                 GetVersionInfo => new CqGetVersionInformationActionResult(),
 
+                ReloadEventFilter => new CqReloadEventFilterActionResult(),
+
                 _ => throw new NotImplementedException()
             };
+        }
+
+        internal static CqActionResult? FromRaw(CqActionResultRaw? raw, string actionType)
+        {
+            if (raw == null)
+                return null;
+
+            CqActionResultDataModel? dataModel =
+                CqActionResultDataModel.FromRaw(raw.data, actionType);
+
+            CqActionResult rst =
+                CreateActionResultFromActionType(actionType);
 
             if (rst == null)
                 return null;

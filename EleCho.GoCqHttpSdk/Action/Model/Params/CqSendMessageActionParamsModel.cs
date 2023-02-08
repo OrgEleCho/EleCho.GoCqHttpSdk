@@ -16,13 +16,13 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.message = message;
         }
 
-        public string? message_type { get; set; }
-        public long? user_id { get; set; }
-        public long? group_id { get; set; }
-        public CqMsgModel[] message { get; set; }
+        public string? message_type { get; }
+        public long? user_id { get; }
+        public long? group_id { get; }
+        public CqMsgModel[] message { get; }
 
         [JsonIgnore]
         [Obsolete("传输协议使用 JSON, 所以该属性无用")]
-        public bool auto_escape { get; set; }
+        public bool auto_escape { get; }
     }
 }

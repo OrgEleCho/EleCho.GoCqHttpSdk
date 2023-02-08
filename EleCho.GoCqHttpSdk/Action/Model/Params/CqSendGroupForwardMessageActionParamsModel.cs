@@ -12,11 +12,11 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.messages = messages;
         }
 
-        public long group_id { get; set; }
+        public long group_id { get; }
 
         /// <summary>
         /// CqMsgModel&lt;CqForwardNodeMsgDataModel&gt;[]
         /// </summary>
-        public CqMsgModel[] messages { get; set; }
+        public CqMsgModel[] messages { get; }
     }
 }

@@ -47,5 +47,9 @@
         GetEssenceMessagesList,
         GetCookies,
         GetCsrfToken,
+        GetOnlineClients,
+        SetGroupAvatar,
+        DownloadFile,
+        ReloadEventFilter,
     }
 }

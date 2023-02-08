@@ -130,7 +130,7 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.BanGroupAnonymousMember => SetGroupAnonymousBan,
                 CqActionType.BanGroupAllMembers => SetGroupWholeBan,
                 CqActionType.KickGroupMember => SetGroupKick,
-                
+
                 CqActionType.HandleFriendRequest => SetFriendAddRequest,
                 CqActionType.HandleGroupRequest => SetGroupAddRequest,
 
@@ -139,6 +139,7 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.SetGroupAnonymous => SetGroupAnonymous,
                 CqActionType.SetGroupNickname => SetGroupCard,
                 CqActionType.SetGroupName => SetGroupName,
+                CqActionType.SetGroupAvatar => SetGroupPortrait,
                 CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
                 CqActionType.GroupSignIn => SendGroupSign,
                 CqActionType.SetAccountProfile => SetQqProfile,
@@ -162,6 +163,9 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.GetCookies => GetCookies,
                 CqActionType.GetCsrfToken => GetCsrfToken,
 
+                CqActionType.DownloadFile => DownloadFile,
+                CqActionType.GetOnlineClients => GetOnlineClients,
+
                 CqActionType.SetEssenceMessage => SetEssenceMsg,
                 CqActionType.DeleteEssenceMessage => DeleteEssenceMsg,
                 CqActionType.GetEssenceMessagesList => GetEssenceMsgList,
@@ -171,6 +175,8 @@ namespace EleCho.GoCqHttpSdk
 
                 CqActionType.CheckUrlSafety => CheckUrlSafety,
                 CqActionType.GetVersionInformation => GetVersionInfo,
+
+                CqActionType.ReloadEventFilter => ReloadEventFilter,
 
                 _ => throw new ArgumentException($"Unknown Action type: {type}")
             };

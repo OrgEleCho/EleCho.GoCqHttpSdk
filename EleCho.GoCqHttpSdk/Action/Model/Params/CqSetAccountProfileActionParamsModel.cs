@@ -17,10 +17,10 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.personal_note = personal_note;
         }
 
-        public string nickname { get; set; }
-        public string company { get; set; }
-        public string email { get; set; }
-        public string college { get; set; }
-        public string personal_note { get; set; }
+        public string nickname { get; }
+        public string company { get; }
+        public string email { get; }
+        public string college { get; }
+        public string personal_note { get; }
     }
 }

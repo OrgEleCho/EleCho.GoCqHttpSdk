@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqGetGroupInformationActionParamsModel : CqActionParamsModel
+    internal class CqGetOnlineClientsActionParamsModel : CqActionParamsModel
     {
-        public CqGetGroupInformationActionParamsModel(long group_id, bool no_cache)
+        public CqGetOnlineClientsActionParamsModel(bool no_cache)
         {
-            this.group_id = group_id;
             this.no_cache = no_cache;
         }
 
-        public long group_id { get; }
         public bool no_cache { get; }
     }
 }

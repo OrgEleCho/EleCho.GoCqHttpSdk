@@ -11,8 +11,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.remark = remark;
         }
 
-        public string flag { get; set; }
-        public bool approve { get; set; }
-        public string? remark { get; set; }
+        public string flag { get; }
+        public bool approve { get; }
+        public string? remark { get; }
     }
 }

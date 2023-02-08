@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.Message;
@@ -87,6 +88,10 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqSetGroupAnonymousAction, CqSetGroupAnonymousActionResult>(new CqSetGroupAnonymousAction(groupId, enable));
         public static Task<CqSetGroupNameActionResult?> SetGroupName(this ICqActionSession session, long groupId, string groupName)
             => session.InvokeActionAsync<CqSetGroupNameAction, CqSetGroupNameActionResult>(new CqSetGroupNameAction(groupId, groupName));
+        public static Task<CqSetGroupAvatarActionResult?> SetGroupAvatar(this ICqActionSession session, long groupId, string file)
+            => session.InvokeActionAsync<CqSetGroupAvatarAction, CqSetGroupAvatarActionResult>(new CqSetGroupAvatarAction(groupId, file));
+        public static Task<CqSetGroupAvatarActionResult?> SetGroupAvatar(this ICqActionSession session, long groupId, string file, bool useCache)
+            => session.InvokeActionAsync<CqSetGroupAvatarAction, CqSetGroupAvatarActionResult>(new CqSetGroupAvatarAction(groupId, file, useCache));
         public static Task<CqSetGroupNicknameActionResult?> SetGroupNickname(this ICqActionSession session, long groupId, long userId, string nickname)
             => session.InvokeActionAsync<CqSetGroupNicknameAction, CqSetGroupNicknameActionResult>(new CqSetGroupNicknameAction(groupId, userId, nickname));
         public static Task<CqLeaveGroupActionResult?> LeaveGroup(this ICqActionSession session, long groupId)
@@ -119,6 +124,13 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqGetCsrfTokenActionResult?> GetCsrfToken(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetCsrfTokenAction, CqGetCsrfTokenActionResult>(new CqGetCsrfTokenAction());
 
+        public static Task<CqDownloadFileActionResult?> DownloadFile(this ICqActionSession session, string url, int threadCount, Dictionary<string, string> headers)
+            => session.InvokeActionAsync<CqDownloadFileAction, CqDownloadFileActionResult>(new CqDownloadFileAction(url, threadCount, headers));
+        public static Task<CqGetOnlineClientsActionResult?> GetOnlineClients(this ICqActionSession session)
+            => session.InvokeActionAsync<CqGetOnlineClientsAction, CqGetOnlineClientsActionResult>(new CqGetOnlineClientsAction());
+        public static Task<CqGetOnlineClientsActionResult?> GetOnlineClients(this ICqActionSession session, bool noCache)
+            => session.InvokeActionAsync<CqGetOnlineClientsAction, CqGetOnlineClientsActionResult>(new CqGetOnlineClientsAction(noCache));
+
         public static Task<CqSetEssenceMessageActionResult?> SetEssenceMessage(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqSetEssenceMessageAction, CqSetEssenceMessageActionResult>(new CqSetEssenceMessageAction(messageId));
         public static Task<CqDeleteEssenceMessageActionResult?> DeleteEssenceMessage(this ICqActionSession session, long messageId)
@@ -134,5 +146,9 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqCheckUrlSafetyAction, CqCheckUrlSafetyActionResult>(new CqCheckUrlSafetyAction(url));
         public static Task<CqGetVersionInformationActionResult?> GetVersionInformation(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetVersionInformationAction, CqGetVersionInformationActionResult>(new CqGetVersionInformationAction());
+
+        public static Task<CqReloadEventFilterActionResult?> ReloadEventFilter(this ICqActionSession session, string file)
+            => session.InvokeActionAsync<CqReloadEventFilterAction, CqReloadEventFilterActionResult>(new CqReloadEventFilterAction(file));
+
     }
 }

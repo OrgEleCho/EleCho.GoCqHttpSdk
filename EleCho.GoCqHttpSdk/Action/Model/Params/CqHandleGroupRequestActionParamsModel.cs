@@ -12,9 +12,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.reason = reason;
         }
 
-        public string flag { get; set; }
-        public string type { get; set; }
-        public bool approve { get; set; }
-        public string? reason { get; set; }
+        public string flag { get; }
+        public string type { get; }
+        public bool approve { get; }
+        public string? reason { get; }
     }
 }

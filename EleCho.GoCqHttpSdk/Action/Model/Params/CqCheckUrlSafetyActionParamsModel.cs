@@ -7,6 +7,6 @@
             this.url = url;
         }
 
-        public string url { get; set; }
+        public string url { get; }
     }
 }

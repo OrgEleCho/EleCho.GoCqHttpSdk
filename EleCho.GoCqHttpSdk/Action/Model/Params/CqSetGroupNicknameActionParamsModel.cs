@@ -11,8 +11,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.card = card;
         }
 
-        public long group_id { get; set; }
-        public long user_id { get; set; }
-        public string? card { get; set; }
+        public long group_id { get; }
+        public long user_id { get; }
+        public string? card { get; }
     }
 }

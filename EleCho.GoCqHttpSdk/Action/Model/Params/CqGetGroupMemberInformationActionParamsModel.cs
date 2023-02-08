@@ -15,8 +15,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.no_cache = no_cache;
         }
 
-        public long group_id { get; set; }
-        public long user_id { get; set; }
-        public bool no_cache { get; set; }
+        public long group_id { get; }
+        public long user_id { get; }
+        public bool no_cache { get; }
     }
 }

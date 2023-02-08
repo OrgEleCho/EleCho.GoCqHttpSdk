@@ -12,9 +12,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.duration = duration;
         }
 
-        public long group_id { get; set; }
-        public long user_id { get; set; }
-        public string special_title { get; set; }
-        public long duration { get; set; }
+        public long group_id { get; }
+        public long user_id { get; }
+        public string special_title { get; }
+        public long duration { get; }
     }
 }

@@ -7,6 +7,6 @@
             this.model = model;
         }
 
-        public string model { get; set; }
+        public string model { get; }
     }
 }

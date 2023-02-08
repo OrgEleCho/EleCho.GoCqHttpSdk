@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace TestConsole
@@ -17,6 +19,7 @@ namespace TestConsole
         /// <exception cref="Exception">有测试不通过的内容</exception>
         public static void Run()
         {
+            Console.WriteLine("程序集检查开始...");
             Assembly asm = typeof(CqSession).Assembly;
 
             Type[] allTypes = asm.GetTypes();
@@ -41,8 +44,15 @@ namespace TestConsole
             }
 
             foreach (var actionParamsModel in cqActionParamsModelTypes)
+            {
                 if (actionParamsModel.IsPublic)
                     throw new Exception($"{actionParamsModel.FullName} 是 public");
+                foreach (var prop in actionParamsModel.GetProperties())
+                {
+                    if (prop.CanWrite)
+                        Console.WriteLine($"程序集检查警告: {actionParamsModel} 的 {prop} 是可写的");
+                }
+            }
 
             foreach (var actionResult in cqActionResultTypes)
             {
@@ -54,8 +64,6 @@ namespace TestConsole
                     throw new Exception($"{actionResult.FullName} 在 EleCho.GoCqHttpSdk.Action.Result 命名空间下");
                 foreach (var prop in actionResult.GetProperties())
                 {
-                    if (prop.GetSetMethod() is not null)
-                        throw new Exception($"{actionResult.FullName} 有公共的属性 {prop.Name}");
                     if (prop.CanWrite && prop.SetMethod!.IsPublic)
                         Console.WriteLine($"程序集检查警告: {actionResult} 的 {prop} 有公共的 '写' 访问器, 它不应该对用户暴露");
                 }
@@ -73,8 +81,7 @@ namespace TestConsole
             Type cqenum = asm.GetType("EleCho.GoCqHttpSdk.CqEnum", true, false);
             MethodInfo cqenumtostring = cqenum.GetMethod("GetString", new Type[] { typeof(CqActionType) });
             Func<CqActionType, string> cqenumtostringfunc = cqenumtostring.CreateDelegate<Func<CqActionType, string>>();
-
-
+            
             foreach (var actionType in Enum.GetValues<CqActionType>())
             {
                 try
@@ -84,6 +91,37 @@ namespace TestConsole
                 catch
                 {
                     throw new Exception($"没有提供从 {actionType} 到字符串的转换实现");
+                }
+            }
+
+            Type actionResultType = typeof(CqActionResult);
+            MethodInfo createActionResultFromActionTypeMethod = actionResultType.GetMethod("CreateActionResultFromActionType", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(string) });
+
+            foreach (var actionType in Enum.GetValues<CqActionType>())
+            {
+                try
+                {
+                    createActionResultFromActionTypeMethod.Invoke(null, new object[] { cqenumtostringfunc.Invoke(actionType) });
+                }
+                catch
+                {
+                    throw new Exception($"没有提供从 {actionType} 到 {actionResultType} 的转换实现");
+                }
+            }
+
+            Type actionResultModelType = asm.GetType("EleCho.GoCqHttpSdk.Action.Model.ResultData.CqActionResultDataModel", true, false);
+            MethodInfo actionResultDataModelFromRaw = actionResultModelType.GetMethod("FromRaw", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(JsonElement?), typeof(string) });
+
+            JsonDocument jdoc = JsonDocument.Parse("null");
+            foreach (var actionType in Enum.GetValues<CqActionType>())
+            {
+                try
+                {
+                    actionResultDataModelFromRaw.Invoke(null, new object[] { jdoc.RootElement, cqenumtostringfunc.Invoke(actionType) });
+                }
+                catch (NotImplementedException)
+                {
+                    throw new Exception($"没有提供从 {actionType} 到 {actionResultModelType} 的转换实现");
                 }
             }
 

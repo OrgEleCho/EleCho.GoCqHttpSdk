@@ -111,6 +111,9 @@
             public const string GetModelShow = "_get_model_show";
             public const string SetModelShow = "_set_model_show";
 
+            public const string DownloadFile = "download_file";
+            public const string GetOnlineClients = "get_online_clients";
+            
             public const string SetEssenceMsg = "set_essence_msg";
             public const string DeleteEssenceMsg = "delete_essence_msg";
             public const string GetEssenceMsgList = "get_essence_msg_list";
@@ -121,6 +124,12 @@
             public const string CheckUrlSafety = "check_url_safely";
 
             public const string GetVersionInfo = "get_version_info";
+            /// <summary>
+            /// Set group avatar 更准确些
+            /// </summary>
+            public const string SetGroupPortrait = "set_group_portrait";
+
+            public const string ReloadEventFilter = "reload_event_filter";
         }
 
         public static class NoticeType

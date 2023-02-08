@@ -14,9 +14,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.duration = duration;
         }
 
-        public long group_id { get; set; }
-        public CqAnonymousInformationModel? anonymous { get; set; }
-        public string? anonymous_flag { get; set; }
-        public long duration { get; set; }
+        public long group_id { get; }
+        public CqAnonymousInformationModel? anonymous { get; }
+        public string? anonymous_flag { get; }
+        public long duration { get; }
     }
 }

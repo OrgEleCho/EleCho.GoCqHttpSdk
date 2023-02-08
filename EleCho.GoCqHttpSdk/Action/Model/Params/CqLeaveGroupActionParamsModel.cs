@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.is_dismiss = is_dismiss;
         }
 
-        public long group_id { get; set; }
-        public bool is_dismiss { get; set; }
+        public long group_id { get; }
+        public bool is_dismiss { get; }
     }
 }

@@ -8,7 +8,7 @@
             this.model_show = model_show;
         }
 
-        public string model { get; set; }
-        public string? model_show { get; set; }
+        public string model { get; }
+        public string? model_show { get; }
     }
 }

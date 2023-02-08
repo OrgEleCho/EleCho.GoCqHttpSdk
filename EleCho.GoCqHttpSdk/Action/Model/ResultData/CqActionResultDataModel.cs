@@ -7,7 +7,6 @@ using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
-
     internal class CqActionResultDataModel
     {
         internal static CqActionResultDataModel? FromRaw(JsonElement? data, string actionType)
@@ -51,6 +50,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 SetGroupAnonymous => dataValue.Deserialize<CqSetGroupAnonymousActionResultDataModel>(JsonHelper.Options),
                 SetGroupCard => dataValue.Deserialize<CqSetGroupNicknameActionResultDataModel>(JsonHelper.Options),
                 SetGroupName => dataValue.Deserialize<CqSetGroupNameActionResultDataModel>(JsonHelper.Options),
+                SetGroupPortrait => dataValue.Deserialize<CqSetGroupAvatarActionResultDataModel>(JsonHelper.Options),
                 SetGroupLeave => dataValue.Deserialize<CqLeaveGroupActionResultDataModel>(JsonHelper.Options),
                 SetGroupSpecialTitle => dataValue.Deserialize<CqSetGroupSpecialTitleActionResultDataModel>(JsonHelper.Options),
                 SetQqProfile => dataValue.Deserialize<CqSetAccountProfileActionResultDataModel>(JsonHelper.Options),
@@ -66,6 +66,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 GetCookies => dataValue.Deserialize<CqGetCookiesActionResultDataModel>(JsonHelper.Options),
                 GetCsrfToken => dataValue.Deserialize<CqGetCsrfTokenActionResultDataModel>(JsonHelper.Options),
 
+                DownloadFile => dataValue.Deserialize<CqDownloadFileActionResultDataModel>(JsonHelper.Options),
+                GetOnlineClients => dataValue.Deserialize<CqGetOnlineClientsActionResultDataModel>(JsonHelper.Options),
+
                 SetEssenceMsg => dataValue.Deserialize<CqSetEssenceMessageActionResultDataModel>(JsonHelper.Options),
                 DeleteEssenceMsg => dataValue.Deserialize<CqDeleteEssenceMessageActionResultDataModel>(JsonHelper.Options),
                 GetEssenceMsgList => dataValue.Deserialize<CqGetEssenceMessageListActionResultDataModel>(JsonHelper.Options),
@@ -75,6 +78,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 
                 CheckUrlSafety => dataValue.Deserialize<CqCheckUrlSafetyActionResultDataModel>(JsonHelper.Options),
                 GetVersionInfo => dataValue.Deserialize<CqGetVersionInformationActionResultDataModel>(JsonHelper.Options),
+
+                ReloadEventFilter => dataValue.Deserialize<CqReloadEventFilterActionResultDataModel>(JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

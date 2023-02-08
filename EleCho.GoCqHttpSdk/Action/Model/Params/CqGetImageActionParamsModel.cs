@@ -6,6 +6,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
     {
         public CqGetImageActionParamsModel(string file) => this.file = file;
 
-        public string file { get; set; }
+        public string file { get; }
     }
 }

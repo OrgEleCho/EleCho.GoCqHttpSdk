@@ -9,6 +9,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.group_id = group_id;
         }
 
-        public long group_id { get; set; }
+        public long group_id { get; }
     }
 }

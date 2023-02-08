@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.enable = enable;
         }
 
-        public long group_id { get; set; }
-        public bool enable { get; set; }
+        public long group_id { get; }
+        public bool enable { get; }
     }
 }

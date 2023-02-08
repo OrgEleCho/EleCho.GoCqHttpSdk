@@ -13,6 +13,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.user_id = user_id;
         }
 
-        public long user_id { get; set; }
+        public long user_id { get; }
     }
 }
