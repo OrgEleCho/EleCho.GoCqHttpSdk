@@ -32,8 +32,9 @@ namespace AssemblyCheck
 
         private static async Task Main(string[] args)
         {
-            //session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
-            
+            Console.WriteLine(CqPostSessionExtensionsCodeGen.Generate());
+            return;
+
             await session.RunAsync();
         }
 
