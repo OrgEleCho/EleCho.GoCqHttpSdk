@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public record class CqRecordMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Record;
+        public override string MsgType => Consts.MsgType.Record;
 
         /// <summary>
         /// 说明: 语音文件名

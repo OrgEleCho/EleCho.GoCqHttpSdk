@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqXmlMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Xml;
+        public override string MsgType => Consts.MsgType.Xml;
 
         internal CqXmlMsg()
         { }

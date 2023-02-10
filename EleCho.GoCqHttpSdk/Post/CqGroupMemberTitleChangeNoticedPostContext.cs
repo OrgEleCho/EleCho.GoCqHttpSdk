@@ -4,16 +4,28 @@ using EleCho.GoCqHttpSdk.Post.Model;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群成员头衔变更
+    /// 群成员头衔变更上报上下文
     /// </summary>
     public class CqGroupMemberTitleChangeNoticedPostContext : CqNotifyNoticePostContext
     {
+        /// <summary>
+        /// 通知类型: 群成员头衔
+        /// </summary>
         public override CqNotifyType NotifyType => CqNotifyType.Title;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
 
+        /// <summary>
+        /// 用户 QQ
+        /// </summary>
         public long UserId { get; set; }
 
+        /// <summary>
+        /// 新荣誉
+        /// </summary>
         public string NewTitle { get; set; } = string.Empty;
 
         internal override object? QuickOperationModel => null;

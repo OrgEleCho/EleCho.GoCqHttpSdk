@@ -7,14 +7,39 @@ using System.Linq;
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 转发消息节点
+    /// </summary>
     public record class CqForwardMessageNode : CqMsg
     {
-        public override string Type => Consts.MsgType.Node;
+        /// <summary>
+        /// 消息类型: 节点
+        /// </summary>
+        public override string MsgType => Consts.MsgType.Node;
 
+        /// <summary>
+        /// 消息 ID
+        /// </summary>
         public long? Id { get; private set; }
+
+        /// <summary>
+        /// 名称
+        /// </summary>
         public string? Name { get; private set; }
+
+        /// <summary>
+        /// QQ 号
+        /// </summary>
         public long? QQ { get; private set; }
+
+        /// <summary>
+        /// 内容
+        /// </summary>
         public CqMessage? Content { get; private set; }
+
+        /// <summary>
+        /// 暂时不确定
+        /// </summary>
         public CqMessage? Seq { get; private set; }
 
         internal CqForwardMessageNode()

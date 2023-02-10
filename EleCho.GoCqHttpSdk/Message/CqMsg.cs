@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public abstract record class CqMsg
     {
-        public abstract string Type { get; }
+        public abstract string MsgType { get; }
 
         internal abstract CqMsgDataModel? GetDataModel();
 
@@ -81,7 +81,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal static CqMsgModel ToModel(CqMsg msg)
         {
-            return new CqMsgModel(msg.Type, msg.GetDataModel());
+            return new CqMsgModel(msg.MsgType, msg.GetDataModel());
         }
 
         public static implicit operator CqMsg(string text) => new CqTextMsg(text);

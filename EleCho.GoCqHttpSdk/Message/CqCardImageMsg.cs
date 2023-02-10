@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqCardImageMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.CardImage;
+        public override string MsgType => Consts.MsgType.CardImage;
 
         internal CqCardImageMsg()
         { }

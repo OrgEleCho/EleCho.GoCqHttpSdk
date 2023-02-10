@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqImageMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Image;
+        public override string MsgType => Consts.MsgType.Image;
 
         public string File { get; set; }
         public CqImageType? ImageType { get; set; }

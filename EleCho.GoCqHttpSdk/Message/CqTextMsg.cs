@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqTextMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Text;
+        public override string MsgType => Consts.MsgType.Text;
 
         public string Text { get; set; } = string.Empty;
 

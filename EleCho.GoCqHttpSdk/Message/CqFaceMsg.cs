@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public record class CqFaceMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Face;
+        public override string MsgType => Consts.MsgType.Face;
 
         /// <summary>
         /// QQ 表情 ID

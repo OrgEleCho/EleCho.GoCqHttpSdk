@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqPokeMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Poke;
+        public override string MsgType => Consts.MsgType.Poke;
 
         public long QQ { get; set; }
 

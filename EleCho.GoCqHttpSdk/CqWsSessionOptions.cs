@@ -7,6 +7,9 @@ namespace EleCho.GoCqHttpSdk
     /// </summary>
     public struct CqWsSessionOptions
     {
+        /// <summary>
+        /// 实例化类
+        /// </summary>
         public CqWsSessionOptions()
         {
         }
@@ -29,6 +32,9 @@ namespace EleCho.GoCqHttpSdk
         /// </summary>
         public string? AccessToken { get; set; }
 
+        /// <summary>
+        /// 缓冲区大小
+        /// </summary>
         public int BufferSize { get; set; } = 1024;
     }
 }

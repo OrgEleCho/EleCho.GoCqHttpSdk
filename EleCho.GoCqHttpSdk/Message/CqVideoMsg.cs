@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public record class CqVideoMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Video;
+        public override string MsgType => Consts.MsgType.Video;
 
         /// <summary>
         /// 说明: 视频地址, 支持http和file发送

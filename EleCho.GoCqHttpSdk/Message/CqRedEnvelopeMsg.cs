@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqRedEnvelopeMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Redbag;
+        public override string MsgType => Consts.MsgType.Redbag;
 
         internal CqRedEnvelopeMsg()
         { }

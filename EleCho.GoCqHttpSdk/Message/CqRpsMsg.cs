@@ -14,7 +14,7 @@ namespace EleCho.GoCqHttpSdk.Message
         {
         }
 
-        public override string Type => Consts.MsgType.Rps;
+        public override string MsgType => Consts.MsgType.Rps;
 
         internal override CqMsgDataModel? GetDataModel() => null;
 

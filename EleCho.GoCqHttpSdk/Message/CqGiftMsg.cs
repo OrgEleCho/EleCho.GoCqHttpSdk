@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqGiftMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Gift;
+        public override string MsgType => Consts.MsgType.Gift;
 
         internal CqGiftMsg()
         { }

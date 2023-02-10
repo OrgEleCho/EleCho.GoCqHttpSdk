@@ -8,12 +8,25 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public class CqMessage : List<CqMsg>
     {
+        /// <summary>
+        /// 实例化空消息
+        /// </summary>
         public CqMessage()
         {
         }
+
+        /// <summary>
+        /// 根据给定消息段, 实例化消息
+        /// </summary>
+        /// <param name="collection"></param>
         public CqMessage(IEnumerable<CqMsg> collection) : base(collection)
         {
         }
+
+        /// <summary>
+        /// 根据给定容器容量, 实例化消息
+        /// </summary>
+        /// <param name="capacity"></param>
         public CqMessage(int capacity) : base(capacity)
         {
 
@@ -99,15 +112,23 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <summary>
         /// 使用指定的消息段作为头部和尾部, 指定的消息作为内容, 初始化一个新的消息 ()
         /// </summary>
-        /// <param name="head"></param>
-        /// <param name="msg"></param>
-        /// <param name="tails"></param>
+        /// <param name="head">头部消息段</param>
+        /// <param name="msg">消息内容</param>
+        /// <param name="tails">尾部消息段</param>
         public CqMessage(CqMsg head, CqMessage msg, params CqMsg[] tails)
         {
             Add(head);
             AddRange(msg);
             AddRange(tails);
         }
+
+        /// <summary>
+        /// 使用指定的消息段作为头部和结尾, 指定的消息作为内容, 初始化一个新的消息
+        /// </summary>
+        /// <param name="head1">第一个头部消息段</param>
+        /// <param name="head2">第二个头部消息段</param>
+        /// <param name="msg">消息内容</param>
+        /// <param name="tails">尾部消息段</param>
         public CqMessage(CqMsg head1, CqMsg head2, CqMessage msg, params CqMsg[] tails)
         {
             Add(head1);
@@ -115,6 +136,15 @@ namespace EleCho.GoCqHttpSdk.Message
             AddRange(msg);
             AddRange(tails);
         }
+
+        /// <summary>
+        /// 使用指定的消息段作为头部和结尾, 指定的消息作为内容, 初始化一个新的消息
+        /// </summary>
+        /// <param name="head1">第一个头部消息段</param>
+        /// <param name="head2">第二个头部消息段</param>
+        /// <param name="head3">第三个头部消息段</param>
+        /// <param name="msg">消息内容</param>
+        /// <param name="tails">尾部消息段</param>
         public CqMessage(CqMsg head1, CqMsg head2, CqMsg head3, CqMessage msg, params CqMsg[] tails)
         {
             Add(head1);

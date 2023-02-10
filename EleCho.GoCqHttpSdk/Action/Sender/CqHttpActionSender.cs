@@ -12,6 +12,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Post.Model;
 using static EleCho.GoCqHttpSdk.Utils.Consts;
+using EleCho.GoCqHttpSdk.Post;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
@@ -71,15 +72,18 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         /// <summary>
         /// 处理快速操作
         /// </summary>
-        /// <param name="context">上报数据模型</param>
-        /// <param name="quickActionModel">快速操作数据模型</param>
+        /// <param name="context">上报上下文</param>
+        /// <param name="postModel">上报数据模型</param>
         /// <returns></returns>
-        internal override async Task<bool> HandleQuickAction(CqPostModel context, object quickActionModel)
+        internal override async Task<bool> HandleQuickAction(CqPostContext context, CqPostModel postModel)
         {
+            if (context.QuickOperationModel == null)
+                return true;
+
             object bodyModel = new
             {
-                context = context,
-                operation = quickActionModel
+                context = postModel,
+                operation = context.QuickOperationModel
             };
 
             // 转为 JSON 和 HTTP 内容

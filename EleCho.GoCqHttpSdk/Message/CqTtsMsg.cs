@@ -15,7 +15,7 @@ namespace EleCho.GoCqHttpSdk.Message
             Text = text;
         }
 
-        public override string Type => Consts.MsgType.TTS;
+        public override string MsgType => Consts.MsgType.TTS;
 
         public string Text { get; set; } = string.Empty;
 

@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqJsonMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Json;
+        public override string MsgType => Consts.MsgType.Json;
 
         internal CqJsonMsg()
         { }

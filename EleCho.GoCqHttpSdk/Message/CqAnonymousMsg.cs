@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Message
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
     public record class CqAnonymousMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Anonymous;
+        public override string MsgType => Consts.MsgType.Anonymous;
 
         /// <summary>
         /// 说明: 可选, 表示无法匿名时是否继续发送

@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
+    /// <summary>
+    /// 群幸运王
+    /// </summary>
     public class CqGroupLuckyKingNoticedPostContext : CqNotifyNoticePostContext
     {
         public override CqNotifyType NotifyType => CqNotifyType.LuckyKing;

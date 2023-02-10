@@ -108,8 +108,8 @@ namespace EleCho.GoCqHttpSdk
             {
                 await postPipeline.ExecuteAsync(postContext);
 
-                if (postContext.QuickOperationModel is object quickActionModel)
-                    await ActionSender.HandleQuickAction(postModel, quickActionModel);
+                // WebSocket 需要模拟 QuickAction
+                await actionSender.HandleQuickAction(postContext, postModel);
             }
 
         }
@@ -338,6 +338,10 @@ namespace EleCho.GoCqHttpSdk
 
 
         private bool disposed = false;
+
+        /// <summary>
+        /// 释放掉资源 (关闭当前 WS 连接)
+        /// </summary>
         public void Dispose()
         {
             if (disposed)
@@ -346,6 +350,9 @@ namespace EleCho.GoCqHttpSdk
             apiWebSocketClient?.Dispose();
             eventWebSocketClient?.Dispose();
             webSocketClient?.Dispose();
+            
+            GC.SuppressFinalize(this);
+            disposed = true;
         }
     }
 }

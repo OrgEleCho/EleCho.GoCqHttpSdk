@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public record class CqMusicMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Music;
+        public override string MsgType => Consts.MsgType.Music;
 
         internal CqMusicMsg()
         { }

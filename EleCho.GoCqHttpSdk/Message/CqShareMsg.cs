@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqShareMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Share;
+        public override string MsgType => Consts.MsgType.Share;
 
         internal CqShareMsg()
         { }

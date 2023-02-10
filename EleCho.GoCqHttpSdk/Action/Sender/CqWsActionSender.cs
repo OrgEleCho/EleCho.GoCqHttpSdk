@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Model;
+using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
 
@@ -40,7 +41,6 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         /// </summary>
         /// <param name="session"></param>
         /// <param name="connection"></param>
-        /// <param name="autoReadResult">是否主动开启读取结果的主循环</param>
         public CqWsActionSender(CqWsSession? session, WebSocket connection)
         {
             Session = session;
@@ -102,12 +102,15 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             return rst;
         }
 
-        internal override async Task<bool> HandleQuickAction(CqPostModel context, object quickActionModel)
+        internal override async Task<bool> HandleQuickAction(CqPostContext context, CqPostModel postModel)
         {
+            if (context.QuickOperationModel == null)
+                return true;
+
             object bodyModel = new
             {
-                context = context,
-                operation = quickActionModel
+                context = postModel,
+                operation = context.QuickOperationModel
             };
 
             // 获取数据

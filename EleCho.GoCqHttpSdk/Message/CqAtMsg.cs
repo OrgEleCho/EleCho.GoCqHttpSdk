@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public record class CqAtMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.At;
+        public override string MsgType => Consts.MsgType.At;
 
         /// <summary>
         /// 说明: @的 QQ 号, all 表示全体成员

@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqReplyMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Reply;
+        public override string MsgType => Consts.MsgType.Reply;
 
 #pragma warning disable CS8618
 

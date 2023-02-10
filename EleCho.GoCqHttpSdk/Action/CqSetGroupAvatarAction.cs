@@ -7,9 +7,24 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 设置群头像操作
+    /// </summary>
     public class CqSetGroupAvatarAction : CqAction
     {
+        /// <summary>
+        /// 实例化对象 (不使用缓存)
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">文件</param>
         public CqSetGroupAvatarAction(long groupId, string file) : this(groupId, file, false) { }
+
+        /// <summary>
+        /// 实例化对象
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">文件</param>
+        /// <param name="useCache">使用缓存</param>
         public CqSetGroupAvatarAction(long groupId, string file, bool useCache)
         {
             GroupId = groupId;
@@ -17,10 +32,24 @@ namespace EleCho.GoCqHttpSdk.Action
             UseCache = useCache;
         }
 
+        /// <summary>
+        /// 操作类型: 设置群头像
+        /// </summary>
         public override CqActionType ActionType => CqActionType.SetGroupAvatar;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 文件
+        /// </summary>
         public string File { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 使用缓存
+        /// </summary>
         public bool UseCache { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()

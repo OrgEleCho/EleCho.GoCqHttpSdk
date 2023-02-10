@@ -107,7 +107,7 @@ namespace EleCho.GoCqHttpSdk
                     break;
                 case CqGroupMemberTitleChangeNoticedPostContext memberTitleChangeNoticedPostContext:
                     OnMemberTitleChanged(memberTitleChangeNoticedPostContext);
-                    await OnMemberTitleChangedAsync(memberTitleChangeNoticedPostContext);
+                    await OnGroupMemberTitleChangedAsync(memberTitleChangeNoticedPostContext);
                     break;
             }
 
@@ -157,8 +157,26 @@ namespace EleCho.GoCqHttpSdk
         public virtual Task OnFriendRequestAsync(CqFriendRequestPostContext context) => Task.CompletedTask;
         public virtual Task OnGroupRequestAsync(CqGroupRequestPostContext context) => Task.CompletedTask;
         public virtual Task OnPokedAsync(CqPokedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnLuckyKingNoticedAsync(CqGroupLuckyKingNoticedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群成员荣誉变更时
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnHonorChangedAsync(CqGroupMemberHonorChangedPostContext context) => Task.CompletedTask;
-        public virtual Task OnMemberTitleChangedAsync(CqGroupMemberTitleChangeNoticedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群成员头衔变更时
+        /// </summary>
+        /// <param name="context">上报上下文</param>
+        /// <returns>异步任务</returns>
+        public virtual Task OnGroupMemberTitleChangedAsync(CqGroupMemberTitleChangeNoticedPostContext context) => Task.CompletedTask;
     }
 }

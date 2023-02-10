@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Message
 {
     public record class CqForwardMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Forward;
+        public override string MsgType => Consts.MsgType.Forward;
 
         public string Id { get; set; } = string.Empty;
 

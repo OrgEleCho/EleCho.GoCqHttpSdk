@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Message
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
     public record class CqContactMsg : CqMsg
     {
-        public override string Type => Consts.MsgType.Contact;
+        public override string MsgType => Consts.MsgType.Contact;
 
         internal CqContactMsg()
         { }

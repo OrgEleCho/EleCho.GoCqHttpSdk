@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 设置群头像
+    /// </summary>
     public class CqSetGroupAvatarActionResult : CqActionResult
     {
         internal CqSetGroupAvatarActionResult()

@@ -4,25 +4,41 @@ using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
+using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 发送群转发消息操作
+    /// </summary>
     public class CqSendGroupForwardMessageAction : CqAction
     {
-        public CqSendGroupForwardMessageAction(long groupId, CqForwardMessageNode[] messages)
+        /// <summary>
+        /// 实例化对象
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="messages"></param>
+        public CqSendGroupForwardMessageAction(long groupId, CqForwardMessage messages)
         {
             GroupId = groupId;
-            Messages = messages;
+            ForwardMessage = messages;
         }
 
         public override CqActionType ActionType => CqActionType.SendGroupForwardMessage;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
-        public CqForwardMessageNode[] Messages { get; set; }
+
+        /// <summary>
+        /// 转发消息
+        /// </summary>
+        public CqForwardMessage ForwardMessage { get; set; }
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqSendGroupForwardMessageActionParamsModel(GroupId, Array.ConvertAll(Messages ?? Array.Empty<CqMsg>(), CqMsg.ToModel));
+            return new CqSendGroupForwardMessageActionParamsModel(GroupId, ForwardMessage.Select(CqMsg.ToModel).ToArray());
         }
     }
 }

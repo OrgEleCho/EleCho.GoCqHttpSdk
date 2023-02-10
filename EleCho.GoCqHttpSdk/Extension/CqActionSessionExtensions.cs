@@ -11,6 +11,14 @@ namespace EleCho.GoCqHttpSdk
     /// </summary>
     public static class CqActionSessionExtensions
     {
+        /// <summary>
+        /// 执行一个动作
+        /// </summary>
+        /// <typeparam name="TAction"></typeparam>
+        /// <typeparam name="TActionResult"></typeparam>
+        /// <param name="session"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
         public static async Task<TActionResult?> InvokeActionAsync<TAction, TActionResult>(this ICqActionSession session, TAction action)
             where TAction : CqAction
             where TActionResult : CqActionResult
@@ -34,7 +42,7 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqSendGroupForwardMessageActionResult?> SendGroupForwardMessageAsync(this ICqActionSession session, long groupId, params CqForwardMessageNode[] messages)
             => session.InvokeActionAsync<CqSendGroupForwardMessageAction, CqSendGroupForwardMessageActionResult>(new CqSendGroupForwardMessageAction(groupId, messages));
         public static Task<CqSendPrivateForwardMessageActionResult?> SendPrivateForwardMessageAsync(this ICqActionSession session, long userId, params CqForwardMessageNode[] messages)
-            => session.InvokeActionAsync<CqSendPrivateForwardMsgAction, CqSendPrivateForwardMessageActionResult>(new CqSendPrivateForwardMsgAction(userId, messages));
+            => session.InvokeActionAsync<CqSendPrivateForwardMessageAction, CqSendPrivateForwardMessageActionResult>(new CqSendPrivateForwardMessageAction(userId, messages));
         public static Task<CqGetMessageActionResult?> GetMessageAsync(this ICqActionSession session, long messageId)
             => session.InvokeActionAsync<CqGetMessageAction, CqGetMessageActionResult>(new CqGetMessageAction(messageId));
         public static Task<CqGetForwardMessageActionResult?> GetForwardMessageAsync(this ICqActionSession session, long messageId)
