@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EleCho.GoCqHttpSdk.MessageMatching", "EleCho.GoCqHttpSdk.MessageMatching\EleCho.GoCqHttpSdk.MessageMatching.csproj", "{23A49E99-4A6B-4E87-84B5-873B15CBB9A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssmeblyCheck", "AssmeblyCheck\AssmeblyCheck.csproj", "{5EC26AA2-3B74-466A-B6F4-C2B3A75ECD29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssmeblyCheck", "AssmeblyCheck\AssmeblyCheck.csproj", "{5EC26AA2-3B74-466A-B6F4-C2B3A75ECD29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A50D5CA3-5D1C-42AE-B357-9E251693600A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
