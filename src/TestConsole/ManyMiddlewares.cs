@@ -100,13 +100,17 @@ namespace AssemblyCheck
             else if (textMsg.Contains("假装卖萌"))
             {
                 CqMessage fakeMsg = new CqMessage("嘤嘤嘤");
-                await apiSession.SendGroupForwardMessageAsync(context.GroupId,
-                    new CqForwardMessageNode(context.Sender.Nickname, context.UserId, fakeMsg, fakeMsg));
+                await apiSession.SendGroupForwardMessageAsync(context.GroupId, new CqForwardMessage()
+                {
+                    new CqForwardMessageNode(context.Sender.Nickname, context.UserId, fakeMsg, fakeMsg)
+                });
             }
             else if (textMsg.Contains("转发测试"))
             {
-                await apiSession.SendGroupForwardMessageAsync(context.GroupId,
-                    new CqForwardMessageNode(context.MessageId));
+                await apiSession.SendGroupForwardMessageAsync(context.GroupId, new CqForwardMessage()
+                {
+                    new CqForwardMessageNode(context.MessageId)
+                });
             }
             else if (textMsg.StartsWith("="))
             {
