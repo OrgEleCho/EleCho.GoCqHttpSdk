@@ -12,6 +12,10 @@ namespace EleCho.GoCqHttpSdk.Action
         {
         }
 
+
+        /// <summary>
+        /// 安全等级
+        /// </summary>
         public CqUrlSafetyLevel Level { get; private set; }
         
         internal override void ReadDataModel(CqActionResultDataModel? model)

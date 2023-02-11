@@ -4,13 +4,16 @@ using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 namespace EleCho.GoCqHttpSdk.Action
 {
     /// <summary>
-    /// <inheritdoc/>
+    /// 判断能发送图片操作结果
     /// </summary>
     public class CqCanSendImageActionResult : CqActionResult
     {
         internal CqCanSendImageActionResult()
         { }
 
+        /// <summary>
+        /// 是否
+        /// </summary>
         public bool Yes { get; private set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

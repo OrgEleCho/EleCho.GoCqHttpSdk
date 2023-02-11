@@ -21,6 +21,9 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
     /// </summary>
     public class CqHttpActionSender : CqActionSender
     {
+        /// <summary>
+        /// HTTP 客户端
+        /// </summary>
         public HttpClient Client { get; }
 
         /// <summary>
