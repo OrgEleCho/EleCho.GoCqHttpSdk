@@ -5,6 +5,9 @@
     /// </summary>
     public interface ICqPostSession
     {
+        /// <summary>
+        /// 上报管线
+        /// </summary>
         CqPostPipeline PostPipeline { get; }
     }
 }

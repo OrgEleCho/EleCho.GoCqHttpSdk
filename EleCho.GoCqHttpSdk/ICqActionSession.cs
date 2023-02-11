@@ -5,6 +5,9 @@
     /// </summary>
     public interface ICqActionSession
     {
+        /// <summary>
+        /// 操作发送
+        /// </summary>
         CqActionSender ActionSender { get; }
     }
 }

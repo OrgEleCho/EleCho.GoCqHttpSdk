@@ -5,18 +5,35 @@ using EleCho.GoCqHttpSdk.Post.Model;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群消息
+    /// 群消息上报上下文
     /// </summary>
     public class CqGroupMessagePostContext : CqMessagePostContext
     {
+        /// <summary>
+        /// 消息类型: 群
+        /// </summary>
         public override CqMessageType MessageType => CqMessageType.Group;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 匿名对象
+        /// </summary>
         public CqAnonymousInfomation? Anonymous { get; set; }
+
+        /// <summary>
+        /// 发送者
+        /// </summary>
         public CqGroupMessageSender Sender { get; set; } = new CqGroupMessageSender();
         
         internal CqGroupMessagePostContext() { }
 
+        /// <summary>
+        /// 快速操作
+        /// </summary>
         public CqGroupMessagePostQuickOperation QuickOperation { get; }
             = new CqGroupMessagePostQuickOperation();
 

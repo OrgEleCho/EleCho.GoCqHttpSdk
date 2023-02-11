@@ -1,6 +1,6 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
-    public enum CqMessagePrivateType
+    public enum CqPrivateMessageType
     {
         Unknown, Friend, Group, GroupSelf, Other
     }

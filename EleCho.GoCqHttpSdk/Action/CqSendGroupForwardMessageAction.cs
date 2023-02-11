@@ -24,6 +24,9 @@ namespace EleCho.GoCqHttpSdk.Action
             ForwardMessage = messages;
         }
 
+        /// <summary>
+        /// 操作类型: 发送群转发消息
+        /// </summary>
         public override CqActionType ActionType => CqActionType.SendGroupForwardMessage;
 
         /// <summary>

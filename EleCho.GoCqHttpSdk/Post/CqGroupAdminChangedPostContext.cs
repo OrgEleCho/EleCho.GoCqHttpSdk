@@ -4,14 +4,28 @@ using EleCho.GoCqHttpSdk.Post.Model;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群管理员变更
+    /// 群管理员变更上报上下文
     /// </summary>
     public class CqGroupAdministratorChangedPostContext : CqNoticePostContext
     {
+        /// <summary>
+        /// 通知类型: 群管理员
+        /// </summary>
         public override CqNoticeType NoticeType => CqNoticeType.GroupAdmin;
 
+        /// <summary>
+        /// 变更类型
+        /// </summary>
         public CqGroupAdminChangeType ChangeType { get; set; }
+
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 用户 QQ
+        /// </summary>
         public long UserId { get; set; }
 
         internal CqGroupAdministratorChangedPostContext() { }

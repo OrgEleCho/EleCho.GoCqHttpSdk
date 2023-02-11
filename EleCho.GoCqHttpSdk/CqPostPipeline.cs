@@ -13,6 +13,9 @@ namespace EleCho.GoCqHttpSdk
     {
         private List<Func<CqPostContext, Func<Task>, Task>> middlewares;
 
+        /// <summary>
+        /// 实例化对象
+        /// </summary>
         public CqPostPipeline()
         {
             middlewares = new List<Func<CqPostContext, Func<Task>, Task>>();

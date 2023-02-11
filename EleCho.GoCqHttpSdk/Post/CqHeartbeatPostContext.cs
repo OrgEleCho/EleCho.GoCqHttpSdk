@@ -5,14 +5,23 @@ using System;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 心跳包
+    /// 心跳包上报上下文
     /// </summary>
     public class CqHeartbeatPostContext : CqMetaEventPostContext
     {
+        /// <summary>
+        /// 元事件类型: 心跳
+        /// </summary>
         public override CqMetaEventType MetaEventType => CqMetaEventType.Heartbeat;
 
+        /// <summary>
+        /// 状态
+        /// </summary>
         public CqStatus Status { get; set; } = new CqStatus();
 
+        /// <summary>
+        /// 间隔
+        /// </summary>
         public TimeSpan Interval { get; set; }
         
         internal CqHeartbeatPostContext() { }

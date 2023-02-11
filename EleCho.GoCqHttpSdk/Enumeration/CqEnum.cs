@@ -66,14 +66,14 @@ namespace EleCho.GoCqHttpSdk
             };
         }
 
-        public static string? GetString(CqMessagePrivateType privateType)
+        public static string? GetString(CqPrivateMessageType privateType)
         {
             return privateType switch
             {
-                CqMessagePrivateType.Friend => "friend",
-                CqMessagePrivateType.Group => "group",
-                CqMessagePrivateType.GroupSelf => "group_self",
-                CqMessagePrivateType.Other => "other",
+                CqPrivateMessageType.Friend => "friend",
+                CqPrivateMessageType.Group => "group",
+                CqPrivateMessageType.GroupSelf => "group_self",
+                CqPrivateMessageType.Other => "other",
 
                 _ => null
             };
@@ -229,16 +229,16 @@ namespace EleCho.GoCqHttpSdk
             };
         }
 
-        public static CqMessagePrivateType GetMessagePrivateType(string? value)
+        public static CqPrivateMessageType GetPrivateMessageType(string? value)
         {
             return value switch
             {
-                "friend" => CqMessagePrivateType.Friend,
-                "group" => CqMessagePrivateType.Group,
-                "group_self" => CqMessagePrivateType.GroupSelf,
-                "other" => CqMessagePrivateType.Other,
+                "friend" => CqPrivateMessageType.Friend,
+                "group" => CqPrivateMessageType.Group,
+                "group_self" => CqPrivateMessageType.GroupSelf,
+                "other" => CqPrivateMessageType.Other,
 
-                _ => CqMessagePrivateType.Unknown
+                _ => CqPrivateMessageType.Unknown
             };
         }
 
@@ -294,6 +294,18 @@ namespace EleCho.GoCqHttpSdk
                 "invite" => CqGroupIncreaseChangeType.Invite,
 
                 _ => CqGroupIncreaseChangeType.Unknown
+            };
+        }
+
+        public static CqGroupDecreaseChangeType GetGroupDecreaseChangeType(string? str)
+        {
+            return str switch
+            {
+                "leave" => CqGroupDecreaseChangeType.Leave,
+                "kick" => CqGroupDecreaseChangeType.Kick,
+                "kick_me" => CqGroupDecreaseChangeType.KickMe,
+
+                _ => CqGroupDecreaseChangeType.Unknown
             };
         }
 

@@ -4,15 +4,33 @@ using EleCho.GoCqHttpSdk.Post.Model;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群消息撤回
+    /// 群消息撤回上报上下文
     /// </summary>
     public class CqGroupMessageRecalledPostContext : CqNoticePostContext
     {
+        /// <summary>
+        /// 通知类型
+        /// </summary>
         public override CqNoticeType NoticeType => CqNoticeType.GroupRecall;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 用户 QQ
+        /// </summary>
         public long UserId { get; set; }
+
+        /// <summary>
+        /// 操作者 QQ
+        /// </summary>
         public long OperatorId { get; set; }
+
+        /// <summary>
+        /// 消息 ID
+        /// </summary>
         public long MessageId { get; set; }
 
         internal CqGroupMessageRecalledPostContext() { }

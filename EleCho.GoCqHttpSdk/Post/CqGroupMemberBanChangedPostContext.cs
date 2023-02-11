@@ -5,17 +5,38 @@ using System;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群成员禁言状态变更
+    /// 群成员禁言状态变更上报上下文
     /// </summary>
     public class CqGroupMemberBanChangedPostContext : CqNoticePostContext
     {
+        /// <summary>
+        /// 通知类型: 群禁言
+        /// </summary>
         public override CqNoticeType NoticeType => CqNoticeType.GroupBan;
 
+        /// <summary>
+        /// 变更类型
+        /// </summary>
         public CqGroupBanChangeType ChangeType { get; set; }
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 用户 QQ
+        /// </summary>
         public long UserId { get; set; }
+
+        /// <summary>
+        /// 操作者 QQ
+        /// </summary>
         public long OperatorId { get; set; }
+
+        /// <summary>
+        /// 时长 (如果为 0 则是取消禁言)
+        /// </summary>
         public TimeSpan Duration { get; set; }
 
         internal CqGroupMemberBanChangedPostContext() { }

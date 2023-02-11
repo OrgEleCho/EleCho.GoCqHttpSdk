@@ -5,18 +5,35 @@ using EleCho.GoCqHttpSdk.Utils;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 加好友请求
+    /// 加好友请求上报上下文
     /// </summary>
     public class CqFriendRequestPostContext : CqRequestPostContext
     {
+        /// <summary>
+        /// 请求类型: 好友
+        /// </summary>
         public override CqRequestType RequestType => CqRequestType.Friend;
 
+        /// <summary>
+        /// 用户 QQ
+        /// </summary>
         public long UserId { get; set; }
+
+        /// <summary>
+        /// 验证消息
+        /// </summary>
         public string Comment { get; set; } = string.Empty;
+
+        /// <summary>
+        /// 请求标志 (用来处理请求)
+        /// </summary>
         public string Flag { get; set; } = string.Empty;
         
         internal CqFriendRequestPostContext() { }
 
+        /// <summary>
+        /// 快速操作
+        /// </summary>
         public CqFriendRequestPostQuickOperation QuickOperation { get; }
             = new CqFriendRequestPostQuickOperation();
 

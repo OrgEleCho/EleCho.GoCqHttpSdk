@@ -4,14 +4,28 @@ using EleCho.GoCqHttpSdk.Post.Model;
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
-    /// 群幸运王
+    /// 群幸运王通知上下文
     /// </summary>
     public class CqGroupLuckyKingNoticedPostContext : CqNotifyNoticePostContext
     {
+        /// <summary>
+        /// 通知类型: 幸运王
+        /// </summary>
         public override CqNotifyType NotifyType => CqNotifyType.LuckyKing;
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; set; }
+
+        /// <summary>
+        /// 用户 QQ (红包发送者 QQ)
+        /// </summary>
         public long UserId { get; set; }
+        
+        /// <summary>
+        /// 目标 QQ (运气王 QQ)
+        /// </summary>
         public long TargetId { get; set; }
 
 
