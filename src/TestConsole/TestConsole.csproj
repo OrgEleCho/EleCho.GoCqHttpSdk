@@ -10,4 +10,8 @@
     <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
 </Project>
