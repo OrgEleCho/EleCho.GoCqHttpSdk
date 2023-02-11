@@ -3,22 +3,45 @@ using System.Security.Cryptography;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取陌生人信息操作结果
+    /// </summary>
     public class CqGetStrangerInformationActionResult : CqActionResult
     {
 
-        //QQ 号
+        /// <summary>
+        /// QQ 号
+        /// </summary>
         public long UserId { get; private set; }
-        //昵称
+
+        /// <summary>
+        /// 昵称
+        /// </summary>
         public string Nickname { get; private set; } = string.Empty;
-        //性别, male 或 female 或 unknown
-        public string Sex { get; private set; } = string.Empty;
-        //年龄
+        
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public CqGender Gender { get; private set; } = CqGender.Unknown;
+
+        /// <summary>
+        /// 年龄
+        /// </summary>
         public int Age { get; private set; }
-        //qid ID身份卡
+        
+        /// <summary>
+        /// QID
+        /// </summary>
         public string Qid { get; private set; } = string.Empty;
-        //等级
+        
+        /// <summary>
+        /// 等级
+        /// </summary>
         public int Level { get; private set; }
-        //等级
+        
+        /// <summary>
+        /// 登陆天数
+        /// </summary>
         public int LoginDays { get; private set; }
 
 
@@ -30,7 +53,7 @@ namespace EleCho.GoCqHttpSdk.Action
             {
                 UserId = dataModel.user_id;
                 Nickname = dataModel.nickname;
-                Sex = dataModel.sex;
+                Gender = CqEnum.GetGender(dataModel.sex);
                 Age = dataModel.age;
                 Qid = dataModel.qid;
                 Level = dataModel.level;

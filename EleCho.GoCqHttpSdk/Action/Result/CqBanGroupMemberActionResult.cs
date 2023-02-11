@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public class CqBanGroupMemberActionResult : CqActionResult
     {
         internal CqBanGroupMemberActionResult() { }

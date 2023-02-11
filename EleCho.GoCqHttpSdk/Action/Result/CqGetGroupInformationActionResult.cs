@@ -7,18 +7,46 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取群信息操作结果
+    /// </summary>
     public class CqGetGroupInformationActionResult : CqActionResult
     {
         internal CqGetGroupInformationActionResult() { }
 
+        /// <summary>
+        /// 群号
+        /// </summary>
         public long GroupId { get; private set; }
+
+        /// <summary>
+        /// 群名
+        /// </summary>
         public string GroupName { get; private set; } = string.Empty;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string GroupMemo { get; private set; } = string.Empty;
 
+        /// <summary>
+        /// 建群时间
+        /// </summary>
         public DateTime GroupCreateTime { get; private set; }
+
+        /// <summary>
+        /// 群等级
+        /// </summary>
         public uint GroupLevel { get; private set; }
 
+        /// <summary>
+        /// 成员数量
+        /// </summary>
         public int MemberCount { get; private set; }
+
+        /// <summary>
+        /// 最大群成员数量
+        /// </summary>
         public int MaxMemberCount { get; private set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

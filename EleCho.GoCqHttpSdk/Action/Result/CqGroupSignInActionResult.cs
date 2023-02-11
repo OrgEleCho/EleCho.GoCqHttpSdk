@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 群签到操作结果
+    /// </summary>
     public class CqGroupSignInActionResult : CqActionResult
     {
         internal CqGroupSignInActionResult() { }

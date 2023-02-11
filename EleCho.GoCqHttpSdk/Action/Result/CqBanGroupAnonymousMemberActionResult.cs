@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public class CqBanGroupAnonymousMemberActionResult : CqActionResult
     {
         internal CqBanGroupAnonymousMemberActionResult() { }

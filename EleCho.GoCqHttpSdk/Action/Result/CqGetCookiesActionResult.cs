@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取 Cookies 操作结果
+    /// </summary>
     public class CqGetCookiesActionResult : CqActionResult
     {
         internal CqGetCookiesActionResult()
         {
         }
 
+        /// <summary>
+        /// Cookies 值
+        /// </summary>
         public string Cookies { get; private set; } = string.Empty;
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

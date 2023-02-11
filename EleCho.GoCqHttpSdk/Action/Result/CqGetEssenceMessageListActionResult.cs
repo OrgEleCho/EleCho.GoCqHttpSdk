@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取精华消息列表操作结果
+    /// </summary>
     public class CqGetEssenceMessageListActionResult : CqActionResult
     {
         internal CqGetEssenceMessageListActionResult()
         {
         }
 
+        /// <summary>
+        /// 消息列表
+        /// </summary>
         public IReadOnlyList<CqEssenceMessage> Messages { get; private set; } = Array.Empty<CqEssenceMessage>();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

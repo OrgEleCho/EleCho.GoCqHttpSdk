@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 发送私聊消息操作结果
+    /// </summary>
     public class CqSendPrivateMessageActionResult : CqSendMessageActionResult
     {
         internal CqSendPrivateMessageActionResult()

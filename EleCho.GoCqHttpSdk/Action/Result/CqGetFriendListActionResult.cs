@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取好友列表
+    /// </summary>
     public class CqGetFriendListActionResult : CqActionResult
     {
         internal CqGetFriendListActionResult() { }
 
+        /// <summary>
+        /// 好友列表
+        /// </summary>
         public IReadOnlyList<CqFriend> Friends { get; private set; } = new List<CqFriend>(0).AsReadOnly();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

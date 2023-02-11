@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 设置群名操作结果
+    /// </summary>
     public class CqSetGroupNameActionResult : CqActionResult
     {
         internal CqSetGroupNameActionResult() { }

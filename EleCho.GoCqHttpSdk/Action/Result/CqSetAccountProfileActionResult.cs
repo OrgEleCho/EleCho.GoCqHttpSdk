@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 设置账号资料操作结果
+    /// </summary>
     public class CqSetAccountProfileActionResult : CqActionResult
     {
         internal CqSetAccountProfileActionResult()

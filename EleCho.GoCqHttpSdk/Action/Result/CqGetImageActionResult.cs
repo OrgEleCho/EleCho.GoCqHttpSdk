@@ -2,10 +2,24 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取图像操作结果
+    /// </summary>
     public class CqGetImageActionResult : CqActionResult
     {
+        /// <summary>
+        /// 尺寸
+        /// </summary>
         public int Size { get; private set; }
+
+        /// <summary>
+        /// 文件名
+        /// </summary>
         public string Filename { get; private set; } = string.Empty;
+
+        /// <summary>
+        /// 链接
+        /// </summary>
         public string Url { get; private set; } = string.Empty;
         
         internal CqGetImageActionResult() { }

@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 设置群匿名操作结果
+    /// </summary>
     public class CqSetGroupAnonymousActionResult : CqActionResult
     {
         internal CqSetGroupAnonymousActionResult() { }

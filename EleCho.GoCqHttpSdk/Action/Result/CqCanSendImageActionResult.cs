@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public class CqCanSendImageActionResult : CqActionResult
     {
         internal CqCanSendImageActionResult()

@@ -5,10 +5,16 @@ using System.Linq;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取群列表操作结果
+    /// </summary>
     public class CqGetGroupListActionResult : CqActionResult
     {
         internal CqGetGroupListActionResult() { }
 
+        /// <summary>
+        /// 群聊
+        /// </summary>
         public IReadOnlyList<CqGroup> Groups { get; private set; } = new List<CqGroup>(0).AsReadOnly();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

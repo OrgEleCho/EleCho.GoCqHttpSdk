@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 退群操作结果
+    /// </summary>
     public class CqLeaveGroupActionResult : CqActionResult
     {
         internal CqLeaveGroupActionResult()

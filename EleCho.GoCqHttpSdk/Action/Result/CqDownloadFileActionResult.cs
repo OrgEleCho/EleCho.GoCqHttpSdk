@@ -3,12 +3,18 @@ using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 下载文件操作结果
+    /// </summary>
     public class CqDownloadFileActionResult : CqActionResult
     {
         internal CqDownloadFileActionResult()
         {
         }
 
+        /// <summary>
+        /// 文件
+        /// </summary>
         public string File { get; private set; } = string.Empty;
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
