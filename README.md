@@ -155,6 +155,66 @@ session.UsePlugin(new MyPostPlugin());
 
 > 与 ICqPostSession 的拓展方法 Use 不同, 一个插件拥有处理多种类型上报的能力, 但它本质是单个中间件, 而诸如 UseGroupMessage 这种拓展方法, 在使用的时候, 会创建一个新的中间件并添加到上报处理管线.
 
+### 🪁 消息匹配
+
+使用 `EleCho.GoCqHttpSdk.MessageMatching`, 你可以轻松实现对消息的正则匹配. 首先, 其提供的最基本的拓展方法如下:
+
+```csharp
+CqWsSession session;   // 需要添加处理中间件的会话
+
+// 匹配开头是 `echo` 和空格的消息
+session.UseGroupMessageMatch("$echo ", async (context, next) =>
+{
+    // 发送复读消息
+    await session.SendGroupMessage(context.GroupId, context.Message.GetText()[5..];
+});
+```
+
+当然, `MessageMatching` 还提供了更高级的功能, 它能正则中的分组数据, 自动传递到你的方法中, 供你使用. 这个功能由 `MessageMatching` 的拓展插件 `CqMessageMatchPostPlugin` 提供.
+
+```csharp
+// 继承 CqMessageMatchPostPlugin 以使用拓展消息匹配功能
+public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
+{
+    public MyMessageMatchPlugin(ICqActionSession actionSession)
+    {
+        ActionSession = actionSession;
+    }
+
+    public ICqActionSession ActionSession { get; }
+
+    // 在插件类中, 为你的方法指定 CqMessageMatch 特性以处理消息
+    // 通过 CqMessageMatch 来指定匹配规则 (例如这里非贪婪匹配两个中括号之间的任意内容, 并命名为 content 组)
+    [CqMessageMatch(@"\[(?<content>.*?)\]")]
+    public async Task MyMessageMatchPluginMethod(
+        CqGroupMessagePostContext context,        // 在参数中指定一个合适的 CqMessagePostContext 用来接收消息上报数据
+                                                  // 它可以是 CqMessagePostContext, CqPrivateMessagePostContext, CqGroupMessagePostContext
+        Match match,                              // 如果你指定了一个 Match 类型的参数, 正则匹配返回的 Match 会被传入
+        string content                            // 如果你指定了字符串类型的参数, 则会自动从正则的 Groups 中取值, 并传入
+    )
+    {
+        // 将接收到的内容所匹配到的 context 值发送到消息所在群组
+        await ActionSession.SendGroupMessageAsync(context.GroupId, $"Captured content: {content}, index: {match.Index}");
+        
+        // 如果当前方法的返回值是一个 Task, 那么这个 Task 会被等待, 如果你不希望它被等待, 你可以指定 void 作为返回值
+    }
+
+    /// 这里匹配所有消息并打印到控制台
+    [CqMessageMatch(@"")]
+    public void LogAllMessages()
+    {
+        // 即便你不在参数中指定 CqMessagePostContext, 你也可以通过插件的公开属性来获取当前上下文
+        // 需要注意的是, 如果没有特意指定是群聊消息上下文或私聊消息上下文, 插件会处理任何消息
+
+        Console.WriteLine(CurrentContext.Message.GetText());
+    }
+}
+```
+
+> 另外, `MessageMatching` 也提供了很多重载, 你可以选择适合你的使用
+
+
+
 ### 📎 小提示
 
 1. `CqFaceMsg` 是 QQ 小黄脸消息, 它还提供了从中文名称转换为对应类型的方法, 例如 "斜眼笑", "可怜" 等中文名称.
