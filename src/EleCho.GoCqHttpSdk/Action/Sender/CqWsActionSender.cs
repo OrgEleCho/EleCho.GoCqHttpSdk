@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
     public class CqWsActionSender : CqActionSender
     {
         // 响应存储
-        private readonly Dictionary<string, (AutoResetEvent handle, CqActionResultRaw? result)> results;
+        private readonly Dictionary<string, TaskCompletionSource<CqActionResultRaw?>> results;
 
         /// <summary>
         /// 父 Session
@@ -45,7 +45,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         {
             Session = session;
             Connection = connection;
-            results = new Dictionary<string, (AutoResetEvent, CqActionResultRaw?)>();
+            results = new Dictionary<string, TaskCompletionSource<CqActionResultRaw?>>();
         }
 
         /// <summary>
@@ -57,11 +57,8 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             if (result.echo == null)
                 return;
 
-            if (results.TryGetValue(result.echo, out (AutoResetEvent handle, CqActionResultRaw? result) tp))
-            {
-                results[result.echo] = (tp.handle, result);
-                tp.handle.Set();
-            }
+            if (results.TryGetValue(result.echo, out TaskCompletionSource<CqActionResultRaw?>? tp))
+                tp.SetResult(result);
         }
 
         /// <summary>
@@ -89,12 +86,12 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             CqActionResult? rst;
 
             // 创建等待
-            AutoResetEvent handle = new AutoResetEvent(false);
-            results[echo] = (handle, null);
+            TaskCompletionSource<CqActionResultRaw?> tp = new TaskCompletionSource<CqActionResultRaw?>();
+            results[echo] = tp;
 
             // 等待响应
-            handle.WaitOne(WaitTimeout);
-            rst = CqActionResult.FromRaw(results[echo].result, actionModel.action);
+            CqActionResultRaw? resultRaw = await tp.Task;
+            rst = CqActionResult.FromRaw(resultRaw, actionModel.action);
 
             // 删除存储
             results.Remove(echo);

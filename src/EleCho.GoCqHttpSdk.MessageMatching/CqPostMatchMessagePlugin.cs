@@ -138,7 +138,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                 {
                     foreach (var msgMatchMethod in privateMessageMatchMethods)
                     {
-                        var match = msgMatchMethod.Attribute.Regex.Match(privateMsgContext.Message.GetText());
+                        var match = msgMatchMethod.Attribute.Regex.Match(privateMsgContext.Message.Text);
                         if (match.Success)
                         {
                             currentContext = msgContext;
@@ -152,7 +152,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                 {
                     foreach (var msgMatchMethod in groupMessageMatchMethods)
                     {
-                        var match = msgMatchMethod.Attribute.Regex.Match(groupMsgContext.Message.GetText());
+                        var match = msgMatchMethod.Attribute.Regex.Match(groupMsgContext.Message.Text);
                         if (match.Success)
                         {
                             currentContext = msgContext;

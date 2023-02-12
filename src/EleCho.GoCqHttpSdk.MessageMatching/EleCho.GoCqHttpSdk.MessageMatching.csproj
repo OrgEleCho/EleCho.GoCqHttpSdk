@@ -12,11 +12,9 @@
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageTags>Go-CqHttp;go-cqhttp;OneBot</PackageTags>
     <PackageIcon>logo-rect.png</PackageIcon>
+    <PackageId>EleCho.GoCqHttpSdk.MessageMatching</PackageId>
+    <Title>EleCho.GoCqHttpSdk 的消息匹配拓展</Title>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.0.0-alpha6" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\logo-rect.png">
@@ -28,6 +26,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 
 </Project>
