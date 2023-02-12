@@ -23,7 +23,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
             Regex reg = new Regex(regex, RegexOptions.Compiled);
             CqPostSessionExtensions.UseGroupMessage(session, async (context, next) =>
             {
-                string text = context.Message.GetText();
+                string text = context.Message.Text;
                 Match match = reg.Match(text);
                 if (match.Success)
                 {
@@ -46,7 +46,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         {
             CqPostSessionExtensions.UseGroupMessage(session, async (context, next) =>
             {
-                if (Regex.IsMatch(context.Message.GetText(), regex))
+                if (Regex.IsMatch(context.Message.Text, regex))
                 {
                     await middleware.Invoke(context);
                     await next.Invoke();
@@ -69,7 +69,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
             Regex reg = new Regex(regex, RegexOptions.Compiled);
             CqPostSessionExtensions.UseGroupMessage(session, async (context, next) =>
             {
-                string text = context.Message.GetText();
+                string text = context.Message.Text;
                 Match match = reg.Match(text);
                 if (match.Success)
                 {
@@ -92,7 +92,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         {
             CqPostSessionExtensions.UseGroupMessage(session, async (context, next) =>
             {
-                if (Regex.IsMatch(context.Message.GetText(), regex))
+                if (Regex.IsMatch(context.Message.Text, regex))
                 {
                     middleware.Invoke(context);
                     await next.Invoke();
@@ -115,7 +115,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
             Regex reg = new Regex(regex, RegexOptions.Compiled);
             CqPostSessionExtensions.UsePrivateMessage(session, async (context, next) =>
             {
-                string text = context.Message.GetText();
+                string text = context.Message.Text;
                 Match match = reg.Match(text);
                 if (match.Success)
                 {
@@ -138,7 +138,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         {
             CqPostSessionExtensions.UsePrivateMessage(session, async (context, next) =>
             {
-                if (Regex.IsMatch(context.Message.GetText(), regex))
+                if (Regex.IsMatch(context.Message.Text, regex))
                 {
                     await middleware.Invoke(context);
                     await next.Invoke();
@@ -161,7 +161,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
             Regex reg = new Regex(regex, RegexOptions.Compiled);
             CqPostSessionExtensions.UsePrivateMessage(session, async (context, next) =>
             {
-                string text = context.Message.GetText();
+                string text = context.Message.Text;
                 Match match = reg.Match(text);
                 if (match.Success)
                 {
@@ -184,7 +184,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         {
             CqPostSessionExtensions.UsePrivateMessage(session, async (context, next) =>
             {
-                if (Regex.IsMatch(context.Message.GetText(), regex))
+                if (Regex.IsMatch(context.Message.Text, regex))
                 {
                     middleware.Invoke(context);
                     await next.Invoke();

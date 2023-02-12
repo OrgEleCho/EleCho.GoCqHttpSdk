@@ -82,7 +82,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         {
                             parameterGetters[i] = (context, match) => match.Groups;
                         }
-                        else if (parameter.ParameterType == typeof(string))
+                        else if (parameter.ParameterType == typeof(string) && parameter.Name != null)
                         {
                             if (!regexGroupNames.Contains(parameter.Name))
                                 throw new ArgumentException("方法参数名不正确, 无法找到匹配的分组名");
@@ -94,7 +94,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     // 包装一个方法执行逻辑, 该逻辑会将所有所需参数从 context 和 match 中拿到, 并调用, 如果返回值可等待, 那么就等待
                     Func<CqMessagePostContext, Match, Task> action = (context, match) =>
                     {
-                        object rst = method.Invoke(this, Array.ConvertAll(parameterGetters, getter => getter.Invoke(context, match)));
+                        object? rst = method.Invoke(this, Array.ConvertAll(parameterGetters, getter => getter.Invoke(context, match)));
                         if (rst is Task task)
                             return task;
                         return Task.CompletedTask;

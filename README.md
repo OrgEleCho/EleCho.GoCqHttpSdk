@@ -22,8 +22,6 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与
 
 你可以在 nuget.org 下载到本库的发布包, 也可以直接在 Visual Studio 中为项目添加引用.
 
-> 目前库仍处于开发阶段, 你需要勾选 "包含预发布版本" 才能搜索到结果
-
 > 通信协议支持: 正反向 HTTP 与正向 WebSocket. \
 > 上报格式支持: `array(json)`, `string`. \
 > 功能支持: CqCode 转码, API 快速操作 \
