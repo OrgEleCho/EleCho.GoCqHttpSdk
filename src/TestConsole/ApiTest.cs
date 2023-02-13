@@ -18,10 +18,10 @@ namespace AssemblyCheck
         {
             var url = "https://bing.com";
 
-            var safety = await session.CheckUrlSafety(url);
+            var safety = await session.CheckUrlSafetyAsync(url);
             await session.SendGroupMessageAsync(TestGroupId, new CqMessage($"连接安全性: {url} {safety.Level}"));
 
-            var versionInfo = await session.GetVersionInformation();
+            var versionInfo = await session.GetVersionInformationAsync();
             await session.SendGroupMessageAsync(TestGroupId, new CqMessage(JsonSerializer.Serialize(versionInfo)));
         }
     }
