@@ -27,6 +27,7 @@ namespace EleCho.GoCqHttpSdk
             return rst as TActionResult;
         }
 
+        #region 异步方法
         public static Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, CqMessage message)
              => session.InvokeActionAsync<CqSendPrivateMessageAction, CqSendPrivateMessageActionResult>(new CqSendPrivateMessageAction(userId, message));
         public static Task<CqSendPrivateMessageActionResult?> SendPrivateMessageAsync(this ICqActionSession session, long userId, long groupId, CqMessage message)
@@ -161,6 +162,7 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqReloadEventFilterActionResult?> ReloadEventFilterAsync(this ICqActionSession session, string file)
             => session.InvokeActionAsync<CqReloadEventFilterAction, CqReloadEventFilterActionResult>(new CqReloadEventFilterAction(file));
 
+        #endregion
 
 
 
@@ -174,8 +176,7 @@ namespace EleCho.GoCqHttpSdk
 
 
 
-
-
+        #region 同步包装
         public static CqSendPrivateMessageActionResult? SendPrivateMessage(this ICqActionSession session, long userId, CqMessage message)
             => SendPrivateMessageAsync(session, userId, message).Result;
         public static CqSendPrivateMessageActionResult? SendPrivateMessage(this ICqActionSession session, long userId, long groupId, CqMessage message)
@@ -305,5 +306,6 @@ namespace EleCho.GoCqHttpSdk
 
         public static CqReloadEventFilterActionResult? ReloadEventFilter(this ICqActionSession session, string file)
             => ReloadEventFilterAsync(session, file).Result;
+        #endregion
     }
 }
