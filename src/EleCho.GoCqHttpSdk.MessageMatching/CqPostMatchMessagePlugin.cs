@@ -121,6 +121,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         private CqMessagePostContext? currentContext;
         public CqMessagePostContext? CurrentContext => currentContext;
 
+        public bool ExecuteNextWhenMatched { get; set; } = true;
+
         /// <summary>
         /// 执行消息匹配方法
         /// </summary>
@@ -144,7 +146,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             currentContext = msgContext;
                             await msgMatchMethod.Action.Invoke(privateMsgContext, match);
                             currentContext = null;
-                            return;
+
+                            if (!ExecuteNextWhenMatched)
+                                return;
                         }
                     }
                 }
@@ -158,7 +162,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             currentContext = msgContext;
                             await msgMatchMethod.Action.Invoke(groupMsgContext, match);
                             currentContext = null;
-                            return;
+
+                            if (!ExecuteNextWhenMatched)
+                                return;
                         }
                     }
                 }
