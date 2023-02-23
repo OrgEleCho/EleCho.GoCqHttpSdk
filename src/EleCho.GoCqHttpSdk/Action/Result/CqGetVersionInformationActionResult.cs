@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取版本信息操作结果
     /// </summary>
-    public class CqGetVersionInformationActionResult : CqActionResult
+    public record class CqGetVersionInformationActionResult : CqActionResult
     {
         internal CqGetVersionInformationActionResult()
         {

@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 一个 CQ Action 结果
     /// </summary>
-    public abstract class CqActionResult
+    public abstract record class CqActionResult
     {
         internal CqActionResult() { }
 
@@ -106,6 +106,8 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetVersionInfo => new CqGetVersionInformationActionResult(),
 
                 ReloadEventFilter => new CqReloadEventFilterActionResult(),
+                GetWordSlices => new CqGetWordSlicesActionResult(),
+                OcrImage => new CqOcrImageActionResult(),
 
                 _ => throw new NotImplementedException()
             };

@@ -1,10 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Numerics;
+using System.Text.Json.Serialization;
 
 #pragma warning disable IDE1006 // Naming Styles
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqDeviceModel
+    internal record class CqDeviceModel
     {
         public CqDeviceModel(CqDevice srcData)
         {

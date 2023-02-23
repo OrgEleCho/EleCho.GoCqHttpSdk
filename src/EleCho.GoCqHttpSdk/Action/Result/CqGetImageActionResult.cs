@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取图像操作结果
     /// </summary>
-    public class CqGetImageActionResult : CqActionResult
+    public record class CqGetImageActionResult : CqActionResult
     {
         /// <summary>
         /// 尺寸

@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 发送群转发消息操作结果
     /// </summary>
-    public class CqSendGroupForwardMessageActionResult : CqActionResult
+    public record class CqSendGroupForwardMessageActionResult : CqActionResult
     {
         internal CqSendGroupForwardMessageActionResult() { }
 

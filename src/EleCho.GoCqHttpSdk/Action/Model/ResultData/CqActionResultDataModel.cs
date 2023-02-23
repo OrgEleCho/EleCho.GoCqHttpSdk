@@ -80,6 +80,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 GetVersionInfo => dataValue.Deserialize<CqGetVersionInformationActionResultDataModel>(JsonHelper.Options),
 
                 ReloadEventFilter => dataValue.Deserialize<CqReloadEventFilterActionResultDataModel>(JsonHelper.Options),
+                GetWordSlices => dataValue.Deserialize<CqGetWordSlicesActionResultDataModel>(JsonHelper.Options),
+                OcrImage => dataValue.Deserialize<CqOcrImageActionResultDataModel>(JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

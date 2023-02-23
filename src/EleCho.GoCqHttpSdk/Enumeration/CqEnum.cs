@@ -178,6 +178,9 @@ namespace EleCho.GoCqHttpSdk
 
                 CqActionType.ReloadEventFilter => ReloadEventFilter,
 
+                CqActionType.GetWordSlices => GetWordSlices,
+                CqActionType.OcrImage => OcrImage,
+
                 _ => throw new ArgumentException($"Unknown Action type: {type}")
             };
         }

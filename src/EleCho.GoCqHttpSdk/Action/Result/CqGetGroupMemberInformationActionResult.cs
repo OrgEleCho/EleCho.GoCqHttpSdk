@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取群成员信息操作结果
     /// </summary>
-    public class CqGetGroupMemberInformationActionResult : CqActionResult
+    public record class CqGetGroupMemberInformationActionResult : CqActionResult
     {
         internal CqGetGroupMemberInformationActionResult() { }
 

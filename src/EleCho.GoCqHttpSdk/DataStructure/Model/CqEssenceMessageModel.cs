@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqEssenceMessageModel
+    internal record class CqEssenceMessageModel
     {
         [JsonConstructor]
         public CqEssenceMessageModel(long sender_id, string sender_nick, long sender_time, long operator_id, string operator_nick, long operator_time, long message_id)

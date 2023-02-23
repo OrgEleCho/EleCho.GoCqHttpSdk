@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取陌生人信息操作结果
     /// </summary>
-    public class CqGetStrangerInformationActionResult : CqActionResult
+    public record class CqGetStrangerInformationActionResult : CqActionResult
     {
 
         /// <summary>

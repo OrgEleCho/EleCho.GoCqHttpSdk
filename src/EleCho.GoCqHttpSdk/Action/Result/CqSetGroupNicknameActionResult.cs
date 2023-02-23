@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 设置群昵称操作结果
     /// </summary>
-    public class CqSetGroupNicknameActionResult : CqActionResult
+    public record class CqSetGroupNicknameActionResult : CqActionResult
     {
         internal CqSetGroupNicknameActionResult() { }
 

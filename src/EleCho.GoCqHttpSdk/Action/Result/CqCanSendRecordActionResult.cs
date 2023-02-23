@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 判断能发送语音操作结果
     /// </summary>
-    public class CqCanSendRecordActionResult : CqActionResult
+    public record class CqCanSendRecordActionResult : CqActionResult
     {
         internal CqCanSendRecordActionResult()
         { }

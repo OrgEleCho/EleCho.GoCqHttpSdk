@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取群列表操作结果
     /// </summary>
-    public class CqGetGroupListActionResult : CqActionResult
+    public record class CqGetGroupListActionResult : CqActionResult
     {
         internal CqGetGroupListActionResult() { }
 

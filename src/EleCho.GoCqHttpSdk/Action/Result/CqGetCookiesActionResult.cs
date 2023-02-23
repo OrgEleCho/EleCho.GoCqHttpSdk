@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取 Cookies 操作结果
     /// </summary>
-    public class CqGetCookiesActionResult : CqActionResult
+    public record class CqGetCookiesActionResult : CqActionResult
     {
         internal CqGetCookiesActionResult()
         {

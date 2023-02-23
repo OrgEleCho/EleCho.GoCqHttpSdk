@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取转发消息操作结果
     /// </summary>
-    public class CqGetForwardMessageActionResult : CqActionResult
+    public record class CqGetForwardMessageActionResult : CqActionResult
     {
         internal CqGetForwardMessageActionResult() { }
         

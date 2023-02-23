@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取 CSRF 令牌操作结果
     /// </summary>
-    public class CqGetCsrfTokenActionResult : CqActionResult
+    public record class CqGetCsrfTokenActionResult : CqActionResult
     {
         internal CqGetCsrfTokenActionResult()
         {

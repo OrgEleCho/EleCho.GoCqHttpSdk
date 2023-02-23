@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public class CqDeleteUnidirectionalFriendActionResult : CqActionResult
+    public record class CqDeleteUnidirectionalFriendActionResult : CqActionResult
     {
         internal CqDeleteUnidirectionalFriendActionResult()
         {

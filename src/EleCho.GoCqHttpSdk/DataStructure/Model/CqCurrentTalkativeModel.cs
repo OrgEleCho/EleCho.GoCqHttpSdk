@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqCurrentTalkativeModel
+    internal record class CqCurrentTalkativeModel
     {
         [JsonConstructor]
         public CqCurrentTalkativeModel(long user_id, string nickname, string avatar, int day_count)

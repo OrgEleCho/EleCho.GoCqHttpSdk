@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 重载事件过滤器操作结果
     /// </summary>
-    public class CqReloadEventFilterActionResult : CqActionResult
+    public record class CqReloadEventFilterActionResult : CqActionResult
     {
         internal CqReloadEventFilterActionResult()
         {

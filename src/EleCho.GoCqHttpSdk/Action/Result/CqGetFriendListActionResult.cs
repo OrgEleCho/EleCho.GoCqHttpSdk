@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取好友列表
     /// </summary>
-    public class CqGetFriendListActionResult : CqActionResult
+    public record class CqGetFriendListActionResult : CqActionResult
     {
         internal CqGetFriendListActionResult() { }
 

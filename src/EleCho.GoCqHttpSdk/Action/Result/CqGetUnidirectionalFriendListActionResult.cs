@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取单向好友列表操作结果
     /// </summary>
-    public class CqGetUnidirectionalFriendListActionResult : CqActionResult
+    public record class CqGetUnidirectionalFriendListActionResult : CqActionResult
     {
         internal CqGetUnidirectionalFriendListActionResult() { }
 

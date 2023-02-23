@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 发送消息操作结果
     /// </summary>
-    public class CqSendMessageActionResult : CqActionResult
+    public record class CqSendMessageActionResult : CqActionResult
     {
         internal CqSendMessageActionResult() { }
 

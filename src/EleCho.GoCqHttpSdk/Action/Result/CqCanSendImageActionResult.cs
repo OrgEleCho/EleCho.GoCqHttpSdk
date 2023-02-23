@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 判断能发送图片操作结果
     /// </summary>
-    public class CqCanSendImageActionResult : CqActionResult
+    public record class CqCanSendImageActionResult : CqActionResult
     {
         internal CqCanSendImageActionResult()
         { }

@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取机型显示操作结果
     /// </summary>
-    public class CqGetModelShowActionResult : CqActionResult
+    public record class CqGetModelShowActionResult : CqActionResult
     {
         internal CqGetModelShowActionResult()
         {

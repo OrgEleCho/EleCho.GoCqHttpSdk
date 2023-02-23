@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 设置群管理员操作结果
     /// </summary>
-    public class CqSetGroupAdministratorActionResult : CqActionResult
+    public record class CqSetGroupAdministratorActionResult : CqActionResult
     {
         internal CqSetGroupAdministratorActionResult() { }
 

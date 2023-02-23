@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 设置群荣誉操作结果
     /// </summary>
-    public class CqSetGroupSpecialTitleActionResult : CqActionResult
+    public record class CqSetGroupSpecialTitleActionResult : CqActionResult
     {
         internal CqSetGroupSpecialTitleActionResult() { }
 

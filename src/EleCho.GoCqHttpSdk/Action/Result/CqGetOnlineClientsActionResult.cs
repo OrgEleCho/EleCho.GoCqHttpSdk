@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取在线客户端操作结果
     /// </summary>
-    public class CqGetOnlineClientsActionResult : CqActionResult
+    public record class CqGetOnlineClientsActionResult : CqActionResult
     {
         internal CqGetOnlineClientsActionResult()
         { }

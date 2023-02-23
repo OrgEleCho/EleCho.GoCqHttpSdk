@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 处理群请求操作结果
     /// </summary>
-    public class CqHandleGroupRequestActionResult : CqActionResult
+    public record class CqHandleGroupRequestActionResult : CqActionResult
     {
         internal CqHandleGroupRequestActionResult() { }
 

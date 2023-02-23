@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk
 {
-    public class CqEssenceMessage
+    public record class CqEssenceMessage
     {
         internal CqEssenceMessage(CqEssenceMessageModel model)
         {

@@ -51,5 +51,7 @@
         SetGroupAvatar,
         DownloadFile,
         ReloadEventFilter,
+        GetWordSlices,
+        OcrImage,
     }
 }

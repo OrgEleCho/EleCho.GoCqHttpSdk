@@ -161,6 +161,10 @@ namespace EleCho.GoCqHttpSdk
 
         public static Task<CqReloadEventFilterActionResult?> ReloadEventFilterAsync(this ICqActionSession session, string file)
             => session.InvokeActionAsync<CqReloadEventFilterAction, CqReloadEventFilterActionResult>(new CqReloadEventFilterAction(file));
+        public static Task<CqGetWordSlicesActionResult?> GetWordSlicesAsync(this ICqActionSession session, string content)
+            => session.InvokeActionAsync<CqGetWordSlicesAction, CqGetWordSlicesActionResult>(new CqGetWordSlicesAction(content));
+        public static Task<CqOcrImageActionResult?> OcrImageAsync(this ICqActionSession session, string image)
+            => session.InvokeActionAsync<CqOcrImageAction, CqOcrImageActionResult>(new CqOcrImageAction(image));
 
         #endregion
 
@@ -306,6 +310,10 @@ namespace EleCho.GoCqHttpSdk
 
         public static CqReloadEventFilterActionResult? ReloadEventFilter(this ICqActionSession session, string file)
             => ReloadEventFilterAsync(session, file).Result;
+        public static CqGetWordSlicesActionResult? GetWordSlices(this ICqActionSession session, string content)
+            => GetWordSlicesAsync(session, content).Result;
+        public static CqOcrImageActionResult? OcrImage(this ICqActionSession session, string image)
+            => OcrImageAsync(session, image).Result;
         #endregion
     }
 }

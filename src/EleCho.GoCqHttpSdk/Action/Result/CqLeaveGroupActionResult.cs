@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 退群操作结果
     /// </summary>
-    public class CqLeaveGroupActionResult : CqActionResult
+    public record class CqLeaveGroupActionResult : CqActionResult
     {
         internal CqLeaveGroupActionResult()
         {

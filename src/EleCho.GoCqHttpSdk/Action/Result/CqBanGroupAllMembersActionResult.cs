@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public class CqBanGroupAllMembersActionResult : CqActionResult
+    public record class CqBanGroupAllMembersActionResult : CqActionResult
     {
         internal CqBanGroupAllMembersActionResult() 
         { }

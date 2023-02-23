@@ -138,25 +138,23 @@ namespace EleCho.GoCqHttpSdk
             }
         }
 
-        private async Task ConnectionRunAsync(CqWsSession wsSession)
-        {
-            connections.Add(wsSession);
-            await wsSession.RunAsync();
-            connections.Remove(wsSession);
-        }
-
         private async Task ConnectionLoopAsync(WebSocketContext context, WebSocket ws)
         {
             CqWsSession wsSession = new CqWsSession(ws, context.RequestUri, accessToken, bufferSize);
             wsSession.PostPipeline.Use(ConnectionPostMiddleware);
 
-            await ConnectionRunAsync(wsSession);
+            connections.Add(wsSession);
+            await wsSession.RunAsync();
+            connections.Remove(wsSession);
         }
 
         private async Task ApiConnectionLoopAsync(WebSocketContext context, WebSocket ws)
         {
             CqWsSession wsSession = new CqWsSession(ws, context.RequestUri, accessToken, bufferSize);
-            await ConnectionRunAsync(wsSession);
+
+            apiConnections.Add(wsSession);
+            await wsSession.RunAsync();
+            apiConnections.Remove(wsSession);
         }
 
         private async Task EventConnectionLoopAsync(WebSocketContext context, WebSocket ws)
@@ -164,7 +162,9 @@ namespace EleCho.GoCqHttpSdk
             CqWsSession wsSession = new CqWsSession(ws, context.RequestUri, accessToken, bufferSize);
             wsSession.PostPipeline.Use(ConnectionPostMiddleware);
 
-            await ConnectionRunAsync(wsSession);
+            eventConnections.Add(wsSession);
+            await wsSession.RunAsync();
+            eventConnections.Remove(wsSession);
         }
 
         private async Task ConnectionPostMiddleware(CqPostContext context, Func<Task> next)

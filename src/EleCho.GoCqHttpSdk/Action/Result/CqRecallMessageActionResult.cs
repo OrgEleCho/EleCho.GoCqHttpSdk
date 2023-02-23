@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 撤回消息操作结果
     /// </summary>
-    public class CqRecallMessageActionResult : CqActionResult
+    public record class CqRecallMessageActionResult : CqActionResult
     {
         internal CqRecallMessageActionResult()
         {

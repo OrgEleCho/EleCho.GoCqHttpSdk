@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取消息操作结果
     /// </summary>
-    public class CqGetMessageActionResult : CqActionResult
+    public record class CqGetMessageActionResult : CqActionResult
     {
         /// <summary>
         /// 是群消息

@@ -130,6 +130,9 @@
             public const string SetGroupPortrait = "set_group_portrait";
 
             public const string ReloadEventFilter = "reload_event_filter";
+
+            public const string GetWordSlices = ".get_word_slices";
+            public const string OcrImage = "ocr_image";
         }
 
         public static class NoticeType

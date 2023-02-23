@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取精华消息列表操作结果
     /// </summary>
-    public class CqGetEssenceMessageListActionResult : CqActionResult
+    public record class CqGetEssenceMessageListActionResult : CqActionResult
     {
         internal CqGetEssenceMessageListActionResult()
         {

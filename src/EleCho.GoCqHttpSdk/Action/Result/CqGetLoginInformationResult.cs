@@ -10,7 +10,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 获取登陆信息
     /// </summary>
-    public class CqGetLoginInformationActionResult : CqActionResult
+    public record class CqGetLoginInformationActionResult : CqActionResult
     {
         internal CqGetLoginInformationActionResult() { }
 

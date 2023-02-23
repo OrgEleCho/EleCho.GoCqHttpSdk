@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public class CqCheckUrlSafetyActionResult : CqActionResult
+    public record class CqCheckUrlSafetyActionResult : CqActionResult
     {
         internal CqCheckUrlSafetyActionResult()
         {

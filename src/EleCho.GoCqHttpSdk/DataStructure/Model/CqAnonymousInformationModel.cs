@@ -4,7 +4,7 @@
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal class CqAnonymousInformationModel
+    internal record class CqAnonymousInformationModel
     {
         public CqAnonymousInformationModel(CqAnonymousInfomation srcData)
         {

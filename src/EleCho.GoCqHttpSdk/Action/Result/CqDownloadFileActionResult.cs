@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 下载文件操作结果
     /// </summary>
-    public class CqDownloadFileActionResult : CqActionResult
+    public record class CqDownloadFileActionResult : CqActionResult
     {
         internal CqDownloadFileActionResult()
         {

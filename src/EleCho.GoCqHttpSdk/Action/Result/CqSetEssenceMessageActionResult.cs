@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Action
     /// <summary>
     /// 设置精华消息操作结果
     /// </summary>
-    public class CqSetEssenceMessageActionResult : CqActionResult
+    public record class CqSetEssenceMessageActionResult : CqActionResult
     {
         internal CqSetEssenceMessageActionResult()
         {

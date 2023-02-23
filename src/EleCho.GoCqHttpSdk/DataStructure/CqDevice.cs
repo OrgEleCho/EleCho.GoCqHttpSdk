@@ -1,4 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using System.Numerics;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk
@@ -40,7 +41,6 @@ namespace EleCho.GoCqHttpSdk
         /// <param name="appId"></param>
         /// <param name="deviceName"></param>
         /// <param name="deviceKind"></param>
-        [JsonConstructor]
         public CqDevice(long appId, string deviceName, string deviceKind)
         {
             AppId = appId;
