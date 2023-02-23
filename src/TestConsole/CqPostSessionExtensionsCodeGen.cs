@@ -17,7 +17,6 @@ namespace AssemblyCheck
             return asm.GetTypes()
                 .Where(t => baseType.IsAssignableFrom(t) && !t.IsAbstract)
                 .ToArray();
-
         }
 
         public static string Generate()

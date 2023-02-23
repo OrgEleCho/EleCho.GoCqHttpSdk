@@ -27,25 +27,23 @@ namespace AssemblyCheck
 
         private static async Task Main(string[] args)
         {
-            CqSendPrivateMessageAction action = new CqSendPrivateMessageAction(114514, new CqMessage("qwq"));
-            CqActionResult? rst = await session.ActionSender.InvokeActionAsync(action);
-            CqSendPrivateMessageActionResult? msgRst = (CqSendPrivateMessageActionResult?)rst;
-
-            session.PostPipeline.Use(async (context, next) =>
+            CqRWsSession rWsSession = new CqRWsSession(new CqRWsSessionOptions()
             {
-                if (context is CqGroupMessagePostContext groupMessagePostContext)
-                {
-                    await session.SendGroupMessageAsync(groupMessagePostContext.GroupId, new CqMessage("检测到这个群发送了一条消息"));
-                }
+                BaseUri = new Uri("http://localhost:1234"),
+                UseApiEndPoint = true,
+                UseEventEndPoint = true,
             });
 
-            session.UseGroupMessage(async (context, next) =>
+            rWsSession.UseGroupMessage(async context =>
             {
-                await session.SendGroupMessageAsync(context.GroupId, new CqMessage("检测到这个群发送了一条消息"));
+                Console.WriteLine($"{context.Sender.Nickname}: {context.Message.Text}");
+
+                if (context.Message.Text.StartsWith("echo ", StringComparison.OrdinalIgnoreCase))
+                    await rWsSession.SendGroupMessageAsync(context.GroupId, new CqMessage(context.Message.Text.Substring(5)));
             });
 
-            Console.WriteLine(CqPostSessionExtensionsCodeGen.Generate());
-            return;
+            Console.WriteLine("OK");
+            await rWsSession.RunAsync();
         }
 
         private static void CheckAssemblyTypes(Assembly asm)

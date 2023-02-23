@@ -87,14 +87,8 @@ namespace EleCho.GoCqHttpSdk
 
         private async Task HttpListenerLoopAsync()
         {
-            while (true)
+            while (listener.IsListening)
             {
-                if (!listener.IsListening)
-                {
-                    await Task.Delay(100);
-                    continue;
-                }
-
                 var context = await listener.GetContextAsync();
 
                 using MemoryStream ms = new MemoryStream();
@@ -138,7 +132,7 @@ namespace EleCho.GoCqHttpSdk
         /// 异步启动
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidOperationException">会话已经启动</exception>
         public Task StartAsync()
         {
             if (listener.IsListening)
@@ -154,7 +148,7 @@ namespace EleCho.GoCqHttpSdk
         /// 异步停止
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidOperationException">会话没有启动</exception>
         public Task StopAsync()
         {
             if (!listener.IsListening)
@@ -169,7 +163,7 @@ namespace EleCho.GoCqHttpSdk
         /// 异步等待关闭
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidOperationException">会话没有启动</exception>
         public async Task WaitForShutdownAsync()
         {
             if (mainLoopTask == null)

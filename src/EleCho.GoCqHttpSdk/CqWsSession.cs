@@ -34,10 +34,10 @@ namespace EleCho.GoCqHttpSdk
         private Task? standaloneActionLoopTask;
 
         // 三个接入点的套接字
-        private ClientWebSocket? webSocketClient;
+        private WebSocket? webSocket;
 
-        private ClientWebSocket? apiWebSocketClient;
-        private ClientWebSocket? eventWebSocketClient;
+        private WebSocket? apiWebSocket;
+        private WebSocket? eventWebSocket;
 
         /// <summary>
         /// 已连接
@@ -83,18 +83,30 @@ namespace EleCho.GoCqHttpSdk
 
             // 如果使用 api 接入点, 那么则初始化 api 套接字
             if (options.UseApiEndPoint)
-                apiWebSocketClient = new ClientWebSocket();
+                apiWebSocket = new ClientWebSocket();
 
             // 如果使用事件接入点, 那么则初始化事件套接字
             if (options.UseEventEndPoint)
-                eventWebSocketClient = new ClientWebSocket();
+                eventWebSocket = new ClientWebSocket();
 
             // 如果任何一个没有被初始化, 则初始化根套接字
-            if (eventWebSocketClient == null || apiWebSocketClient == null)
-                webSocketClient = new ClientWebSocket();
+            if (eventWebSocket == null || apiWebSocket == null)
+                webSocket = new ClientWebSocket();
 
             // 初始化 action 发送器 和 post 管道
-            actionSender = new CqWsActionSender(this, apiWebSocketClient ?? webSocketClient ?? throw new InvalidOperationException("This would never happened"));
+            actionSender = new CqWsActionSender(this, apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened"));
+            postPipeline = new CqPostPipeline();
+        }
+
+        internal CqWsSession(WebSocket remoteWebSocket, Uri baseUri, string? accessToken, int bufferSize)
+        {
+            webSocket = remoteWebSocket ?? throw new ArgumentNullException(nameof(remoteWebSocket));
+
+            BaseUri = baseUri;
+            AccessToken = accessToken;
+            BufferSize = bufferSize;
+
+            actionSender = new CqWsActionSender(this, remoteWebSocket);
             postPipeline = new CqPostPipeline();
         }
 
@@ -111,7 +123,6 @@ namespace EleCho.GoCqHttpSdk
                 // WebSocket 需要模拟 QuickAction
                 await actionSender.HandleQuickAction(postContext, postModel);
             }
-
         }
 
         /// <summary>
@@ -200,32 +211,35 @@ namespace EleCho.GoCqHttpSdk
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
 
             // 如果 api 套接字不为空, 则连接 api 套接字
-            if (apiWebSocketClient != null)
+            if (apiWebSocket is ClientWebSocket apiWebSocketClient)
             {
-                if (apiWebSocketClient.State == WebSocketState.Open)
+                if (apiWebSocket.State == WebSocketState.Open)
                     return;
 
-                if (AccessToken is not null) apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null)
+                    apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await apiWebSocketClient.ConnectAsync(new Uri(BaseUri, "api"), default);
             }
 
             // 如果事件套接字不为空, 则连接事件套接字
-            if (eventWebSocketClient != null)
+            if (eventWebSocket is ClientWebSocket eventWebSocketClient)
             {
-                if (eventWebSocketClient.State == WebSocketState.Open)
+                if (eventWebSocket.State == WebSocketState.Open)
                     return;
 
-                if (AccessToken is not null) eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null)
+                    eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await eventWebSocketClient.ConnectAsync(new Uri(BaseUri, "event"), default);
             }
 
             // 如果任意一个为空且基础套接字部不为空, 则连接基础套接字
-            if ((apiWebSocketClient == null || eventWebSocketClient == null) && webSocketClient != null)
+            if ((apiWebSocket == null || eventWebSocket == null) && webSocket is ClientWebSocket webSocketClient)
             {
-                if (webSocketClient.State == WebSocketState.Open)
+                if (webSocket.State == WebSocketState.Open)
                     return;
 
-                if (AccessToken is not null) webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
+                if (AccessToken is not null)
+                    webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await webSocketClient.ConnectAsync(BaseUri, default);
             }
 
@@ -240,12 +254,12 @@ namespace EleCho.GoCqHttpSdk
         private async Task CloseAsync()
         {
             // 关闭已连接的套接字
-            if (apiWebSocketClient != null)
-                await apiWebSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
-            if (eventWebSocketClient != null)
-                await eventWebSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
-            if (webSocketClient != null)
-                await webSocketClient.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            if (apiWebSocket != null)
+                await apiWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            if (eventWebSocket != null)
+                await eventWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            if (webSocket != null)
+                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
 
             IsConnected = false;
         }
@@ -264,11 +278,11 @@ namespace EleCho.GoCqHttpSdk
             await ConnectAsync();
 
             // 首先一定会有一个主循环, 这个主循环可能是通用的套接字, 也可能是单独的上报套接字 (如果使用单独的 API 和上报套接字, 那么主套接字是空的, 所以会 fallback 到事件套接字)
-            mainLoopTask = WebSocketLoop(webSocketClient ?? eventWebSocketClient ?? throw new InvalidOperationException("This would never happened"));
+            mainLoopTask = WebSocketLoop(webSocket ?? eventWebSocket ?? throw new InvalidOperationException("This would never happened"));
 
             // 当使用单独的 API 套接字的时候, 我们需要监听 API 套接字
-            if (apiWebSocketClient != null)
-                standaloneActionLoopTask = WebSocketLoop(apiWebSocketClient);
+            if (apiWebSocket != null)
+                standaloneActionLoopTask = WebSocketLoop(apiWebSocket);
         }
 
         /// <summary>
@@ -347,10 +361,10 @@ namespace EleCho.GoCqHttpSdk
             if (disposed)
                 return;
 
-            apiWebSocketClient?.Dispose();
-            eventWebSocketClient?.Dispose();
-            webSocketClient?.Dispose();
-            
+            apiWebSocket?.Dispose();
+            eventWebSocket?.Dispose();
+            webSocket?.Dispose();
+
             GC.SuppressFinalize(this);
             disposed = true;
         }

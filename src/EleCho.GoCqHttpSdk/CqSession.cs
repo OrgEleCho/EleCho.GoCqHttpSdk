@@ -1,4 +1,8 @@
-﻿namespace EleCho.GoCqHttpSdk
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
     /// 表示一个 Go-CqHttp 会话 (抽象基类)

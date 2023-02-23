@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace EleCho.GoCqHttpSdk.Message
@@ -56,7 +57,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <param name="msg">一堆消息段</param>
         public CqMessage(params CqMsg[] msg) : base(msg)
         {
-            
+
         }
 
         /// <summary>
@@ -198,19 +199,32 @@ namespace EleCho.GoCqHttpSdk.Message
             return this;
         }
 
+        private string GetText()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var msg in this)
+                if (msg is CqTextMsg txtMsg)
+                    sb.Append(txtMsg.Text);
+            return sb.ToString();
+        }
+
+        private string? storagedText;
 
         /// <summary>
         /// 获取当前消息的文本内容
         /// </summary>
         public string Text
-        { 
+        {
             get
             {
+                if (storagedText != null)
+                    return storagedText;
+
                 StringBuilder sb = new StringBuilder();
                 foreach (var msg in this)
                     if (msg is CqTextMsg txtMsg)
                         sb.Append(txtMsg.Text);
-                return sb.ToString();
+                return storagedText = sb.ToString();
             }
         }
 

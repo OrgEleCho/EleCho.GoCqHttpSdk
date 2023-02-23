@@ -10,6 +10,7 @@ using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
+using static System.Collections.Specialized.BitVector32;
 
 namespace EleCho.GoCqHttpSdk.Action.Invoker
 {
@@ -116,7 +117,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
             // 序列化
             string json = JsonSerializer.Serialize(actionModel, JsonHelper.Options);
             byte[] buffer = GlobalConfig.TextEncoding.GetBytes(json);
-            
+
             // 发送请求
             ArraySegment<byte> bufferSegment = new ArraySegment<byte>(buffer);
             await Connection.SendAsync(bufferSegment, WebSocketMessageType.Text, true, default);
