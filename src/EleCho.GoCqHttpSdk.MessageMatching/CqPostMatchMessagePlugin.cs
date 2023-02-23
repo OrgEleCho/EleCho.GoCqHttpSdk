@@ -163,10 +163,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     }
                 }
             }
-            else
-            {
-                await next.Invoke();
-            }
+
+            await next.Invoke();
         }
     }
 }
