@@ -61,5 +61,6 @@
         GetGroupRootFiles,
         GetGroupFilesByFolder,
         GetGroupFileUrl,
+        UploadPrivateFile,
     }
 }

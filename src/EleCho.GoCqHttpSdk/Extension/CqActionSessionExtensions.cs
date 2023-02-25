@@ -184,6 +184,8 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqGetGroupRootFilesAction, CqGetGroupRootFilesActionResult>(new CqGetGroupRootFilesAction(groupId));
         public static Task<CqGetGroupFilesByFolderActionResult?> GetGroupFilesByFolderAsync(this ICqActionSession session, long groupId, string folderId)
             => session.InvokeActionAsync<CqGetGroupFilesByFolderAction, CqGetGroupFilesByFolderActionResult>(new CqGetGroupFilesByFolderAction(groupId, folderId));
+        public static Task<CqUploadPrivateFileActionResult?> UploadPrivateFileAsync(this ICqActionSession session, long userId, string file, string name)
+            => session.InvokeActionAsync<CqUploadPrivateFileAction, CqUploadPrivateFileActionResult>(new CqUploadPrivateFileAction(userId, file, name));
 
 
 

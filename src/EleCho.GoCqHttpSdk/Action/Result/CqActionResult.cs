@@ -116,6 +116,7 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetGroupFileSystemInfo => new CqGetGroupFileSystemInformationActionResult(),
                 GetGroupRootFiles => new CqGetGroupRootFilesActionResult(),
                 GetGroupFilesByFolder => new CqGetGroupFilesByFolderActionResult(),
+                UploadPrivateFile => new CqUploadPrivateFileActionResult(),
 
 
                 _ => throw new NotImplementedException()

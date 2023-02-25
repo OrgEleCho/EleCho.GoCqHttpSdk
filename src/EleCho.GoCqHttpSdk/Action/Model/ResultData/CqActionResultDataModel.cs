@@ -83,6 +83,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 GetWordSlices => dataValue.Deserialize<CqGetWordSlicesActionResultDataModel>(JsonHelper.Options),
                 OcrImage => dataValue.Deserialize<CqOcrImageActionResultDataModel>(JsonHelper.Options),
 
+                UploadPrivateFile => dataValue.Deserialize<CqUploadPrivateFileActionResultDataModel>(JsonHelper.Options),
                 UploadGroupFile => dataValue.Deserialize<CqUploadGroupFileActionResultDataModel>(JsonHelper.Options),
                 DeleteGroupFile => dataValue.Deserialize<CqDeleteGroupFileActionResultDataModel>(JsonHelper.Options),
                 CreateGroupFileFolder => dataValue.Deserialize<CqCreateGroupFolderActionResultDataModel>(JsonHelper.Options),
