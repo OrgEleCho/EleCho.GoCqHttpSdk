@@ -22,19 +22,19 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
         }
 
         //QQ 号
-        public long user_id { get; set; }
+        public long user_id { get; }
         //昵称
-        public string nickname { get; set; }
+        public string nickname { get; }
         //性别, male 或 female 或 unknown
-        public string sex { get; set; }
+        public string sex { get; }
         //年龄
-        public int age { get; set; }
+        public int age { get; }
         //qid ID身份卡
-        public string qid { get; set; }
+        public string qid { get; }
         //等级
-        public int level { get; set; }
+        public int level { get; }
         //等级
-        public int login_days { get; set; }
+        public int login_days { get; }
 
 
     }

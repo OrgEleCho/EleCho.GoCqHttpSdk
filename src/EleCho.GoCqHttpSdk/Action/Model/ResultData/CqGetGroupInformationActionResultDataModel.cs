@@ -21,12 +21,12 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.max_member_count = max_member_count;
         }
 
-        public long group_id { get; set; }
-        public string group_name { get; set; } = string.Empty;
-        public string group_memo { get; set; } = string.Empty;
-        public uint group_create_time { get; set; }
-        public uint group_level { get; set; }
-        public int member_count { get; set; }
-        public int max_member_count { get; set; }
+        public long group_id { get; }
+        public string group_name { get; } = string.Empty;
+        public string group_memo { get;  } = string.Empty;
+        public uint group_create_time { get; }
+        public uint group_level { get; }
+        public int member_count { get; }
+        public int max_member_count { get; }
     }
 }

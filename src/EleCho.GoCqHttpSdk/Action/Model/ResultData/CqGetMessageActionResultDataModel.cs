@@ -18,12 +18,12 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.raw_message = raw_message;
         }
 
-        public bool group { get; set; }
-        public long message_id { get; set; }
-        public int real_id { get; set; }
-        public CqMessageSenderModel sender { get; set; }
-        public int time { get; set; }
-        public CqMsgModel[] message { get; set; }
-        public string raw_message { get; set; }
+        public bool group { get; }
+        public long message_id { get; }
+        public int real_id { get; }
+        public CqMessageSenderModel sender { get; }
+        public int time { get; }
+        public CqMsgModel[] message { get; }
+        public string raw_message { get; }
     }
 }

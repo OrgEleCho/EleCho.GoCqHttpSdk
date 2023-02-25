@@ -27,7 +27,7 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群文件
         /// </summary>
-        public CqGroupFile File { get; set; } = new CqGroupFile();
+        public CqGroupUploadedFile File { get; set; } = new CqGroupUploadedFile();
         
         internal CqGroupFileUploadedPostContext() { }
 
@@ -41,7 +41,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
             GroupId = msgModel.group_id;
             UserId = msgModel.user_id;
-            File = new CqGroupFile(msgModel.file);
+            File = new CqGroupUploadedFile(msgModel.file);
         }
     }
 }

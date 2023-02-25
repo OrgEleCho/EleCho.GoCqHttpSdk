@@ -1,5 +1,7 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
+using System.Text.Json.Serialization;
+
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
     internal class CqBanGroupAllMembersActionParamsModel : CqActionParamsModel

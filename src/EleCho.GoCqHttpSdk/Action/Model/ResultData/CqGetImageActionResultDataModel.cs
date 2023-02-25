@@ -12,8 +12,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.url = url;
         }
 
-        public int size { get; set; }
-        public string filename { get; set; }
-        public string url { get; set; }
+        public int size { get; }
+        public string filename { get; }
+        public string url { get; }
     }
 }

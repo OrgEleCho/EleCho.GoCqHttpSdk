@@ -11,6 +11,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.messages = messages;
         }
 
-        public CqForwardMsgNodeDataModel[] messages { get; set; }
+        public CqForwardMsgNodeDataModel[] messages { get; }
     }
 }

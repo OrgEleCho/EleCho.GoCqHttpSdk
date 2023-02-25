@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqGetCsrfTokenActionResultDataModel : CqActionResultDataModel
     {
-        public int token { get; set; }
+        public int token { get; }
 
         [JsonConstructor]
         public CqGetCsrfTokenActionResultDataModel(int token)

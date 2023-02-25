@@ -166,6 +166,27 @@ namespace EleCho.GoCqHttpSdk
         public static Task<CqOcrImageActionResult?> OcrImageAsync(this ICqActionSession session, string image)
             => session.InvokeActionAsync<CqOcrImageAction, CqOcrImageActionResult>(new CqOcrImageAction(image));
 
+
+        public static Task<CqUploadGroupFileActionResult?> UploadGroupFileAsync(this ICqActionSession session, long groupId, string file, string name, string folder)
+            => session.InvokeActionAsync<CqUploadGroupFileAction, CqUploadGroupFileActionResult>(new CqUploadGroupFileAction(groupId, file, name, folder));
+        public static Task<CqUploadGroupFileActionResult?> UploadGroupFileAsync(this ICqActionSession session, long groupId, string file, string name)
+            => session.InvokeActionAsync<CqUploadGroupFileAction, CqUploadGroupFileActionResult>(new CqUploadGroupFileAction(groupId, file, name));
+
+        public static Task<CqDeleteGroupFileActionResult?> DeleteGroupFileAsync(this ICqActionSession session, long groupId, string fileId, int busid)
+            => session.InvokeActionAsync<CqDeleteGroupFileAction, CqDeleteGroupFileActionResult>(new CqDeleteGroupFileAction(groupId, fileId, busid));
+        public static Task<CqCreateGroupFolderActionResult?> CreateGroupFolderAsync(this ICqActionSession session, long groupId, string name)
+            => session.InvokeActionAsync<CqCreateGroupFolderAction, CqCreateGroupFolderActionResult>(new CqCreateGroupFolderAction(groupId, name));
+        public static Task<CqDeleteGroupFolderActionResult?> DeleteGroupFolderAsync(this ICqActionSession session, long groupId, string folderId)
+            => session.InvokeActionAsync<CqDeleteGroupFolderAction, CqDeleteGroupFolderActionResult>(new CqDeleteGroupFolderAction(groupId, folderId));
+        public static Task<CqGetGroupFileSystemInformationActionResult?> GetGroupFileSystemInformationAsync(this ICqActionSession session, long groupId)
+            => session.InvokeActionAsync<CqGetGroupFileSystemInformationAction, CqGetGroupFileSystemInformationActionResult>(new CqGetGroupFileSystemInformationAction(groupId));
+        public static Task<CqGetGroupRootFilesActionResult?> GetGroupRootFilesAsync(this ICqActionSession session, long groupId)
+            => session.InvokeActionAsync<CqGetGroupRootFilesAction, CqGetGroupRootFilesActionResult>(new CqGetGroupRootFilesAction(groupId));
+        public static Task<CqGetGroupFilesByFolderActionResult?> GetGroupFilesByFolderAsync(this ICqActionSession session, long groupId, string folderId)
+            => session.InvokeActionAsync<CqGetGroupFilesByFolderAction, CqGetGroupFilesByFolderActionResult>(new CqGetGroupFilesByFolderAction(groupId, folderId));
+
+
+
         #endregion
 
 
@@ -314,6 +335,25 @@ namespace EleCho.GoCqHttpSdk
             => GetWordSlicesAsync(session, content).Result;
         public static CqOcrImageActionResult? OcrImage(this ICqActionSession session, string image)
             => OcrImageAsync(session, image).Result;
+
+
+        public static CqUploadGroupFileActionResult? UploadGroupFile(this ICqActionSession session, long groupId, string file, string name, string folder)
+            => UploadGroupFileAsync(session, groupId, file, name, folder).Result;
+        public static CqUploadGroupFileActionResult? UploadGroupFile(this ICqActionSession session, long groupId, string file, string name)
+            => UploadGroupFileAsync(session, groupId, file, name).Result;
+        public static CqDeleteGroupFileActionResult? DeleteGroupFile(this ICqActionSession session, long groupId, string fileId, int busid)
+            => DeleteGroupFileAsync(session, groupId, fileId, busid).Result;
+        public static CqCreateGroupFolderActionResult? CreateGroupFolder(this ICqActionSession session, long groupId, string name)
+            => CreateGroupFolderAsync(session, groupId, name).Result;
+        public static CqDeleteGroupFolderActionResult? DeleteGroupFolder(this ICqActionSession session, long groupId, string folderId)
+            => DeleteGroupFolderAsync(session, groupId, folderId).Result;
+        public static CqGetGroupFileSystemInformationActionResult? GetGroupFileSystemInformation(this ICqActionSession session, long groupId)
+            => GetGroupFileSystemInformationAsync(session, groupId).Result;
+        public static CqGetGroupRootFilesActionResult? GetGroupRootFiles(this ICqActionSession session, long groupId)
+            => GetGroupRootFilesAsync(session, groupId).Result;
+        public static CqGetGroupFilesByFolderActionResult? GetGroupFilesByFolder(this ICqActionSession session, long groupId, string folderId)
+            => GetGroupFilesByFolderAsync(session, groupId, folderId).Result;
+
         #endregion
     }
 }

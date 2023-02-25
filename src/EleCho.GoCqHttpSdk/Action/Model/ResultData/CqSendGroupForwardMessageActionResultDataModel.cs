@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.forward_id = forward_id;
         }
 
-        public long message_id { get; set; }
-        public string forward_id { get; set; }
+        public long message_id { get; }
+        public string forward_id { get; }
     }
 }

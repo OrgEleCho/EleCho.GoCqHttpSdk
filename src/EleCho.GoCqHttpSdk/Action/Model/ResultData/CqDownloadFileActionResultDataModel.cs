@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
     internal class CqDownloadFileActionResultDataModel : CqActionResultDataModel
     {
-        public string file { get; set; } = string.Empty;
+        public string file { get; }
 
         [JsonConstructor]
         public CqDownloadFileActionResultDataModel(string file)

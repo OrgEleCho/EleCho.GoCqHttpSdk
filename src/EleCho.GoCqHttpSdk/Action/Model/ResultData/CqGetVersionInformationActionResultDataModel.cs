@@ -28,24 +28,24 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.protocol = protocol;
         }
 
-        public string app_name { get; set; }
-        public string app_version { get; set; }
-        public string app_full_name { get; set; }
-        public string protocol_version { get; set; }
-        public string coolq_edition { get; set; }
-        public string coolq_directory { get; set; }
+        public string app_name { get; }
+        public string app_version { get; }
+        public string app_full_name { get; }
+        public string protocol_version { get; }
+        public string coolq_edition { get; }
+        public string coolq_directory { get; }
 
         [JsonPropertyName("go-cqhttp")]
-        public bool go_cqhttp { get; set; }
+        public bool go_cqhttp { get; }
 
-        public string plugin_version { get; set; }
-        public int plugin_build_number { get; set; }
-        public string plugin_build_configuration { get; set; }
+        public string plugin_version { get; }
+        public int plugin_build_number { get; }
+        public string plugin_build_configuration { get; }
 
-        public string runtime_version { get; set; }
-        public string runtime_os { get; set; }
+        public string runtime_version { get; }
+        public string runtime_os { get; }
 
-        public string version { get; set; }
-        public int protocol { get; set; }
+        public string version { get; }
+        public int protocol { get; }
     }
 }

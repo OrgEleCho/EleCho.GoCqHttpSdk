@@ -109,6 +109,15 @@ namespace EleCho.GoCqHttpSdk.Action
                 GetWordSlices => new CqGetWordSlicesActionResult(),
                 OcrImage => new CqOcrImageActionResult(),
 
+                UploadGroupFile => new CqUploadGroupFileActionResult(),
+                DeleteGroupFile => new CqDeleteGroupFileActionResult(),
+                CreateGroupFileFolder => new CqCreateGroupFolderActionResult(),
+                DeleteGroupFolder => new CqDeleteGroupFolderActionResult(),
+                GetGroupFileSystemInfo => new CqGetGroupFileSystemInformationActionResult(),
+                GetGroupRootFiles => new CqGetGroupRootFilesActionResult(),
+                GetGroupFilesByFolder => new CqGetGroupFilesByFolderActionResult(),
+
+
                 _ => throw new NotImplementedException()
             };
         }

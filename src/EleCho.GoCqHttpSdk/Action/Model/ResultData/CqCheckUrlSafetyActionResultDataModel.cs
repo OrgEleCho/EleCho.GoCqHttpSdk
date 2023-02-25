@@ -14,6 +14,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
         {
         }
 
-        public int level { get; set; }
+        public int level { get; }
     }
 }

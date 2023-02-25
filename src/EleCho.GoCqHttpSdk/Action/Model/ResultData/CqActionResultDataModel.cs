@@ -83,6 +83,14 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 GetWordSlices => dataValue.Deserialize<CqGetWordSlicesActionResultDataModel>(JsonHelper.Options),
                 OcrImage => dataValue.Deserialize<CqOcrImageActionResultDataModel>(JsonHelper.Options),
 
+                UploadGroupFile => dataValue.Deserialize<CqUploadGroupFileActionResultDataModel>(JsonHelper.Options),
+                DeleteGroupFile => dataValue.Deserialize<CqDeleteGroupFileActionResultDataModel>(JsonHelper.Options),
+                CreateGroupFileFolder => dataValue.Deserialize<CqCreateGroupFolderActionResultDataModel>(JsonHelper.Options),
+                DeleteGroupFolder => dataValue.Deserialize<CqDeleteGroupFolderActionResultDataModel>(JsonHelper.Options),
+                GetGroupFileSystemInfo => dataValue.Deserialize<CqGetGroupFileSystemInformationActionResultDataModel>(JsonHelper.Options),
+                GetGroupRootFiles => dataValue.Deserialize<CqGetGroupRootFilesActionResultDataModel>(JsonHelper.Options),
+                GetGroupFilesByFolder => dataValue.Deserialize<CqGetGroupFilesByFolderActionResultDataModel>(JsonHelper.Options),
+
                 _ => throw new NotImplementedException()
             };
         }

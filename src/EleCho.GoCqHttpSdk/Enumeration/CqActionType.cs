@@ -53,5 +53,13 @@
         ReloadEventFilter,
         GetWordSlices,
         OcrImage,
+        UploadGroupFile,
+        DeleteGroupFile,
+        CreateGroupFolder,
+        DeleteGroupFolder,
+        GetGroupFileSystemInformation,
+        GetGroupRootFiles,
+        GetGroupFilesByFolder,
+        GetGroupFileUrl,
     }
 }

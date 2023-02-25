@@ -181,6 +181,14 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.GetWordSlices => GetWordSlices,
                 CqActionType.OcrImage => OcrImage,
 
+                CqActionType.UploadGroupFile => UploadGroupFile,
+                CqActionType.DeleteGroupFile => DeleteGroupFile,
+                CqActionType.CreateGroupFolder => CreateGroupFileFolder,
+                CqActionType.DeleteGroupFolder => DeleteGroupFolder,
+                CqActionType.GetGroupFileSystemInformation => GetGroupFileSystemInfo,
+                CqActionType.GetGroupRootFiles => GetGroupRootFiles,
+                CqActionType.GetGroupFilesByFolder => GetGroupFilesByFolder,
+
                 _ => throw new ArgumentException($"Unknown Action type: {type}")
             };
         }

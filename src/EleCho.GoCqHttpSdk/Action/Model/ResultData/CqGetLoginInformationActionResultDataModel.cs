@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.nickname = nickname;
         }
 
-        public long user_id { get; set; }
-        public string nickname { get; set; }
+        public long user_id { get; }
+        public string nickname { get; }
     }
 }

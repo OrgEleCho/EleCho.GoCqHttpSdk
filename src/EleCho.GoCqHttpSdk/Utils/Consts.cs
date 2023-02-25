@@ -133,6 +133,15 @@
 
             public const string GetWordSlices = ".get_word_slices";
             public const string OcrImage = "ocr_image";
+
+            public const string UploadGroupFile = "upload_group_file";
+            public const string DeleteGroupFile = "delete_group_file";
+            public const string CreateGroupFileFolder = "create_group_file_folder";
+            public const string DeleteGroupFolder = "delete_group_folder";
+            public const string GetGroupFileSystemInfo = "get_group_file_system_info";
+            public const string GetGroupRootFiles = "get_group_root_files";
+            public const string GetGroupFilesByFolder = "get_group_files_by_folder";
+
         }
 
         public static class NoticeType

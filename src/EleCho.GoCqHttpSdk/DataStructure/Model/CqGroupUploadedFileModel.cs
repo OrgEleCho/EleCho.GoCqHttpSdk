@@ -4,10 +4,10 @@
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
 {
-    internal record class CqGroupFileModel
+    internal record class CqGroupUploadedFileModel
     {
         [JsonConstructor]
-        public CqGroupFileModel(string id, string name, long size, long busid)
+        public CqGroupUploadedFileModel(string id, string name, long size, long busid)
         {
             this.id = id;
             this.name = name;

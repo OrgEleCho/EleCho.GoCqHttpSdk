@@ -15,6 +15,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.cookies = cookies;
         }
 
-        public string cookies { get; set; } = string.Empty;
+        public string cookies { get; }
     }
 }

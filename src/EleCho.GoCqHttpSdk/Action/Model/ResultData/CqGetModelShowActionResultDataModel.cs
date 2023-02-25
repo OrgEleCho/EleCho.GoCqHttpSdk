@@ -11,6 +11,6 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.variants = variants;
         }
 
-        public CqModelShowVariantModel[] variants { get; set; }
+        public CqModelShowVariantModel[] variants { get; }
     }
 }

@@ -17,9 +17,9 @@ namespace EleCho.GoCqHttpSdk.Message
         }
 
         public string Data { get; set; } = string.Empty;
-        public int ResId { get; set; }
+        public int? ResId { get; set; }
 
-        internal override CqMsgDataModel? GetDataModel() => new CqXmlMsgDataModel(Data, ResId.ToString());
+        internal override CqMsgDataModel? GetDataModel() => new CqXmlMsgDataModel(Data, ResId?.ToString());
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {
@@ -29,8 +29,9 @@ namespace EleCho.GoCqHttpSdk.Message
 
             Data = m.data;
 
-            if (m.resid != null)
-                ResId = int.Parse(m.resid);
+            if (!string.IsNullOrWhiteSpace(m.resid) &&
+                int.TryParse(m.resid, out int _resid))
+                ResId = _resid;
         }
     }
 }
