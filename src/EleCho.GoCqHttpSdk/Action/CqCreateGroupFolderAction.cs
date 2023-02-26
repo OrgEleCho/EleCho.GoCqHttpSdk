@@ -41,7 +41,7 @@ namespace EleCho.GoCqHttpSdk.Action
 
         internal override CqActionParamsModel GetParamsModel()
         {
-            return new CqCreateGroupFolderParamsModel(GroupId, Name, Parent);
+            return new CqCreateGroupFolderActionParamsModel(GroupId, Name, Parent);
         }
     }
 }

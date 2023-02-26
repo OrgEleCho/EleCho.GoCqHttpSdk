@@ -142,6 +142,7 @@
             public const string GetGroupRootFiles = "get_group_root_files";
             public const string GetGroupFilesByFolder = "get_group_files_by_folder";
             public const string UploadPrivateFile = "upload_private_file";
+            public const string GetGroupFileUrl = "get_group_file_url";
 
         }
 

@@ -7,6 +7,6 @@
             this.file = file;
         }
 
-        public string file { get; set; }
+        public string file { get; }
     }
 }

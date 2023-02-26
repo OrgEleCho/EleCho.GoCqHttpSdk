@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
-    internal class CqMarkMessageAsReadResultDataModel : CqActionResultDataModel
+    internal class CqMarkMessageAsReadActionResultDataModel : CqActionResultDataModel
     {
     }
 }

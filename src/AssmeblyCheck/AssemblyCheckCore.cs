@@ -34,6 +34,8 @@ namespace AssemblyCheck
 
             foreach (var action in cqActionTypes)
             {
+                if (!action.Name.EndsWith("Action"))
+                    throw new Exception($"{action.FullName} 名称不是 Action 结尾");
                 if (!action.IsPublic)
                     throw new Exception($"{action.FullName} 不是 public");
                 foreach (var prop in action.GetProperties())
@@ -45,6 +47,8 @@ namespace AssemblyCheck
 
             foreach (var actionParamsModel in cqActionParamsModelTypes)
             {
+                if (!actionParamsModel.Name.EndsWith("ActionParamsModel"))
+                    throw new Exception($"{actionParamsModel.FullName} 不是 ActionParamsModel 结尾");
                 if (actionParamsModel.IsPublic)
                     throw new Exception($"{actionParamsModel.FullName} 是 public");
                 foreach (var prop in actionParamsModel.GetProperties())
@@ -56,6 +60,8 @@ namespace AssemblyCheck
 
             foreach (var actionResult in cqActionResultTypes)
             {
+                if (!actionResult.Name.EndsWith("ActionResult"))
+                    throw new Exception($"{actionResult.FullName} 不是 ActionResult 结尾");
                 if (!actionResult.IsPublic)
                     throw new Exception($"{actionResult.FullName} 不是 public");
                 if (actionResult.GetConstructors().Length > 0)
@@ -71,6 +77,8 @@ namespace AssemblyCheck
 
             foreach (var actionResultDataModel in cqActionResultDataModelTypes)
             {
+                if (!actionResultDataModel.Name.EndsWith("ActionResultDataModel"))
+                    throw new Exception($"{actionResultDataModel.FullName} 不是 ActionResultDataModel 后缀");
                 if (actionResultDataModel.IsPublic)
                     throw new Exception($"{actionResultDataModel.FullName} 是 public");
                 if (actionResultDataModel.Namespace?.StartsWith("EleCho.GoCqHttpSdk.Action.Result") ?? throw new Exception($"怪了, {actionResultDataModel} 没命名空间"))

@@ -13,9 +13,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.busid = busid;
         }
 
-        public long group_id { get; set; }
-        public string file_id { get; set; }
+        public long group_id { get; }
+        public string file_id { get; }
 
-        public int busid { get; set; }
+        public int busid { get; }
     }
 }

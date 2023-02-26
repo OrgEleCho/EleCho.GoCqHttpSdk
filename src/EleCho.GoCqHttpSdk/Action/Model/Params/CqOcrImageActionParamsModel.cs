@@ -4,7 +4,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
     internal class CqOcrImageActionParamsModel : CqActionParamsModel
     {
-        public string image { get; set; }
+        public string image { get; }
 
         public CqOcrImageActionParamsModel(string image)
         {

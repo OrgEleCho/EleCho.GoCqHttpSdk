@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -109,6 +110,34 @@ namespace AssemblyCheck
                 return;
 
             await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(string.Join(", ", slices.Slices)));
+        }
+
+        [CqMessageMatch("^testFile (?<name>.*)")]
+        public async Task TestFile(CqMessagePostContext context, string name)
+        {
+            var testContent =
+                $"""
+                现在时间: {DateTime.Now};
+                随机 GUID: {Guid.NewGuid()}
+                """;
+
+            FileInfo fileInfo = new FileInfo(name);
+
+            using (var file = fileInfo.OpenWrite())
+            {
+                using var writer = new StreamWriter(file);
+
+                await writer.WriteAsync(testContent);
+            }
+
+            if (context is CqGroupMessagePostContext groupContext)
+            {
+                await ActionSession.UploadGroupFileAsync(groupContext.GroupId, fileInfo.FullName, name);
+            }
+            else if (context is CqPrivateMessagePostContext privateContext)
+            {
+                await ActionSession.UploadPrivateFileAsync(privateContext.UserId, fileInfo.FullName, name);
+            }
         }
     }
 

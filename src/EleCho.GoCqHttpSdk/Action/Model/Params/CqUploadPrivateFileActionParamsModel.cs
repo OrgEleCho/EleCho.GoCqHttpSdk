@@ -12,8 +12,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.name = name;
         }
 
-        public long user_id { get; set; }
-        public string file { get; set; }
-        public string name { get; set; }
+        public long user_id { get; }
+        public string file { get; }
+        public string name { get; }
     }
 }

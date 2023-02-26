@@ -45,7 +45,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 SetFriendAddRequest => dataValue.Deserialize<CqHandleFriendRequestActionResultDataModel>(JsonHelper.Options),
                 SetGroupAddRequest => dataValue.Deserialize<CqHandleGroupRequestActionResultDataModel>(JsonHelper.Options),
 
-                MarkMsgAsRead => dataValue.Deserialize<CqMarkMessageAsReadResultDataModel>(JsonHelper.Options),
+                MarkMsgAsRead => dataValue.Deserialize<CqMarkMessageAsReadActionResultDataModel>(JsonHelper.Options),
                 SetGroupAdmin => dataValue.Deserialize<CqSetGroupAdministratorActionResultDataModel>(JsonHelper.Options),
                 SetGroupAnonymous => dataValue.Deserialize<CqSetGroupAnonymousActionResultDataModel>(JsonHelper.Options),
                 SetGroupCard => dataValue.Deserialize<CqSetGroupNicknameActionResultDataModel>(JsonHelper.Options),
@@ -91,6 +91,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
                 GetGroupFileSystemInfo => dataValue.Deserialize<CqGetGroupFileSystemInformationActionResultDataModel>(JsonHelper.Options),
                 GetGroupRootFiles => dataValue.Deserialize<CqGetGroupRootFilesActionResultDataModel>(JsonHelper.Options),
                 GetGroupFilesByFolder => dataValue.Deserialize<CqGetGroupFilesByFolderActionResultDataModel>(JsonHelper.Options),
+                GetGroupFileUrl => dataValue.Deserialize<CqGetGroupFileUrlActionResultDataModel>(JsonHelper.Options),
 
                 _ => throw new NotImplementedException()
             };

@@ -4,18 +4,18 @@ using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.Params
 {
-    internal class CqCreateGroupFolderParamsModel : CqActionParamsModel
+    internal class CqCreateGroupFolderActionParamsModel : CqActionParamsModel
     {
         [JsonConstructor]
-        public CqCreateGroupFolderParamsModel(long group_id, string name, string parent_id)
+        public CqCreateGroupFolderActionParamsModel(long group_id, string name, string parent_id)
         {
             this.group_id = group_id;
             this.name = name;
             this.parent_id = parent_id;
         }
 
-        public long group_id { get; set; }
-        public string name { get; set; }
-        public string parent_id { get; set; }
+        public long group_id { get; }
+        public string name { get; }
+        public string parent_id { get; }
     }
 }

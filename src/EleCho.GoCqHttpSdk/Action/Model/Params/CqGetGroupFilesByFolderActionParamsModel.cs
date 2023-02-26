@@ -11,7 +11,7 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.folder_id = folder_id;
         }
 
-        public long group_id { get; set; }
-        public string folder_id { get; set; }
+        public long group_id { get; }
+        public string folder_id { get; }
     }
 }

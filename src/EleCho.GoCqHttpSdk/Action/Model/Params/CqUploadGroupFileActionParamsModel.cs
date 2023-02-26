@@ -14,9 +14,9 @@ namespace EleCho.GoCqHttpSdk.Action.Model.Params
             this.folder = folder;
         }
 
-        public long group_id { get; set; }
-        public string file { get; set; } = string.Empty;
-        public string name { get; set; } = string.Empty;
-        public string? folder { get; set; } = string.Empty;
+        public long group_id { get; }
+        public string file { get; } = string.Empty;
+        public string name { get; } = string.Empty;
+        public string? folder { get; } = string.Empty;
     }
 }

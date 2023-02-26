@@ -189,6 +189,7 @@ namespace EleCho.GoCqHttpSdk
                 CqActionType.GetGroupRootFiles => GetGroupRootFiles,
                 CqActionType.GetGroupFilesByFolder => GetGroupFilesByFolder,
                 CqActionType.UploadPrivateFile => UploadPrivateFile,
+                CqActionType.GetGroupFileUrl => GetGroupFileUrl,
 
                 _ => throw new ArgumentException($"Unknown Action type: {type}")
             };

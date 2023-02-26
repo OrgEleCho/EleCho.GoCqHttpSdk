@@ -14,22 +14,22 @@ namespace EleCho.GoCqHttpSdk.Action
         /// <summary>
         /// 文件总数
         /// </summary>
-        public int FileCount { get; set; }
+        public int FileCount { get; private set; }
 
         /// <summary>
         /// 文件上限
         /// </summary>
-        public int LimitCount { get; set; }
+        public int LimitCount { get; private set; }
 
         /// <summary>
         /// 已使用空间
         /// </summary>
-        public long UsedSpace { get; set; }
+        public long UsedSpace { get; private set; }
 
         /// <summary>
         /// 空间总量
         /// </summary>
-        public long TotalSpace { get; set; }
+        public long TotalSpace { get; private set; }
 
         internal override void ReadDataModel(CqActionResultDataModel? model)
         {
