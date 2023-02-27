@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Net.WebSockets;
 using System.Text.Json;
@@ -31,6 +32,7 @@ namespace EleCho.GoCqHttpSdk
 
         // 主循环线程
         private Task? mainLoopTask;
+        private Task? mainPostLoopTask;
         private Task? standaloneActionLoopTask;
 
         // 三个接入点的套接字
@@ -38,6 +40,8 @@ namespace EleCho.GoCqHttpSdk
 
         private WebSocket? apiWebSocket;
         private WebSocket? eventWebSocket;
+
+        private ConcurrentQueue<CqPostModel> postQueue;
 
         /// <summary>
         /// 已连接
@@ -96,6 +100,7 @@ namespace EleCho.GoCqHttpSdk
             // 初始化 action 发送器 和 post 管道
             actionSender = new CqWsActionSender(this, apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened"));
             postPipeline = new CqPostPipeline();
+            postQueue = new ConcurrentQueue<CqPostModel>();
         }
 
         internal CqWsSession(WebSocket remoteWebSocket, Uri baseUri, string? accessToken, int bufferSize)
@@ -108,21 +113,7 @@ namespace EleCho.GoCqHttpSdk
 
             actionSender = new CqWsActionSender(this, remoteWebSocket);
             postPipeline = new CqPostPipeline();
-        }
-
-        internal async Task ProcPostModelAsync(CqPostModel postModel)
-        {
-            CqPostContext? postContext = CqPostContext.FromModel(postModel);
-            postContext?.SetSession(this);
-
-            // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
-            if (postContext != null)
-            {
-                await postPipeline.ExecuteAsync(postContext);
-
-                // WebSocket 需要模拟 QuickAction
-                await actionSender.HandleQuickAction(postContext, postModel);
-            }
+            postQueue = new ConcurrentQueue<CqPostModel>();
         }
 
         /// <summary>
@@ -130,12 +121,12 @@ namespace EleCho.GoCqHttpSdk
         /// </summary>
         /// <param name="wsDataModel"></param>
         /// <returns></returns>
-        private async Task ProcWsDataAsync(CqWsDataModel? wsDataModel)
+        private void ProcWsDataAsync(CqWsDataModel? wsDataModel)
         {
             // 如果是 post 上报
             if (wsDataModel is CqPostModel postModel)
             {
-                await ProcPostModelAsync(postModel);
+                postQueue.Enqueue(postModel);
             }
             // 否则如果是 action 请求响应
             else if (wsDataModel is CqActionResultRaw actionResultRaw)
@@ -156,12 +147,10 @@ namespace EleCho.GoCqHttpSdk
             MemoryStream ms = new MemoryStream();
             while (!disposed)
             {
-                IsConnected = webSocket.State == WebSocketState.Open;
+                IsConnected &= webSocket.State == WebSocketState.Open;
 
                 if (!IsConnected)
-                {
                     return;
-                }
 
                 try
                 {
@@ -181,12 +170,16 @@ namespace EleCho.GoCqHttpSdk
                 try  // 直接捕捉 JSON 反序列化异常
                 {
 #endif
-                    // 反序列化为 WebSocket 数据 (自己抽的类
-                    string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
-                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(json, JsonHelper.Options);
+#if DEBUG
+                // 反序列化为 WebSocket 数据 (自己抽的类
+                string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
+#endif
+
+                    ms.Seek(0, SeekOrigin.Begin);
+                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(ms, JsonHelper.Options);
 
                     // 处理 WebSocket 数据
-                    await ProcWsDataAsync(wsDataModel);
+                    ProcWsDataAsync(wsDataModel);
 
 #if DEBUG
                 if (wsDataModel is not CqPostModel)
@@ -199,6 +192,34 @@ namespace EleCho.GoCqHttpSdk
                     // 忽略 JSON 反序列化异常
                 }
 #endif
+            }
+        }
+
+        private async Task PostProcLoop()
+        {
+            while (!disposed)
+            {
+                if (!IsConnected)
+                    return;
+
+                if (postQueue.TryDequeue(out var postModel))
+                {
+                    CqPostContext? postContext = CqPostContext.FromModel(postModel);
+                    postContext?.SetSession(this);
+
+                    // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
+                    if (postContext != null)
+                    {
+                        await postPipeline.ExecuteAsync(postContext);
+
+                        // WebSocket 需要模拟 QuickAction
+                        await actionSender.HandleQuickAction(postContext, postModel);
+                    }
+                }
+                else
+                {
+                    await Task.Delay(1);
+                }
             }
         }
 
@@ -283,6 +304,9 @@ namespace EleCho.GoCqHttpSdk
             // 当使用单独的 API 套接字的时候, 我们需要监听 API 套接字
             if (apiWebSocket != null)
                 standaloneActionLoopTask = WebSocketLoop(apiWebSocket);
+
+            // 单独线程处理上报
+            mainPostLoopTask = PostProcLoop();
         }
 
         /// <summary>
@@ -303,7 +327,7 @@ namespace EleCho.GoCqHttpSdk
             if (mainLoopTask == null)
                 throw new InvalidOperationException("Session is not started yet");
 
-            await mainLoopTask;
+            await Task.WhenAll(mainLoopTask, mainPostLoopTask);
         }
 
         /// <summary>
