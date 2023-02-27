@@ -23,56 +23,25 @@ namespace AssemblyCheck
     {
         public const int WebSocketPort = 5701;
 
+        static CqRHttpSession rHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
+        {
+            BaseUri = new Uri($"http://localhost:5701"),
+        });
+
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {
             BaseUri = new Uri($"ws://127.0.0.1:{WebSocketPort}"),
-            UseApiEndPoint = true,
-            UseEventEndPoint = true,
         });
 
         private static async Task Main(string[] args)
         {
-            Console.Write("OpenAI API Key:\n> ");
-            var apikey =
-                Console.ReadLine()!;
-
-            session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
-            session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
-            session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
-
-            session.UseGroupRequest(async context =>
-            {
-                await session.ApproveGroupRequestAsync(context.Flag, context.GroupRequestType);
-            });
-
             session.UseGroupMessage(async context =>
             {
-                Console.WriteLine($"{context.Sender.Nickname}: {context.Message.Text}");
-
-                if (context.Message.Text.StartsWith("ocr ", StringComparison.OrdinalIgnoreCase))
+                if (context.Message.Text.StartsWith("echo "))
                 {
-                    var img = context.Message.FirstOrDefault(x => x is CqImageMsg);
-                    if (img is CqImageMsg imgmsg)
-                    {
-                        var ocrrst =
-                            await session.OcrImageAsync(imgmsg.File);
-
-                        if (ocrrst == null)
-                            return;
-
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("OCR:");
-                        foreach (var txtdet in ocrrst.Texts)
-                            sb.AppendLine($"{txtdet.Text} Confidence:{txtdet.Confidence}");
-
-                        await session.SendGroupMessageAsync(context.GroupId, new CqMessage(sb.ToString()));
-                    }
+                    await session.SendGroupMessageAsync(context.GroupId, new CqMessage(context.Message.Text.Substring(5)));
                 }
 
-                if (context.Message.Text.EndsWith("..."))
-                {
-                    await session.SendGroupMessageAsync(context.GroupId, context.Message);
-                }
             });
 
             Console.WriteLine("OK");
