@@ -30,7 +30,7 @@ namespace EleCho.GoCqHttpSdk
         /// <summary>
         /// QQ 号
         /// </summary>
-        public long? QQ { get; private set; }
+        public long? UserId { get; private set; }
 
         /// <summary>
         /// 内容
@@ -53,20 +53,20 @@ namespace EleCho.GoCqHttpSdk
         public CqForwardMessageNode(string name, long qq, CqMessage content)
         {
             Name = name;
-            QQ = qq;
+            UserId = qq;
             Content = content;
         }
 
         public CqForwardMessageNode(string name, long qq, CqMessage content, CqMessage seq)
         {
             Name = name;
-            QQ = qq;
+            UserId = qq;
             Content = content;
             Seq = seq;
         }
 
         internal override CqMsgDataModel? GetDataModel() =>
-            new CqForwardMsgNodeDataModel(Id, Name, QQ,
+            new CqForwardMsgNodeDataModel(Id, Name, UserId,
                 Content?.Select(CqMsg.ToModel).ToArray(),
                 Seq?.Select(CqMsg.ToModel).ToArray());
 
@@ -78,7 +78,7 @@ namespace EleCho.GoCqHttpSdk
 
             Id = m.id;
             Name = m.name;
-            QQ = m.uin;
+            UserId = m.uin;
             Content = m.content == null ? null : new CqMessage(m.content.Select(CqMsg.FromModel));
             Seq = m.seq == null ? null : new CqMessage(m.seq.Select(CqMsg.FromModel));
         }

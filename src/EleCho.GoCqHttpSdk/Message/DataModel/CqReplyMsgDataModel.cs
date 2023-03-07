@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         public CqReplyMsgDataModel()
         { }
 
-        public CqReplyMsgDataModel(string id, string text, long qq, long time, long seq)
+        public CqReplyMsgDataModel(long id, string text, long qq, long time, long seq)
         {
             this.id = id;
             this.text = text;
@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
             this.seq = seq;
         }
 
-        public string id { get; set; }
+        public long id { get; set; }
         public string text { get; set; }
         public long qq { get; set; }
         public long time { get; set; }
@@ -26,8 +26,8 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         public static CqReplyMsgDataModel FromCqCode(CqCode code)
         {
             return new CqReplyMsgDataModel(
-                code.GetString(nameof(id))!,
-                code.GetString(nameof(text))!,
+                code.GetLong(nameof(id)).GetValueOrDefault(0),
+                code.GetString(nameof(text)) ?? string.Empty,
                 code.GetLong(nameof(qq)).GetValueOrDefault(0),
                 code.GetLong(nameof(time)).GetValueOrDefault(0),
                 code.GetLong(nameof(seq)).GetValueOrDefault(0));

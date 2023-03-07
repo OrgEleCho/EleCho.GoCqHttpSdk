@@ -23,11 +23,6 @@ namespace AssemblyCheck
     {
         public const int WebSocketPort = 5701;
 
-        static CqRHttpSession rHttpSession = new CqRHttpSession(new CqRHttpSessionOptions()
-        {
-            BaseUri = new Uri($"http://localhost:5701"),
-        });
-
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {
             BaseUri = new Uri($"ws://127.0.0.1:{WebSocketPort}"),
@@ -35,6 +30,14 @@ namespace AssemblyCheck
 
         private static async Task Main(string[] args)
         {
+            await Console.Out.WriteLineAsync("OpenAI API Key:");
+            string? apikey = Console.ReadLine();
+            if (apikey == null)
+                return;
+
+            if (!string.IsNullOrWhiteSpace(apikey))
+                session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
+
             session.UseGroupMessage(async context =>
             {
                 if (context.Message.Text.StartsWith("echo "))

@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk
             MessageSent = model.MessageSent;
             DisconnectTimes = model.DisconnectTimes;
             LostTimes = model.LostTimes;
-            LastMessageTime = UnixTime.DateFromUnix(model.LastMessageTime);
+            LastMessageTime = DateTimeOffset.FromUnixTimeSeconds(model.LastMessageTime).DateTime;
         }
 
         public CqStatusStatistics(ulong packetReceived,

@@ -324,7 +324,7 @@ namespace EleCho.GoCqHttpSdk
         /// <exception cref="InvalidOperationException">会话还没启动</exception>
         public async Task WaitForShutdownAsync()
         {
-            if (mainLoopTask == null)
+            if (mainLoopTask == null || mainPostLoopTask == null)
                 throw new InvalidOperationException("Session is not started yet");
 
             await Task.WhenAll(mainLoopTask, mainPostLoopTask);

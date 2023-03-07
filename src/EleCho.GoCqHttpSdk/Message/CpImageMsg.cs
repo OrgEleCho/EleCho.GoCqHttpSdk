@@ -59,7 +59,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
             File = m.file;
             ImageType = ImageTypeFromString(m.type);
-            ImageSubType = (CqImageSubType)int.Parse(m.subType ?? "normal");
+            ImageSubType = int.TryParse(m.subType, out int intsubtype) ? (CqImageSubType)intsubtype : CqImageSubType.Normal;
             Url = m.url;
             Cache = m.cache.ToBool();
             ImageEffect = (CqImageEffect?)m.id;

@@ -15,10 +15,10 @@ namespace EleCho.GoCqHttpSdk.Message
         public override string MsgType => Consts.MsgType.At;
 
         /// <summary>
-        /// 说明: @的 QQ 号, all 表示全体成员
+        /// 说明: @ 的目标 QQ 号, all 表示全体成员
         /// 可能的值: QQ 号, all
         /// </summary>
-        public long QQ { get; set; } = -1;
+        public long Target { get; set; } = -1;
 
         /// <summary>
         /// 名称
@@ -33,9 +33,9 @@ namespace EleCho.GoCqHttpSdk.Message
         internal CqAtMsg()
         { }
 
-        public CqAtMsg(long qq)
+        public CqAtMsg(long target)
         {
-            QQ = qq;
+            Target = target;
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace EleCho.GoCqHttpSdk.Message
                 throw new ArgumentException();
 
             if (long.TryParse(m.qq, out long _qq))
-                QQ = _qq;
+                Target = _qq;
             else if (m.qq.Equals("all", StringComparison.OrdinalIgnoreCase))
                 IsAtAll = true;
 
@@ -59,7 +59,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
         internal override CqMsgDataModel? GetDataModel()
         {
-            return new CqAtMsgDataModel(IsAtAll ? "all" : QQ.ToString(), Name);
+            return new CqAtMsgDataModel(IsAtAll ? "all" : Target.ToString(), Name);
         }
     }
 }

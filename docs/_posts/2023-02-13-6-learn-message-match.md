@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "6. 使用拓展的消息匹配插件"
+date:   2023-02-13 17:18:00 +0800
+categories: tutorial
+---
+
 在 CQ HTTP 中，除了提供了最基本的消息上报，你还可以通过 EleCho.GoCqHttpSdk.MessageMatching 来获得拓展的，基于正则匹配的消息上报处理。
 
 

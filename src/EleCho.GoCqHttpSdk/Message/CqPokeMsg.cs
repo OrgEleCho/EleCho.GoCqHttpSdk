@@ -4,18 +4,31 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// 拍一拍消息段
+    /// </summary>
     public record class CqPokeMsg : CqMsg
     {
+        /// <summary>
+        /// 消息类型: 拍一拍
+        /// </summary>
         public override string MsgType => Consts.MsgType.Poke;
 
-        public long QQ { get; set; }
+        /// <summary>
+        /// 目标用户 QQ
+        /// </summary>
+        public long Target { get; set; }
 
         internal CqPokeMsg()
         { }
 
-        public CqPokeMsg(long qq) => QQ = qq;
+        /// <summary>
+        /// 实例化拍一拍消息段
+        /// </summary>
+        /// <param name="target"></param>
+        public CqPokeMsg(long target) => Target = target;
 
-        internal override CqMsgDataModel? GetDataModel() => new CqPokeMsgDataModel(QQ);
+        internal override CqMsgDataModel? GetDataModel() => new CqPokeMsgDataModel(Target);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {
@@ -23,7 +36,7 @@ namespace EleCho.GoCqHttpSdk.Message
             if (m == null)
                 throw new ArgumentException();
 
-            QQ = m.qq;
+            Target = m.qq;
         }
     }
 }
