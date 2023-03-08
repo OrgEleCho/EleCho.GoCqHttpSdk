@@ -15,12 +15,11 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
     {
         private record struct MessageMatchMethod(MethodInfo Method, CqMessageMatchAttribute Attribute, Func<CqMessagePostContext, Match, Task> Action);
 
-        private List<MessageMatchMethod>? privateMessageMatchMethods;
-        private List<MessageMatchMethod>? groupMessageMatchMethods;
+        private List<MessageMatchMethod> privateMessageMatchMethods;
+        private List<MessageMatchMethod> groupMessageMatchMethods;
 
-        private void ScanMethods(out List<MessageMatchMethod> privateMessageMatchMethods, out List<MessageMatchMethod> groupMessageMatchMethods)
+        private void InitMethods(out List<MessageMatchMethod> privateMessageMatchMethods, out List<MessageMatchMethod> groupMessageMatchMethods)
         {
-            this.GetType();
             var methods = this.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
             privateMessageMatchMethods = new();
@@ -37,7 +36,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     var parameters = method.GetParameters();
 
                     if (method.ReturnType != typeof(void) && !typeof(Task).IsAssignableFrom(method.ReturnType))
-                        throw new ArgumentException($"返回类型不正确, 必须是 void 或可等待的 {nameof(Task)}");
+                        throw new InvalidOperationException($"方法 '{method.Name}' 的返回类型不正确, 必须是 void 或可等待的 {nameof(Task)}");
 
                     // 用户需要处理的消息类型
                     CqMessageType msgType = CqMessageType.Unknown;
@@ -55,7 +54,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             if (typeof(CqPrivateMessagePostContext).IsAssignableFrom(parameter.ParameterType))
                             {
                                 if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Private)
-                                    throw new ArgumentException($"方法参数类型不正确, 定义了多个不同的 {nameof(CqMessagePostContext)}");
+                                    throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 定义了多个不同的 {nameof(CqMessagePostContext)}");
 
                                 parameterGetters[i] = (context, match) => (CqPrivateMessagePostContext)context;
                                 msgType = CqMessageType.Private;
@@ -71,7 +70,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             }
                             else
                             {
-                                throw new ArgumentException($"方法参数类型不正确, 它应该是 {nameof(CqMessagePostContext)}, {nameof(CqPrivateMessagePostContext)}  或 {nameof(CqGroupMessagePostContext)}");
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 它应该是 {nameof(CqMessagePostContext)}, {nameof(CqPrivateMessagePostContext)}  或 {nameof(CqGroupMessagePostContext)}");
                             }
                         }
                         else if (parameter.ParameterType == typeof(Match))
@@ -85,9 +84,13 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         else if (parameter.ParameterType == typeof(string) && parameter.Name != null)
                         {
                             if (!regexGroupNames.Contains(parameter.Name))
-                                throw new ArgumentException("方法参数名不正确, 无法找到匹配的分组名");
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数名称不正确, 无法找到匹配的分组名");
 
                             parameterGetters[i] = (context, match) => match.Groups[parameter.Name].Value;
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数不是允许的类型, 必须是 {nameof(CqMessagePostContext)} 及其子类, {nameof(Match)}, {nameof(GroupCollection)}, 或者 {nameof(String)}");
                         }
                     }
 
@@ -123,6 +126,11 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
 
         public bool ExecuteNextWhenMatched { get; set; } = true;
 
+        public CqMessageMatchPostPlugin()
+        {
+            InitMethods(out privateMessageMatchMethods, out groupMessageMatchMethods);
+        }
+
         /// <summary>
         /// 执行消息匹配方法
         /// </summary>
@@ -131,9 +139,6 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         /// <returns>异步任务</returns>
         public async Task Execute(CqPostContext context, Func<Task> next)
         {
-            if (privateMessageMatchMethods == null || groupMessageMatchMethods == null)
-                ScanMethods(out privateMessageMatchMethods, out groupMessageMatchMethods);
-
             if (context is CqMessagePostContext msgContext)
             {
                 if (msgContext is CqPrivateMessagePostContext privateMsgContext)
