@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "4. 学习如何执行操作: 发送消息, 群组踢人"
+date:   2023-02-13 17:18:00 +0800
+categories: tutorial
+---
+
 在 Go-CqHttp 中，一个个的 API 被称作 ”Action“，也可以叫做 ”操作“
 
 

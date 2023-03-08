@@ -62,7 +62,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
         internal virtual void ReadModel(CqPostModel model)
         {
-            Time = UnixTime.DateFromUnix(model.time);
+            Time = DateTimeOffset.FromUnixTimeSeconds(model.time).DateTime;
             SelfId = model.self_id;
         }
 

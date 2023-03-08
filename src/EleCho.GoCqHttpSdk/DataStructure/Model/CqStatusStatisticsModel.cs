@@ -1,4 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Utils;
+using System;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
@@ -17,7 +18,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
             MessageSent = srcData.MessageSent;
             DisconnectTimes = srcData.DisconnectTimes;
             LostTimes = srcData.LostTimes;
-            LastMessageTime = UnixTime.DateToUnix(srcData.LastMessageTime);
+            LastMessageTime = new DateTimeOffset(srcData.LastMessageTime).ToUnixTimeSeconds();
         }
 
         [JsonConstructor]

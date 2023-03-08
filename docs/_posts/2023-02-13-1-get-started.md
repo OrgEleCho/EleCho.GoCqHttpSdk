@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "1. 快速开始"
+date:   2023-02-13 17:18:00 +0800
+categories: tutorial
+---
+
+
+
 简单来讲, Go-CqHttp 是一个 QQ 机器人框架, 如果我们要编写一个 QQ 机器人, 那么借助 Go-CqHttp 就可以非常简单的实现.
 
 

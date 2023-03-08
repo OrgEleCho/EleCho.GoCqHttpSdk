@@ -124,7 +124,7 @@ namespace AssemblyCheck
 
                 if (context.Sender.Role.HasFlag(CqRole.Admin))
                 {
-                    var rst = await apiSession.BanGroupMemberAsync(context.GroupId, cqMsg.QQ, TimeSpan.FromDays(10));
+                    var rst = await apiSession.BanGroupMemberAsync(context.GroupId, cqMsg.Target, TimeSpan.FromDays(10));
                 }
             }
 

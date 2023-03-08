@@ -58,7 +58,7 @@ namespace EleCho.GoCqHttpSdk.Action
                 MessageId = dataModel.message_id;
                 RealId = dataModel.real_id;
                 Sender = new CqMessageSender(dataModel.sender);
-                Time = UnixTime.DateFromUnix(dataModel.time);
+                Time = DateTimeOffset.FromUnixTimeSeconds(dataModel.time).DateTime;
                 Message = new CqMessage(dataModel.message.Select(CqMsg.FromModel));
                 RawMessage = dataModel.raw_message;
             }
