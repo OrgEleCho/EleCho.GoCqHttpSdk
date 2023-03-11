@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;netcoreapp3.1;netstandard2.0;net462</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.1</Version>
+    <Description>EleCho.GoCqHttpSdk 的指令执行拓展</Description>
+    <Copyright>Copyright (c) EleCho 2023</Copyright>
+    <RepositoryUrl>https://github.com/OrgEleCho/EleCho.GoCqHttpSdk</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageTags>Go-CqHttp;go-cqhttp;OneBot</PackageTags>
+    <PackageIcon>logo-rect.png</PackageIcon>
+    <PackageId>EleCho.GoCqHttpSdk.CommandExecuting</PackageId>
+    <Title>EleCho.GoCqHttpSdk 的指令执行拓展</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\logo-rect.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="./readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EleCho.CommandLine" Version="1.0.2" />
+    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -5,8 +5,10 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using EleCho.CommandLine;
 using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.CommandExecuting;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.MessageMatching;
 using EleCho.GoCqHttpSdk.Post;
@@ -35,7 +37,8 @@ namespace AssemblyCheck
             if (!string.IsNullOrWhiteSpace(apikey))
                 session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
 
-            session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
+            //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
+            session.UseCommandExecutePlugin(new MyCommandExecutePlugin());
 
             Console.WriteLine("OK");
             await session.RunAsync();
@@ -44,6 +47,15 @@ namespace AssemblyCheck
         private static void CheckAssemblyTypes(Assembly asm)
         {
 
+        }
+    }
+
+    class MyCommandExecutePlugin : CqCommandExecutePostPlugin
+    {
+        [Command]
+        public int Add(int a, int b)
+        {
+            return a + b;
         }
     }
 

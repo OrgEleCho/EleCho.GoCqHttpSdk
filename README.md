@@ -211,6 +211,51 @@ public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
 
 > 另外, `MessageMatching` 也提供了很多重载, 你可以选择适合你的使用
 
+### ⌨️ 指令执行
+
+使用 `EleCho.GoCqHttpSdk.CommandExecuting`, 你可以轻松实现机器人的指令功能, 下面是一个基本示例, 定义自己的命令执行插件:
+
+```csharp
+class MyCommandExecutePlugin : CqCommandExecutePostPlugin
+{
+    [Command]
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+```
+
+然后调用 session 的 `UseCommandExecutePlugin` 方法使用插件, 于是你的机器人就拥有了指令识别功能, 它可以识别群聊或私聊以 `/` 开头的指令.
+
+例如当有人发送 `/add 114000 514` 的时候, 上面的 `Add` 方法会被调用, `114000` 和 `514` 分别被传递到 `a` 和 `b` 参数中, 得到返回值 `114514`, 机器人会将这个结果发送出来.
+
+同时, 你可以使用 "选项", 例如以下的 `toUpper` 参数是一个可选的开关.
+
+```csharp
+class MyCommandExecutePlugin : CqCommandExecutePostPlugin
+{
+    [Command]
+    public string Echo(string text, bool toUpper)
+    {
+        if (toUpper)
+            text = text.ToUpper();
+        
+        return text;
+    }
+}
+```
+
+执行时会有以下效果:
+
+```
+/echo "hello world"
+hello world
+
+/echo --to-upper "hello world"
+HELLO WORLD
+```
+
 
 
 ### 📎 小提示
