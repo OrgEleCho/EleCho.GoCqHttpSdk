@@ -258,9 +258,9 @@ namespace EleCho.GoCqHttpSdk
             => GetStrangerInformationAsync(session, userId).Result;
         public static CqGetStrangerInformationActionResult? GetStrangerInformation(this ICqActionSession session, long userId, bool noCache)
             => GetStrangerInformationAsync(session, userId, noCache).Result;
-        public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, int groupId)
+        public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, long groupId)
             => GetGroupInformationAsync(session, groupId).Result;
-        public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, int groupId, bool noCache)
+        public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, long groupId, bool noCache)
             => GetGroupInformationAsync(session, groupId, noCache).Result;
         public static CqGetGroupMemberInformationActionResult? GetGroupMemberInformation(this ICqActionSession session, long groupId, long userId)
             => GetGroupMemberInformationAsync(session, groupId, userId).Result;
