@@ -48,7 +48,7 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <param name="msg"></param>
         public CqMessage(CqMsg msg) : this(1)
         {
-            this[0] = msg;
+            Add(msg);
         }
 
         /// <summary>
