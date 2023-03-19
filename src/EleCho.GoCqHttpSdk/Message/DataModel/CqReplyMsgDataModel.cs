@@ -8,20 +8,32 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         public CqReplyMsgDataModel()
         { }
 
-        public CqReplyMsgDataModel(long id, string text, long qq, long time, long seq)
+        public CqReplyMsgDataModel(long id)
         {
             this.id = id;
+        }
+
+        public CqReplyMsgDataModel(string text, long qq, long time, long seq)
+        {
             this.text = text;
             this.qq = qq;
             this.time = time;
             this.seq = seq;
         }
 
-        public long id { get; set; }
-        public string text { get; set; }
-        public long qq { get; set; }
-        public long time { get; set; }
-        public long seq { get; set; }
+        private CqReplyMsgDataModel(long id, string? text, long? qq, long? time, long seq) : this(id)
+        {
+            this.text = text;
+            this.qq = qq;
+            this.time = time;
+            this.seq = seq;
+        }
+
+        public long? id { get; set; }
+        public string? text { get; set; }
+        public long? qq { get; set; }
+        public long? time { get; set; }
+        public long? seq { get; set; }
 
         public static CqReplyMsgDataModel FromCqCode(CqCode code)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
@@ -37,25 +38,42 @@ namespace AssemblyCheck
             if (!string.IsNullOrWhiteSpace(apikey))
                 session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
 
+            session.UseGroupMessage(async context =>
+            {
+                if (context.Message.Text.Trim().Equals("qwq", StringComparison.OrdinalIgnoreCase))
+                    await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+                    {
+                        new CqReplyMsg(context.MessageId),
+                        new CqTextMsg("qwq")
+                    });
+            });
+
             //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
             session.UseCommandExecutePlugin(new MyCommandExecutePlugin());
 
             Console.WriteLine("OK");
             await session.RunAsync();
         }
-
-        private static void CheckAssemblyTypes(Assembly asm)
-        {
-
-        }
     }
 
     class MyCommandExecutePlugin : CqCommandExecutePostPlugin
     {
         [Command]
-        public int Add(int a, int b)
+        public double Add(double a, double b)
         {
             return a + b;
+        }
+
+        [Command]
+        public double Pow(double x, double y = 2)
+        {
+            return Math.Pow(x, y);
+        }
+
+        [Command]
+        public double Sum(params double[] nums)
+        {
+            return nums.Sum();
         }
     }
 
