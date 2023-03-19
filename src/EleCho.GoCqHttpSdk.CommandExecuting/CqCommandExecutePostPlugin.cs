@@ -10,11 +10,16 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
 {
     public abstract class CqCommandExecutePostPlugin : CommandLineApp
     {
+        /// <summary>
+        /// 命令处理前缀
+        /// </summary>
         public string Prefix { get; set; } = "/";
         public bool AtInvoker { get; set; } = true;
+        public bool ReplyInvoker { get; set; } = false;
         public bool IgnoreCases { get; set; } = true;
         public bool AllowGroupMessage { get; set; } = true;
         public bool AllowPrivateMessage { get; set; } = true;
+        public bool ExecuteNextWhenExecuted { get; set; } = false;
 
         private StringComparison GetStringComparison()
         {
@@ -23,58 +28,64 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
 
         public async Task Execute(CqPostContext context, Func<Task> next)
         {
-            if (AllowGroupMessage && context is CqGroupMessagePostContext groupContext)
+            if (context is CqMessagePostContext msgContext && msgContext.Message.Text.StartsWith(Prefix))
             {
-                string commandline = groupContext.Message.Text;
-                if (!commandline.StartsWith(Prefix))
-                    return;
+                string commandLine = 
+                    msgContext.Message.Text.Substring(Prefix.Length);
 
-                commandline = commandline.Substring(Prefix.Length);
-
-                try
+                if (AllowGroupMessage && context is CqGroupMessagePostContext groupContext)
                 {
-                    object? rst = 
-                        Execute(commandline, GetStringComparison());
-
-                    if (context.Session is ICqActionSession actionSession)
+                    try
                     {
-                        CqMessage response = new CqMessage($"{rst}");
+                        object? rst =
+                            Execute(commandLine, GetStringComparison());
 
-                        if (AtInvoker)
-                            response.WithHead(new CqAtMsg(groupContext.UserId));
+                        if (context.Session is ICqActionSession actionSession)
+                        {
+                            CqMessage response = new CqMessage($"{rst}");
 
-                        await actionSession.SendGroupMessageAsync(groupContext.GroupId, response);
+                            if (ReplyInvoker)
+                                response.WithHead(new CqReplyMsg(msgContext.MessageId));
+                            if (AtInvoker)
+                                response.WithHead(new CqAtMsg(groupContext.UserId));
+
+                            await actionSession.SendGroupMessageAsync(groupContext.GroupId, response);
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        await HandleExecutingException(context, exception);
                     }
                 }
-                catch (Exception exception)
+                else if (AllowPrivateMessage && context is CqPrivateMessagePostContext privateContext)
                 {
-                    await HandleExecutingException(context, exception);
+                    try
+                    {
+                        object? rst =
+                            Execute(commandLine, GetStringComparison());
+
+                        if (context.Session is ICqActionSession actionSession)
+                        {
+                            CqMessage response = new CqMessage($"{rst}");
+
+                            if (ReplyInvoker)
+                                response.WithHead(new CqReplyMsg(msgContext.MessageId));
+
+                            await actionSession.SendPrivateMessageAsync(privateContext.UserId, response);
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        await HandleExecutingException(context, exception);
+                    }
                 }
+
+                if (ExecuteNextWhenExecuted)
+                    await next.Invoke();
             }
-            else if (AllowPrivateMessage && context is CqPrivateMessagePostContext privateContext)
+            else
             {
-                string commandline = privateContext.Message.Text;
-                if (!commandline.StartsWith(Prefix))
-                    return;
-
-                commandline = commandline.Substring(Prefix.Length);
-
-                try
-                {
-                    object? rst =
-                        Execute(commandline, GetStringComparison());
-
-                    if (context.Session is ICqActionSession actionSession)
-                    {
-                        CqMessage response = new CqMessage($"{rst}");
-
-                        await actionSession.SendPrivateMessageAsync(privateContext.UserId, response);
-                    }
-                }
-                catch (Exception exception)
-                {
-                    await HandleExecutingException(context, exception);
-                }
+                await next.Invoke();
             }
         }
 
