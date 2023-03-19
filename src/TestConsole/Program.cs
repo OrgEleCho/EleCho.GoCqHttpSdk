@@ -49,7 +49,10 @@ namespace AssemblyCheck
             });
 
             //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
-            session.UseCommandExecutePlugin(new MyCommandExecutePlugin());
+            session.UseCommandExecutePlugin(new MyCommandExecutePlugin()
+            {
+                ReplyInvoker = true
+            });
 
             Console.WriteLine("OK");
             await session.RunAsync();
