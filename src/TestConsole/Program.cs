@@ -38,20 +38,48 @@ namespace AssemblyCheck
             if (!string.IsNullOrWhiteSpace(apikey))
                 session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
 
+            session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
+
             session.UseGroupMessage(async context =>
             {
-                if (context.Message.Text.Trim().Equals("qwq", StringComparison.OrdinalIgnoreCase))
+                string text = context.Message.Text.Trim();
+
+                if (text.Equals("qwq", StringComparison.OrdinalIgnoreCase))
                     await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
                     {
                         new CqReplyMsg(context.MessageId),
                         new CqTextMsg("qwq")
                     });
+
+                if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
+                    await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+                    {
+                        new CqRecordMsg(new Uri(@"C:\Users\slime\Documents\Sound Recordings\Recording (3).m4a")),
+                    });
+
+                if (text.StartsWith("#ban", StringComparison.OrdinalIgnoreCase))
+                {
+                    CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+
+                    if (at != null)
+                        await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.FromSeconds(30));
+                }
+
+
+                if (text.StartsWith("#unban", StringComparison.OrdinalIgnoreCase))
+                {
+                    CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+
+                    if (at != null)
+                        await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
+                }
             });
 
             //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
-            session.UseCommandExecutePlugin(new MyCommandExecutePlugin()
+            session.UseCommandExecutePlugin(new MyCommandExecutePlugin(session)
             {
-                ReplyInvoker = true
+                AtInvoker = true,
+                ReplyInvoker = true,
             });
 
             Console.WriteLine("OK");
@@ -61,6 +89,13 @@ namespace AssemblyCheck
 
     class MyCommandExecutePlugin : CqCommandExecutePostPlugin
     {
+        public MyCommandExecutePlugin(ICqActionSession actionSession)
+        {
+            ActionSession = actionSession;
+        }
+
+        public ICqActionSession ActionSession { get; }
+
         [Command]
         public double Add(double a, double b)
         {
@@ -105,6 +140,13 @@ namespace AssemblyCheck
                 return;
 
             await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(string.Join(", ", slices.Slices)));
+        }
+
+        [CqMessageMatch("^#face (?<content>.*)")]
+        public async Task Face(CqGroupMessagePostContext context, string content)
+        {
+            if (CqFaceMsg.FromName(content) is CqFaceMsg face)
+                await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(face));
         }
 
         [CqMessageMatch("^testFile (?<name>.*)")]

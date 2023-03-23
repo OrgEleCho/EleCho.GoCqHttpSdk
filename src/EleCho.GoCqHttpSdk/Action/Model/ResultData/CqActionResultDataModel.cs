@@ -31,6 +31,8 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 
                 GetFriendList => dataValue.Deserialize<CqGetFriendListActionResultDataModel>(JsonHelper.Options),
                 GetGroupList => dataValue.Deserialize<CqGetGroupListActionResultDataModel>(JsonHelper.Options),
+                GetGroupMemberList => dataValue.Deserialize<CqGetGroupMemberListActionResultDataModel>(JsonHelper.Options),
+
 
                 GetLoginInfo => dataValue.Deserialize<CqGetLoginInformationActionResultDataModel>(JsonHelper.Options),
                 GetStrangerInfo => dataValue.Deserialize<CqGetStrangerInformationActionResultDataModel>(JsonHelper.Options),

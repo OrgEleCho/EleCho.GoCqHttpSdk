@@ -17,7 +17,7 @@ namespace EleCho.GoCqHttpSdk.Utils
         {
             return new JsonSerializerOptions()
             {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =
@@ -55,7 +55,7 @@ namespace EleCho.GoCqHttpSdk.Utils
             return new JsonSerializerOptions()
             {
                 WriteIndented = true,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                 Converters =

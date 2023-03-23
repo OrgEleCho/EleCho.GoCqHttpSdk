@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
         public bool IgnoreCases { get; set; } = true;
         public bool AllowGroupMessage { get; set; } = true;
         public bool AllowPrivateMessage { get; set; } = true;
-        public bool ExecuteNextWhenExecuted { get; set; } = false;
+        public bool ExecuteNextWhenExecuted { get; set; } = true;
 
         private StringComparison GetStringComparison()
         {
@@ -30,7 +30,7 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
         {
             if (context is CqMessagePostContext msgContext && msgContext.Message.Text.StartsWith(Prefix))
             {
-                string commandLine = 
+                string commandLine =
                     msgContext.Message.Text.Substring(Prefix.Length);
 
                 if (AllowGroupMessage && context is CqGroupMessagePostContext groupContext)
@@ -45,9 +45,25 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
                             CqMessage response = new CqMessage($"{rst}");
 
                             if (ReplyInvoker)
-                                response.WithHead(new CqReplyMsg(msgContext.MessageId));
-                            if (AtInvoker)
-                                response.WithHead(new CqAtMsg(groupContext.UserId));
+                            {
+                                if (AtInvoker)
+                                {
+                                    response.WithHead(new CqAtMsg(groupContext.UserId));
+                                    response.WithHead(new CqTextMsg(" "));
+                                    response.WithHead(new CqReplyMsg(msgContext.MessageId));
+                                }
+                                else
+                                {
+                                    response.WithHead(new CqReplyMsg(msgContext.MessageId));
+                                }
+                            }
+                            else
+                            {
+                                if (AtInvoker)
+                                {
+                                    response.WithHead(new CqAtMsg(groupContext.UserId));
+                                }
+                            }
 
                             await actionSession.SendGroupMessageAsync(groupContext.GroupId, response);
                         }

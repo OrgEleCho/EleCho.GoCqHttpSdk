@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EleCho.GoCqHttpSdk.CommandExecuting\EleCho.GoCqHttpSdk.CommandExecuting.csproj" />
     <ProjectReference Include="..\EleCho.GoCqHttpSdk.MessageMatching\EleCho.GoCqHttpSdk.MessageMatching.csproj" />
+    <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 
   <ItemGroup>

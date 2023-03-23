@@ -71,6 +71,7 @@
 
             public const string GetFriendList = "get_friend_list";
             public const string GetGroupList = "get_group_list";
+            public const string GetGroupMemberList = "get_group_member_list";
 
 
             public const string GetLoginInfo = "get_login_info";

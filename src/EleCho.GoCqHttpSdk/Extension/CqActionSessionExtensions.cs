@@ -120,6 +120,12 @@ namespace EleCho.GoCqHttpSdk
             => session.InvokeActionAsync<CqGetFriendListAction, CqGetFriendListActionResult>(new CqGetFriendListAction());
         public static Task<CqGetGroupListActionResult?> GetGroupListAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetGroupListAction, CqGetGroupListActionResult>(new CqGetGroupListAction());
+        public static Task<CqGetGroupListActionResult?> GetGroupListAsync(this ICqActionSession session, bool noCache)
+            => session.InvokeActionAsync<CqGetGroupListAction, CqGetGroupListActionResult>(new CqGetGroupListAction(noCache));
+        public static Task<CqGetGroupMemberListActionResult?> GetGroupMemberListAsync(this ICqActionSession session, long groupId)
+            => session.InvokeActionAsync<CqGetGroupMemberListAction, CqGetGroupMemberListActionResult>(new CqGetGroupMemberListAction(groupId));
+        public static Task<CqGetGroupMemberListActionResult?> GetGroupMemberListAsync(this ICqActionSession session, long groupId, bool noCache)
+            => session.InvokeActionAsync<CqGetGroupMemberListAction, CqGetGroupMemberListActionResult>(new CqGetGroupMemberListAction(groupId, noCache));
         public static Task<CqGetUnidirectionalFriendListActionResult?> GetUnidirectionalFriendListAsync(this ICqActionSession session)
             => session.InvokeActionAsync<CqGetUnidirectionalFriendListAction, CqGetUnidirectionalFriendListActionResult>(new CqGetUnidirectionalFriendListAction());
         public static Task<CqDeleteFriendActionResult?> DeleteFriendAsync(this ICqActionSession session, long userId)
@@ -292,6 +298,12 @@ namespace EleCho.GoCqHttpSdk
             => GetFriendListAsync(session).Result;
         public static CqGetGroupListActionResult? GetGroupList(this ICqActionSession session)
             => GetGroupListAsync(session).Result;
+        public static CqGetGroupListActionResult? GetGroupList(this ICqActionSession session, bool noCache)
+            => GetGroupListAsync(session, noCache).Result;
+        public static CqGetGroupMemberListActionResult? GetGroupMemberList(this ICqActionSession session, long groupId)
+            => GetGroupMemberListAsync(session, groupId).Result;
+        public static CqGetGroupMemberListActionResult? GetGroupMemberList(this ICqActionSession session, long groupId, bool noCache)
+            => GetGroupMemberListAsync(session, groupId, noCache).Result;
         public static CqGetUnidirectionalFriendListActionResult? GetUnidirectionalFriendList(this ICqActionSession session)
             => GetUnidirectionalFriendListAsync(session).Result;
         public static CqDeleteFriendActionResult? DeleteFriend(this ICqActionSession session, long userId)

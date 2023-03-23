@@ -62,5 +62,6 @@
         GetGroupFilesByFolder,
         GetGroupFileUrl,
         UploadPrivateFile,
+        GetGroupMemberList,
     }
 }

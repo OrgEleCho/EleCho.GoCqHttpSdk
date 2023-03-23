@@ -2,6 +2,11 @@
 {
     internal class CqGetGroupListActionParamsModel : CqActionParamsModel
     {
-        // no param
+        public CqGetGroupListActionParamsModel(bool no_cache)
+        {
+            this.no_cache = no_cache;
+        }
+
+        public bool no_cache { get; set; }
     }
 }

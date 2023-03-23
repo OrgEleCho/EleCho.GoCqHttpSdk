@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
 {
+    /// <summary>
+    /// The same as <seealso cref="CqGroupMemberModel"/>
+    /// </summary>
     internal class CqGetGroupMemberInformationActionResultDataModel : CqActionResultDataModel
     {
         [JsonConstructor]

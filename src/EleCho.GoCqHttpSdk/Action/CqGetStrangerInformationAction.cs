@@ -35,14 +35,11 @@ namespace EleCho.GoCqHttpSdk.Action
         }
 
         /// <summary>
-        /// 实例化对象
+        /// 实例化对象 (NoCache = false)
         /// </summary>
         /// <param name="userId">用户 QQ</param>
-        public CqGetStrangerInformationAction(long userId)
-        {
-            UserId = userId;
-            NoCache = false;
-        }
+        public CqGetStrangerInformationAction(long userId) : this(userId, false)
+        { }
 
         internal override CqActionParamsModel GetParamsModel()
         {

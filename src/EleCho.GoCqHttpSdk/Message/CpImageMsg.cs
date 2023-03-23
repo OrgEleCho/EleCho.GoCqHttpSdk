@@ -6,10 +6,19 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// 图像消息段
+    /// </summary>
     public record class CqImageMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 图像
+        /// </summary>
         public override string MsgType => Consts.MsgType.Image;
 
+        /// <summary>
+        /// 文件
+        /// </summary>
         public string File { get; set; }
         public CqImageType? ImageType { get; set; }
         public CqImageSubType ImageSubType { get; set; }
@@ -21,6 +30,11 @@ namespace EleCho.GoCqHttpSdk.Message
         internal CqImageMsg()
         { }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="url"></param>
         public CqImageMsg(string file, string url)
         {
             File = file;
@@ -72,17 +86,59 @@ namespace EleCho.GoCqHttpSdk.Message
             Unknown = -1
         }
 
+        /// <summary>
+        /// 图片子类型
+        /// </summary>
         public enum CqImageSubType
         {
+            /// <summary>
+            /// 正常图片
+            /// </summary>
             Normal = 0,
+
+            /// <summary>
+            /// 表情包
+            /// </summary>
             FacePack = 1,
+
+            /// <summary>
+            /// 热图
+            /// </summary>
             HotImage = 2,
+
+            /// <summary>
+            /// 斗图
+            /// </summary>
             FightImage = 3,
+
+            /// <summary>
+            /// 智图 ?
+            /// </summary>
             SmartImage = 4,
+
+            /// <summary>
+            /// 贴图
+            /// </summary>
             PinImage = 7,
+
+            /// <summary>
+            /// 自拍
+            /// </summary>
             SelfCapture = 8,
+
+            /// <summary>
+            /// 贴图广告 ?
+            /// </summary>
             PinAd = 9,
+
+            /// <summary>
+            /// 有待测试
+            /// </summary>
             WaitForTest = 10,
+
+            /// <summary>
+            /// 热搜图
+            /// </summary>
             HotSearchedImage = 13
         }
 

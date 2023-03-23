@@ -147,6 +147,7 @@ namespace EleCho.GoCqHttpSdk
 
                 CqActionType.GetFriendList => GetFriendList,
                 CqActionType.GetGroupList => GetGroupList,
+                CqActionType.GetGroupMemberList => GetGroupMemberList,
 
                 CqActionType.GetLoginInformation => GetLoginInfo,
                 CqActionType.GetStrangerInformation => GetStrangerInfo,

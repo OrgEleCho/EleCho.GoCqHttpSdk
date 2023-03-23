@@ -13,14 +13,11 @@ namespace EleCho.GoCqHttpSdk.Action
     public class CqGetGroupInformationAction : CqAction
     {
         /// <summary>
-        /// 实例化对象
+        /// 实例化对象 (使用缓存)
         /// </summary>
         /// <param name="groupId">群号</param>
-        public CqGetGroupInformationAction(long groupId)
-        {
-            GroupId = groupId;
-            NoCache = false;
-        }
+        public CqGetGroupInformationAction(long groupId) : this(groupId, false)
+        { }
 
         /// <summary>
         /// 实例化对象
