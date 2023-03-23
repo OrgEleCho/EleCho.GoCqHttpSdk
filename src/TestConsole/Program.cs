@@ -83,7 +83,13 @@ namespace AssemblyCheck
             });
 
             Console.WriteLine("OK");
-            await session.RunAsync();
+            await session.StartAsync();
+
+
+            var qwq = await session.GetGroupMemberListAsync(560611514);
+
+
+            await session.WaitForShutdownAsync();
         }
     }
 
