@@ -40,6 +40,11 @@ namespace AssemblyCheck
 
             session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
 
+            session.UseGroupRequest(context =>
+            {
+                Console.WriteLine($"收到了加群请求{context}");
+            });
+
             session.UseGroupMessage(async context =>
             {
                 string text = context.Message.Text.Trim();

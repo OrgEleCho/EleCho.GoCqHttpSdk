@@ -5,7 +5,7 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 窗口抖动（戳一戳
+    /// 窗口抖动（戳一戳<br/>
     /// 相当于戳一戳最基本类型的快捷方式
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]

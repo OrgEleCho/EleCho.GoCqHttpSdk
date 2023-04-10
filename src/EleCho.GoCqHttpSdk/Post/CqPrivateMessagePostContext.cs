@@ -9,7 +9,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 私聊消息上报上下文 (可能是好友, 也有可能是临时会话)
     /// </summary>
-    public partial class CqPrivateMessagePostContext : CqMessagePostContext
+    public partial record class CqPrivateMessagePostContext : CqMessagePostContext
     {
         /// <summary>
         /// 消息类型: 私聊

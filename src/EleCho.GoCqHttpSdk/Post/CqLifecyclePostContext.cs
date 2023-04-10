@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 生命周期上报上下文
     /// </summary>
-    public class CqLifecyclePostContext : CqMetaEventPostContext
+    public record class CqLifecyclePostContext : CqMetaEventPostContext
     {
         /// <summary>
         /// 元事件类型: 生命周期

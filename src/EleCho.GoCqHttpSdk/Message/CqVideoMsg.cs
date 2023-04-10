@@ -5,10 +5,13 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 短视频
+    /// 短视频消息段
     /// </summary>
     public record class CqVideoMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 短视频
+        /// </summary>
         public override string MsgType => Consts.MsgType.Video;
 
         /// <summary>
@@ -30,6 +33,10 @@ namespace EleCho.GoCqHttpSdk.Message
         internal CqVideoMsg()
         { }
 
+        /// <summary>
+        /// 构建短视频消息段
+        /// </summary>
+        /// <param name="file">文件</param>
         public CqVideoMsg(string file) => File = file;
 
         internal override CqMsgDataModel? GetDataModel() => new CqVideoMsgDataModel(File, Cover, ThreadCount);

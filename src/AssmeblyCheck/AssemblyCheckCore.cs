@@ -86,9 +86,12 @@ namespace AssemblyCheck
             }
 
 
-            Type cqenum = asm.GetType("EleCho.GoCqHttpSdk.CqEnum", true, false);
-            MethodInfo cqenumtostring = cqenum.GetMethod("GetString", new Type[] { typeof(CqActionType) });
-            Func<CqActionType, string> cqenumtostringfunc = cqenumtostring.CreateDelegate<Func<CqActionType, string>>();
+            Type? cqenum = asm.GetType("EleCho.GoCqHttpSdk.CqEnum", true, false);
+            MethodInfo? cqenumtostring = cqenum?.GetMethod("GetString", new Type[] { typeof(CqActionType) });
+            Func<CqActionType, string>? cqenumtostringfunc = cqenumtostring?.CreateDelegate<Func<CqActionType, string>>();
+
+            if (cqenumtostringfunc == null)
+                throw new Exception("找不到 CqEnum.GetString 方法");
             
             foreach (var actionType in Enum.GetValues<CqActionType>())
             {
@@ -103,7 +106,7 @@ namespace AssemblyCheck
             }
 
             Type actionResultType = typeof(CqActionResult);
-            MethodInfo createActionResultFromActionTypeMethod = actionResultType.GetMethod("CreateActionResultFromActionType", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(string) });
+            MethodInfo createActionResultFromActionTypeMethod = actionResultType.GetMethod("CreateActionResultFromActionType", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(string) })!;
 
             foreach (var actionType in Enum.GetValues<CqActionType>())
             {
@@ -117,8 +120,8 @@ namespace AssemblyCheck
                 }
             }
 
-            Type actionResultModelType = asm.GetType("EleCho.GoCqHttpSdk.Action.Model.ResultData.CqActionResultDataModel", true, false);
-            MethodInfo actionResultDataModelFromRaw = actionResultModelType.GetMethod("FromRaw", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(JsonElement?), typeof(string) });
+            Type actionResultModelType = asm.GetType("EleCho.GoCqHttpSdk.Action.Model.ResultData.CqActionResultDataModel", true, false)!;
+            MethodInfo actionResultDataModelFromRaw = actionResultModelType.GetMethod("FromRaw", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(JsonElement?), typeof(string) })!;
 
             JsonDocument jdoc = JsonDocument.Parse("null");
             foreach (var actionType in Enum.GetValues<CqActionType>())

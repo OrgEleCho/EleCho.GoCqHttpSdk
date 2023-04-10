@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk.Action
     public class CqSetGroupAvatarAction : CqAction
     {
         /// <summary>
-        /// 实例化对象 (不使用缓存)
+        /// 实例化对象 (UseCache = false)
         /// </summary>
         /// <param name="groupId">群号</param>
         /// <param name="file">文件</param>

@@ -4,6 +4,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// 一种xml的图片消息
+    /// </summary>
     public record class CqCardImageMsg : CqMsg
     {
         public override string MsgType => Consts.MsgType.CardImage;

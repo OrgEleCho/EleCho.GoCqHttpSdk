@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群幸运王通知上下文
     /// </summary>
-    public class CqGroupLuckyKingNoticedPostContext : CqNotifyNoticePostContext
+    public record class CqGroupLuckyKingNoticedPostContext : CqNotifyNoticePostContext
     {
         /// <summary>
         /// 通知类型: 幸运王

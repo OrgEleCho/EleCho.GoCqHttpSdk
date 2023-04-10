@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员增加上报上下文
     /// </summary>
-    public class CqGroupMemberIncreasedPostContext : CqNoticePostContext
+    public record class CqGroupMemberIncreasedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 群成员增加

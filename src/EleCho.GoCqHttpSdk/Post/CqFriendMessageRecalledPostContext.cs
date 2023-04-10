@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 好友消息撤回上报上下文
     /// </summary>
-    public class CqFriendMessageRecalledPostContext : CqNoticePostContext
+    public record class CqFriendMessageRecalledPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 好友消息撤回

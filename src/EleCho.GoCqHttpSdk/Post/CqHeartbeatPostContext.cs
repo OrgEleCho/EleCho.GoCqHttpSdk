@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 心跳包上报上下文
     /// </summary>
-    public class CqHeartbeatPostContext : CqMetaEventPostContext
+    public record class CqHeartbeatPostContext : CqMetaEventPostContext
     {
         /// <summary>
         /// 元事件类型: 心跳

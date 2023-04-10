@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 戳一戳上报上下文 (如果是群聊, 那么 GroupId 不为空)
     /// </summary>
-    public class CqPokedPostContext : CqNotifyNoticePostContext
+    public record class CqPokedPostContext : CqNotifyNoticePostContext
     {
         /// <summary>
         /// 通知类型: 戳一戳

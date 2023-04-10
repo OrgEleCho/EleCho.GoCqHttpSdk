@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 好友已添加上报上下文
     /// </summary>
-    public class CqFriendAddedPostContext : CqNoticePostContext
+    public record class CqFriendAddedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 好友添加

@@ -3,6 +3,9 @@ using EleCho.GoCqHttpSdk.DataStructure.Model;
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 群员发送者
+    /// </summary>
     public record class CqGroupMessageSender : CqMessageSender
     {
         internal CqGroupMessageSender()

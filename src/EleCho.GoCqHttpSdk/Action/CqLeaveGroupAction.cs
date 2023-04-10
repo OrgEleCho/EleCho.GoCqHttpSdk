@@ -14,21 +14,20 @@ namespace EleCho.GoCqHttpSdk.Action
     public class CqLeaveGroupAction : CqAction
     {
         /// <summary>
-        /// 实例化对象
+        /// 实例化对象 (DismissGroup = false)
         /// </summary>
         /// <param name="groupId">要退的群的群号</param>
-        public CqLeaveGroupAction(long groupId)
-        {
-            GroupId = groupId;
-        }
+        public CqLeaveGroupAction(long groupId) : this(groupId, false)
+        { }
 
         /// <summary>
         /// 实例化对象
         /// </summary>
         /// <param name="groupId">要退的群的群号</param>
         /// <param name="dismissGroup">解散群 (仅在是群主的情况下可用)</param>
-        public CqLeaveGroupAction(long groupId, bool dismissGroup) : this(groupId)
+        public CqLeaveGroupAction(long groupId, bool dismissGroup)
         {
+            GroupId = groupId;
             DismissGroup = dismissGroup;
         }
 

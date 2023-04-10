@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群精华消息变更上报上下文
     /// </summary>
-    public class CqGroupEssenceChangedPostContext : CqNoticePostContext
+    public record class CqGroupEssenceChangedPostContext : CqNoticePostContext
     {
         internal CqGroupEssenceChangedPostContext() { }
 

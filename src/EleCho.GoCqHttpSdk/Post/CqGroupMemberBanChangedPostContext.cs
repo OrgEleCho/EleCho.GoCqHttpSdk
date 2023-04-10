@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员禁言状态变更上报上下文
     /// </summary>
-    public class CqGroupMemberBanChangedPostContext : CqNoticePostContext
+    public record class CqGroupMemberBanChangedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 群禁言

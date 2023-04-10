@@ -5,7 +5,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 加群请求上报上下文
     /// </summary>
-    public class CqGroupRequestPostContext : CqRequestPostContext
+    public record class CqGroupRequestPostContext : CqRequestPostContext
     {
         /// <summary>
         /// 请求类型: 群

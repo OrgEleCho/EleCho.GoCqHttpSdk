@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 加好友请求上报上下文
     /// </summary>
-    public class CqFriendRequestPostContext : CqRequestPostContext
+    public record class CqFriendRequestPostContext : CqRequestPostContext
     {
         /// <summary>
         /// 请求类型: 好友

@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群消息上报上下文
     /// </summary>
-    public class CqGroupMessagePostContext : CqMessagePostContext
+    public record class CqGroupMessagePostContext : CqMessagePostContext
     {
         /// <summary>
         /// 消息类型: 群

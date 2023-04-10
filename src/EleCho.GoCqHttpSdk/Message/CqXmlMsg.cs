@@ -4,6 +4,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// xml消息
+    /// </summary>
     public record class CqXmlMsg : CqMsg
     {
         public override string MsgType => Consts.MsgType.Xml;

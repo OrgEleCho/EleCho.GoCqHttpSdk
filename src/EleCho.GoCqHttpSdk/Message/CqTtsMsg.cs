@@ -4,6 +4,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// 文本转语音消息
+    /// </summary>
     public record class CqTtsMsg : CqMsg
     {
         internal CqTtsMsg()

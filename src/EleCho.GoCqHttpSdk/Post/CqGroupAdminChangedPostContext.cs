@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群管理员变更上报上下文
     /// </summary>
-    public class CqGroupAdministratorChangedPostContext : CqNoticePostContext
+    public record class CqGroupAdministratorChangedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 群管理员

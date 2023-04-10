@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 客户端状态变更上下文
     /// </summary>
-    public class CqClientStatusChangedPostContext : CqNoticePostContext
+    public record class CqClientStatusChangedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 客户端状态

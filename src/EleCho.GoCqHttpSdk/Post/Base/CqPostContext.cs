@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 消息上报上下文基类 (可以理解为上报信息的具体数据)
     /// </summary>
-    public abstract class CqPostContext
+    public abstract record class CqPostContext
     {
         internal CqPostContext()
         {

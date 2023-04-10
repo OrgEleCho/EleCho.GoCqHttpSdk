@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群文件上传上报上下文
     /// </summary>
-    public class CqGroupFileUploadedPostContext : CqNoticePostContext
+    public record class CqGroupFileUploadedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 群文件上传

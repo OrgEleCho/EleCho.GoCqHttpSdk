@@ -32,12 +32,12 @@ namespace EleCho.GoCqHttpSdk.Action
         public long GroupId { get; set; }
 
         /// <summary>
-        /// 文件 ID, 参考 <see cref="CqGroupUploadedFile"/>
+        /// 文件 ID, 参考 <see cref="CqGroupFile"/>
         /// </summary>
         public string FileId { get; set; }
 
         /// <summary>
-        /// 文件类型, 参考 <see cref="CqGroupUploadedFile"/>
+        /// 文件类型, 参考 <see cref="CqGroupFile"/>
         /// </summary>
         public int Busid { get; set; }
 

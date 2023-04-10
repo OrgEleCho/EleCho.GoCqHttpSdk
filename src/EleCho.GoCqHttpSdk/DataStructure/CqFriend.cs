@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 好友信息
+    /// </summary>
     public record class CqFriend
     {
         internal CqFriend(CqFriendModel model)

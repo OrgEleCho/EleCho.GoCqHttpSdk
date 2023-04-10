@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 离线文件上传
     /// </summary>
-    public class CqOfflineFileUploadedPostContext : CqNoticePostContext
+    public record class CqOfflineFileUploadedPostContext : CqNoticePostContext
     {
         /// <summary>
         /// 通知类型: 离线文件上传

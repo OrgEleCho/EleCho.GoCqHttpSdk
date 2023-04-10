@@ -4,6 +4,9 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Message
 {
+    /// <summary>
+    /// Json消息
+    /// </summary>
     public record class CqJsonMsg : CqMsg
     {
         public override string MsgType => Consts.MsgType.Json;
