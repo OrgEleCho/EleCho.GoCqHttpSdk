@@ -22,12 +22,12 @@ namespace EleCho.GoCqHttpSdk
             switch (context)
             {
                 case CqPrivateMessagePostContext privateMessagePC:
-                    OnPrivateMessage(privateMessagePC);
-                    await OnPrivateMessageAsync(privateMessagePC);
+                    OnPrivateMessageReceived(privateMessagePC);
+                    await OnPrivateMessageReceivedAsync(privateMessagePC);
                     break;
                 case CqGroupMessagePostContext groupMessagePC:
-                    OnGroupMessage(groupMessagePC);
-                    await OnGroupMessageAsync(groupMessagePC);
+                    OnGroupMessageReceived(groupMessagePC);
+                    await OnGroupMessageReceivedAsync(groupMessagePC);
                     break;
                 case CqHeartbeatPostContext heartbeatPC:
                     OnHeartbeat(heartbeatPC);
@@ -38,8 +38,8 @@ namespace EleCho.GoCqHttpSdk
                     await OnLifecycleAsync(lifecyclePC);
                     break;
                 case CqGroupEssenceChangedPostContext essenceChangedPC:
-                    OnEssenceChanged(essenceChangedPC);
-                    await OnEssenceChangedAsync(essenceChangedPC);
+                    OnGroupEssenceChanged(essenceChangedPC);
+                    await OnGroupEssenceChangedAsync(essenceChangedPC);
                     break;
                 case CqClientStatusChangedPostContext clientStatusChangedPC:
                     OnClientStatusChanged(clientStatusChangedPC);
@@ -62,8 +62,8 @@ namespace EleCho.GoCqHttpSdk
                     await OnGroupMemberDecreasedAsync(groupMemberDecreasedPC);
                     break;
                 case CqGroupMemberNicknameChangedPostContext groupMemberCardChangedPC:
-                    OnGroupMemberCardChanged(groupMemberCardChangedPC);
-                    await OnGroupMemberCardChangedAsync(groupMemberCardChangedPC);
+                    OnGroupMemberNicknameChanged(groupMemberCardChangedPC);
+                    await OnGroupMemberNicknameChangedAsync(groupMemberCardChangedPC);
                     break;
                 case CqGroupMemberBanChangedPostContext groupBanChangedPC:
                     OnGroupBanChanged(groupBanChangedPC);
@@ -102,11 +102,11 @@ namespace EleCho.GoCqHttpSdk
                     await OnLuckyKingNoticedAsync(luckyKingNoticedPC);
                     break;
                 case CqGroupMemberHonorChangedPostContext honorChangedPC:
-                    OnHonorChanged(honorChangedPC);
-                    await OnHonorChangedAsync(honorChangedPC);
+                    OnGroupMemberHonorChanged(honorChangedPC);
+                    await OnGroupMemberHonorChangedAsync(honorChangedPC);
                     break;
                 case CqGroupMemberTitleChangeNoticedPostContext memberTitleChangeNoticedPostContext:
-                    OnMemberTitleChanged(memberTitleChangeNoticedPostContext);
+                    OnGroupMemberTitleChanged(memberTitleChangeNoticedPostContext);
                     await OnGroupMemberTitleChangedAsync(memberTitleChangeNoticedPostContext);
                     break;
             }
@@ -114,66 +114,291 @@ namespace EleCho.GoCqHttpSdk
             await next();
         }
 
-        public virtual void OnPrivateMessage(CqPrivateMessagePostContext context) { }
-        public virtual void OnGroupMessage(CqGroupMessagePostContext context) { }
+
+        /// <summary>
+        /// 当收到私聊消息
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnPrivateMessageReceived(CqPrivateMessagePostContext context) { }
+
+        /// <summary>
+        /// 当收到群聊消息
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnGroupMessageReceived(CqGroupMessagePostContext context) { }
+
+        /// <summary>
+        /// 当收到心跳包
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnHeartbeat(CqHeartbeatPostContext context) { }
+
+        /// <summary>
+        /// 当生命周期变更
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnLifecycle(CqLifecyclePostContext context) { }
-        public virtual void OnEssenceChanged(CqGroupEssenceChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群精华消息变更
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnGroupEssenceChanged(CqGroupEssenceChangedPostContext context) { }
+
+        /// <summary>
+        /// 当客户端状态变更
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnClientStatusChanged(CqClientStatusChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群文件上传
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupFileUploaded(CqGroupFileUploadedPostContext context) { }
+
+        /// <summary>
+        /// 当群管理员变更
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupAdminChanged(CqGroupAdministratorChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群成员增加
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupMemberIncreased(CqGroupMemberIncreasedPostContext context) { }
+
+        /// <summary>
+        /// 当群成员减少
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupMemberDecreased(CqGroupMemberDecreasedPostContext context) { }
-        public virtual void OnGroupMemberCardChanged(CqGroupMemberNicknameChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群成员昵称变更
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnGroupMemberNicknameChanged(CqGroupMemberNicknameChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群禁言状态变更
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupBanChanged(CqGroupMemberBanChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群消息被撤回
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupMessageRecalled(CqGroupMessageRecalledPostContext context) { }
+
+        /// <summary>
+        /// 当好友添加
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnFriendAdded(CqFriendAddedPostContext context) { }
+
+        /// <summary>
+        /// 当好友消息被撤回
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnFriendMessageRecalled(CqFriendMessageRecalledPostContext context) { }
+
+        /// <summary>
+        /// 当离线文件上传
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnOfflineFileUploaded(CqOfflineFileUploadedPostContext context) { }
+
+        /// <summary>
+        /// 当好友请求
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnFriendRequest(CqFriendRequestPostContext context) { }
+
+        /// <summary>
+        /// 当群请求
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnGroupRequest(CqGroupRequestPostContext context) { }
+
+        /// <summary>
+        /// 当被拍一拍
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnPoked(CqPokedPostContext context) { }
+
+        /// <summary>
+        /// 当幸运王被通报
+        /// </summary>
+        /// <param name="context"></param>
         public virtual void OnLuckyKingNoticed(CqGroupLuckyKingNoticedPostContext context) { }
-        public virtual void OnHonorChanged(CqGroupMemberHonorChangedPostContext context) { }
-        public virtual void OnMemberTitleChanged(CqGroupMemberTitleChangeNoticedPostContext context) { }
+
+        /// <summary>
+        /// 当群荣誉变更
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnGroupMemberHonorChanged(CqGroupMemberHonorChangedPostContext context) { }
+
+        /// <summary>
+        /// 当群成员头衔变更
+        /// </summary>
+        /// <param name="context"></param>
+        public virtual void OnGroupMemberTitleChanged(CqGroupMemberTitleChangeNoticedPostContext context) { }
 
 
-        public virtual Task OnPrivateMessageAsync(CqPrivateMessagePostContext context) => Task.CompletedTask;
-        public virtual Task OnGroupMessageAsync(CqGroupMessagePostContext context) => Task.CompletedTask;
+
+
+        /// <summary>
+        /// 当收到私聊消息
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual Task OnPrivateMessageReceivedAsync(CqPrivateMessagePostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当收到群聊消息
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual Task OnGroupMessageReceivedAsync(CqGroupMessagePostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当收到心跳包
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnHeartbeatAsync(CqHeartbeatPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当生命周期变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnLifecycleAsync(CqLifecyclePostContext context) => Task.CompletedTask;
-        public virtual Task OnEssenceChangedAsync(CqGroupEssenceChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群精华消息变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual Task OnGroupEssenceChangedAsync(CqGroupEssenceChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当客户端状态变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnClientStatusChangedAsync(CqClientStatusChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群文件上传
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupFileUploadedAsync(CqGroupFileUploadedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群管理员变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupAdminChangedAsync(CqGroupAdministratorChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群成员增加
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupMemberIncreasedAsync(CqGroupMemberIncreasedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群成员减少
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupMemberDecreasedAsync(CqGroupMemberDecreasedPostContext context) => Task.CompletedTask;
-        public virtual Task OnGroupMemberCardChangedAsync(CqGroupMemberNicknameChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群成员昵称变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual Task OnGroupMemberNicknameChangedAsync(CqGroupMemberNicknameChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群禁言状态变更
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupBanChangedAsync(CqGroupMemberBanChangedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群消息被撤回
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupMessageRecalledAsync(CqGroupMessageRecalledPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当好友添加
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnFriendAddedAsync(CqFriendAddedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当好友消息被撤回
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnFriendMessageRecalledAsync(CqFriendMessageRecalledPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当离线文件上传
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnOfflineFileUploadedAsync(CqOfflineFileUploadedPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当好友请求
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnFriendRequestAsync(CqFriendRequestPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当群请求
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnGroupRequestAsync(CqGroupRequestPostContext context) => Task.CompletedTask;
+
+        /// <summary>
+        /// 当被拍一拍
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public virtual Task OnPokedAsync(CqPokedPostContext context) => Task.CompletedTask;
 
         /// <summary>
-        /// 
+        /// 当幸运王通报
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
         public virtual Task OnLuckyKingNoticedAsync(CqGroupLuckyKingNoticedPostContext context) => Task.CompletedTask;
 
         /// <summary>
-        /// 当群成员荣誉变更时
+        /// 当群成员荣誉变更
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public virtual Task OnHonorChangedAsync(CqGroupMemberHonorChangedPostContext context) => Task.CompletedTask;
+        public virtual Task OnGroupMemberHonorChangedAsync(CqGroupMemberHonorChangedPostContext context) => Task.CompletedTask;
 
         /// <summary>
-        /// 当群成员头衔变更时
+        /// 当群成员头衔变更
         /// </summary>
         /// <param name="context">上报上下文</param>
         /// <returns>异步任务</returns>

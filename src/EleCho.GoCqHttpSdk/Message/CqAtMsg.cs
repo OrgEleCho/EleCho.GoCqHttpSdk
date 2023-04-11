@@ -33,6 +33,11 @@ namespace EleCho.GoCqHttpSdk.Message
         internal CqAtMsg()
         { }
 
+
+        /// <summary>
+        /// 构建 @ 消息段
+        /// </summary>
+        /// <param name="target"></param>
         public CqAtMsg(long target)
         {
             Target = target;

@@ -5,18 +5,22 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 音乐自定义分享
+    /// 自定义音乐分享消息段
     /// </summary>
     public record class CqCustomMusicMsg : CqMusicMsg
     {
-#pragma warning disable CS8618
 
         internal CqCustomMusicMsg() : base()
         {
         }
 
-#pragma warning restore CS8618
 
+        /// <summary>
+        /// 构建自定义音乐分享消息段
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="audio"></param>
+        /// <param name="title"></param>
         public CqCustomMusicMsg(string url, string audio, string title) : base(CqMusicType.Custom, -1)
         {
             Url = url;
@@ -27,17 +31,17 @@ namespace EleCho.GoCqHttpSdk.Message
         /// <summary>
         /// 说明: 表示音乐自定义分享
         /// </summary>
-        public string Url { get; set; }
+        public string Url { get; set; } = string.Empty;
 
         /// <summary>
         /// 说明: 音乐 URL
         /// </summary>
-        public string Audio { get; set; }
+        public string Audio { get; set; } = string.Empty;
 
         /// <summary>
         /// 说明: 标题
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// 说明: 发送时可选, 内容描述

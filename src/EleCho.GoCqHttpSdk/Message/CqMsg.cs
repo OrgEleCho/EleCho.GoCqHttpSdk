@@ -11,11 +11,19 @@ namespace EleCho.GoCqHttpSdk.Message
     /// </summary>
     public abstract record class CqMsg
     {
+        /// <summary>
+        /// 消息段类型
+        /// </summary>
         public abstract string MsgType { get; }
 
         internal abstract CqMsgDataModel? GetDataModel();
 
         internal abstract void ReadDataModel(CqMsgDataModel? model);
+
+
+        /// <summary>
+        /// 标识 CQ 码不支持
+        /// </summary>
 
         public const string NotSupportedCqCodeTip = "该 CQ Code 暂未被 go-cqhttp 支持, 您可以提交 PR 以使该 CQ Code 被支持";
 
@@ -84,6 +92,10 @@ namespace EleCho.GoCqHttpSdk.Message
             return new CqMsgModel(msg.MsgType, msg.GetDataModel());
         }
 
+        /// <summary>
+        /// 支持从文本直接转为消息段
+        /// </summary>
+        /// <param name="text"></param>
         public static implicit operator CqMsg(string text) => new CqTextMsg(text);
     }
 }

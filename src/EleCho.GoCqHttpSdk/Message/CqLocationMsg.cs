@@ -5,16 +5,24 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 位置
+    /// 消息段: 位置
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
     public record class CqLocationMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 位置信息
+        /// </summary>
         public override string MsgType => Consts.MsgType.Location;
 
         internal CqLocationMsg()
         { }
 
+        /// <summary>
+        /// 构建位置信息消息段
+        /// </summary>
+        /// <param name="lat"></param>
+        /// <param name="lon"></param>
         public CqLocationMsg(double lat, double lon)
         {
             Lat = lat;

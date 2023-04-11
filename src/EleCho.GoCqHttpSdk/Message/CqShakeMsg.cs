@@ -11,6 +11,9 @@ namespace EleCho.GoCqHttpSdk.Message
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
     public record class CqShakeMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 窗口抖动
+        /// </summary>
         public override string MsgType => Consts.MsgType.Shake;
 
         internal override CqMsgDataModel? GetDataModel() => new CqShakeMsgDataModel();

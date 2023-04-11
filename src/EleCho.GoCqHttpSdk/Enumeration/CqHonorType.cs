@@ -1,5 +1,8 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 群荣誉类型
+    /// </summary>
     public enum CqHonorType
     {
         /// <summary>
@@ -17,6 +20,9 @@
         /// </summary>
         Emotion,
 
+        /// <summary>
+        /// 未知
+        /// </summary>
         Unknown = -1
     }
 }

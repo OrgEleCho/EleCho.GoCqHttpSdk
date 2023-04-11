@@ -6,16 +6,24 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 推荐好友/群
+    /// 联系人消息段 (推荐好友/群)
     /// </summary>
     [Obsolete(CqMsg.NotSupportedCqCodeTip)]
     public record class CqContactMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段: 联系人
+        /// </summary>
         public override string MsgType => Consts.MsgType.Contact;
 
         internal CqContactMsg()
         { }
 
+        /// <summary>
+        /// 构建联系人消息段
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
         public CqContactMsg(CqContactType type, long id)
         {
             ContactType = type;

@@ -7,15 +7,23 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 链接分享
+    /// 链接分享消息段
     /// </summary>
     public record class CqShareMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 链接分享
+        /// </summary>
         public override string MsgType => Consts.MsgType.Share;
 
         internal CqShareMsg()
         { }
 
+        /// <summary>
+        /// 构建 '链接分享消息段' 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="title"></param>
         public CqShareMsg(string url, string title)
         {
             Url = url;

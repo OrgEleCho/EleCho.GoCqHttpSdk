@@ -4,8 +4,14 @@ using System;
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 客户端状态统计信息
+    /// </summary>
     public record class CqStatusStatistics
     {
+        /// <summary>
+        /// 篝构建客户端状态统计信息
+        /// </summary>
         public CqStatusStatistics()
         {
         }
@@ -22,6 +28,17 @@ namespace EleCho.GoCqHttpSdk
             LastMessageTime = DateTimeOffset.FromUnixTimeSeconds(model.LastMessageTime).DateTime;
         }
 
+        /// <summary>
+        /// 构建客户端状态统计信息
+        /// </summary>
+        /// <param name="packetReceived"></param>
+        /// <param name="packetSent"></param>
+        /// <param name="packetLost"></param>
+        /// <param name="messageReceived"></param>
+        /// <param name="messageSent"></param>
+        /// <param name="disconnectTimes"></param>
+        /// <param name="lostTimes"></param>
+        /// <param name="lastMessageTime"></param>
         public CqStatusStatistics(ulong packetReceived,
                                   ulong packetSent,
                                   ulong packetLost,
@@ -41,13 +58,44 @@ namespace EleCho.GoCqHttpSdk
             LastMessageTime = lastMessageTime;
         }
 
+        /// <summary>
+        /// 收包数
+        /// </summary>
         public ulong PacketReceived { get; }
+
+        /// <summary>
+        /// 发包数
+        /// </summary>
         public ulong PacketSent { get; }
+
+        /// <summary>
+        /// 丢包数
+        /// </summary>
         public ulong PacketLost { get; }
+
+        /// <summary>
+        /// 消息接收数
+        /// </summary>
         public ulong MessageReceived { get; }
+
+        /// <summary>
+        /// 消息发送数
+        /// </summary>
         public ulong MessageSent { get; }
+
+        /// <summary>
+        /// 断连次数
+        /// </summary>
         public uint DisconnectTimes { get; }
+
+        /// <summary>
+        /// 丢失次数
+        /// </summary>
         public uint LostTimes { get; }
+
+        /// <summary>
+        /// 最后一次消息时间
+        /// </summary>
         public DateTime LastMessageTime { get; }
     }
 }

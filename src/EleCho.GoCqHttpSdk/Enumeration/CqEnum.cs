@@ -14,7 +14,7 @@ namespace EleCho.GoCqHttpSdk
             return contactType switch
             {
                 CqContactType.Group => "group",
-                CqContactType.QQ => "qq",
+                CqContactType.Person => "qq",
                 _ => null
             };
         }
@@ -202,7 +202,7 @@ namespace EleCho.GoCqHttpSdk
         {
             return value switch
             {
-                "qq" => CqContactType.QQ,
+                "qq" => CqContactType.Person,
                 "group" => CqContactType.Group,
                 _ => (CqContactType)(-1)
             };

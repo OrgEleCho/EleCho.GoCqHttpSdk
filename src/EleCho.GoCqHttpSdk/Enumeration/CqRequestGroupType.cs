@@ -1,9 +1,23 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 群请求类型
+    /// </summary>
     public enum CqGroupRequestType
     {
-        Unknown = -1,
+        /// <summary>
+        /// 加群
+        /// </summary>
         Add = 0,
+
+        /// <summary>
+        /// 邀请群
+        /// </summary>
         Invite,
+
+        /// <summary>
+        /// 未知
+        /// </summary>
+        Unknown = -1,
     }
 }

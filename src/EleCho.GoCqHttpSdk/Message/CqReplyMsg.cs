@@ -5,18 +5,19 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 消息回复
+    /// 消息回复消息段
     /// </summary>
     public record class CqReplyMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 消息回复
+        /// </summary>
         public override string MsgType => Consts.MsgType.Reply;
 
-#pragma warning disable CS8618
 
         internal CqReplyMsg()
         { }
 
-#pragma warning restore CS8618
 
         /// <summary>
         /// 实例化回复消息

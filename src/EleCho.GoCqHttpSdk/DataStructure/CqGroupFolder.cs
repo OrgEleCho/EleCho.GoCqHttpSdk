@@ -30,12 +30,12 @@ namespace EleCho.GoCqHttpSdk
         /// <summary>
         /// 文件夹 ID
         /// </summary>
-        public string FolderId { get; set; }
+        public string FolderId { get; set; } = string.Empty;
 
         /// <summary>
         /// 文件夹名称
         /// </summary>
-        public string FolderName { get; set; }
+        public string FolderName { get; set; } = string.Empty;
 
         /// <summary>
         /// 创建时间
@@ -50,7 +50,7 @@ namespace EleCho.GoCqHttpSdk
         /// <summary>
         /// 创建者名称
         /// </summary>
-        public string CreatorName { get; set; }
+        public string CreatorName { get; set; } = string.Empty;
 
         /// <summary>
         /// 文件总数

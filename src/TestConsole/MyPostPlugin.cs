@@ -12,7 +12,7 @@ namespace AssemblyCheck
         const long TestGroupId = 295322097;
         const long TestUserId = 3257726229;
         
-        public override async Task OnGroupMessageAsync(CqGroupMessagePostContext context)
+        public override async Task OnGroupMessageReceivedAsync(CqGroupMessagePostContext context)
         {
             //if(context.GroupId != 860355679) return;
 

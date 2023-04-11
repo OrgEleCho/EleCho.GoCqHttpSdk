@@ -1,5 +1,8 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 礼物 ID
+    /// </summary>
     public enum CqGiftId
     {
         /// <summary>

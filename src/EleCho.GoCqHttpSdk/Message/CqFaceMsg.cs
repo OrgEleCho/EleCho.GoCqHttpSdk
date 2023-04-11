@@ -5,10 +5,13 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// QQ 表情
+    /// 小黄脸表情消息段
     /// </summary>
     public record class CqFaceMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 小黄脸表情
+        /// </summary>
         public override string MsgType => Consts.MsgType.Face;
 
         /// <summary>
@@ -19,6 +22,10 @@ namespace EleCho.GoCqHttpSdk.Message
         internal CqFaceMsg()
         { }
 
+        /// <summary>
+        /// 构建小黄脸表情消息段
+        /// </summary>
+        /// <param name="id"></param>
         public CqFaceMsg(int id) => Id = id;
 
         internal override CqMsgDataModel? GetDataModel() => new CqFaceMsgDataModel(Id);
@@ -32,6 +39,11 @@ namespace EleCho.GoCqHttpSdk.Message
             Id = m.id;
         }
 
+        /// <summary>
+        /// 从 ID 获取小黄脸表情名称
+        /// </summary>
+        /// <param name="faceId"></param>
+        /// <returns></returns>
         public static string GetFaceNameFromId(int faceId)
         {
             return faceId switch
@@ -229,6 +241,11 @@ namespace EleCho.GoCqHttpSdk.Message
             };
         }
 
+        /// <summary>
+        /// 从名称获取小黄脸表情 ID
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static int GetFaceIdFromName(string name)
         {
             return name switch
@@ -477,11 +494,21 @@ namespace EleCho.GoCqHttpSdk.Message
             "拍头","扯一扯","舔一舔","蹭一蹭","拽炸天","顶呱呱",
 
         };
+
+        /// <summary>
+        /// 获取所有支持的小黄脸表情名称
+        /// </summary>
+        /// <returns></returns>
         public static string[] GetAllSupportedFaceNames()
         {
             return allSupportedFaceNames;
         }
 
+        /// <summary>
+        /// 从名称创建小黄脸表情
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static CqFaceMsg? FromName(string name)
         {
             int fadeId = GetFaceIdFromName(name);

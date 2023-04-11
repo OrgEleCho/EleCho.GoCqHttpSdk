@@ -3,8 +3,17 @@
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 上传群文件操作
+    /// </summary>
     public class CqUploadGroupFileAction : CqAction
     {
+        /// <summary>
+        /// 实例化 '上传群文件操作'
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">文件</param>
+        /// <param name="name">名称</param>
         public CqUploadGroupFileAction(long groupId, string file, string name)
         {
             GroupId = groupId;
@@ -12,6 +21,13 @@ namespace EleCho.GoCqHttpSdk.Action
             Name = name;
         }
 
+        /// <summary>
+        /// 实例化 '上传群文件操作'
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">文件</param>
+        /// <param name="name">名称</param>
+        /// <param name="folder">目录</param>
         public CqUploadGroupFileAction(long groupId, string file, string name, string folder)
         {
             GroupId = groupId;
@@ -20,6 +36,9 @@ namespace EleCho.GoCqHttpSdk.Action
             Folder = folder;
         }
 
+        /// <summary>
+        /// 操作类型: 上传群文件
+        /// </summary>
         public override CqActionType ActionType => CqActionType.UploadGroupFile;
 
         /// <summary>

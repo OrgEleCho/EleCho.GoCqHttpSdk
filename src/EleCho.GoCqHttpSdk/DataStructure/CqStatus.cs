@@ -2,6 +2,9 @@
 
 namespace EleCho.GoCqHttpSdk
 {
+    /// <summary>
+    /// 状态信息
+    /// </summary>
     public record class CqStatus
     {
         internal CqStatus()
@@ -19,12 +22,40 @@ namespace EleCho.GoCqHttpSdk
             Statistics = new CqStatusStatistics(model.stat);
         }
         
+        /// <summary>
+        /// 程序初始化完成
+        /// </summary>
         public bool AppInitialized { get; }
+
+        /// <summary>
+        /// 程序已启用
+        /// </summary>
         public bool AppEnabled { get; }
+
+        /// <summary>
+        /// 插件良好
+        /// </summary>
         public bool? PluginsGood { get; }
+
+        /// <summary>
+        /// 应用良好
+        /// </summary>
         public bool AppGood { get; }
+
+        /// <summary>
+        /// 在线
+        /// </summary>
         public bool Online { get; }
+
+        /// <summary>
+        /// 状态良好
+        /// </summary>
         public bool Good { get; }
+
+
+        /// <summary>
+        /// 统计信息
+        /// </summary>
         public CqStatusStatistics Statistics { get; } = new CqStatusStatistics();
     }
 }

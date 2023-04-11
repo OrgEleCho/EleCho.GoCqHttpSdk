@@ -3,11 +3,17 @@ using System;
 
 namespace EleCho.GoCqHttpSdk.Action
 {
+    /// <summary>
+    /// 获取分词操作结果
+    /// </summary>
     public record class CqGetWordSlicesActionResult : CqActionResult
     {
 
         internal CqGetWordSlicesActionResult() { }
 
+        /// <summary>
+        /// 分词
+        /// </summary>
         public string[] Slices { get; private set; } = Array.Empty<string>();
 
         internal override void ReadDataModel(CqActionResultDataModel? model)

@@ -6,15 +6,23 @@ using System;
 namespace EleCho.GoCqHttpSdk.Message
 {
     /// <summary>
-    /// 音乐分享
+    /// 音乐分享消息段
     /// </summary>
     public record class CqMusicMsg : CqMsg
     {
+        /// <summary>
+        /// 消息段类型: 音乐分享
+        /// </summary>
         public override string MsgType => Consts.MsgType.Music;
 
         internal CqMusicMsg()
         { }
 
+        /// <summary>
+        /// 构建音乐共享消息段
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
         public CqMusicMsg(CqMusicType type, long id)
         {
             MusicType = type;
@@ -44,7 +52,7 @@ namespace EleCho.GoCqHttpSdk.Message
             Id = m.id;
         }
 
-        public static string GetMusicTypeFromEnum(CqMusicType name)
+        internal static string GetMusicTypeFromEnum(CqMusicType name)
         {
             return name switch
             {
@@ -57,7 +65,7 @@ namespace EleCho.GoCqHttpSdk.Message
             };
         }
 
-        public static CqMusicType GetMusicTypeFromString(string name)
+        internal static CqMusicType GetMusicTypeFromString(string name)
         {
             return name switch
             {

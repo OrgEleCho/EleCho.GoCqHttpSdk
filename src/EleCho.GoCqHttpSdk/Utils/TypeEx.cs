@@ -12,6 +12,13 @@ namespace EleCho.GoCqHttpSdk.Utils
             return value.Value ? 1 : 0;
         }
 
+        public static int? ToNullableInt(this bool? value)
+        {
+            if (!value.HasValue)
+                return null;
+            return value.Value ? 1 : 0;
+        }
+
         public static int ToInt(this bool value)
         {
             return value ? 1 : 0;

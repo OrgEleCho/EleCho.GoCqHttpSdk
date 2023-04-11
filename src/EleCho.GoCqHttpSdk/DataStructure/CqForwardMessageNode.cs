@@ -45,22 +45,41 @@ namespace EleCho.GoCqHttpSdk
         internal CqForwardMessageNode()
         { }
 
+
+        /// <summary>
+        /// 构建转发消息节点
+        /// </summary>
+        /// <param name="id"></param>
         public CqForwardMessageNode(long id)
         {
             Id = id;
         }
 
-        public CqForwardMessageNode(string name, long qq, CqMessage content)
+        /// <summary>
+        /// 构建转发消息节点
+        /// </summary>
+        /// <param name="name">名称</param>
+        /// <param name="userId">用户 QQ</param>
+        /// <param name="content">内容</param>
+        public CqForwardMessageNode(string name, long userId, CqMessage content)
         {
             Name = name;
-            UserId = qq;
+            UserId = userId;
             Content = content;
         }
 
-        public CqForwardMessageNode(string name, long qq, CqMessage content, CqMessage seq)
+
+        /// <summary>
+        /// 构建转发消息节点
+        /// </summary>
+        /// <param name="name">名称</param>
+        /// <param name="userId">用户 QQ</param>
+        /// <param name="content">内容</param>
+        /// <param name="seq">不知道啥玩意儿</param>
+        public CqForwardMessageNode(string name, long userId, CqMessage content, CqMessage seq)
         {
             Name = name;
-            UserId = qq;
+            UserId = userId;
             Content = content;
             Seq = seq;
         }
