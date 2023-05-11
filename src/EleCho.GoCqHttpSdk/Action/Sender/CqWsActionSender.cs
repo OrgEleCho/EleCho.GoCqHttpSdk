@@ -30,7 +30,7 @@ namespace EleCho.GoCqHttpSdk.Action.Invoker
         /// <summary>
         /// 基础网络套接字
         /// </summary>
-        public WebSocket Connection { get; }
+        public WebSocket Connection { get; internal set; }
 
         /// <summary>
         /// 响应超时

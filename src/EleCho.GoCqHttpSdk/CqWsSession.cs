@@ -69,6 +69,8 @@ namespace EleCho.GoCqHttpSdk
         /// </summary>
         public CqPostPipeline PostPipeline => postPipeline;
 
+        private readonly bool useApiEndPoint;
+        private readonly bool useEventEndPoint;
 
         /// <summary>
         /// 创建 WebSocket 会话的新实例
@@ -84,6 +86,8 @@ namespace EleCho.GoCqHttpSdk
             BaseUri = options.BaseUri;
             AccessToken = options.AccessToken;
             BufferSize = options.BufferSize;
+            useApiEndPoint = options.UseApiEndPoint;
+            useEventEndPoint = options.UseEventEndPoint;
 
             // 如果使用 api 接入点, 那么则初始化 api 套接字
             if (options.UseApiEndPoint)
@@ -191,6 +195,11 @@ namespace EleCho.GoCqHttpSdk
                 {
                     // 忽略 JSON 反序列化异常
                 }
+                catch (Exception)
+                {
+                    await StopAsync();
+                    throw;
+                }
 #endif
             }
         }
@@ -210,7 +219,14 @@ namespace EleCho.GoCqHttpSdk
                     // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
                     if (postContext != null)
                     {
-                        await postPipeline.ExecuteAsync(postContext);
+                        try
+                        {
+                            await postPipeline.ExecuteAsync(postContext);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
 
                         // WebSocket 需要模拟 QuickAction
                         await actionSender.HandleQuickAction(postContext, postModel);
@@ -230,6 +246,20 @@ namespace EleCho.GoCqHttpSdk
         private async Task ConnectAsync()
         {
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
+
+            // 如果使用 api 接入点, 那么则初始化 api 套接字
+            if (useApiEndPoint)
+                apiWebSocket = new ClientWebSocket();
+
+            // 如果使用事件接入点, 那么则初始化事件套接字
+            if (useEventEndPoint)
+                eventWebSocket = new ClientWebSocket();
+
+            // 如果任何一个没有被初始化, 则初始化根套接字
+            if (eventWebSocket == null || apiWebSocket == null)
+                webSocket = new ClientWebSocket();
+
+            actionSender.Connection = apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened");
 
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocket is ClientWebSocket apiWebSocketClient)
