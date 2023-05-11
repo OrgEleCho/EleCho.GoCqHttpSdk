@@ -54,7 +54,7 @@ namespace EleCho.GoCqHttpSdk
         public int BufferSize { get; set; } = 1024;
 
         // 用来发送 API 请求
-        private readonly CqWsActionSender actionSender;
+        private CqWsActionSender actionSender;
 
         // 用来处理 post 上报事件
         private readonly CqPostPipeline postPipeline;
@@ -72,6 +72,9 @@ namespace EleCho.GoCqHttpSdk
         private readonly bool useApiEndPoint;
         private readonly bool useEventEndPoint;
 
+        private readonly bool isUserCreate;
+        private bool isFirstNewActionSender;
+
         /// <summary>
         /// 创建 WebSocket 会话的新实例
         /// </summary>
@@ -81,6 +84,8 @@ namespace EleCho.GoCqHttpSdk
         {
             if (options.BaseUri == null)
                 throw new ArgumentNullException(nameof(options.BaseUri), "BaseUri can't be null");
+
+            isUserCreate = true;
 
             // 设定基础地址和访问令牌
             BaseUri = options.BaseUri;
@@ -102,6 +107,7 @@ namespace EleCho.GoCqHttpSdk
                 webSocket = new ClientWebSocket();
 
             // 初始化 action 发送器 和 post 管道
+            isFirstNewActionSender = true;
             actionSender = new CqWsActionSender(this, apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened"));
             postPipeline = new CqPostPipeline();
             postQueue = new ConcurrentQueue<CqPostModel>();
@@ -259,7 +265,14 @@ namespace EleCho.GoCqHttpSdk
             if (eventWebSocket == null || apiWebSocket == null)
                 webSocket = new ClientWebSocket();
 
-            actionSender.Connection = apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened");
+            if (!isFirstNewActionSender)
+            {
+                isFirstNewActionSender = false;
+            }
+            else
+            {
+                actionSender = new CqWsActionSender(this, apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened"));
+            }
 
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocket is ClientWebSocket apiWebSocketClient)
@@ -324,6 +337,9 @@ namespace EleCho.GoCqHttpSdk
         {
             if (mainLoopTask != null)
                 throw new InvalidOperationException("Session is already started");
+
+            if (!isUserCreate)
+                throw new InvalidOperationException();
 
             // 连接所需要的套接字
             await ConnectAsync();
