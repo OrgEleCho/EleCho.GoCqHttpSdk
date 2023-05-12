@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace EleCho.GoCqHttpSdk.MessageMatching
@@ -16,7 +17,12 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         /// </summary>
         public string Pattern { get; }
 
-        public CqMessageMatchAttribute(string pattern)
+        public CqMessageMatchAttribute(
+#if NET7_0_OR_GREATER
+            [StringSyntax("Regex")]
+#endif
+            string pattern
+            )
         {
             if (pattern == null)
                 throw new ArgumentNullException(nameof(pattern));
@@ -25,7 +31,11 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
             Regex = new(pattern);
         }
 
-        public CqMessageMatchAttribute(string pattern, RegexOptions options)
+        public CqMessageMatchAttribute(
+#if NET7_0_OR_GREATER
+            [StringSyntax("Regex")]
+#endif
+            string pattern, RegexOptions options)
         {
             if (pattern == null)
                 throw new ArgumentNullException(nameof(pattern));
