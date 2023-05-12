@@ -54,10 +54,10 @@ namespace EleCho.GoCqHttpSdk
         public int BufferSize { get; set; } = 1024;
 
         // 用来发送 API 请求
-        private readonly CqWsActionSender actionSender;
+        private CqWsActionSender actionSender;
 
         // 用来处理 post 上报事件
-        private readonly CqPostPipeline postPipeline;
+        private CqPostPipeline postPipeline;
 
         /// <summary>
         /// 操作发送器 (用来调用 Go-CqHttp 的 API)
@@ -68,6 +68,12 @@ namespace EleCho.GoCqHttpSdk
         /// 上报管线 (用来接收 Go-CqHttp 提供的上报数据)
         /// </summary>
         public CqPostPipeline PostPipeline => postPipeline;
+
+
+        /// <summary>
+        /// 当未捕捉的用户异常发生时
+        /// </summary>
+        public event UnhandledExceptionEventHandler? UnhandledException;
 
 
         /// <summary>
@@ -98,11 +104,17 @@ namespace EleCho.GoCqHttpSdk
                 webSocket = new ClientWebSocket();
 
             // 初始化 action 发送器 和 post 管道
-            actionSender = new CqWsActionSender(this, apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened"));
-            postPipeline = new CqPostPipeline();
-            postQueue = new ConcurrentQueue<CqPostModel>();
+            InitSession(out actionSender, out postPipeline, out postQueue);
         }
 
+        /// <summary>
+        /// 直接通过一个已经连接的远程 WebSocket 构建一个会话, 这个只会被反向 WebSocket 会话所调用
+        /// </summary>
+        /// <param name="remoteWebSocket"></param>
+        /// <param name="baseUri"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="bufferSize"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         internal CqWsSession(WebSocket remoteWebSocket, Uri baseUri, string? accessToken, int bufferSize)
         {
             webSocket = remoteWebSocket ?? throw new ArgumentNullException(nameof(remoteWebSocket));
@@ -114,6 +126,37 @@ namespace EleCho.GoCqHttpSdk
             actionSender = new CqWsActionSender(this, remoteWebSocket);
             postPipeline = new CqPostPipeline();
             postQueue = new ConcurrentQueue<CqPostModel>();
+        }
+
+        /// <summary>
+        /// 初始化会话所需的一些方法 (内部有对实例字段判空) (二次调用不会产生副作用)
+        /// </summary>
+        /// <param name="actionSender"></param>
+        /// <param name="postPipeline"></param>
+        /// <param name="postQueue"></param>
+        /// <exception cref="InvalidOperationException">不可能发生的异常</exception>
+        private void InitSession(out CqWsActionSender actionSender, out CqPostPipeline postPipeline, out ConcurrentQueue<CqPostModel> postQueue)
+        {
+            WebSocket webSocketForApi = apiWebSocket ?? webSocket ?? throw new InvalidOperationException("This would never happened");
+
+            // 如果为空, 或者如果套接字变更了, 则重新初始化
+            actionSender = this.actionSender == null || this.actionSender.Connection != webSocketForApi ?
+                new CqWsActionSender(this, webSocketForApi) :
+                this.actionSender;
+
+            // 单例
+            postPipeline = this.postPipeline == null ? 
+                new CqPostPipeline() : 
+                this.postPipeline;
+
+            // 单例
+            postQueue = this.postQueue == null ? 
+                new ConcurrentQueue<CqPostModel>() :
+                this.postQueue;
+
+            // clear post queue
+            while (!postQueue.IsEmpty)
+                postQueue.TryDequeue(out _);
         }
 
         /// <summary>
@@ -157,12 +200,31 @@ namespace EleCho.GoCqHttpSdk
                     // 重置内存流
                     ms.SetLength(0);
                     // 读取一个消息
-                    await webSocket.ReadMessageAsync(ms, buffer, default);
+                    var type = 
+                        await webSocket.ReadMessageAsync(ms, buffer, default);
+
+                    // 如果收到的是关闭消息, 则关闭会话并 break
+                    if (type == WebSocketMessageType.Close)
+                    {
+                        await CloseAsync();
+                        break;
+                    }
+                }
+                catch (ObjectDisposedException)
+                {
+                    // 当 WebSocket 被 Dispose 的时候, 不扔异常, 但是终止循环 (因为 Dispose 是主动进行的
+                    break;
+                }
+                catch (WebSocketException)
+                {
+                    // 当 WebSocket 坏了的时候, 也不扔异常, 但是终止循环
+                    await StopAsync();
+                    break;
                 }
                 catch
                 {
+                    // 忽略其他异常
                     continue;
-                    // ignore error
                 }
 
                 // 在发布模式下套一层 try 防止消息循环中断
@@ -190,6 +252,11 @@ namespace EleCho.GoCqHttpSdk
                 catch (JsonException)
                 {
                     // 忽略 JSON 反序列化异常
+                }
+                catch (Exception ex)
+                {
+                    // 其他异常也应该是用户抛出来的, 忽略掉, 不能将 Session 终止, 但是使用事件通知一下
+                    UnhandledException?.Invoke(this, new UnhandledExceptionEventArgs(ex, false));
                 }
 #endif
             }
@@ -231,11 +298,21 @@ namespace EleCho.GoCqHttpSdk
         {
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
 
+            // 如果当前会话不是一个用户创建的, 则抛异常
+            if (webSocket is not ClientWebSocket &&
+                apiWebSocket is not ClientWebSocket &&
+                eventWebSocket is not ClientWebSocket)
+                throw new InvalidOperationException($"You can't connect a closed incomming session. Only {nameof(CqWsSession)} created by user can use '{nameof(ConnectAsync)}'");
+
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocket is ClientWebSocket apiWebSocketClient)
             {
+                // 如果已经连接了, 就不需要连接了
                 if (apiWebSocket.State == WebSocketState.Open)
                     return;
+                // 如果不是默认状态, 不能连接, 需要重建
+                if (apiWebSocketClient.State != WebSocketState.None)
+                    apiWebSocket = apiWebSocketClient = new ClientWebSocket();
 
                 if (AccessToken is not null)
                     apiWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
@@ -245,8 +322,12 @@ namespace EleCho.GoCqHttpSdk
             // 如果事件套接字不为空, 则连接事件套接字
             if (eventWebSocket is ClientWebSocket eventWebSocketClient)
             {
+                // 如果已经连接了, 就不需要连接了
                 if (eventWebSocket.State == WebSocketState.Open)
                     return;
+                // 如果不是默认状态, 不能连接, 需要重建
+                if (eventWebSocket.State != WebSocketState.None)
+                    eventWebSocket = eventWebSocketClient = new ClientWebSocket();
 
                 if (AccessToken is not null)
                     eventWebSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
@@ -256,13 +337,20 @@ namespace EleCho.GoCqHttpSdk
             // 如果任意一个为空且基础套接字部不为空, 则连接基础套接字
             if ((apiWebSocket == null || eventWebSocket == null) && webSocket is ClientWebSocket webSocketClient)
             {
+                // 如果已经连接了, 就不需要连接了
                 if (webSocket.State == WebSocketState.Open)
                     return;
+                // 如果不是默认状态, 不能连接, 需要重建
+                if (webSocket.State != WebSocketState.None)
+                    webSocket = webSocketClient = new ClientWebSocket();
 
                 if (AccessToken is not null)
                     webSocketClient.Options.SetRequestHeader("Authorization", accessTokenHeaderValue);   // 鉴权
                 await webSocketClient.ConnectAsync(BaseUri, default);
             }
+
+            // 进行字段的初始化 (重复调用不会有副作用, 如果是对一个已经关闭的 Session 重新调用, 则会生成新实例)
+            InitSession(out actionSender, out postPipeline, out postQueue);
 
             // 已连接设定为 true
             IsConnected = true;
@@ -276,11 +364,27 @@ namespace EleCho.GoCqHttpSdk
         {
             // 关闭已连接的套接字
             if (apiWebSocket != null)
-                await apiWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            {
+                if (apiWebSocket.State == WebSocketState.Open)
+                    await apiWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+                apiWebSocket.Dispose();
+            }
+
             if (eventWebSocket != null)
-                await eventWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            {
+                if (eventWebSocket.State == WebSocketState.Open)
+                    await eventWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+                eventWebSocket.Dispose();
+            }
+
             if (webSocket != null)
-                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+            {
+                if (webSocket.State == WebSocketState.Open)
+                    await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, null, default);
+                webSocket.Dispose();
+            }
+
+            // 关于套接字的主循环, 会自动关闭
 
             IsConnected = false;
         }
