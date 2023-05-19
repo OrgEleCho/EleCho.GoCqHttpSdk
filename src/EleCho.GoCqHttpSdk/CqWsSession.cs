@@ -277,10 +277,17 @@ namespace EleCho.GoCqHttpSdk
                     // 如果 post 上下文不为空, 则使用 PostPipeline 处理该事件
                     if (postContext != null)
                     {
-                        await postPipeline.ExecuteAsync(postContext);
+                        try
+                        {
+                            await postPipeline.ExecuteAsync(postContext);
 
-                        // WebSocket 需要模拟 QuickAction
-                        await actionSender.HandleQuickAction(postContext, postModel);
+                            // WebSocket 需要模拟 QuickAction
+                            await actionSender.HandleQuickAction(postContext, postModel);
+                        }
+                        catch (Exception ex)
+                        {
+                            UnhandledException?.Invoke(this, new UnhandledExceptionEventArgs(ex, false));
+                        }
                     }
                 }
                 else
