@@ -78,6 +78,15 @@ namespace AssemblyCheck
                     if (at != null)
                         await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
                 }
+
+                if (text.StartsWith("#fake", StringComparison.OrdinalIgnoreCase))
+                {
+                    await session.SendGroupForwardMessageAsync(context.GroupId,
+                        new CqForwardMessage()
+                        {
+                            new CqForwardMessageNode("Hello", 123123123, CqMessage.FromCqCode("Hello")),
+                        });
+                }
             });
 
             //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));

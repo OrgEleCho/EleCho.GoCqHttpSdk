@@ -140,7 +140,7 @@ class MyPostPlugin : CqPostPlugin
 
         var msg = (await actionSession.GetMessageAsync(context.MessageId));
 
-        await actionSession.SendGroupMessageAsync(context.GroupId, CqMsg.Chain("让我康康你撤回了什么: ", msg.Message));
+        await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage("让我康康你撤回了什么: ", msg.Message));
     }
 }
 ```
@@ -262,11 +262,6 @@ HELLO WORLD
 
 1. `CqFaceMsg` 是 QQ 小黄脸消息, 它还提供了从中文名称转换为对应类型的方法, 例如 "斜眼笑", "可怜" 等中文名称.
 2. 上报中的 `QuickOperation` 是不推荐使用的, 除非你使用的是反向 HTTP, 这是因为在 WebSocket 中, 快速操作是模拟出来的
-
-### 📃 近期计划:
-
-1. 实现反向 WebSocket 通信
-2. 实现所有 Action
 
 ## 🧬 项目
 
