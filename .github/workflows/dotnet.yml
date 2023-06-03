@@ -80,7 +80,7 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         automatic_release_tag: AutoBuild
-        title: "自动构建版本"
+        title: "鑷姩鏋勫缓鐗堟湰"
         files: |
               *.nupkg
  
