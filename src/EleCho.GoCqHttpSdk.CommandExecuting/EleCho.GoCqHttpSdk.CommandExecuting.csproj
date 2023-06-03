@@ -29,7 +29,10 @@
 
   <ItemGroup>
     <PackageReference Include="EleCho.CommandLine" Version="1.*" />
-    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
   </ItemGroup>
 
 </Project>
