@@ -27,6 +27,8 @@ _✨ 专为 [Go-CqHttp](https://github.com/Mrs4s/go-cqhttp) 打造的, 便捷与
 > 功能支持: CqCode 转码, API 快速操作 \
 > 设计模式: 上报为中间件模式, 同时也支持基于中间件的插件
 
+> 注意, 文档可能会有些滞后, 以代码为准. 你可以参考仓库中的 demo, 或测试项目.
+
 ### 🔗 连接
 
 要与 go-cqhttp 建立一个 WebSocket 连接, 需要使用位于 `EleCho.GoCqHttpSdk` 命名空间下的 `CqWsSession` 来创建一个会话
@@ -40,11 +42,26 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
     UseEventEndPoint = true,                   // 使用事件终结点
 });
 
-session.Start();                               // 开始连接 (你也可以使用它的异步版本)
+await session.StartAsync();                               // 开始连接
+```
+
+要等待一个会话结束, 你需要使用 `CqWsSession` 的 `WaitForShutdownAsync` 方法
+
+```csharp
+await session.WaitForShutdownAsync();
+```
+
+或者, 你也可以直接运行, 并等待结束:
+
+```csharp
+await session.RunAsync();
 ```
 
 > 指定 *UseApiEndPoint* 和 *UseEventEndPoint* 将使用独立的 api 和 event 套接字来单独处理功能调用以及事件处理
 > 参考文档: [Onebot11:正向WebSocket](https://github.com/botuniverse/onebot-11/blob/master/communication/ws.md)
+
+> 注意: 请不要混合使用同步方法和异步方法, 这可能会导致你的项目产生死锁. 
+> 所有的同步方法都是异步方法的包装. 更推荐使用异步方法.
 
 ### 📩 上报
 
@@ -209,6 +226,12 @@ public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
 }
 ```
 
+要在一个会话中使用消息匹配插件, 请使用 `UseMessageMatchPlugin` 方法:
+
+```csharp
+session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
+```
+
 > 另外, `MessageMatching` 也提供了很多重载, 你可以选择适合你的使用
 
 ### ⌨️ 指令执行
@@ -244,6 +267,12 @@ class MyCommandExecutePlugin : CqCommandExecutePostPlugin
         return text;
     }
 }
+```
+
+同样, 使用一个命令执行插件, 使用 `UseCommandExecutePlugin` 方法即可:
+
+```csharp
+session.UseCommandExecutePlugin(new MyCommandExecutePlugin(session));
 ```
 
 执行时会有以下效果:
