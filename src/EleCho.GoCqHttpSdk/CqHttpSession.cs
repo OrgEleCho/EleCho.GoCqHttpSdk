@@ -6,7 +6,7 @@ using System.Net.Http;
 namespace EleCho.GoCqHttpSdk
 {
     /// <summary>
-    /// 正向 HTTP 会话
+    /// 正向 HTTP 会话.
     /// 可用来发送 Action
     /// </summary>
     public class CqHttpSession : CqSession, ICqActionSession, IDisposable

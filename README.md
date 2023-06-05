@@ -339,6 +339,16 @@ Action 在 go-cqhttp 中的 JSON 格式与消息类似, 它为参数抽出了一
 
 同样, ActionResult(Action 调用的返回结果) 也将数据放在了 data 字段中, 所以同样做了特殊处理.
 
+
+<br/><br/><br/><br/><br/>
+
+---
+
+## 🤝 唠嗑
+
+你也可以加入咱的 QQ 群一起唠嗑, 不好解决的问题也可以直接在群里问. [QQ: 696327017](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ddli6snqppDk4HFKgKEph7QF_8qL_OJc&authKey=ze5fTRuRc%2BvdCrhLJLasAe0wnZ2YUMiuyKgLMl2jTcGQHtGSYIniu9%2BAAdNq76Fb&noverify=0&group_code=696327017)
+
+
 ## 🎉 贡献
 
 关于任何对项目上的意见, 例如命名, 设计模式, 或者其他任何方面的问题, 直接提交一个 discussion 就可以啦, 然后咱们就可以讨论讨论具体要采取什么措施啦. ψ(｀∇´)ψ
