@@ -10,11 +10,12 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
     internal class CqGetVersionInformationActionResultDataModel : CqActionResultDataModel
     {
         [JsonConstructor]
-        public CqGetVersionInformationActionResultDataModel(string app_name, string app_version, string app_full_name, string protocol_version, string coolq_edition, string coolq_directory, bool go_cqhttp, string plugin_version, int plugin_build_number, string plugin_build_configuration, string runtime_version, string runtime_os, string version, int protocol)
+        public CqGetVersionInformationActionResultDataModel(string app_name, string app_version, string app_full_name, string protocol_version, string coolq_edition, string coolq_directory, bool go_cqhttp, string plugin_version, int plugin_build_number, string plugin_build_configuration, string runtime_version, string runtime_os, string version, int protocol_name)
         {
             this.app_name = app_name;
             this.app_version = app_version;
             this.app_full_name = app_full_name;
+            this.protocol_name = protocol_name;
             this.protocol_version = protocol_version;
             this.coolq_edition = coolq_edition;
             this.coolq_directory = coolq_directory;
@@ -25,12 +26,12 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
             this.runtime_version = runtime_version;
             this.runtime_os = runtime_os;
             this.version = version;
-            this.protocol = protocol;
         }
 
         public string app_name { get; }
         public string app_version { get; }
         public string app_full_name { get; }
+        public int protocol_name { get; }
         public string protocol_version { get; }
         public string coolq_edition { get; }
         public string coolq_directory { get; }
@@ -46,6 +47,5 @@ namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
         public string runtime_os { get; }
 
         public string version { get; }
-        public int protocol { get; }
     }
 }

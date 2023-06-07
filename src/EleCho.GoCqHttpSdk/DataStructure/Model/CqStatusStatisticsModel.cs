@@ -11,36 +11,36 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
     {
         public CqStatusStatisticsModel(CqStatusStatistics srcData)
         {
-            PacketReceived = srcData.PacketReceived;
-            PacketSent = srcData.PacketSent;
-            PacketLost = srcData.PacketLost;
-            MessageReceived = srcData.MessageReceived;
-            MessageSent = srcData.MessageSent;
-            DisconnectTimes = srcData.DisconnectTimes;
-            LostTimes = srcData.LostTimes;
-            LastMessageTime = new DateTimeOffset(srcData.LastMessageTime).ToUnixTimeSeconds();
+            packet_received = srcData.PacketReceived;
+            packet_sent = srcData.PacketSent;
+            packet_lost = srcData.PacketLost;
+            message_received = srcData.MessageReceived;
+            message_sent = srcData.MessageSent;
+            disconnect_times = srcData.DisconnectTimes;
+            lost_times = srcData.LostTimes;
+            last_message_time = new DateTimeOffset(srcData.LastMessageTime).ToUnixTimeSeconds();
         }
 
         [JsonConstructor]
-        public CqStatusStatisticsModel(ulong packetReceived, ulong packetSent, ulong packetLost, ulong messageReceived, ulong messageSent, uint disconnectTimes, uint lostTimes, long lastMessageTime)
+        public CqStatusStatisticsModel(ulong packet_received, ulong packet_sent, ulong packet_lost, ulong message_received, ulong message_sent, uint disconnect_times, uint lost_times, long last_message_time)
         {
-            PacketReceived = packetReceived;
-            PacketSent = packetSent;
-            PacketLost = packetLost;
-            MessageReceived = messageReceived;
-            MessageSent = messageSent;
-            DisconnectTimes = disconnectTimes;
-            LostTimes = lostTimes;
-            LastMessageTime = lastMessageTime;
+            this.packet_received = packet_received;
+            this.packet_sent = packet_sent;
+            this.packet_lost = packet_lost;
+            this.message_received = message_received;
+            this.message_sent = message_sent;
+            this.disconnect_times = disconnect_times;
+            this.lost_times = lost_times;
+            this.last_message_time = last_message_time;
         }
 
-        public ulong PacketReceived { get; }
-        public ulong PacketSent { get; }
-        public ulong PacketLost { get; }
-        public ulong MessageReceived { get; }
-        public ulong MessageSent { get; }
-        public uint DisconnectTimes { get; }
-        public uint LostTimes { get; }
-        public long LastMessageTime { get; }
+        public ulong packet_received { get; }
+        public ulong packet_sent { get; }
+        public ulong packet_lost { get; }
+        public ulong message_received { get; }
+        public ulong message_sent { get; }
+        public uint disconnect_times { get; }
+        public uint lost_times { get; }
+        public long last_message_time { get; }
     }
 }

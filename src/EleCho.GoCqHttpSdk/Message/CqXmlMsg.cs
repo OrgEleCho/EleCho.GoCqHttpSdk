@@ -32,7 +32,7 @@ namespace EleCho.GoCqHttpSdk.Message
         public string Data { get; set; } = string.Empty;
 
         /// <summary>
-        /// 可能为空, 或空字符串 (官方也不说这干啥用的 (?
+        /// 可以不填 (官方也不说这干啥用的 (?
         /// </summary>
         public int? ResId { get; set; }
 

@@ -21,7 +21,7 @@ namespace AssemblyCheck
 {
     internal class Program
     {
-        public const int WebSocketPort = 5701;
+        public const int WebSocketPort = 8088;
 
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {
@@ -101,6 +101,9 @@ namespace AssemblyCheck
 
 
             var qwq = await session.GetGroupMemberListAsync(560611514);
+            var awa = await session.GetVersionInformationAsync();
+
+            await Console.Out.WriteLineAsync(awa?.ToString());
 
 
             await session.WaitForShutdownAsync();

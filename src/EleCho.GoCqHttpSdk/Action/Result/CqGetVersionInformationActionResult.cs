@@ -80,6 +80,22 @@ namespace EleCho.GoCqHttpSdk.Action
         /// </summary>
         public int Protocol { get; private set; }
 
+
+        /// <summary>
+        /// 协议名称 (根据 <see cref="Protocol"/> 推断而来)
+        /// </summary>
+        public string ProtocolName => Protocol switch
+        {
+            0 => "Default",
+            1 => "Android Phone",
+            2 => "Android Watch",
+            3 => "Mac OS",
+            4 => "企点",
+            5 => "iPad",
+            6 => "aPad",
+            _ => "Unknown"
+        };
+
         /// <summary>
         /// 协议版本
         /// </summary>
@@ -106,7 +122,7 @@ namespace EleCho.GoCqHttpSdk.Action
             RuntimeVersion = _m.runtime_version;
 
             Version = _m.version;
-            Protocol = _m.protocol;
+            Protocol = _m.protocol_name;
             ProtocolVersion = _m.protocol_version;
         }
     }

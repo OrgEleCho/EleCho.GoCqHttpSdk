@@ -18,14 +18,14 @@ namespace EleCho.GoCqHttpSdk
 
         internal CqStatusStatistics(CqStatusStatisticsModel model)
         {
-            PacketReceived = model.PacketReceived;
-            PacketSent = model.PacketSent;
-            PacketLost = model.PacketLost;
-            MessageReceived = model.MessageReceived;
-            MessageSent = model.MessageSent;
-            DisconnectTimes = model.DisconnectTimes;
-            LostTimes = model.LostTimes;
-            LastMessageTime = DateTimeOffset.FromUnixTimeSeconds(model.LastMessageTime).DateTime;
+            PacketReceived = model.packet_received;
+            PacketSent = model.packet_sent;
+            PacketLost = model.packet_lost;
+            MessageReceived = model.message_received;
+            MessageSent = model.message_sent;
+            DisconnectTimes = model.disconnect_times;
+            LostTimes = model.lost_times;
+            LastMessageTime = DateTimeOffset.FromUnixTimeSeconds(model.last_message_time).DateTime;
         }
 
         /// <summary>
