@@ -17,6 +17,9 @@
 
         internal override object? GetModel()
         {
+            if (Approve == null)
+                return null;
+
             return new
             {
                 approve = Approve,

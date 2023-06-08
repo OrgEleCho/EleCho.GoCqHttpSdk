@@ -24,6 +24,9 @@ namespace EleCho.GoCqHttpSdk.Post
 
         internal override object? GetModel()
         {
+            if (Reply == null)
+                return null;
+
             return new
             {
                 reply = Reply == null ? null : Reply.Select(CqMsg.ToModel).ToArray()

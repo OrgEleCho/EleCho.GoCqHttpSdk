@@ -44,7 +44,6 @@ namespace AssemblyCheck
             {
                 Console.WriteLine($"收到了加群请求{context}");
                 context.QuickOperation.Approve = true;
-                session.ApproveGroupRequestAsync(context.Flag, context.GroupRequestType);
             });
 
             session.UseGroupMessage(async context =>

@@ -45,7 +45,7 @@ namespace EleCho.GoCqHttpSdk.Post
         public CqGroupRequestPostQuickOperation QuickOperation { get; }
             = new CqGroupRequestPostQuickOperation();
 
-        internal override object? QuickOperationModel => null;
+        internal override object? QuickOperationModel => QuickOperation.GetModel();
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);
