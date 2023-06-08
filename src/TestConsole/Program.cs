@@ -43,6 +43,8 @@ namespace AssemblyCheck
             session.UseGroupRequest(context =>
             {
                 Console.WriteLine($"收到了加群请求{context}");
+                context.QuickOperation.Approve = true;
+                session.ApproveGroupRequestAsync(context.Flag, context.GroupRequestType);
             });
 
             session.UseGroupMessage(async context =>
@@ -163,6 +165,22 @@ namespace AssemblyCheck
                 return;
 
             await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(string.Join(", ", slices.Slices)));
+        }
+
+        [CqMessageMatch("(男同)|(南通)")]
+        public async Task Nantong(CqGroupMessagePostContext context)
+        {
+            var forwardMessage = new CqForwardMessage()
+            {
+                new CqForwardMessageNode(context.Sender.Nickname, context.UserId, new CqMessage("摊牌了, 我是男同!"))
+            };
+
+            foreach (var user in (await ActionSession.GetGroupMemberListAsync(context.GroupId))?.Members ?? Array.Empty<CqGroupMember>())
+            {
+                forwardMessage.Add(new CqForwardMessageNode(user.Nickname, user.UserId, new CqMessage("我超, 男同竟在我身边")));
+            }
+
+            await ActionSession.SendGroupForwardMessageAsync(context.GroupId, forwardMessage);
         }
 
         [CqMessageMatch("^#face (?<content>.*)")]
