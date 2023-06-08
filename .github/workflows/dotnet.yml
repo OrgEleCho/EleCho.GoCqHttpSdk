@@ -35,3 +35,20 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: src
+
+    - name: Upload .NET Standard2.0
+      uses: actions/upload-artifact@v3
+      with:
+        name: .NET Standard 2.0
+        path: src/EleCho.GoCqHttpSdk*/bin/Release/netstandard2.0/*.dll
+    - name: Upload .NET 6
+      uses: actions/upload-artifact@v3
+      with:
+        name: .NET 7
+        path: src/EleCho.GoCqHttpSdk*/bin/Release/net6.0/*.dll
+    - name: Upload .NET 7
+      uses: actions/upload-artifact@v3
+      with:
+        name: .NET 7
+        path: src/EleCho.GoCqHttpSdk*/bin/Release/net7.0/*.dll
+          
