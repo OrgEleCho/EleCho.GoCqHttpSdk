@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             Time = DateTime.Now;
             Session = default!;         // 别警告了, 憨批 VS
-                                     // 保证在 new 之后通过 SetSession 设置 Session
+                                        // 保证在 new 之后通过 SetSession 设置 Session
         }
 
         /// <summary>
@@ -47,7 +47,8 @@ namespace EleCho.GoCqHttpSdk.Post
         {
             CqPostContext? cqEventArgs = model?.post_type switch
             {
-                Consts.PostType.Message => FromMessageModel(model as CqMessagePostModel),
+                Consts.PostType.Message => FromMessageModel(model as CqMessagePostModel, false),
+                Consts.PostType.MessageSent => FromMessageModel(model as CqMessagePostModel, true),
                 Consts.PostType.Notice => FromNoticeModel(model as CqNoticePostModel),
                 Consts.PostType.Request => FromRequestModel(model as CqRequestPostModel),
                 Consts.PostType.MetaEvent => FromMetaModel(model as CqMetaPostModel),
@@ -66,15 +67,28 @@ namespace EleCho.GoCqHttpSdk.Post
             SelfId = model.self_id;
         }
 
-        private static CqPostContext? FromMessageModel(CqMessagePostModel? model)
+        private static CqPostContext? FromMessageModel(CqMessagePostModel? model, bool isSent)
         {
-            return model?.message_type switch
+            if (isSent)
             {
-                Consts.MsgType.Private => new CqPrivateMessagePostContext(),
-                Consts.MsgType.Group => new CqGroupMessagePostContext(),
+                return model?.message_type switch
+                {
+                    Consts.MsgType.Private => new CqPrivateMessageSentPostContext(),
+                    Consts.MsgType.Group => new CqGroupMessageSentPostContext(),
 
-                _ => null,
-            };
+                    _ => null,
+                };
+            }
+            else
+            {
+                return model?.message_type switch
+                {
+                    Consts.MsgType.Private => new CqPrivateMessagePostContext(),
+                    Consts.MsgType.Group => new CqGroupMessagePostContext(),
+
+                    _ => null,
+                };
+            }
         }
 
         private static CqPostContext? FromMetaModel(CqMetaPostModel? model)

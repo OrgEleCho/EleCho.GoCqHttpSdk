@@ -21,6 +21,11 @@
         Message,
 
         /// <summary>
+        /// 自身消息
+        /// </summary>
+        MessageSent,
+
+        /// <summary>
         /// 通知
         /// </summary>
         Notice,

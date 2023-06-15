@@ -20,6 +20,7 @@ namespace EleCho.GoCqHttpSdk.Post.JsonConverter
                 return postType switch
                 {
                     Consts.PostType.Message => JsonSerializer.Deserialize<CqMessagePostModel>(doc, options),
+                    Consts.PostType.MessageSent => JsonSerializer.Deserialize<CqMessagePostModel>(doc, options),
                     Consts.PostType.Notice => JsonSerializer.Deserialize<CqNoticePostModel>(doc, options),
                     Consts.PostType.Request => JsonSerializer.Deserialize<CqRequestPostModel>(doc, options),
                     Consts.PostType.MetaEvent => JsonSerializer.Deserialize<CqMetaPostModel>(doc, options),

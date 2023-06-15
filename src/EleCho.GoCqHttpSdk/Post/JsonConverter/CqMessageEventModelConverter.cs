@@ -12,15 +12,31 @@ namespace EleCho.GoCqHttpSdk.Post.JsonConverter
         {
             JsonDocument doc = JsonDocument.ParseValue(ref reader);
 
+            string? postType = doc.RootElement.GetProperty("post_type").GetString();
             string? messageType = doc.RootElement.GetProperty("message_type").GetString();
 
-            return messageType switch
+            if (postType == Consts.PostType.Message)
             {
-                Consts.MsgType.Private => JsonSerializer.Deserialize<CqPrivateMessagePostModel>(doc, options),
-                Consts.MsgType.Group => JsonSerializer.Deserialize<CqGroupMessagePostModel>(doc, options),
+                return messageType switch
+                {
+                    Consts.MsgType.Private => JsonSerializer.Deserialize<CqPrivateMessagePostModel>(doc, options),
+                    Consts.MsgType.Group => JsonSerializer.Deserialize<CqGroupMessagePostModel>(doc, options),
 
-                _ => null
-            };
+                    _ => null
+                };
+            }
+            else if(postType == Consts.PostType.MessageSent)
+            {
+                return messageType switch
+                {
+                    Consts.MsgType.Private => JsonSerializer.Deserialize<CqPrivateMessageSentPostModel>(doc, options),
+                    Consts.MsgType.Group => JsonSerializer.Deserialize<CqGroupMessageSentPostModel>(doc, options),
+
+                    _ => null
+                };
+            }
+
+            return null;
         }
 
         public override void Write(Utf8JsonWriter writer, CqMessagePostModel value, JsonSerializerOptions options)
