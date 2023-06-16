@@ -27,6 +27,11 @@ namespace EleCho.GoCqHttpSdk.Post
         /// </summary>
         public CqMessageSender Sender { get; set; } = new CqMessageSender();
 
+        /// <summary>
+        /// 接收者 ID
+        /// </summary>
+        public long TargetId { get; set; }
+
         internal override void ReadModel(CqPostModel model)
         {
             base.ReadModel(model);
@@ -37,6 +42,7 @@ namespace EleCho.GoCqHttpSdk.Post
             PrivateMessageType = CqEnum.GetPrivateMessageType(msgModel.sub_type);
             TempSource = (CqTempSource)msgModel.temp_source;
             Sender = new CqMessageSender(msgModel.sender);
+            TargetId = msgModel.target_id;
         }
     }
 }
