@@ -42,7 +42,7 @@ CqWsSession session = new CqWsSession(new CqWsSessionOptions()
     UseEventEndPoint = true,                   // 使用事件终结点
 });
 
-await session.StartAsync();                               // 开始连接
+await session.StartAsync();                    // 开始连接
 ```
 
 要等待一个会话结束, 你需要使用 `CqWsSession` 的 `WaitForShutdownAsync` 方法
@@ -70,7 +70,7 @@ await session.RunAsync();
 `CqPostPipeline` 是用户处理上报的途径, 它符合中间件设计模型, 你可以直接使用使用它添加中间件.
 
 ```csharp
-CqWsSession session;   // 要处理上报数据的会话
+// CqWsSession session;   // 要处理上报数据的会话
 session.PostPipeline.Use(async (context, next) =>
 {
     // context 为上报数据的上下文, 其中包含了具体的信息
@@ -87,8 +87,8 @@ session.PostPipeline.Use(async (context, next) =>
 上述订阅方法将会处理所有的上报, 我们更推荐使用 `EleCho.GoCqHttpSdk.CqPostContextExtensions` 类所提供的拓展方法, 通过它你可以非常便捷的处理任何具体类型的事件
 
 ```csharp
-CqWsSession session;   // 要处理上报数据的会话
-session.PostPipeline.UseGroupMessage(async (context, next) =>
+// CqWsSession session;   // 要处理上报数据的会话
+session.UseGroupMessage(async (context, next) =>
 {
     // context 为 CqGroupMessagePostContext, 其中包含了群聊消息的具体信息
     
@@ -97,8 +97,8 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
     // 简单实现一个复读机:
     if (context.RawMessage.StartsWith("echo "))
     {
-        string msg = context.RawMessage.SubString(5);                       // 获取 "echo " 后的字符
-        context.SendGroupMessageAsync(context.GroupId, new CqMessage(msg)); // 发送它 (关于消息发送后面会详细讲解)
+        string msg = context.RawMessage.Substring(5);                       // 获取 "echo " 后的字符
+        await session.SendGroupMessageAsync(context.GroupId, new CqMessage(msg)); // 发送它 (关于消息发送后面会详细讲解)
     }
     
     await next();
@@ -112,15 +112,15 @@ session.PostPipeline.UseGroupMessage(async (context, next) =>
 `CqActionSender` 是程序向 go-cqhttp 发送 "Action" 的途径, 其中需要实现 `CqAction` 的发送逻辑以及响应逻辑, 你可以直接使用它来调用任何 `CqAction`
 
 ```csharp
-CqWsSession session;   // 要使用 Action 的会话
-session.ActionSender.SendActionAsync(new CqSendGroupMessageAction(群聊ID, new CqMessage { new CqTextMsg("一个文本消息") }));
+// CqWsSession session;   // 要使用 Action 的会话
+int groupID = default;    // 群聊ID
+session.ActionSender.SendActionAsync(new CqSendGroupMessageAction(groupID, new CqMessage { new CqTextMsg("一个文本消息") }));
 ```
 
 可以看到, 使用 *session.ActionSender* 直接发送 `Action` 的步骤比较繁琐, 所以同样的, 推荐使用拓展方法, 它们由 `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 提供.
 
 ```csharp
-CqWsSession session;   // 要使用 Action 的会话
-context.SendGroupMessageAsync(群聊ID, new CqMessage("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
+session.SendGroupMessageAsync(groupID, new CqMessage("一个文本消息")); // 发送它 (关于消息发送后面会详细讲解)
 ```
 
 > `EleCho.GoCqHttpSdk.CqActionSessionExtensions` 类不直接为 `CqActionSender` 类提供拓展, 你只能在实现了 `ICqActionSession` 接口的类上调用这些拓展方法
@@ -137,16 +137,16 @@ class MyPostPlugin : CqPostPlugin
         if (context.Session is not ICqActionSession actionSession)   // 判断是否能够发送 Action
             return;
         
-        string text = context.Message.GetText();
+        string text = context.Message.Text;
         if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
         {
-            await actionSession.SendGroupMessageAsync(context.GroupId, new CqTtsMsg(text[4..]));
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(new CqTtsMsg(text[4..])));
         }
         else if (text.StartsWith("ToFace:"))
         {
             if (CqFaceMsg.FromName(text[7..]) is CqFaceMsg face)
             
-            await actionSession.SendGroupMessageAsync(context.GroupId, face);
+            await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(face));
         }
     }
 
@@ -175,13 +175,11 @@ session.UsePlugin(new MyPostPlugin());
 使用 `EleCho.GoCqHttpSdk.MessageMatching`, 你可以轻松实现对消息的正则匹配. 首先, 其提供的最基本的拓展方法如下:
 
 ```csharp
-CqWsSession session;   // 需要添加处理中间件的会话
-
 // 匹配开头是 `echo` 和空格的消息
 session.UseGroupMessageMatch("$echo ", async (context, next) =>
 {
     // 发送复读消息
-    await session.SendGroupMessage(context.GroupId, context.Message.GetText()[5..];
+    await session.SendGroupMessageAsync(context.GroupId, new CqMessage(context.Message.Text[5..]));
 });
 ```
 
@@ -209,7 +207,7 @@ public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
     )
     {
         // 将接收到的内容所匹配到的 context 值发送到消息所在群组
-        await ActionSession.SendGroupMessageAsync(context.GroupId, $"Captured content: {content}, index: {match.Index}");
+        await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage($"Captured content: {content}, index: {match.Index}"));
         
         // 如果当前方法的返回值是一个 Task, 那么这个 Task 会被等待, 如果你不希望它被等待, 你可以指定 void 作为返回值
     }
@@ -221,7 +219,7 @@ public class MyMessageMatchPlugin : CqMessageMatchPostPlugin
         // 即便你不在参数中指定 CqMessagePostContext, 你也可以通过插件的公开属性来获取当前上下文
         // 需要注意的是, 如果没有特意指定是群聊消息上下文或私聊消息上下文, 插件会处理任何消息
 
-        Console.WriteLine(CurrentContext.Message.GetText());
+        Console.WriteLine(CurrentContext.Message.Text);
     }
 }
 ```
@@ -239,7 +237,7 @@ session.UseMessageMatchPlugin(new MyMessageMatchPlugin(session));
 使用 `EleCho.GoCqHttpSdk.CommandExecuting`, 你可以轻松实现机器人的指令功能, 下面是一个基本示例, 定义自己的命令执行插件:
 
 ```csharp
-class MyCommandExecutePlugin : CqCommandExecutePostPlugin
+public class MyCommandExecutePlugin : CqCommandExecutePostPlugin
 {
     [Command]
     public int Add(int a, int b)
