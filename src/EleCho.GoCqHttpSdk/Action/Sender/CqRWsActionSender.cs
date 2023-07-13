@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
 
-namespace EleCho.GoCqHttpSdk.Action.Invoker
+namespace EleCho.GoCqHttpSdk.Action.Sender
 {
     /// <summary>
     /// 反向 WebSocket 的操作发送器

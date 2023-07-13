@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EleCho.GoCqHttpSdk.Message
@@ -199,34 +200,10 @@ namespace EleCho.GoCqHttpSdk.Message
             return this;
         }
 
-        private string GetText()
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var msg in this)
-                if (msg is CqTextMsg txtMsg)
-                    sb.Append(txtMsg.Text);
-            return sb.ToString();
-        }
-
-        private string? storagedText;
-
         /// <summary>
         /// 获取当前消息的文本内容
         /// </summary>
-        public string Text
-        {
-            get
-            {
-                if (storagedText != null)
-                    return storagedText;
-
-                StringBuilder sb = new StringBuilder();
-                foreach (var msg in this)
-                    if (msg is CqTextMsg txtMsg)
-                        sb.Append(txtMsg.Text);
-                return storagedText = sb.ToString();
-            }
-        }
+        public string Text => string.Concat(this.OfType<CqTextMsg>().Select(msg => msg.Text));
 
         /// <summary>
         /// 从 CQ 码序列创建一个消息

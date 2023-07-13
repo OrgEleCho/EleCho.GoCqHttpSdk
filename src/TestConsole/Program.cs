@@ -19,6 +19,9 @@ using EleCho.GoCqHttpSdk.Post;
 
 namespace AssemblyCheck
 {
+    record QWQ(string qwq);
+    struct AWA { }
+
     internal class Program
     {
         public const int WebSocketPort = 8088;

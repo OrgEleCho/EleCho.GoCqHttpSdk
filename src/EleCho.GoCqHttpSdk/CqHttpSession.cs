@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Action.Invoker;
+﻿using EleCho.GoCqHttpSdk.Action.Sender;
 using System;
 using System.Buffers.Text;
 using System.Net.Http;

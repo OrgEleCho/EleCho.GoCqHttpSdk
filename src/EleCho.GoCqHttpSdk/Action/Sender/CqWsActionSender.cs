@@ -12,7 +12,7 @@ using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using static System.Collections.Specialized.BitVector32;
 
-namespace EleCho.GoCqHttpSdk.Action.Invoker
+namespace EleCho.GoCqHttpSdk.Action.Sender
 {
     /// <summary>
     /// WebSocket 的操作发送器

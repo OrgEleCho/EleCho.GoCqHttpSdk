@@ -14,7 +14,7 @@ using EleCho.GoCqHttpSdk.Post.Model;
 using static EleCho.GoCqHttpSdk.Utils.Consts;
 using EleCho.GoCqHttpSdk.Post;
 
-namespace EleCho.GoCqHttpSdk.Action.Invoker
+namespace EleCho.GoCqHttpSdk.Action.Sender
 {
     /// <summary>
     /// HTTP 操作发送器
