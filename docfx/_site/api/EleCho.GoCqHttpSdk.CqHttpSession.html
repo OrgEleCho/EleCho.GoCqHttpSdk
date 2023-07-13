@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CqHttpSession
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CqHttpSession
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_CqHttpSession.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.CqHttpSession%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EleCho.GoCqHttpSdk.CqHttpSession">
+
+
+
+  <h1 id="EleCho_GoCqHttpSdk_CqHttpSession" data-uid="EleCho.GoCqHttpSdk.CqHttpSession" class="text-break">
+    Class CqHttpSession
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EleCho.html">EleCho</a>.<a class="xref" href="EleCho.GoCqHttpSdk.html">GoCqHttpSdk</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EleCho.GoCqHttpSdk.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>正向 HTTP 会话.
+可用来发送 Action</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CqHttpSession : CqSession, ICqActionSession, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EleCho.GoCqHttpSdk.CqSession.html">CqSession</a></div>
+      <div><span class="xref">CqHttpSession</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="EleCho.GoCqHttpSdk.ICqActionSession.html">ICqActionSession</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ApproveFriendRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_">CqActionSessionExtensions.ApproveFriendRequest(ICqActionSession, string, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ApproveFriendRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_">CqActionSessionExtensions.ApproveFriendRequestAsync(ICqActionSession, string, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ApproveGroupRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_">CqActionSessionExtensions.ApproveGroupRequest(ICqActionSession, string, CqGroupRequestType)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ApproveGroupRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_">CqActionSessionExtensions.ApproveGroupRequestAsync(ICqActionSession, string, CqGroupRequestType)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAllMembers_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.BanGroupAllMembers(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAllMembersAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.BanGroupAllMembersAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAnonymousMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_CqAnonymousInfomation_System_TimeSpan_">CqActionSessionExtensions.BanGroupAnonymousMember(ICqActionSession, long, CqAnonymousInfomation, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAnonymousMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_TimeSpan_">CqActionSessionExtensions.BanGroupAnonymousMember(ICqActionSession, long, string, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAnonymousMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_CqAnonymousInfomation_System_TimeSpan_">CqActionSessionExtensions.BanGroupAnonymousMemberAsync(ICqActionSession, long, CqAnonymousInfomation, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupAnonymousMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_TimeSpan_">CqActionSessionExtensions.BanGroupAnonymousMemberAsync(ICqActionSession, long, string, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_TimeSpan_">CqActionSessionExtensions.BanGroupMember(ICqActionSession, long, long, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_BanGroupMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_TimeSpan_">CqActionSessionExtensions.BanGroupMemberAsync(ICqActionSession, long, long, TimeSpan)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAllMembers_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.CancelBanGroupAllMembers(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAllMembersAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.CancelBanGroupAllMembersAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAnonymousMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_CqAnonymousInfomation_">CqActionSessionExtensions.CancelBanGroupAnonymousMember(ICqActionSession, long, CqAnonymousInfomation)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAnonymousMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.CancelBanGroupAnonymousMember(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAnonymousMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_CqAnonymousInfomation_">CqActionSessionExtensions.CancelBanGroupAnonymousMemberAsync(ICqActionSession, long, CqAnonymousInfomation)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupAnonymousMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.CancelBanGroupAnonymousMemberAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_">CqActionSessionExtensions.CancelBanGroupMember(ICqActionSession, long, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CancelBanGroupMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_">CqActionSessionExtensions.CancelBanGroupMemberAsync(ICqActionSession, long, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CanSendImage_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.CanSendImage(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CanSendImageAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.CanSendImageAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CanSendRecord_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.CanSendRecord(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CanSendRecordAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.CanSendRecordAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CheckUrlSafety_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.CheckUrlSafety(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CheckUrlSafetyAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.CheckUrlSafetyAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CreateGroupFolder_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.CreateGroupFolder(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_CreateGroupFolderAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.CreateGroupFolderAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteEssenceMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteEssenceMessage(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteEssenceMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteEssenceMessageAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteFriend_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteFriend(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteFriendAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteFriendAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteGroupFile_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Int32_">CqActionSessionExtensions.DeleteGroupFile(ICqActionSession, long, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteGroupFileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Int32_">CqActionSessionExtensions.DeleteGroupFileAsync(ICqActionSession, long, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteGroupFolder_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.DeleteGroupFolder(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteGroupFolderAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.DeleteGroupFolderAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteUnidirectionalFriend_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteUnidirectionalFriend(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DeleteUnidirectionalFriendAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.DeleteUnidirectionalFriendAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DownloadFile_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_Int32_System_Collections_Generic_Dictionary_System_String_System_String__">CqActionSessionExtensions.DownloadFile(ICqActionSession, string, int, Dictionary&lt;string, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_DownloadFileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_Int32_System_Collections_Generic_Dictionary_System_String_System_String__">CqActionSessionExtensions.DownloadFileAsync(ICqActionSession, string, int, Dictionary&lt;string, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetCookies_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetCookies(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetCookiesAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetCookiesAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetCsrfToken_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetCsrfToken(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetCsrfTokenAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetCsrfTokenAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetEssenceMessageList_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetEssenceMessageList(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetEssenceMessageListAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetEssenceMessageListAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetForwardMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetForwardMessageAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetForwwardMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetForwwardMessage(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetFriendList_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetFriendList(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetFriendListAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetFriendListAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFilesByFolder_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.GetGroupFilesByFolder(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFilesByFolderAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.GetGroupFilesByFolderAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFileSystemInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupFileSystemInformation(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFileSystemInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupFileSystemInformationAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFileUrl_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Int32_">CqActionSessionExtensions.GetGroupFileUrl(ICqActionSession, long, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupFileUrlAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Int32_">CqActionSessionExtensions.GetGroupFileUrlAsync(ICqActionSession, long, string, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupInformation(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupInformation(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupInformationAsync(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupInformationAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupList_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetGroupList(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupList_EleCho_GoCqHttpSdk_ICqActionSession_System_Boolean_">CqActionSessionExtensions.GetGroupList(ICqActionSession, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupListAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetGroupListAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupListAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Boolean_">CqActionSessionExtensions.GetGroupListAsync(ICqActionSession, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupMemberInformation(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_">CqActionSessionExtensions.GetGroupMemberInformation(ICqActionSession, long, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupMemberInformationAsync(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_">CqActionSessionExtensions.GetGroupMemberInformationAsync(ICqActionSession, long, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberList_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupMemberList(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberList_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupMemberList(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberListAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetGroupMemberListAsync(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupMemberListAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupMemberListAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupRootFiles_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupRootFiles(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetGroupRootFilesAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetGroupRootFilesAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetImage_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetImage(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetImageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetImageAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetLoginInformation_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetLoginInformation(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetLoginInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetLoginInformationAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetMessage(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetMessageAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetModelShow_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetModelShow(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetModelShowAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetModelShowAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetOnlineClients_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetOnlineClients(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetOnlineClients_EleCho_GoCqHttpSdk_ICqActionSession_System_Boolean_">CqActionSessionExtensions.GetOnlineClients(ICqActionSession, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetOnlineClientsAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetOnlineClientsAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetOnlineClientsAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Boolean_">CqActionSessionExtensions.GetOnlineClientsAsync(ICqActionSession, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetStrangerInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetStrangerInformation(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetStrangerInformation_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetStrangerInformation(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetStrangerInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.GetStrangerInformationAsync(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetStrangerInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GetStrangerInformationAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetUnidirectionalFriendList_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetUnidirectionalFriendList(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetUnidirectionalFriendListAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetUnidirectionalFriendListAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetVersionInformation_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetVersionInformation(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetVersionInformationAsync_EleCho_GoCqHttpSdk_ICqActionSession_">CqActionSessionExtensions.GetVersionInformationAsync(ICqActionSession)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetWordSlices_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetWordSlices(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GetWordSlicesAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.GetWordSlicesAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GroupSignIn_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GroupSignIn(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_GroupSignInAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.GroupSignInAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_HandleFriendRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_Boolean_System_String_">CqActionSessionExtensions.HandleFriendRequest(ICqActionSession, string, bool, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_HandleFriendRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_Boolean_System_String_">CqActionSessionExtensions.HandleFriendRequestAsync(ICqActionSession, string, bool, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_HandleGroupRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_System_Boolean_System_String_">CqActionSessionExtensions.HandleGroupRequest(ICqActionSession, string, CqGroupRequestType, bool, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_HandleGroupRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_System_Boolean_System_String_">CqActionSessionExtensions.HandleGroupRequestAsync(ICqActionSession, string, CqGroupRequestType, bool, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_InvokeActionAsync__2_EleCho_GoCqHttpSdk_ICqActionSession___0_">CqActionSessionExtensions.InvokeActionAsync&lt;TAction, TActionResult&gt;(ICqActionSession, TAction)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_KickGroupMember_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.KickGroupMember(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_KickGroupMemberAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.KickGroupMemberAsync(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_LeaveGroup_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.LeaveGroup(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_LeaveGroup_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.LeaveGroup(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_LeaveGroupAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.LeaveGroupAsync(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_LeaveGroupAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.LeaveGroupAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_MarkMessageAsRead_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.MarkMessageAsRead(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_MarkMessageAsReadAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.MarkMessageAsReadAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_OcrImage_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.OcrImage(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_OcrImageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.OcrImageAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RecallMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.RecallMessage(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RecallMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.RecallMessageAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RejectFriendRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.RejectFriendRequest(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RejectFriendRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.RejectFriendRequestAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RejectGroupRequest_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_System_String_">CqActionSessionExtensions.RejectGroupRequest(ICqActionSession, string, CqGroupRequestType, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_RejectGroupRequestAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_EleCho_GoCqHttpSdk_CqGroupRequestType_System_String_">CqActionSessionExtensions.RejectGroupRequestAsync(ICqActionSession, string, CqGroupRequestType, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ReloadEventFilter_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.ReloadEventFilter(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_ReloadEventFilterAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_">CqActionSessionExtensions.ReloadEventFilterAsync(ICqActionSession, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendGroupForwardMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqForwardMessage_">CqActionSessionExtensions.SendGroupForwardMessage(ICqActionSession, long, CqForwardMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendGroupForwardMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqForwardMessage_">CqActionSessionExtensions.SendGroupForwardMessageAsync(ICqActionSession, long, CqForwardMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendGroupMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendGroupMessage(ICqActionSession, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendGroupMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendGroupMessageAsync(ICqActionSession, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendMessage_EleCho_GoCqHttpSdk_ICqActionSession_EleCho_GoCqHttpSdk_CqMessageType_System_Nullable_System_Int64__System_Nullable_System_Int64__EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendMessage(ICqActionSession, CqMessageType, long?, long?, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Nullable_System_Int64__System_Nullable_System_Int64__EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendMessage(ICqActionSession, long?, long?, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_EleCho_GoCqHttpSdk_CqMessageType_System_Nullable_System_Int64__System_Nullable_System_Int64__EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendMessageAsync(ICqActionSession, CqMessageType, long?, long?, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Nullable_System_Int64__System_Nullable_System_Int64__EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendMessageAsync(ICqActionSession, long?, long?, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateForwardMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqForwardMessage_">CqActionSessionExtensions.SendPrivateForwardMessage(ICqActionSession, long, CqForwardMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateForwardMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqForwardMessage_">CqActionSessionExtensions.SendPrivateForwardMessageAsync(ICqActionSession, long, CqForwardMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendPrivateMessage(ICqActionSession, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendPrivateMessage(ICqActionSession, long, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendPrivateMessageAsync(ICqActionSession, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SendPrivateMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_">CqActionSessionExtensions.SendPrivateMessageAsync(ICqActionSession, long, long, CqMessage)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetAccountProfile_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_System_String_System_String_System_String_">CqActionSessionExtensions.SetAccountProfile(ICqActionSession, string, string, string, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetAccountProfileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_System_String_System_String_System_String_">CqActionSessionExtensions.SetAccountProfileAsync(ICqActionSession, string, string, string, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetEssenceMessage_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.SetEssenceMessage(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetEssenceMessageAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_">CqActionSessionExtensions.SetEssenceMessageAsync(ICqActionSession, long)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAdministrator_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.SetGroupAdministrator(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAdministratorAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_Boolean_">CqActionSessionExtensions.SetGroupAdministratorAsync(ICqActionSession, long, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAnonymous_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.SetGroupAnonymous(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAnonymousAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Boolean_">CqActionSessionExtensions.SetGroupAnonymousAsync(ICqActionSession, long, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAvatar_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Boolean_">CqActionSessionExtensions.SetGroupAvatar(ICqActionSession, long, string, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAvatar_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.SetGroupAvatar(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAvatarAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_Boolean_">CqActionSessionExtensions.SetGroupAvatarAsync(ICqActionSession, long, string, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupAvatarAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.SetGroupAvatarAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupName_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.SetGroupName(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupNameAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_">CqActionSessionExtensions.SetGroupNameAsync(ICqActionSession, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupNickname_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_String_">CqActionSessionExtensions.SetGroupNickname(ICqActionSession, long, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupNicknameAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_String_">CqActionSessionExtensions.SetGroupNicknameAsync(ICqActionSession, long, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupSpecialTitle_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_String_">CqActionSessionExtensions.SetGroupSpecialTitle(ICqActionSession, long, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetGroupSpecialTitleAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_Int64_System_String_">CqActionSessionExtensions.SetGroupSpecialTitleAsync(ICqActionSession, long, long, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetModelShow_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_">CqActionSessionExtensions.SetModelShow(ICqActionSession, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_SetModelShowAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_String_System_String_">CqActionSessionExtensions.SetModelShowAsync(ICqActionSession, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadGroupFile_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_System_String_">CqActionSessionExtensions.UploadGroupFile(ICqActionSession, long, string, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadGroupFile_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_">CqActionSessionExtensions.UploadGroupFile(ICqActionSession, long, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadGroupFileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_System_String_">CqActionSessionExtensions.UploadGroupFileAsync(ICqActionSession, long, string, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadGroupFileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_">CqActionSessionExtensions.UploadGroupFileAsync(ICqActionSession, long, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadPrivateFile_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_">CqActionSessionExtensions.UploadPrivateFile(ICqActionSession, long, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.CqActionSessionExtensions.html#EleCho_GoCqHttpSdk_CqActionSessionExtensions_UploadPrivateFileAsync_EleCho_GoCqHttpSdk_ICqActionSession_System_Int64_System_String_System_String_">CqActionSessionExtensions.UploadPrivateFileAsync(ICqActionSession, long, string, string)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_CqHttpSession__ctor_" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.#ctor*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqHttpSession__ctor_EleCho_GoCqHttpSdk_CqHttpSessionOptions_" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.#ctor(EleCho.GoCqHttpSdk.CqHttpSessionOptions)">
+  CqHttpSession(CqHttpSessionOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>实例化 CQ HTTP 会话</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqHttpSession(CqHttpSessionOptions options)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="EleCho.GoCqHttpSdk.CqHttpSessionOptions.html">CqHttpSessionOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_CqHttpSession_ActionSender_" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.ActionSender*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqHttpSession_ActionSender" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.ActionSender">
+  ActionSender
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>操作发送器</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqActionSender ActionSender { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EleCho.GoCqHttpSdk.CqActionSender.html">CqActionSender</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqHttpSession_BaseClient_" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.BaseClient*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqHttpSession_BaseClient" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.BaseClient">
+  BaseClient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>基础客户端</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpClient BaseClient { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_CqHttpSession_Dispose_" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.Dispose*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqHttpSession_Dispose" data-uid="EleCho.GoCqHttpSdk.CqHttpSession.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>释放资源</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/CqHttpSession.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,2712 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/slime/source/repos/GoCqHttp.Sdk/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionRetCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionRetCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqActionStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAllMembersAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAllMembersAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAllMembersActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAllMembersActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAnonymousMemberAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAnonymousMemberAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAnonymousMemberActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupAnonymousMemberActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupMemberAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupMemberAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupMemberActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqBanGroupMemberActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendImageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendImageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendImageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendImageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendRecordAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendRecordAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendRecordActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCanSendRecordActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCheckUrlSafetyAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCheckUrlSafetyAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCheckUrlSafetyActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCheckUrlSafetyActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCreateGroupFolderAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCreateGroupFolderAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCreateGroupFolderActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqCreateGroupFolderActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteEssenceMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteEssenceMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteEssenceMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteEssenceMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteFriendAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteFriendAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteFriendActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteFriendActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFileAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFileAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFileActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFileActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFolderAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFolderAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFolderActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteGroupFolderActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteUnidirectionalFriendAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteUnidirectionalFriendAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteUnidirectionalFriendActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDeleteUnidirectionalFriendActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDownloadFileAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDownloadFileAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDownloadFileActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqDownloadFileActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCookiesAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCookiesAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCookiesActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCookiesActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCsrfTokenAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCsrfTokenAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCsrfTokenActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetCsrfTokenActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetEssenceMessageListAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetEssenceMessageListAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetEssenceMessageListActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetEssenceMessageListActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetForwardMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetForwardMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetForwardMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetForwardMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetFriendListAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetFriendListAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetFriendListActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetFriendListActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileSystemInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileSystemInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileSystemInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileSystemInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileUrlAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileUrlAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileUrlActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFileUrlActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFilesByFolderAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFilesByFolderAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFilesByFolderActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupFilesByFolderActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupListAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupListAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupListActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupListActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberListAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberListAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberListActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupMemberListActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupRootFilesAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupRootFilesAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupRootFilesActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetGroupRootFilesActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetImageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetImageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetImageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetImageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetLoginInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetLoginInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetLoginInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetLoginInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetModelShowAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetModelShowAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetModelShowActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetModelShowActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetOnlineClientsAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetOnlineClientsAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetOnlineClientsActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetOnlineClientsActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetStrangerInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetStrangerInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetStrangerInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetStrangerInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetUnidirectionalFriendListAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetUnidirectionalFriendListAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetUnidirectionalFriendListActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetUnidirectionalFriendListActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetVersionInformationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetVersionInformationAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetVersionInformationActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetVersionInformationActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetWordSlicesAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetWordSlicesAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetWordSlicesActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGetWordSlicesActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGroupSignInAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGroupSignInAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGroupSignInActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqGroupSignInActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleFriendRequestAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleFriendRequestAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleFriendRequestActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleFriendRequestActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleGroupRequestAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleGroupRequestAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleGroupRequestActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqHandleGroupRequestActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqKickGroupMemberAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqKickGroupMemberAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqKickGroupMemberActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqKickGroupMemberActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqLeaveGroupAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqLeaveGroupAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqLeaveGroupActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqLeaveGroupActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqMarkMessageAsReadAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqMarkMessageAsReadAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqMarkMessageAsReadActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqMarkMessageAsReadActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqOcrImageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqOcrImageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqOcrImageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqOcrImageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqRecallMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqRecallMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqRecallMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqRecallMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqReloadEventFilterAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqReloadEventFilterAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqReloadEventFilterActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqReloadEventFilterActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupForwardMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupForwardMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupForwardMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupForwardMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendGroupMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateForwardMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateForwardMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateForwardMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateForwardMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSendPrivateMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetAccountProfileAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetAccountProfileAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetAccountProfileActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetAccountProfileActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetEssenceMessageAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetEssenceMessageAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetEssenceMessageActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetEssenceMessageActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAdministratorAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAdministratorAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAdministratorActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAdministratorActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAnonymousAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAnonymousAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAnonymousActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAnonymousActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAvatarAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAvatarAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAvatarActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupAvatarActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNameAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNameAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNameActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNameActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNicknameAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNicknameAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNicknameActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupNicknameActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupSpecialTitleAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupSpecialTitleAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupSpecialTitleActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetGroupSpecialTitleActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetModelShowAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetModelShowAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetModelShowActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqSetModelShowActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadGroupFileAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadGroupFileAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadGroupFileActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadGroupFileActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadPrivateFileAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadPrivateFileAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadPrivateFileActionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.CqUploadPrivateFileActionResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqHttpActionSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqHttpActionSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqRWsActionSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqRWsActionSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqWsActionSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.CqWsActionSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.Sender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Action.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Action.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.CqPostSessionCommandExecutingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.CqPostSessionCommandExecutingExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CommandExecuting.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqActionSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqActionSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqActionSessionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqActionSessionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqActionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqAnonymousInfomation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqAnonymousInfomation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqContactType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqContactType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqCurrentTalkative.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqCurrentTalkative.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqEssenceChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqEssenceChangeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqEssenceMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqEssenceMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqForwardMessageNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqForwardMessageNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqFriend.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqFriend.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGiftId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGiftId.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupAdminChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupAdminChangeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupBanChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupBanChangeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupDecreaseChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupDecreaseChangeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupFolder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupFolder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupHonorOwner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupHonorOwner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupIncreaseChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupIncreaseChangeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupMember.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupMember.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupMessageSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupMessageSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupRequestType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupRequestType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqGroupUploadedFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqGroupUploadedFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqHonorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqHonorType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqHttpSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqHttpSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqHttpSessionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqHttpSessionOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqImageEffect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqImageEffect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqImageSubType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqImageSubType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqImageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqImageType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqLifecycleType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqLifecycleType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqMessageGroupType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqMessageGroupType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqMessageSender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqMessageSender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqMessageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqMessageType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqMetaEventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqMetaEventType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqModelShowVariant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqModelShowVariant.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqMusicType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqMusicType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqNoticeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqNoticeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqNotifyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqNotifyType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqOfflineFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqOfflineFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPostMiddleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPostMiddleware.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPostPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPostPipeline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPostPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPostPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPostType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPostType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqPrivateMessageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqPrivateMessageType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRHttpSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRHttpSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRHttpSessionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRHttpSessionOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSession.CqRWsSessionConnectionCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSession.CqRWsSessionConnectionCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSessionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRWsSessionOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRequestType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRequestType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqRole.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqStatusStatistics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqStatusStatistics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqTempSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqTempSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqTextDetection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqTextDetection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqUrlSafetyLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqUrlSafetyLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqWsSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqWsSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.CqWsSessionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.CqWsSessionOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.ICqActionSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.ICqActionSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.ICqPostSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.ICqPostSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqAnonymousMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqAnonymousMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqAtMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqAtMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqCardImageMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqCardImageMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqContactMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqContactMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqCustomMusicMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqCustomMusicMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqDiceMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqDiceMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqFaceMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqFaceMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqForwardMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqForwardMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqForwardMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqForwardMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqGiftMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqGiftMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqImageMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqImageMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqJsonMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqJsonMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqLocationMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqLocationMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMusicMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqMusicMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqPokeMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqPokeMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRecordMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRecordMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRedEnvelopeMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRedEnvelopeMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqReplyMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqReplyMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRpsMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqRpsMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqShakeMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqShakeMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqShareMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqShareMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqTextMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqTextMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqTtsMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqTtsMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqVideoMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqVideoMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.CqXmlMsg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.CqXmlMsg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Message.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Message.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqPostSessionMessageMatchingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.CqPostSessionMessageMatchingExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.MessageMatching.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqClientStatusChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqClientStatusChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendAddedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendAddedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendMessageRecalledPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendMessageRecalledPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendRequestPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendRequestPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendRequestPostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqFriendRequestPostQuickOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupAdministratorChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupAdministratorChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupEssenceChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupEssenceChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupFileUploadedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupFileUploadedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupLuckyKingNoticedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupLuckyKingNoticedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberBanChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberBanChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberDecreasedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberDecreasedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberIncreasedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberIncreasedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberNicknameChangedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberNicknameChangedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberTitleChangeNoticedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMemberTitleChangeNoticedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessageRecalledPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupMessageRecalledPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupRequestPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupRequestPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupRequestPostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupRequestPostQuickOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqLifecyclePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqLifecyclePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMetaEventPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMetaEventPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqNoticePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqNoticePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqNotifyNoticePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqNotifyNoticePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqOfflineFileUploadedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqOfflineFileUploadedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPokedPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPokedPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPostQuickOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqRequestPostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqRequestPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

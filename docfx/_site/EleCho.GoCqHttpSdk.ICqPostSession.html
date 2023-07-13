@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICqPostSession
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICqPostSession
+ ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_ICqPostSession.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.ICqPostSession%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './public/main.js'
+    import { init } from './public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EleCho.GoCqHttpSdk.ICqPostSession">
+
+
+
+  <h1 id="EleCho_GoCqHttpSdk_ICqPostSession" data-uid="EleCho.GoCqHttpSdk.ICqPostSession" class="text-break">
+    Interface ICqPostSession
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/ICqPostSession.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EleCho.html">EleCho</a>.<a class="xref" href="EleCho.GoCqHttpSdk.html">GoCqHttpSdk</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EleCho.GoCqHttpSdk.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>可处理上报的 Session</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICqPostSession</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseAny_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseAny(ICqPostSession, Func&lt;CqPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseClientStatusChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqClientStatusChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseClientStatusChanged(ICqPostSession, Action&lt;CqClientStatusChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseClientStatusChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqClientStatusChangedPostContext__">CqPostSessionExtensions.UseClientStatusChanged(ICqPostSession, Action&lt;CqClientStatusChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseClientStatusChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqClientStatusChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseClientStatusChanged(ICqPostSession, Func&lt;CqClientStatusChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseClientStatusChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqClientStatusChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseClientStatusChanged(ICqPostSession, Func&lt;CqClientStatusChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendAdded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendAddedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseFriendAdded(ICqPostSession, Action&lt;CqFriendAddedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendAdded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendAddedPostContext__">CqPostSessionExtensions.UseFriendAdded(ICqPostSession, Action&lt;CqFriendAddedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendAdded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendAddedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendAdded(ICqPostSession, Func&lt;CqFriendAddedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendAdded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendAddedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendAdded(ICqPostSession, Func&lt;CqFriendAddedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendMessageRecalledPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseFriendMessageRecalled(ICqPostSession, Action&lt;CqFriendMessageRecalledPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendMessageRecalledPostContext__">CqPostSessionExtensions.UseFriendMessageRecalled(ICqPostSession, Action&lt;CqFriendMessageRecalledPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendMessageRecalledPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendMessageRecalled(ICqPostSession, Func&lt;CqFriendMessageRecalledPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendMessageRecalledPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendMessageRecalled(ICqPostSession, Func&lt;CqFriendMessageRecalledPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendRequestPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseFriendRequest(ICqPostSession, Action&lt;CqFriendRequestPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqFriendRequestPostContext__">CqPostSessionExtensions.UseFriendRequest(ICqPostSession, Action&lt;CqFriendRequestPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendRequestPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendRequest(ICqPostSession, Func&lt;CqFriendRequestPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseFriendRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqFriendRequestPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseFriendRequest(ICqPostSession, Func&lt;CqFriendRequestPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupAdministratorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupAdministratorChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupAdministratorChanged(ICqPostSession, Action&lt;CqGroupAdministratorChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupAdministratorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupAdministratorChangedPostContext__">CqPostSessionExtensions.UseGroupAdministratorChanged(ICqPostSession, Action&lt;CqGroupAdministratorChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupAdministratorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupAdministratorChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupAdministratorChanged(ICqPostSession, Func&lt;CqGroupAdministratorChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupAdministratorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupAdministratorChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupAdministratorChanged(ICqPostSession, Func&lt;CqGroupAdministratorChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupEssenceChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupEssenceChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupEssenceChanged(ICqPostSession, Action&lt;CqGroupEssenceChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupEssenceChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupEssenceChangedPostContext__">CqPostSessionExtensions.UseGroupEssenceChanged(ICqPostSession, Action&lt;CqGroupEssenceChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupEssenceChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupEssenceChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupEssenceChanged(ICqPostSession, Func&lt;CqGroupEssenceChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupEssenceChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupEssenceChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupEssenceChanged(ICqPostSession, Func&lt;CqGroupEssenceChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupFileUploadedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupFileUploaded(ICqPostSession, Action&lt;CqGroupFileUploadedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupFileUploadedPostContext__">CqPostSessionExtensions.UseGroupFileUploaded(ICqPostSession, Action&lt;CqGroupFileUploadedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupFileUploadedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupFileUploaded(ICqPostSession, Func&lt;CqGroupFileUploadedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupFileUploadedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupFileUploaded(ICqPostSession, Func&lt;CqGroupFileUploadedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupLuckyKingNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupLuckyKingNoticedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupLuckyKingNoticed(ICqPostSession, Action&lt;CqGroupLuckyKingNoticedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupLuckyKingNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupLuckyKingNoticedPostContext__">CqPostSessionExtensions.UseGroupLuckyKingNoticed(ICqPostSession, Action&lt;CqGroupLuckyKingNoticedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupLuckyKingNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupLuckyKingNoticedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupLuckyKingNoticed(ICqPostSession, Func&lt;CqGroupLuckyKingNoticedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupLuckyKingNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupLuckyKingNoticedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupLuckyKingNoticed(ICqPostSession, Func&lt;CqGroupLuckyKingNoticedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberBanChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberBanChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberBanChanged(ICqPostSession, Action&lt;CqGroupMemberBanChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberBanChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberBanChangedPostContext__">CqPostSessionExtensions.UseGroupMemberBanChanged(ICqPostSession, Action&lt;CqGroupMemberBanChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberBanChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberBanChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberBanChanged(ICqPostSession, Func&lt;CqGroupMemberBanChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberBanChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberBanChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberBanChanged(ICqPostSession, Func&lt;CqGroupMemberBanChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberDecreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberDecreasedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberDecreased(ICqPostSession, Action&lt;CqGroupMemberDecreasedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberDecreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberDecreasedPostContext__">CqPostSessionExtensions.UseGroupMemberDecreased(ICqPostSession, Action&lt;CqGroupMemberDecreasedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberDecreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberDecreasedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberDecreased(ICqPostSession, Func&lt;CqGroupMemberDecreasedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberDecreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberDecreasedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberDecreased(ICqPostSession, Func&lt;CqGroupMemberDecreasedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberHonorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberHonorChanged(ICqPostSession, Action&lt;CqGroupMemberHonorChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberHonorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext__">CqPostSessionExtensions.UseGroupMemberHonorChanged(ICqPostSession, Action&lt;CqGroupMemberHonorChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberHonorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberHonorChanged(ICqPostSession, Func&lt;CqGroupMemberHonorChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberHonorChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberHonorChanged(ICqPostSession, Func&lt;CqGroupMemberHonorChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberIncreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberIncreasedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberIncreased(ICqPostSession, Action&lt;CqGroupMemberIncreasedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberIncreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberIncreasedPostContext__">CqPostSessionExtensions.UseGroupMemberIncreased(ICqPostSession, Action&lt;CqGroupMemberIncreasedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberIncreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberIncreasedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberIncreased(ICqPostSession, Func&lt;CqGroupMemberIncreasedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberIncreased_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberIncreasedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberIncreased(ICqPostSession, Func&lt;CqGroupMemberIncreasedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberNicknameChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberNicknameChangedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberNicknameChanged(ICqPostSession, Action&lt;CqGroupMemberNicknameChangedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberNicknameChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberNicknameChangedPostContext__">CqPostSessionExtensions.UseGroupMemberNicknameChanged(ICqPostSession, Action&lt;CqGroupMemberNicknameChangedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberNicknameChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberNicknameChangedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberNicknameChanged(ICqPostSession, Func&lt;CqGroupMemberNicknameChangedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberNicknameChanged_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberNicknameChangedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberNicknameChanged(ICqPostSession, Func&lt;CqGroupMemberNicknameChangedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberTitleChangeNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberTitleChangeNoticedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMemberTitleChangeNoticed(ICqPostSession, Action&lt;CqGroupMemberTitleChangeNoticedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberTitleChangeNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMemberTitleChangeNoticedPostContext__">CqPostSessionExtensions.UseGroupMemberTitleChangeNoticed(ICqPostSession, Action&lt;CqGroupMemberTitleChangeNoticedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberTitleChangeNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberTitleChangeNoticedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberTitleChangeNoticed(ICqPostSession, Func&lt;CqGroupMemberTitleChangeNoticedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMemberTitleChangeNoticed_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMemberTitleChangeNoticedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMemberTitleChangeNoticed(ICqPostSession, Func&lt;CqGroupMemberTitleChangeNoticedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMessagePostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMessage(ICqPostSession, Action&lt;CqGroupMessagePostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMessagePostContext__">CqPostSessionExtensions.UseGroupMessage(ICqPostSession, Action&lt;CqGroupMessagePostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMessagePostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMessage(ICqPostSession, Func&lt;CqGroupMessagePostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMessagePostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMessage(ICqPostSession, Func&lt;CqGroupMessagePostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMessageRecalledPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupMessageRecalled(ICqPostSession, Action&lt;CqGroupMessageRecalledPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupMessageRecalledPostContext__">CqPostSessionExtensions.UseGroupMessageRecalled(ICqPostSession, Action&lt;CqGroupMessageRecalledPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMessageRecalledPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMessageRecalled(ICqPostSession, Func&lt;CqGroupMessageRecalledPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupMessageRecalled_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupMessageRecalledPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupMessageRecalled(ICqPostSession, Func&lt;CqGroupMessageRecalledPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupRequestPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseGroupRequest(ICqPostSession, Action&lt;CqGroupRequestPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupRequestPostContext__">CqPostSessionExtensions.UseGroupRequest(ICqPostSession, Action&lt;CqGroupRequestPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupRequestPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupRequest(ICqPostSession, Func&lt;CqGroupRequestPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupRequest_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupRequestPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseGroupRequest(ICqPostSession, Func&lt;CqGroupRequestPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseHeartbeat_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqHeartbeatPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseHeartbeat(ICqPostSession, Action&lt;CqHeartbeatPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseHeartbeat_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqHeartbeatPostContext__">CqPostSessionExtensions.UseHeartbeat(ICqPostSession, Action&lt;CqHeartbeatPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseHeartbeat_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqHeartbeatPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseHeartbeat(ICqPostSession, Func&lt;CqHeartbeatPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseHeartbeat_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqHeartbeatPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseHeartbeat(ICqPostSession, Func&lt;CqHeartbeatPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseLifecycle_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqLifecyclePostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseLifecycle(ICqPostSession, Action&lt;CqLifecyclePostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseLifecycle_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqLifecyclePostContext__">CqPostSessionExtensions.UseLifecycle(ICqPostSession, Action&lt;CqLifecyclePostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseLifecycle_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqLifecyclePostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseLifecycle(ICqPostSession, Func&lt;CqLifecyclePostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseLifecycle_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqLifecyclePostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseLifecycle(ICqPostSession, Func&lt;CqLifecyclePostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseMiddleware_EleCho_GoCqHttpSdk_ICqPostSession_EleCho_GoCqHttpSdk_CqPostMiddleware_">CqPostSessionExtensions.UseMiddleware(ICqPostSession, CqPostMiddleware)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseOfflineFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqOfflineFileUploadedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UseOfflineFileUploaded(ICqPostSession, Action&lt;CqOfflineFileUploadedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseOfflineFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqOfflineFileUploadedPostContext__">CqPostSessionExtensions.UseOfflineFileUploaded(ICqPostSession, Action&lt;CqOfflineFileUploadedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseOfflineFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqOfflineFileUploadedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UseOfflineFileUploaded(ICqPostSession, Func&lt;CqOfflineFileUploadedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseOfflineFileUploaded_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqOfflineFileUploadedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UseOfflineFileUploaded(ICqPostSession, Func&lt;CqOfflineFileUploadedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePlugin_EleCho_GoCqHttpSdk_ICqPostSession_EleCho_GoCqHttpSdk_CqPostPlugin_">CqPostSessionExtensions.UsePlugin(ICqPostSession, CqPostPlugin)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePoked_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPokedPostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UsePoked(ICqPostSession, Action&lt;CqPokedPostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePoked_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPokedPostContext__">CqPostSessionExtensions.UsePoked(ICqPostSession, Action&lt;CqPokedPostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePoked_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPokedPostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UsePoked(ICqPostSession, Func&lt;CqPokedPostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePoked_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPokedPostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UsePoked(ICqPostSession, Func&lt;CqPokedPostContext, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostContext_System_Func_System_Threading_Tasks_Task___">CqPostSessionExtensions.UsePrivateMessage(ICqPostSession, Action&lt;CqPrivateMessagePostContext, Func&lt;Task&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostContext__">CqPostSessionExtensions.UsePrivateMessage(ICqPostSession, Action&lt;CqPrivateMessagePostContext&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__">CqPostSessionExtensions.UsePrivateMessage(ICqPostSession, Func&lt;CqPrivateMessagePostContext, Func&lt;Task&gt;, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostContext_System_Threading_Tasks_Task__">CqPostSessionExtensions.UsePrivateMessage(ICqPostSession, Func&lt;CqPrivateMessagePostContext, Task&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_ICqPostSession_PostPipeline_" data-uid="EleCho.GoCqHttpSdk.ICqPostSession.PostPipeline*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_ICqPostSession_PostPipeline" data-uid="EleCho.GoCqHttpSdk.ICqPostSession.PostPipeline">
+  PostPipeline
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/ICqPostSession.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>上报管线</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CqPostPipeline PostPipeline { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="api/EleCho.GoCqHttpSdk.CqPostPipeline.html">CqPostPipeline</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/ICqPostSession.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

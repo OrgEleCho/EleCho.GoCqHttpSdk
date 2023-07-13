@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CqForwardMessageNode
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CqForwardMessageNode
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_CqForwardMessageNode.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.CqForwardMessageNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode">
+
+
+
+  <h1 id="EleCho_GoCqHttpSdk_CqForwardMessageNode" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode" class="text-break">
+    Class CqForwardMessageNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EleCho.html">EleCho</a>.<a class="xref" href="EleCho.GoCqHttpSdk.html">GoCqHttpSdk</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EleCho.GoCqHttpSdk.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>转发消息节点</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public record CqForwardMessageNode : CqMsg, IEquatable&lt;CqMsg&gt;, IEquatable&lt;CqForwardMessageNode&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMsg.html">CqMsg</a></div>
+      <div><span class="xref">CqForwardMessageNode</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMsg.html">CqMsg</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EleCho.GoCqHttpSdk.CqForwardMessageNode.html">CqForwardMessageNode</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMsg.html#EleCho_GoCqHttpSdk_Message_CqMsg_NotSupportedCqCodeTip">CqMsg.NotSupportedCqCodeTip</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_System_Int64_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor(System.Int64)">
+  CqForwardMessageNode(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>构建转发消息节点</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqForwardMessageNode(long id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_System_String_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor(System.String,System.Int64,EleCho.GoCqHttpSdk.Message.CqMessage)">
+  CqForwardMessageNode(string, long, CqMessage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>构建转发消息节点</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqForwardMessageNode(string name, long userId, CqMessage content)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>名称</p>
+</dd>
+    <dt><code>userId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>用户 QQ</p>
+</dd>
+    <dt><code>content</code> <a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
+    <dd><p>内容</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode__ctor_System_String_System_Int64_EleCho_GoCqHttpSdk_Message_CqMessage_EleCho_GoCqHttpSdk_Message_CqMessage_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.#ctor(System.String,System.Int64,EleCho.GoCqHttpSdk.Message.CqMessage,EleCho.GoCqHttpSdk.Message.CqMessage)">
+  CqForwardMessageNode(string, long, CqMessage, CqMessage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>构建转发消息节点</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqForwardMessageNode(string name, long userId, CqMessage content, CqMessage seq)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>名称</p>
+</dd>
+    <dt><code>userId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>用户 QQ</p>
+</dd>
+    <dt><code>content</code> <a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
+    <dd><p>内容</p>
+</dd>
+    <dt><code>seq</code> <a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
+    <dd><p>不知道啥玩意儿</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Content_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Content*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Content" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Content">
+  Content
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>内容</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqMessage? Content { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Id_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Id*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Id" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>消息 ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_MsgType_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.MsgType*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_MsgType" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.MsgType">
+  MsgType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>消息类型: 节点</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string MsgType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Name_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Name*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Name" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>名称</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Seq_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Seq*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_Seq" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.Seq">
+  Seq
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>暂时不确定</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CqMessage? Seq { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EleCho_GoCqHttpSdk_CqForwardMessageNode_UserId_" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.UserId*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CqForwardMessageNode_UserId" data-uid="EleCho.GoCqHttpSdk.CqForwardMessageNode.UserId">
+  UserId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>QQ 号</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? UserId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/DataStructure/CqForwardMessageNode.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
