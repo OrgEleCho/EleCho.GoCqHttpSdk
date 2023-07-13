@@ -6,7 +6,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员群荣誉变更上报上下文
     /// </summary>
-    public record class CqGroupMemberHonorChangedPostContext : CqNoticePostContext
+    public record class CqGroupMemberHonorChangedPostContext : CqNotifyNoticePostContext
     {
         /// <summary>
         /// 上报类型: 通知
@@ -17,6 +17,11 @@ namespace EleCho.GoCqHttpSdk.Post
         /// 通知类型: 通知
         /// </summary>
         public override CqNoticeType NoticeType => CqNoticeType.Notify;
+
+        /// <summary>
+        /// 通知类型: 群荣誉
+        /// </summary>
+        public override CqNotifyType NotifyType => CqNotifyType.Honor;
 
         /// <summary>
         /// 群荣誉类型
@@ -36,7 +41,6 @@ namespace EleCho.GoCqHttpSdk.Post
         internal CqGroupMemberHonorChangedPostContext() { }
 
         internal override object? QuickOperationModel => null;
-
 
         internal override void ReadModel(CqPostModel model)
         {

@@ -13,18 +13,14 @@ using EleCho.GoCqHttpSdk.CommandExecuting;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.MessageMatching;
 using EleCho.GoCqHttpSdk.Post;
-//using EleCho.GoCqHttpSdk.MessageMatching;
 
 #nullable enable
 
-namespace AssemblyCheck
+namespace TestConsole
 {
-    record QWQ(string qwq);
-    struct AWA { }
-
     internal class Program
     {
-        public const int WebSocketPort = 8088;
+        public const int WebSocketPort = 8080;
 
         static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
         {

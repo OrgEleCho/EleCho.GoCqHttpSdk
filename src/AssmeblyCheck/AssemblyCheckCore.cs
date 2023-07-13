@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace AssemblyCheck
+namespace TestConsole
 {
     internal static class AssemblyCheckCore
     {

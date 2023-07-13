@@ -173,6 +173,65 @@ namespace EleCho.GoCqHttpSdk
         public static ICqPostSession UsePrivateMessage(this ICqPostSession session, Action<CqPrivateMessagePostContext> middleware) => Use(session, middleware);
         #endregion Message
 
+        #region SelfMessage
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">异步, 带有下一个中间件参数的中间件. async (context, next) => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UseGroupSelfMessage(this ICqPostSession session, Func<CqGroupSelfMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">同步, 带有下一个中间件参数的中间件. (context, next) => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UseGroupSelfMessage(this ICqPostSession session, Action<CqGroupSelfMessagePostContext, Func<Task>> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">异步, 不带有下一个中间件参数的中间件. async context => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UseGroupSelfMessage(this ICqPostSession session, Func<CqGroupSelfMessagePostContext, Task> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">同步, 不带有下一个中间件参数的中间件. context => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UseGroupSelfMessage(this ICqPostSession session, Action<CqGroupSelfMessagePostContext> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">异步, 带有下一个中间件参数的中间件. async (context, next) => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UsePrivateSelfMessage(this ICqPostSession session, Func<CqPrivateSelfMessagePostContext, Func<Task>, Task> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">同步, 带有下一个中间件参数的中间件. (context, next) => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UsePrivateSelfMessage(this ICqPostSession session, Action<CqPrivateSelfMessagePostContext, Func<Task>> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">异步, 不带有下一个中间件参数的中间件. async context => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UsePrivateSelfMessage(this ICqPostSession session, Func<CqPrivateSelfMessagePostContext, Task> middleware) => Use(session, middleware);
+        /// <summary>
+        /// 使用一个能处理特定上报的中间件
+        /// </summary>
+        /// <param name="session">上报会话</param>
+        /// <param name="middleware">同步, 不带有下一个中间件参数的中间件. context => { }</param>
+        /// <returns>传入的上报会话</returns>
+        public static ICqPostSession UsePrivateSelfMessage(this ICqPostSession session, Action<CqPrivateSelfMessagePostContext> middleware) => Use(session, middleware);
+        #endregion
+
         #region Notice
         /// <summary>
         /// 使用一个能处理特定上报的中间件

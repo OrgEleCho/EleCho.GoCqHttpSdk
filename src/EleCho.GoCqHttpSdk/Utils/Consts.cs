@@ -177,6 +177,7 @@
         public static class PostType
         {
             public const string Message = "message";
+            public const string MessageSent = "message_sent";
             public const string Request = "request";
             public const string Notice = "notice";
             public const string MetaEvent = "meta_event";

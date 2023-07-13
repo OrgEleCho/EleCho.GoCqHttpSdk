@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace AssemblyCheck
+namespace TestConsole
 {
     internal static class ApiTest
     {

@@ -11,7 +11,7 @@ using EleCho.GoCqHttpSdk.Post;
 
 #nullable enable
 
-namespace AssemblyCheck
+namespace TestConsole
 {
     class OpenAiMatchPlugin : CqMessageMatchPostPlugin
     {

@@ -48,6 +48,7 @@ namespace EleCho.GoCqHttpSdk.Post
             CqPostContext? cqEventArgs = model?.post_type switch
             {
                 Consts.PostType.Message => FromMessageModel(model as CqMessagePostModel),
+                Consts.PostType.MessageSent => FromSelfMessageModel(model as CqSelfMessagePostModel),
                 Consts.PostType.Notice => FromNoticeModel(model as CqNoticePostModel),
                 Consts.PostType.Request => FromRequestModel(model as CqRequestPostModel),
                 Consts.PostType.MetaEvent => FromMetaModel(model as CqMetaPostModel),
@@ -66,7 +67,7 @@ namespace EleCho.GoCqHttpSdk.Post
             SelfId = model.self_id;
         }
 
-        private static CqPostContext? FromMessageModel(CqMessagePostModel? model)
+        private static CqMessagePostContext? FromMessageModel(CqMessagePostModel? model)
         {
             return model?.message_type switch
             {
@@ -77,7 +78,18 @@ namespace EleCho.GoCqHttpSdk.Post
             };
         }
 
-        private static CqPostContext? FromMetaModel(CqMetaPostModel? model)
+        private static CqSelfMessagePostContext? FromSelfMessageModel(CqSelfMessagePostModel? model)
+        {
+            return model?.message_type switch
+            {
+                Consts.MsgType.Private => new CqPrivateSelfMessagePostContext(),
+                Consts.MsgType.Group => new CqGroupSelfMessagePostContext(),
+
+                _ => null,
+            };
+        }
+
+        private static CqMetaEventPostContext? FromMetaModel(CqMetaPostModel? model)
         {
             return model?.meta_event_type switch
             {
@@ -88,7 +100,7 @@ namespace EleCho.GoCqHttpSdk.Post
             };
         }
 
-        private static CqPostContext? FromNoticeModel(CqNoticePostModel? model)
+        private static CqNoticePostContext? FromNoticeModel(CqNoticePostModel? model)
         {
             return model?.notice_type switch
             {
@@ -122,7 +134,7 @@ namespace EleCho.GoCqHttpSdk.Post
             };
         }
 
-        private static CqPostContext? FromNotifyModel(CqPostModel? model)
+        private static CqNotifyNoticePostContext? FromNotifyModel(CqPostModel? model)
         {
             if (model is not CqNoticeNotifyPostModel notifyModel)
                 return null;

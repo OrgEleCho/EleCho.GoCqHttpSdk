@@ -11,6 +11,7 @@ using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post;
 using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
+using System.Diagnostics;
 
 namespace EleCho.GoCqHttpSdk
 {
@@ -235,6 +236,9 @@ namespace EleCho.GoCqHttpSdk
 #if DEBUG
                 // 反序列化为 WebSocket 数据 (自己抽的类
                 string json = GlobalConfig.TextEncoding.GetString(ms.ToArray());
+                Debug.WriteLine("--------------------");
+                Debug.WriteLine(json);
+                Debug.WriteLine("--------------------");
 #endif
 
                     ms.Seek(0, SeekOrigin.Begin);

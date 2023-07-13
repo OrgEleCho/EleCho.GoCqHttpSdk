@@ -8,13 +8,8 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群消息上报上下文
     /// </summary>
-    public class CqGroupMessagePostQuickOperation : CqPostQuickOperation
-    {
-        /// <summary>
-        /// 回复消息
-        /// </summary>
-        public CqMessage? Reply { get; set; }
-        
+    public class CqGroupMessagePostQuickOperation : CqMessagePostQuickOperation
+    {   
         /// <summary>
         /// AT 发送者
         /// </summary>
@@ -39,12 +34,6 @@ namespace EleCho.GoCqHttpSdk.Post
         /// 禁言时间
         /// </summary>
         public TimeSpan BanDuration { get; set; }
-
-        /// <summary>
-        /// 因为内部不使用 CQ 码, 所以无用
-        /// </summary>
-        [Obsolete("在本 SDK 中此字段无用")]
-        public bool AutoEscape { get; set; }
 
         internal override object? GetModel()
         {
