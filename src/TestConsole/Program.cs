@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
@@ -94,6 +95,7 @@ namespace TestConsole
             {
                 AtInvoker = true,
                 ReplyInvoker = true,
+                AllowGroupSelfMessage = true
             });
 
             Console.WriteLine("OK");
@@ -112,6 +114,8 @@ namespace TestConsole
 
     class MyCommandExecutePlugin : CqCommandExecutePostPlugin
     {
+        readonly HttpClient httpClient = new HttpClient();
+
         public MyCommandExecutePlugin(ICqActionSession actionSession)
         {
             ActionSession = actionSession;
@@ -135,6 +139,17 @@ namespace TestConsole
         public double Sum(params double[] nums)
         {
             return nums.Sum();
+        }
+
+        [Command]
+        public async Task<CqMessage> GetAvatar(long userId)
+        {
+            var avatarStream = await httpClient.GetStreamAsync($"http://q1.qlogo.cn/g?b=qq&nk={userId}&s=100");
+
+            return new CqMessage()
+            {
+                CqImageMsg.FromStream(avatarStream),
+            };
         }
     }
 
