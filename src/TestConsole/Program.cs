@@ -57,6 +57,11 @@ namespace TestConsole
                         new CqTextMsg("qwq")
                     });
 
+                if (text.Equals("/throw_exception"))
+                {
+                    throw new Exception("qwq");
+                }
+
                 if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
                     await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
                     {
@@ -98,6 +103,8 @@ namespace TestConsole
                 AllowGroupSelfMessage = true
             });
 
+            session.UnhandledException += Session_UnhandledException;
+
             Console.WriteLine("OK");
             await session.StartAsync();
 
@@ -109,6 +116,11 @@ namespace TestConsole
 
 
             await session.WaitForShutdownAsync();
+        }
+
+        private static void Session_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Console.WriteLine($"{e}");
         }
     }
 
@@ -165,6 +177,12 @@ namespace TestConsole
 
         [CqMessageMatch("^echo (?<content>.*)")]
         public async Task Echo(CqGroupMessagePostContext context, string content)
+        {
+            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
+        }
+
+        [CqMessageMatch("^self_echo (?<content>.*)")]
+        public async Task SelfEcho(CqGroupSelfMessagePostContext context, string content)
         {
             await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
         }

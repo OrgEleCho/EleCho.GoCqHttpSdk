@@ -13,17 +13,26 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
     /// </summary>
     public abstract class CqMessageMatchPostPlugin
     {
-        private record struct MessageMatchMethod(MethodInfo Method, CqMessageMatchAttribute Attribute, Func<CqMessagePostContext, Match, Task> Action);
+        private record struct MessageMatchMethod(MethodInfo Method, CqMessageMatchAttribute Attribute, Func<CqPostContext, Match, Task> Action);
 
         private List<MessageMatchMethod> privateMessageMatchMethods;
         private List<MessageMatchMethod> groupMessageMatchMethods;
 
-        private void InitMethods(out List<MessageMatchMethod> privateMessageMatchMethods, out List<MessageMatchMethod> groupMessageMatchMethods)
+        private List<MessageMatchMethod> privateSelfMessageMatchMethods;
+        private List<MessageMatchMethod> groupSelfMessageMatchMethods;
+
+        private void InitMethods(
+            out List<MessageMatchMethod> privateMessageMatchMethods, 
+            out List<MessageMatchMethod> groupMessageMatchMethods,
+            out List<MessageMatchMethod> privateSelfMessageMatchMethods,
+            out List<MessageMatchMethod> groupSelfMessageMatchMethods)
         {
             var methods = this.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
             privateMessageMatchMethods = new();
             groupMessageMatchMethods = new();
+            privateSelfMessageMatchMethods = new();
+            groupSelfMessageMatchMethods = new();
 
             foreach (var method in methods)
             {
@@ -39,10 +48,11 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                         throw new InvalidOperationException($"方法 '{method.Name}' 的返回类型不正确, 必须是 void 或可等待的 {nameof(Task)}");
 
                     // 用户需要处理的消息类型
+                    bool isSelfMsg = false;
                     CqMessageType msgType = CqMessageType.Unknown;
 
                     // 方法参数的值获取器
-                    Func<CqMessagePostContext, Match, object>[] parameterGetters = new Func<CqMessagePostContext, Match, object>[parameters.Length];
+                    Func<CqPostContext, Match, object>[] parameterGetters = new Func<CqPostContext, Match, object>[parameters.Length];
 
                     // 根据方法参数类型, 指定所有方法参数获取器
                     for (int i = 0; i < parameters.Length; i++)
@@ -51,6 +61,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
 
                         if (typeof(CqMessagePostContext).IsAssignableFrom(parameter.ParameterType))
                         {
+                            if (isSelfMsg)
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 同时定义了 {nameof(CqMessagePostContext)} 和 {nameof(CqSelfMessagePostContext)}");
+
                             if (typeof(CqPrivateMessagePostContext).IsAssignableFrom(parameter.ParameterType))
                             {
                                 if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Private)
@@ -61,6 +74,9 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             }
                             else if (typeof(CqGroupMessagePostContext).IsAssignableFrom(parameter.ParameterType))
                             {
+                                if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Group)
+                                    throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 定义了多个不同的 {nameof(CqMessagePostContext)}");
+
                                 parameterGetters[i] = (context, match) => (CqGroupMessagePostContext)context;
                                 msgType = CqMessageType.Group;
                             }
@@ -70,7 +86,39 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             }
                             else
                             {
-                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 它应该是 {nameof(CqMessagePostContext)}, {nameof(CqPrivateMessagePostContext)}  或 {nameof(CqGroupMessagePostContext)}");
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 它应该是 {nameof(CqMessagePostContext)}, {nameof(CqPrivateMessagePostContext)} 或 {nameof(CqGroupMessagePostContext)}");
+                            }
+                        }
+                        else if (typeof(CqSelfMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                        {
+                            if (!isSelfMsg && msgType != CqMessageType.Unknown)
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 同时定义了 {nameof(CqMessagePostContext)} 和 {nameof(CqSelfMessagePostContext)}");
+
+                            isSelfMsg = true;
+
+                            if (typeof(CqPrivateSelfMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                            {
+                                if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Private)
+                                    throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 定义了多个不同的 {nameof(CqSelfMessagePostContext)}");
+
+                                parameterGetters[i] = (context, match) => (CqPrivateSelfMessagePostContext)context;
+                                msgType = CqMessageType.Private;
+                            }
+                            else if (typeof(CqGroupSelfMessagePostContext).IsAssignableFrom(parameter.ParameterType))
+                            {
+                                if (msgType != CqMessageType.Unknown && msgType != CqMessageType.Private)
+                                    throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 定义了多个不同的 {nameof(CqSelfMessagePostContext)}");
+
+                                parameterGetters[i] = (context, match) => (CqGroupSelfMessagePostContext)context;
+                                msgType = CqMessageType.Group;
+                            }
+                            else if (typeof(CqSelfMessagePostContext) == parameter.ParameterType)
+                            {
+                                parameterGetters[i] = (context, match) => context;
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException($"方法 '{method.Name}' 的 '{parameter.Name}' 参数类型不正确, 它应该是 {nameof(CqSelfMessagePostContext)}, {nameof(CqPrivateSelfMessagePostContext)} 或 {nameof(CqGroupSelfMessagePostContext)}");
                             }
                         }
                         else if (parameter.ParameterType == typeof(Match))
@@ -95,7 +143,7 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     }
 
                     // 包装一个方法执行逻辑, 该逻辑会将所有所需参数从 context 和 match 中拿到, 并调用, 如果返回值可等待, 那么就等待
-                    Func<CqMessagePostContext, Match, Task> action = (context, match) =>
+                    Func<CqPostContext, Match, Task> action = (context, match) =>
                     {
                         object? rst = method.Invoke(this, Array.ConvertAll(parameterGetters, getter => getter.Invoke(context, match)));
                         if (rst is Task task)
@@ -104,18 +152,38 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                     };
 
                     // 根据从参数中判断得到的应该处理的消息类型, 把方法存储添加到对应的列表中
-                    if (msgType == CqMessageType.Private)
+
+                    if (!isSelfMsg)
                     {
-                        privateMessageMatchMethods.Add(new(method, attribute, action));
-                    }
-                    else if (msgType == CqMessageType.Group)
-                    {
-                        groupMessageMatchMethods.Add(new(method, attribute, action));
+                        if (msgType == CqMessageType.Private)
+                        {
+                            privateMessageMatchMethods.Add(new(method, attribute, action));
+                        }
+                        else if (msgType == CqMessageType.Group)
+                        {
+                            groupMessageMatchMethods.Add(new(method, attribute, action));
+                        }
+                        else
+                        {
+                            privateMessageMatchMethods.Add(new(method, attribute, action));
+                            groupMessageMatchMethods.Add(new(method, attribute, action));
+                        }
                     }
                     else
                     {
-                        privateMessageMatchMethods.Add(new(method, attribute, action));
-                        groupMessageMatchMethods.Add(new(method, attribute, action));
+                        if (msgType == CqMessageType.Private)
+                        {
+                            privateSelfMessageMatchMethods.Add(new(method, attribute, action));
+                        }
+                        else if (msgType == CqMessageType.Group)
+                        {
+                            groupSelfMessageMatchMethods.Add(new(method, attribute, action));
+                        }
+                        else
+                        {
+                            privateSelfMessageMatchMethods.Add(new(method, attribute, action));
+                            groupSelfMessageMatchMethods.Add(new(method, attribute, action));
+                        }
                     }
                 }
             }
@@ -124,11 +192,18 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         private CqMessagePostContext? currentContext;
         public CqMessagePostContext? CurrentContext => currentContext;
 
+        private CqSelfMessagePostContext? currentSelfContext;
+        public CqSelfMessagePostContext? CurrentSelfContext => currentSelfContext;
+
         public bool ExecuteNextWhenMatched { get; set; } = true;
 
         public CqMessageMatchPostPlugin()
         {
-            InitMethods(out privateMessageMatchMethods, out groupMessageMatchMethods);
+            InitMethods(
+                out privateMessageMatchMethods, 
+                out groupMessageMatchMethods,
+                out privateSelfMessageMatchMethods,
+                out groupSelfMessageMatchMethods);
         }
 
         /// <summary>
@@ -167,6 +242,41 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             currentContext = msgContext;
                             await msgMatchMethod.Action.Invoke(groupMsgContext, match);
                             currentContext = null;
+
+                            if (!ExecuteNextWhenMatched)
+                                return;
+                        }
+                    }
+                }
+            }
+            else if (context is CqSelfMessagePostContext selfMsgContext)
+            {
+                if (selfMsgContext is CqPrivateSelfMessagePostContext privateMsgContext)
+                {
+                    foreach (var msgMatchMethod in privateSelfMessageMatchMethods)
+                    {
+                        var match = msgMatchMethod.Attribute.Regex.Match(privateMsgContext.Message.Text);
+                        if (match.Success)
+                        {
+                            currentSelfContext = selfMsgContext;
+                            await msgMatchMethod.Action.Invoke(privateMsgContext, match);
+                            currentSelfContext = null;
+
+                            if (!ExecuteNextWhenMatched)
+                                return;
+                        }
+                    }
+                }
+                else if (selfMsgContext is CqGroupSelfMessagePostContext groupMsgContext)
+                {
+                    foreach (var msgMatchMethod in groupSelfMessageMatchMethods)
+                    {
+                        var match = msgMatchMethod.Attribute.Regex.Match(groupMsgContext.Message.Text);
+                        if (match.Success)
+                        {
+                            currentSelfContext = selfMsgContext;
+                            await msgMatchMethod.Action.Invoke(groupMsgContext, match);
+                            currentSelfContext = null;
 
                             if (!ExecuteNextWhenMatched)
                                 return;
