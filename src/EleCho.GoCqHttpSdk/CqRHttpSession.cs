@@ -46,6 +46,12 @@ namespace EleCho.GoCqHttpSdk
         /// </summary>
         public CqPostPipeline PostPipeline => postPipeline;
 
+
+        /// <summary>
+        /// 当未捕捉的用户异常发生时
+        /// </summary>
+        public event UnhandledExceptionEventHandler? UnhandledException;
+
         /// <summary>
         /// 实例化类
         /// </summary>
@@ -106,10 +112,17 @@ namespace EleCho.GoCqHttpSdk
 
                         if (postContext is CqPostContext)
                         {
-                            await postPipeline.ExecuteAsync(postContext);
+                            try
+                            {
+                                await postPipeline.ExecuteAsync(postContext);
 
-                            if (postContext.QuickOperationModel is object quickActionModel)
-                                JsonSerializer.Serialize(context.Response.OutputStream, quickActionModel, quickActionModel.GetType(), JsonHelper.Options);
+                                if (postContext.QuickOperationModel is object quickActionModel)
+                                    JsonSerializer.Serialize(context.Response.OutputStream, quickActionModel, quickActionModel.GetType(), JsonHelper.Options);
+                            }
+                            catch (Exception ex)
+                            {
+                                UnhandledException?.Invoke(this, new UnhandledExceptionEventArgs(ex, false));
+                            }
 
                             context.Response.StatusCode = (int)HttpStatusCode.OK;
                             context.Response.Close();
