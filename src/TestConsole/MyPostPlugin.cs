@@ -26,7 +26,7 @@ namespace TestConsole
             string text = context.Message.Text;
             if (text.StartsWith("TTS:", StringComparison.OrdinalIgnoreCase))
             {
-                await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(text[4..]));
+                await actionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(new CqTtsMsg(text[4..])));
             }
             else if (text.StartsWith("ToFace:"))
             {
