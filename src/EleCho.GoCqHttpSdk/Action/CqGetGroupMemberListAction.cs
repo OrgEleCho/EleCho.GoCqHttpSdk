@@ -15,12 +15,12 @@ namespace EleCho.GoCqHttpSdk.Action
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; }
+        public long GroupId { get; set; }
 
         /// <summary>
         /// 不使用缓存
         /// </summary>
-        public bool NoCache { get; }
+        public bool NoCache { get; set; }
 
         /// <summary>
         /// 实例化对象  (NoCache = false)

@@ -7,6 +7,6 @@
             this.no_cache = no_cache;
         }
 
-        public bool no_cache { get; set; }
+        public bool no_cache { get; }
     }
 }
