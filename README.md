@@ -47,4 +47,4 @@ EleCho.GoCqHttpSdk 是专为 Go-CqHttp 打造的, 而 Go-CqHttp 又遵循 OneBot
 
 ## 📎快速开始
 
-转到 Wiki 页面以查阅文档: [EleCho.GoCqHttpSdk Wiki](https://gihub.com/OrgEleCho/EleCho.GoCqHttpSdk/wiki)
+转到 Wiki 页面以查阅文档: [EleCho.GoCqHttpSdk Wiki](https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/wiki)
