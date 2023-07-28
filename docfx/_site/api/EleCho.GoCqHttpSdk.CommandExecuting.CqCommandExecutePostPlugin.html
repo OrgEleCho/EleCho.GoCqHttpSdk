@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
   </head>
 
   <script type="module">
@@ -79,7 +79,7 @@
 
   <h1 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin" class="text-break">
     Class CqCommandExecutePostPlugin
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -153,10 +153,11 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowGroupMessage" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupMessage">
   AllowGroupMessage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>允许群聊消息</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -180,14 +181,47 @@
 
 
 
+  <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowGroupSelfMessage_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowGroupSelfMessage" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage">
+  AllowGroupSelfMessage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>允许群聊的个人消息 (当前帐号其他设备发送的消息)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowGroupSelfMessage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateMessage_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateMessage*"></a>
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateMessage" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateMessage">
   AllowPrivateMessage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>允许私聊消息</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -211,14 +245,47 @@
 
 
 
+  <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateSelfMessage_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateSelfMessage" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage">
+  AllowPrivateSelfMessage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>允许私聊的个人消息 (当前账号其他设备发送的消息)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowPrivateSelfMessage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AtInvoker_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AtInvoker*"></a>
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AtInvoker" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AtInvoker">
   AtInvoker
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>在进行回应时, 是否 at 发送者</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -246,10 +313,11 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_ExecuteNextWhenExecuted" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.ExecuteNextWhenExecuted">
   ExecuteNextWhenExecuted
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>当插件被执行时, 是否继续执行下一个中间件</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -277,10 +345,11 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_IgnoreCases" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.IgnoreCases">
   IgnoreCases
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>指令忽略大小写</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -304,11 +373,43 @@
 
 
 
+  <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Parallel_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel*"></a>
+
+  <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Parallel" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel">
+  Parallel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>使用并行处理</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Parallel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Prefix_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Prefix*"></a>
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Prefix" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Prefix">
   Prefix
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>命令处理前缀</p>
@@ -340,10 +441,11 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_ReplyInvoker" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.ReplyInvoker">
   ReplyInvoker
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>在进行回应时, 是否回复发送者的消息</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -375,7 +477,7 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Execute_EleCho_GoCqHttpSdk_Post_CqPostContext_System_Func_System_Threading_Tasks_Task__" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Execute(EleCho.GoCqHttpSdk.Post.CqPostContext,System.Func{System.Threading.Tasks.Task})">
   Execute(CqPostContext, Func&lt;Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L230"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -413,7 +515,7 @@
 
   <h3 id="EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_HandleExecutingException_EleCho_GoCqHttpSdk_Post_CqPostContext_System_Exception_" data-uid="EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.HandleExecutingException(EleCho.GoCqHttpSdk.Post.CqPostContext,System.Exception)">
   HandleExecutingException(CqPostContext, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -451,7 +553,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk.CommandExecuting/CqCommandExecutePostPlugin.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
         

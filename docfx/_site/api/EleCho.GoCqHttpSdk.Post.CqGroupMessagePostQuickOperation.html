@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/new/master/apiSpec/new?filename=EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation.md&amp;value=---%0Auid%3A%20EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
   </head>
 
   <script type="module">
@@ -79,7 +79,7 @@
 
   <h1 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation" class="text-break">
     Class CqGroupMessagePostQuickOperation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -92,7 +92,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CqGroupMessagePostQuickOperation : CqPostQuickOperation</code></pre>
+    <pre><code class="lang-csharp hljs">public class CqGroupMessagePostQuickOperation : CqMessagePostQuickOperation</code></pre>
   </div>
 
 
@@ -103,6 +103,7 @@
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="EleCho.GoCqHttpSdk.Post.CqPostQuickOperation.html">CqPostQuickOperation</a></div>
+      <div><a class="xref" href="EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html">CqMessagePostQuickOperation</a></div>
       <div><span class="xref">CqGroupMessagePostQuickOperation</span></div>
     </dd>
   </dl>
@@ -112,6 +113,12 @@
   <dl class="typelist derived">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_Reply">CqMessagePostQuickOperation.Reply</a>
+    </div>
+    <div>
+      <a class="xref" href="EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_AutoEscape">CqMessagePostQuickOperation.AutoEscape</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -148,7 +155,7 @@
 
   <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_AtSender" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AtSender">
   AtSender
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>AT 发送者</p>
@@ -176,44 +183,11 @@
 
 
 
-  <a id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_AutoEscape_" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape*"></a>
-
-  <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_AutoEscape" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape">
-  AutoEscape
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L46"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>因为内部不使用 CQ 码, 所以无用</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;在本 SDK 中此字段无用&quot;)]
-public bool AutoEscape { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Ban_" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Ban*"></a>
 
   <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Ban" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Ban">
   Ban
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>禁言</p>
@@ -245,7 +219,7 @@ public bool AutoEscape { get; set; }</code></pre>
 
   <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_BanDuration" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.BanDuration">
   BanDuration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>禁言时间</p>
@@ -277,7 +251,7 @@ public bool AutoEscape { get; set; }</code></pre>
 
   <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Kick" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Kick">
   Kick
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>踢出群聊</p>
@@ -309,7 +283,7 @@ public bool AutoEscape { get; set; }</code></pre>
 
   <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Recall" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Recall">
   Recall
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>撤回</p>
@@ -337,43 +311,11 @@ public bool AutoEscape { get; set; }</code></pre>
 
 
 
-  <a id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Reply_" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply*"></a>
-
-  <h3 id="EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Reply" data-uid="EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply">
-  Reply
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L16"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>回复消息</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CqMessage? Reply { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="EleCho.GoCqHttpSdk.Message.CqMessage.html">CqMessage</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EleChoNet/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/OrgEleCho/EleCho.GoCqHttpSdk/blob/master/src/EleCho.GoCqHttpSdk/Post/QuickOperation/CqGroupMessagePostQuickOperation.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
         

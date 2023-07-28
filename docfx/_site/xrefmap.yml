@@ -5644,6 +5644,19 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupMessage
   nameWithType: CqCommandExecutePostPlugin.AllowGroupMessage
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage
+  name: AllowGroupSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowGroupSelfMessage
+  commentId: P:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage
+  nameWithType: CqCommandExecutePostPlugin.AllowGroupSelfMessage
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage*
+  name: AllowGroupSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowGroupSelfMessage_
+  commentId: Overload:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowGroupSelfMessage
+  nameWithType: CqCommandExecutePostPlugin.AllowGroupSelfMessage
 - uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateMessage
   name: AllowPrivateMessage
   href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateMessage
@@ -5657,6 +5670,19 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateMessage
   nameWithType: CqCommandExecutePostPlugin.AllowPrivateMessage
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+  name: AllowPrivateSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateSelfMessage
+  commentId: P:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+  nameWithType: CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage*
+  name: AllowPrivateSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AllowPrivateSelfMessage_
+  commentId: Overload:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AllowPrivateSelfMessage
+  nameWithType: CqCommandExecutePostPlugin.AllowPrivateSelfMessage
 - uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.AtInvoker
   name: AtInvoker
   href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_AtInvoker
@@ -5725,6 +5751,19 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.IgnoreCases
   nameWithType: CqCommandExecutePostPlugin.IgnoreCases
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel
+  name: Parallel
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Parallel
+  commentId: P:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel
+  nameWithType: CqCommandExecutePostPlugin.Parallel
+- uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel*
+  name: Parallel
+  href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Parallel_
+  commentId: Overload:EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Parallel
+  nameWithType: CqCommandExecutePostPlugin.Parallel
 - uid: EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.Prefix
   name: Prefix
   href: api/EleCho.GoCqHttpSdk.CommandExecuting.CqCommandExecutePostPlugin.html#EleCho_GoCqHttpSdk_CommandExecuting_CqCommandExecutePostPlugin_Prefix
@@ -12198,6 +12237,49 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupRequest
   nameWithType: CqPostSessionExtensions.UseGroupRequest
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Func{System.Threading.Tasks.Task}})
+  name: UseGroupSelfMessage(ICqPostSession, Action<CqGroupSelfMessagePostContext, Func<Task>>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_System_Func_System_Threading_Tasks_Task___
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Func{System.Threading.Tasks.Task}})
+  name.vb: UseGroupSelfMessage(ICqPostSession, Action(Of CqGroupSelfMessagePostContext, Func(Of Task)))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action<EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Func<System.Threading.Tasks.Task>>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action(Of EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Func(Of System.Threading.Tasks.Task)))
+  nameWithType: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Action<CqGroupSelfMessagePostContext, Func<Task>>)
+  nameWithType.vb: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Action(Of CqGroupSelfMessagePostContext, Func(Of Task)))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext})
+  name: UseGroupSelfMessage(ICqPostSession, Action<CqGroupSelfMessagePostContext>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext})
+  name.vb: UseGroupSelfMessage(ICqPostSession, Action(Of CqGroupSelfMessagePostContext))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action<EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action(Of EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext))
+  nameWithType: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Action<CqGroupSelfMessagePostContext>)
+  nameWithType.vb: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Action(Of CqGroupSelfMessagePostContext))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})
+  name: UseGroupSelfMessage(ICqPostSession, Func<CqGroupSelfMessagePostContext, Func<Task>, Task>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})
+  name.vb: UseGroupSelfMessage(ICqPostSession, Func(Of CqGroupSelfMessagePostContext, Func(Of Task), Task))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func<EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Func<System.Threading.Tasks.Task>, System.Threading.Tasks.Task>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func(Of EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Func(Of System.Threading.Tasks.Task), System.Threading.Tasks.Task))
+  nameWithType: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Func<CqGroupSelfMessagePostContext, Func<Task>, Task>)
+  nameWithType.vb: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Func(Of CqGroupSelfMessagePostContext, Func(Of Task), Task))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Threading.Tasks.Task})
+  name: UseGroupSelfMessage(ICqPostSession, Func<CqGroupSelfMessagePostContext, Task>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_System_Threading_Tasks_Task__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext,System.Threading.Tasks.Task})
+  name.vb: UseGroupSelfMessage(ICqPostSession, Func(Of CqGroupSelfMessagePostContext, Task))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func<EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Threading.Tasks.Task>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func(Of EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext, System.Threading.Tasks.Task))
+  nameWithType: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Func<CqGroupSelfMessagePostContext, Task>)
+  nameWithType.vb: CqPostSessionExtensions.UseGroupSelfMessage(ICqPostSession, Func(Of CqGroupSelfMessagePostContext, Task))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage*
+  name: UseGroupSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseGroupSelfMessage_
+  commentId: Overload:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseGroupSelfMessage
+  nameWithType: CqPostSessionExtensions.UseGroupSelfMessage
 - uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UseHeartbeat(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext,System.Func{System.Threading.Tasks.Task}})
   name: UseHeartbeat(ICqPostSession, Action<CqHeartbeatPostContext, Func<Task>>)
   href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UseHeartbeat_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqHeartbeatPostContext_System_Func_System_Threading_Tasks_Task___
@@ -12439,6 +12521,49 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateMessage
   nameWithType: CqPostSessionExtensions.UsePrivateMessage
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Func{System.Threading.Tasks.Task}})
+  name: UsePrivateSelfMessage(ICqPostSession, Action<CqPrivateSelfMessagePostContext, Func<Task>>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_System_Func_System_Threading_Tasks_Task___
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Func{System.Threading.Tasks.Task}})
+  name.vb: UsePrivateSelfMessage(ICqPostSession, Action(Of CqPrivateSelfMessagePostContext, Func(Of Task)))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action<EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Func<System.Threading.Tasks.Task>>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action(Of EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Func(Of System.Threading.Tasks.Task)))
+  nameWithType: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Action<CqPrivateSelfMessagePostContext, Func<Task>>)
+  nameWithType.vb: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Action(Of CqPrivateSelfMessagePostContext, Func(Of Task)))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext})
+  name: UsePrivateSelfMessage(ICqPostSession, Action<CqPrivateSelfMessagePostContext>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Action_EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Action{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext})
+  name.vb: UsePrivateSelfMessage(ICqPostSession, Action(Of CqPrivateSelfMessagePostContext))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action<EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Action(Of EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext))
+  nameWithType: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Action<CqPrivateSelfMessagePostContext>)
+  nameWithType.vb: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Action(Of CqPrivateSelfMessagePostContext))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})
+  name: UsePrivateSelfMessage(ICqPostSession, Func<CqPrivateSelfMessagePostContext, Func<Task>, Task>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})
+  name.vb: UsePrivateSelfMessage(ICqPostSession, Func(Of CqPrivateSelfMessagePostContext, Func(Of Task), Task))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func<EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Func<System.Threading.Tasks.Task>, System.Threading.Tasks.Task>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func(Of EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Func(Of System.Threading.Tasks.Task), System.Threading.Tasks.Task))
+  nameWithType: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Func<CqPrivateSelfMessagePostContext, Func<Task>, Task>)
+  nameWithType.vb: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Func(Of CqPrivateSelfMessagePostContext, Func(Of Task), Task))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Threading.Tasks.Task})
+  name: UsePrivateSelfMessage(ICqPostSession, Func<CqPrivateSelfMessagePostContext, Task>)
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateSelfMessage_EleCho_GoCqHttpSdk_ICqPostSession_System_Func_EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_System_Threading_Tasks_Task__
+  commentId: M:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession,System.Func{EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext,System.Threading.Tasks.Task})
+  name.vb: UsePrivateSelfMessage(ICqPostSession, Func(Of CqPrivateSelfMessagePostContext, Task))
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func<EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Threading.Tasks.Task>)
+  fullName.vb: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage(EleCho.GoCqHttpSdk.ICqPostSession, System.Func(Of EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext, System.Threading.Tasks.Task))
+  nameWithType: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Func<CqPrivateSelfMessagePostContext, Task>)
+  nameWithType.vb: CqPostSessionExtensions.UsePrivateSelfMessage(ICqPostSession, Func(Of CqPrivateSelfMessagePostContext, Task))
+- uid: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage*
+  name: UsePrivateSelfMessage
+  href: api/EleCho.GoCqHttpSdk.CqPostSessionExtensions.html#EleCho_GoCqHttpSdk_CqPostSessionExtensions_UsePrivateSelfMessage_
+  commentId: Overload:EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.CqPostSessionExtensions.UsePrivateSelfMessage
+  nameWithType: CqPostSessionExtensions.UsePrivateSelfMessage
 - uid: EleCho.GoCqHttpSdk.CqPostType
   name: CqPostType
   href: api/EleCho.GoCqHttpSdk.CqPostType.html
@@ -12691,6 +12816,12 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.CqRHttpSession.StopAsync
   nameWithType: CqRHttpSession.StopAsync
+- uid: EleCho.GoCqHttpSdk.CqRHttpSession.UnhandledException
+  name: UnhandledException
+  href: api/EleCho.GoCqHttpSdk.CqRHttpSession.html#EleCho_GoCqHttpSdk_CqRHttpSession_UnhandledException
+  commentId: E:EleCho.GoCqHttpSdk.CqRHttpSession.UnhandledException
+  fullName: EleCho.GoCqHttpSdk.CqRHttpSession.UnhandledException
+  nameWithType: CqRHttpSession.UnhandledException
 - uid: EleCho.GoCqHttpSdk.CqRHttpSession.WaitForShutdown
   name: WaitForShutdown()
   href: api/EleCho.GoCqHttpSdk.CqRHttpSession.html#EleCho_GoCqHttpSdk_CqRHttpSession_WaitForShutdown
@@ -16225,6 +16356,19 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentContext
   nameWithType: CqMessageMatchPostPlugin.CurrentContext
+- uid: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext
+  name: CurrentSelfContext
+  href: api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.html#EleCho_GoCqHttpSdk_MessageMatching_CqMessageMatchPostPlugin_CurrentSelfContext
+  commentId: P:EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext
+  fullName: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext
+  nameWithType: CqMessageMatchPostPlugin.CurrentSelfContext
+- uid: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext*
+  name: CurrentSelfContext
+  href: api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.html#EleCho_GoCqHttpSdk_MessageMatching_CqMessageMatchPostPlugin_CurrentSelfContext_
+  commentId: Overload:EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.CurrentSelfContext
+  nameWithType: CqMessageMatchPostPlugin.CurrentSelfContext
 - uid: EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.Execute(EleCho.GoCqHttpSdk.Post.CqPostContext,System.Func{System.Threading.Tasks.Task})
   name: Execute(CqPostContext, Func<Task>)
   href: api/EleCho.GoCqHttpSdk.MessageMatching.CqMessageMatchPostPlugin.html#EleCho_GoCqHttpSdk_MessageMatching_CqMessageMatchPostPlugin_Execute_EleCho_GoCqHttpSdk_Post_CqPostContext_System_Func_System_Threading_Tasks_Task__
@@ -17035,6 +17179,19 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NoticeType
   nameWithType: CqGroupMemberHonorChangedPostContext.NoticeType
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType
+  name: NotifyType
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_NotifyType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType
+  nameWithType: CqGroupMemberHonorChangedPostContext.NotifyType
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType*
+  name: NotifyType
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_NotifyType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.NotifyType
+  nameWithType: CqGroupMemberHonorChangedPostContext.NotifyType
 - uid: EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.PostType
   name: PostType
   href: api/EleCho.GoCqHttpSdk.Post.CqGroupMemberHonorChangedPostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupMemberHonorChangedPostContext_PostType
@@ -17351,19 +17508,6 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AtSender
   nameWithType: CqGroupMessagePostQuickOperation.AtSender
-- uid: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape
-  name: AutoEscape
-  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_AutoEscape
-  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape
-  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape
-  nameWithType: CqGroupMessagePostQuickOperation.AutoEscape
-- uid: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape*
-  name: AutoEscape
-  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_AutoEscape_
-  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape
-  isSpec: "True"
-  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.AutoEscape
-  nameWithType: CqGroupMessagePostQuickOperation.AutoEscape
 - uid: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Ban
   name: Ban
   href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Ban
@@ -17416,19 +17560,6 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Recall
   nameWithType: CqGroupMessagePostQuickOperation.Recall
-- uid: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply
-  name: Reply
-  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Reply
-  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply
-  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply
-  nameWithType: CqGroupMessagePostQuickOperation.Reply
-- uid: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply*
-  name: Reply
-  href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqGroupMessagePostQuickOperation_Reply_
-  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply
-  isSpec: "True"
-  fullName: EleCho.GoCqHttpSdk.Post.CqGroupMessagePostQuickOperation.Reply
-  nameWithType: CqGroupMessagePostQuickOperation.Reply
 - uid: EleCho.GoCqHttpSdk.Post.CqGroupMessageRecalledPostContext
   name: CqGroupMessageRecalledPostContext
   href: api/EleCho.GoCqHttpSdk.Post.CqGroupMessageRecalledPostContext.html
@@ -17629,6 +17760,77 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqGroupRequestPostQuickOperation.Remark
   nameWithType: CqGroupRequestPostQuickOperation.Remark
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext
+  name: CqGroupSelfMessagePostContext
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html
+  commentId: T:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext
+  nameWithType: CqGroupSelfMessagePostContext
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous
+  name: Anonymous
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_Anonymous
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous
+  nameWithType: CqGroupSelfMessagePostContext.Anonymous
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous*
+  name: Anonymous
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_Anonymous_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Anonymous
+  nameWithType: CqGroupSelfMessagePostContext.Anonymous
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId
+  name: GroupId
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_GroupId
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId
+  nameWithType: CqGroupSelfMessagePostContext.GroupId
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId*
+  name: GroupId
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_GroupId_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.GroupId
+  nameWithType: CqGroupSelfMessagePostContext.GroupId
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_MessageType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType
+  nameWithType: CqGroupSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType*
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_MessageType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.MessageType
+  nameWithType: CqGroupSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation
+  name: QuickOperation
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_QuickOperation
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation
+  nameWithType: CqGroupSelfMessagePostContext.QuickOperation
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation*
+  name: QuickOperation
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_QuickOperation_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.QuickOperation
+  nameWithType: CqGroupSelfMessagePostContext.QuickOperation
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender
+  name: Sender
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_Sender
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender
+  nameWithType: CqGroupSelfMessagePostContext.Sender
+- uid: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender*
+  name: Sender
+  href: api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqGroupSelfMessagePostContext_Sender_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.Sender
+  nameWithType: CqGroupSelfMessagePostContext.Sender
 - uid: EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext
   name: CqHeartbeatPostContext
   href: api/EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext.html
@@ -17803,6 +18005,38 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostContext.UserId
   nameWithType: CqMessagePostContext.UserId
+- uid: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation
+  name: CqMessagePostQuickOperation
+  href: api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html
+  commentId: T:EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation
+  fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation
+  nameWithType: CqMessagePostQuickOperation
+- uid: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape
+  name: AutoEscape
+  href: api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_AutoEscape
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape
+  fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape
+  nameWithType: CqMessagePostQuickOperation.AutoEscape
+- uid: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape*
+  name: AutoEscape
+  href: api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_AutoEscape_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.AutoEscape
+  nameWithType: CqMessagePostQuickOperation.AutoEscape
+- uid: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply
+  name: Reply
+  href: api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_Reply
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply
+  fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply
+  nameWithType: CqMessagePostQuickOperation.Reply
+- uid: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply*
+  name: Reply
+  href: api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqMessagePostQuickOperation_Reply_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.Reply
+  nameWithType: CqMessagePostQuickOperation.Reply
 - uid: EleCho.GoCqHttpSdk.Post.CqMetaEventPostContext
   name: CqMetaEventPostContext
   href: api/EleCho.GoCqHttpSdk.Post.CqMetaEventPostContext.html
@@ -18156,32 +18390,77 @@ references:
   commentId: T:EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation
   fullName: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation
   nameWithType: CqPrivateMessagePostQuickOperation
-- uid: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape
-  name: AutoEscape
-  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostQuickOperation_AutoEscape
-  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape
-  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape
-  nameWithType: CqPrivateMessagePostQuickOperation.AutoEscape
-- uid: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape*
-  name: AutoEscape
-  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostQuickOperation_AutoEscape_
-  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext
+  name: CqPrivateSelfMessagePostContext
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html
+  commentId: T:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext
+  nameWithType: CqPrivateSelfMessagePostContext
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_MessageType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType
+  nameWithType: CqPrivateSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType*
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_MessageType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType
   isSpec: "True"
-  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.AutoEscape
-  nameWithType: CqPrivateMessagePostQuickOperation.AutoEscape
-- uid: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply
-  name: Reply
-  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostQuickOperation_Reply
-  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply
-  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply
-  nameWithType: CqPrivateMessagePostQuickOperation.Reply
-- uid: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply*
-  name: Reply
-  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.html#EleCho_GoCqHttpSdk_Post_CqPrivateMessagePostQuickOperation_Reply_
-  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.MessageType
+  nameWithType: CqPrivateSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType
+  name: PrivateMessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_PrivateMessageType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType
+  nameWithType: CqPrivateSelfMessagePostContext.PrivateMessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType*
+  name: PrivateMessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_PrivateMessageType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType
   isSpec: "True"
-  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateMessagePostQuickOperation.Reply
-  nameWithType: CqPrivateMessagePostQuickOperation.Reply
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.PrivateMessageType
+  nameWithType: CqPrivateSelfMessagePostContext.PrivateMessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation
+  name: QuickOperation
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_QuickOperation
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation
+  nameWithType: CqPrivateSelfMessagePostContext.QuickOperation
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation*
+  name: QuickOperation
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_QuickOperation_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.QuickOperation
+  nameWithType: CqPrivateSelfMessagePostContext.QuickOperation
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender
+  name: Sender
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_Sender
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender
+  nameWithType: CqPrivateSelfMessagePostContext.Sender
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender*
+  name: Sender
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_Sender_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.Sender
+  nameWithType: CqPrivateSelfMessagePostContext.Sender
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource
+  name: TempSource
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_TempSource
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource
+  nameWithType: CqPrivateSelfMessagePostContext.TempSource
+- uid: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource*
+  name: TempSource
+  href: api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqPrivateSelfMessagePostContext_TempSource_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.TempSource
+  nameWithType: CqPrivateSelfMessagePostContext.TempSource
 - uid: EleCho.GoCqHttpSdk.Post.CqRequestPostContext
   name: CqRequestPostContext
   href: api/EleCho.GoCqHttpSdk.Post.CqRequestPostContext.html
@@ -18214,3 +18493,100 @@ references:
   isSpec: "True"
   fullName: EleCho.GoCqHttpSdk.Post.CqRequestPostContext.RequestType
   nameWithType: CqRequestPostContext.RequestType
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext
+  name: CqSelfMessagePostContext
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html
+  commentId: T:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext
+  nameWithType: CqSelfMessagePostContext
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font
+  name: Font
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_Font
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font
+  nameWithType: CqSelfMessagePostContext.Font
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font*
+  name: Font
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_Font_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Font
+  nameWithType: CqSelfMessagePostContext.Font
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message
+  name: Message
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_Message
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message
+  nameWithType: CqSelfMessagePostContext.Message
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message*
+  name: Message
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_Message_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.Message
+  nameWithType: CqSelfMessagePostContext.Message
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId
+  name: MessageId
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_MessageId
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId
+  nameWithType: CqSelfMessagePostContext.MessageId
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId*
+  name: MessageId
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_MessageId_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageId
+  nameWithType: CqSelfMessagePostContext.MessageId
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_MessageType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType
+  nameWithType: CqSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType*
+  name: MessageType
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_MessageType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.MessageType
+  nameWithType: CqSelfMessagePostContext.MessageType
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType
+  name: PostType
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_PostType
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType
+  nameWithType: CqSelfMessagePostContext.PostType
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType*
+  name: PostType
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_PostType_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.PostType
+  nameWithType: CqSelfMessagePostContext.PostType
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage
+  name: RawMessage
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_RawMessage
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage
+  nameWithType: CqSelfMessagePostContext.RawMessage
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage*
+  name: RawMessage
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_RawMessage_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.RawMessage
+  nameWithType: CqSelfMessagePostContext.RawMessage
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId
+  name: UserId
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_UserId
+  commentId: P:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId
+  nameWithType: CqSelfMessagePostContext.UserId
+- uid: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId*
+  name: UserId
+  href: api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html#EleCho_GoCqHttpSdk_Post_CqSelfMessagePostContext_UserId_
+  commentId: Overload:EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId
+  isSpec: "True"
+  fullName: EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.UserId
+  nameWithType: CqSelfMessagePostContext.UserId

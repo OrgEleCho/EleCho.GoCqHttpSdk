@@ -2485,6 +2485,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqGroupSelfMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqHeartbeatPostContext.yml",
       "output": {
         ".html": {
@@ -2509,6 +2519,16 @@
       "output": {
         ".html": {
           "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqMessagePostQuickOperation.html"
         }
       },
       "version": ""
@@ -2605,10 +2625,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqPrivateSelfMessagePostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqRequestPostContext.yml",
       "output": {
         ".html": {
           "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqRequestPostContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EleCho.GoCqHttpSdk.Post.CqSelfMessagePostContext.html"
         }
       },
       "version": ""
