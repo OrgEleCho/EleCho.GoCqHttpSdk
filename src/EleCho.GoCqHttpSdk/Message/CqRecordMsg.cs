@@ -132,8 +132,8 @@ namespace EleCho.GoCqHttpSdk.Message
             Proxy = m.proxy.ToBool();
             Timeout = m.timeout;
 
-            if (m.url != null)
-                Url = new Uri(m.url);
+            if (m.url != null && Uri.TryCreate(m.url, UriKind.Absolute, out Uri? uri))
+                Url = uri;
         }
     }
 }

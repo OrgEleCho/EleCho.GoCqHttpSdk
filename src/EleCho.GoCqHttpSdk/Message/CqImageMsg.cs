@@ -163,8 +163,8 @@ namespace EleCho.GoCqHttpSdk.Message
             ImageEffect = (CqImageEffect?)m.id;
             ThreadCount = m.c;
 
-            if (m.url != null)
-                Url = new Uri(m.url);
+            if (m.url != null && Uri.TryCreate(m.url, UriKind.Absolute, out Uri? uri))
+                Url = uri;
         }
     }
 }
