@@ -21,11 +21,11 @@ namespace TestConsole
 {
     internal class Program
     {
-        public const int WebSocketPort = 8080;
+        public const int WebSocketPort = 5710;
 
-        static CqWsSession session = new CqWsSession(new CqWsSessionOptions()
+        static CqRWsSession session = new CqRWsSession(new CqRWsSessionOptions()
         {
-            BaseUri = new Uri($"ws://127.0.0.1:{WebSocketPort}"),
+            BaseUri = new Uri($"http://127.0.0.1:{WebSocketPort}"),
         });
 
         private static async Task Main(string[] args)
@@ -103,7 +103,7 @@ namespace TestConsole
                 AllowGroupSelfMessage = true
             });
 
-            session.UnhandledException += Session_UnhandledException;
+            //session.UnhandledException += Session_UnhandledException;
 
             Console.WriteLine("OK");
             await session.StartAsync();

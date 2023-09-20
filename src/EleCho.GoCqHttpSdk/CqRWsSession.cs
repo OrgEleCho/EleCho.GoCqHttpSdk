@@ -76,6 +76,12 @@ namespace EleCho.GoCqHttpSdk
 
 
         /// <summary>
+        /// 当未捕捉的用户异常发生时
+        /// </summary>
+        public event UnhandledExceptionEventHandler? UnhandledException;
+
+
+        /// <summary>
         /// 实例化
         /// </summary>
         /// <param name="options"></param>
@@ -138,14 +144,18 @@ namespace EleCho.GoCqHttpSdk
             }
         }
 
+
         private async Task ConnectionLoopAsync(WebSocketContext context, WebSocket ws)
         {
             CqWsSession wsSession = new CqWsSession(ws, context.RequestUri, accessToken, bufferSize);
             wsSession.PostPipeline.Use(ConnectionPostMiddleware);
+            wsSession.UnhandledException += WsSession_UnhandledException;
 
             connections.Add(wsSession);
             await wsSession.RunAsync();
             connections.Remove(wsSession);
+
+            wsSession.UnhandledException -= WsSession_UnhandledException;
         }
 
         private async Task ApiConnectionLoopAsync(WebSocketContext context, WebSocket ws)
@@ -161,10 +171,18 @@ namespace EleCho.GoCqHttpSdk
         {
             CqWsSession wsSession = new CqWsSession(ws, context.RequestUri, accessToken, bufferSize);
             wsSession.PostPipeline.Use(ConnectionPostMiddleware);
+            wsSession.UnhandledException += WsSession_UnhandledException;
 
             eventConnections.Add(wsSession);
             await wsSession.RunAsync();
             eventConnections.Remove(wsSession);
+
+            wsSession.UnhandledException -= WsSession_UnhandledException;
+        }
+
+        private void WsSession_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            UnhandledException?.Invoke(sender, e);
         }
 
         private async Task ConnectionPostMiddleware(CqPostContext context, Func<Task> next)

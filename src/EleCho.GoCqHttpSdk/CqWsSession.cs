@@ -44,6 +44,8 @@ namespace EleCho.GoCqHttpSdk
 
         private ConcurrentQueue<CqPostModel> postQueue;
 
+        private bool isCreatedInner = false;
+
         /// <summary>
         /// 已连接
         /// </summary>
@@ -127,6 +129,9 @@ namespace EleCho.GoCqHttpSdk
             actionSender = new CqWsActionSender(this, remoteWebSocket);
             postPipeline = new CqPostPipeline();
             postQueue = new ConcurrentQueue<CqPostModel>();
+            isCreatedInner = true;
+
+            IsConnected = true;
         }
 
         /// <summary>
@@ -309,12 +314,6 @@ namespace EleCho.GoCqHttpSdk
         {
             string accessTokenHeaderValue = $"Bearer {AccessToken}";
 
-            // 如果当前会话不是一个用户创建的, 则抛异常
-            if (webSocket is not ClientWebSocket &&
-                apiWebSocket is not ClientWebSocket &&
-                eventWebSocket is not ClientWebSocket)
-                throw new InvalidOperationException($"You can't connect a closed incomming session. Only {nameof(CqWsSession)} created by user can use '{nameof(ConnectAsync)}'");
-
             // 如果 api 套接字不为空, 则连接 api 套接字
             if (apiWebSocket is ClientWebSocket apiWebSocketClient)
             {
@@ -410,8 +409,13 @@ namespace EleCho.GoCqHttpSdk
             if (mainLoopTask != null)
                 throw new InvalidOperationException("Session is already started");
 
+            // 当当前会话由内部创建并且已经被关闭时
+            if (isCreatedInner && webSocket!.State == WebSocketState.Closed)
+                throw new InvalidOperationException("Base websocket of the current session is already closed");
+
             // 连接所需要的套接字
-            await ConnectAsync();
+            if (!isCreatedInner)
+                await ConnectAsync();
 
             // 首先一定会有一个主循环, 这个主循环可能是通用的套接字, 也可能是单独的上报套接字 (如果使用单独的 API 和上报套接字, 那么主套接字是空的, 所以会 fallback 到事件套接字)
             mainLoopTask = WebSocketLoop(webSocket ?? eventWebSocket ?? throw new InvalidOperationException("This would never happened"));
