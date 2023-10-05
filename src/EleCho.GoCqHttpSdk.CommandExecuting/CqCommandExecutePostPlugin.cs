@@ -235,39 +235,55 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
                 await executeTask;
         }
 
-        public async Task HandleExecutingException(CqPostContext context, Exception exception)
+        /// <summary>
+        /// 从执行异常生成错误消息
+        /// </summary>
+        /// <param name="exception">异常对象</param>
+        /// <returns>错误消息</returns>
+        public virtual string GenerateErrorMessageFromExcutingException(Exception exception)
+        {
+            if (exception is TargetInvocationException targetInvocationException)
+                exception = targetInvocationException.InnerException;
+
+            return $"Command execution failed: {exception.Message}";
+        }
+
+        /// <summary>
+        /// 处理执行异常
+        /// </summary>
+        /// <param name="context">上报上下文</param>
+        /// <param name="exception">异常对象</param>
+        /// <returns>供等待的任务</returns>
+        public virtual async Task HandleExecutingException(CqPostContext context, Exception exception)
         {
             if (context.Session is not ICqActionSession actionSession)
                 return;
 
-            if (exception is TargetInvocationException targetInvocationException)
-                exception = targetInvocationException;
-
             if (context is CqGroupMessagePostContext groupContext)
             {
                 CqMessage response = 
-                    BuildGroupResponse($"Command execution failed: {exception.Message}", groupContext.UserId, groupContext.MessageId);
+                    BuildGroupResponse(GenerateErrorMessageFromExcutingException(exception), groupContext.UserId, groupContext.MessageId);
 
                 await actionSession.SendGroupMessageAsync(groupContext.GroupId, response);
             }
             else if (context is CqPrivateMessagePostContext privateContext)
             {
                 CqMessage response =
-                    BuildPrivateResponse($"Command execution failed: {exception.Message}", privateContext.MessageId);
+                    BuildPrivateResponse(GenerateErrorMessageFromExcutingException(exception), privateContext.MessageId);
 
                 await actionSession.SendPrivateMessageAsync(privateContext.UserId, response);
             }
             else if (context is CqGroupSelfMessagePostContext groupSelfContext)
             {
                 CqMessage response =
-                    BuildGroupResponse($"Command execution failed: {exception.Message}", groupSelfContext.UserId, groupSelfContext.MessageId);
+                    BuildGroupResponse(GenerateErrorMessageFromExcutingException(exception), groupSelfContext.UserId, groupSelfContext.MessageId);
 
                 await actionSession.SendGroupMessageAsync(groupSelfContext.GroupId, response);
             }
             else if (context is CqPrivateSelfMessagePostContext privateSelfMessage)
             {
                 CqMessage response =
-                    BuildPrivateResponse($"Command execution failed: {exception.Message}", privateSelfMessage.MessageId);
+                    BuildPrivateResponse(GenerateErrorMessageFromExcutingException(exception), privateSelfMessage.MessageId);
 
                 await actionSession.SendPrivateMessageAsync(privateSelfMessage.UserId, response);
             }
