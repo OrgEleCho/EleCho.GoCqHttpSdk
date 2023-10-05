@@ -190,11 +190,27 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
         }
 
         private CqMessagePostContext? currentContext;
+
+        /// <summary>
+        /// 当前的消息上报上下文
+        /// </summary>
         public CqMessagePostContext? CurrentContext => currentContext;
 
         private CqSelfMessagePostContext? currentSelfContext;
+
+        /// <summary>
+        /// 当前的我的消息上报上下文
+        /// </summary>
         public CqSelfMessagePostContext? CurrentSelfContext => currentSelfContext;
 
+        /// <summary>
+        /// 当一个方法被匹配到时, 是否继续匹配下一个 (默认为 false)
+        /// </summary>
+        public bool MatchNextWhenMatched { get; set; } = false;
+
+        /// <summary>
+        /// 当一个方法被匹配到时, 是否继续执行下一个中间件 (默认为 true)
+        /// </summary>
         public bool ExecuteNextWhenMatched { get; set; } = true;
 
         public CqMessageMatchPostPlugin()
@@ -227,6 +243,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             await msgMatchMethod.Action.Invoke(privateMsgContext, match);
                             currentContext = null;
 
+                            if (!MatchNextWhenMatched)
+                                break;
                             if (!ExecuteNextWhenMatched)
                                 return;
                         }
@@ -243,6 +261,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             await msgMatchMethod.Action.Invoke(groupMsgContext, match);
                             currentContext = null;
 
+                            if (!MatchNextWhenMatched)
+                                break;
                             if (!ExecuteNextWhenMatched)
                                 return;
                         }
@@ -262,6 +282,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             await msgMatchMethod.Action.Invoke(privateMsgContext, match);
                             currentSelfContext = null;
 
+                            if (!MatchNextWhenMatched)
+                                break;
                             if (!ExecuteNextWhenMatched)
                                 return;
                         }
@@ -278,6 +300,8 @@ namespace EleCho.GoCqHttpSdk.MessageMatching
                             await msgMatchMethod.Action.Invoke(groupMsgContext, match);
                             currentSelfContext = null;
 
+                            if (!MatchNextWhenMatched)
+                                break;
                             if (!ExecuteNextWhenMatched)
                                 return;
                         }
