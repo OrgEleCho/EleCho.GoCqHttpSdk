@@ -297,8 +297,9 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
         /// <returns>错误消息</returns>
         public virtual string GenerateErrorMessageFromExcutingException(Exception exception)
         {
-            if (exception is TargetInvocationException targetInvocationException)
-                exception = targetInvocationException.InnerException;
+            if (exception is TargetInvocationException targetInvocationException && 
+                targetInvocationException.InnerException is Exception innerException)
+                exception = innerException;
 
             return $"Command execution failed: {exception.Message}";
         }
