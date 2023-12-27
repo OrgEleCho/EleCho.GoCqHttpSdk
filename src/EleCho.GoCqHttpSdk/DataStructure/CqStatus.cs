@@ -19,9 +19,9 @@ namespace EleCho.GoCqHttpSdk
             AppGood = model.app_good;
             Online = model.online;
             Good = model.good;
-            Statistics = new CqStatusStatistics(model.stat);
+            Statistics = model.stat == null ? new CqStatusStatistics() : new CqStatusStatistics(model.stat);
         }
-        
+
         /// <summary>
         /// 程序初始化完成
         /// </summary>
@@ -51,7 +51,6 @@ namespace EleCho.GoCqHttpSdk
         /// 状态良好
         /// </summary>
         public bool Good { get; }
-
 
         /// <summary>
         /// 统计信息
