@@ -23,85 +23,108 @@ namespace TestConsole
     {
         public const int WebSocketPort = 5710;
 
-        static CqRWsSession session = new CqRWsSession(new CqRWsSessionOptions()
-        {
-            BaseUri = new Uri($"http://127.0.0.1:{WebSocketPort}"),
-        });
+        //static CqRWsSession session = new CqRWsSession(new CqRWsSessionOptions()
+        //{
+        //    BaseUri = new Uri($"http://127.0.0.1:{WebSocketPort}"),
+        //    AccessToken = 
+        //});
 
         private static async Task Main(string[] args)
         {
-            await Console.Out.WriteLineAsync("OpenAI API Key:");
-            string? apikey = Console.ReadLine();
-            if (apikey == null)
-                return;
+            //await Console.Out.WriteLineAsync("OpenAI API Key:");
+            //string? apikey = Console.ReadLine();
+            //if (apikey == null)
+            //    return;
 
-            if (!string.IsNullOrWhiteSpace(apikey))
-                session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
+            //if (!string.IsNullOrWhiteSpace(apikey))
+            //    session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
 
-            session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
+            //session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
 
-            session.UseGroupRequest(context =>
-            {
-                Console.WriteLine($"收到了加群请求{context}");
-                context.QuickOperation.Approve = true;
-            });
+            //session.UseGroupRequest(context =>
+            //{
+            //    Console.WriteLine($"收到了加群请求{context}");
+            //    context.QuickOperation.Approve = true;
+            //});
 
-            session.UseGroupMessage(async context =>
-            {
-                string text = context.Message.Text.Trim();
+            //session.UseGroupMessage(async context =>
+            //{
+            //    string text = context.Message.Text.Trim();
 
-                if (text.Equals("qwq", StringComparison.OrdinalIgnoreCase))
-                    await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
-                    {
-                        new CqReplyMsg(context.MessageId),
-                        new CqTextMsg("qwq")
-                    });
+            //    if (text.Equals("qwq", StringComparison.OrdinalIgnoreCase))
+            //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+            //        {
+            //            new CqReplyMsg(context.MessageId),
+            //            new CqTextMsg("qwq")
+            //        });
 
-                if (text.Equals("/throw_exception"))
-                {
-                    throw new Exception("qwq");
-                }
+            //    if (text.Equals("/throw_exception"))
+            //    {
+            //        throw new Exception("qwq");
+            //    }
 
-                if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
-                    await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
-                    {
-                        new CqRecordMsg(new Uri(@"C:\Users\slime\Documents\Sound Recordings\Recording (3).m4a")),
-                    });
+            //    if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
+            //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+            //        {
+            //            new CqRecordMsg(new Uri(@"C:\Users\slime\Documents\Sound Recordings\Recording (3).m4a")),
+            //        });
 
-                if (text.StartsWith("#ban", StringComparison.OrdinalIgnoreCase))
-                {
-                    CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+            //    if (text.StartsWith("#ban", StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
 
-                    if (at != null)
-                        await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.FromSeconds(30));
-                }
+            //        if (at != null)
+            //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.FromSeconds(30));
+            //    }
 
 
-                if (text.StartsWith("#unban", StringComparison.OrdinalIgnoreCase))
-                {
-                    CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+            //    if (text.StartsWith("#unban", StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
 
-                    if (at != null)
-                        await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
-                }
+            //        if (at != null)
+            //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
+            //    }
 
-                if (text.StartsWith("#fake", StringComparison.OrdinalIgnoreCase))
-                {
-                    await session.SendGroupForwardMessageAsync(context.GroupId,
-                        new CqForwardMessage()
-                        {
-                            new CqForwardMessageNode("Hello", 123123123, CqMessage.FromCqCode("Hello")),
-                        });
-                }
-            });
+            //    if (text.StartsWith("#fake", StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        await session.SendGroupForwardMessageAsync(context.GroupId,
+            //            new CqForwardMessage()
+            //            {
+            //                new CqForwardMessageNode("Hello", 123123123, CqMessage.FromCqCode("Hello")),
+            //            });
+            //    }
+            //});
 
             //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
-            session.UseCommandExecutePlugin(new MyCommandExecutePlugin(session)
+            await Console.Out.WriteAsync("URI: ");
+            string? uri = Console.ReadLine();
+
+            await Console.Out.WriteAsync("Access token");
+            string? accessToken = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(uri))
             {
-                AtInvoker = true,
-                ReplyInvoker = true,
-                AllowGroupSelfMessage = true
-            });
+                await Console.Out.WriteLineAsync("Invalid URI");
+                return;
+            }
+
+            CqWsSession session = new CqWsSession(
+                new CqWsSessionOptions()
+                {
+                    BaseUri = new Uri(uri),
+                    AccessToken = accessToken
+                });
+
+
+            session.UseCommandExecutePlugin(
+                new MyCommandExecutePlugin(session)
+                {
+                    AtInvoker = true,
+                    ReplyInvoker = true,
+                    TrimStart = true,
+                    //AllowGroupSelfMessage = true
+                });
 
             //session.UnhandledException += Session_UnhandledException;
 
@@ -138,6 +161,9 @@ namespace TestConsole
         [Command]
         public double Add(double a, double b)
         {
+            if (HasContext)
+                Console.WriteLine($"响应了来自 {CurrentContext.UserId} 的消息");
+
             return a + b;
         }
 

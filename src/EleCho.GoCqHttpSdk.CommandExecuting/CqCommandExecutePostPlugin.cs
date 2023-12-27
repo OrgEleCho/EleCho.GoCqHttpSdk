@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EleCho.GoCqHttpSdk.CommandExecuting
@@ -61,6 +62,36 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
         /// 使用并行处理
         /// </summary>
         public bool Parallel { get; set; } = false;
+
+        /// <summary>
+        /// 裁剪消息首部的空白符
+        /// </summary>
+        public bool TrimStart { get; set; } = false;
+
+        /// <summary>
+        /// 裁剪消息尾部的空白符
+        /// </summary>
+        public bool TrimEnd { get; set; } = false;
+
+
+        AsyncLocal<CqMessagePostContext?> _asyncLocalCurrentContext = new();
+        AsyncLocal<CqSelfMessagePostContext?> _asyncLocalCurrentSelfContext = new();
+
+        /// <summary>
+        /// 获取当前是否有可用的 <see cref="CqMessagePostContext"/>
+        /// </summary>
+        public bool HasContext => _asyncLocalCurrentContext.Value != null;
+
+        /// <summary>
+        /// 获取当前是否有可用的 <see cref="CqSelfMessagePostContext"/>
+        /// </summary>
+        public bool HasSelfContext => _asyncLocalCurrentSelfContext.Value != null;
+
+        public CqMessagePostContext CurrentContext => _asyncLocalCurrentContext.Value ?? 
+            throw new InvalidOperationException($"该值只能在命令被触发且消息为他人消息时获取 (要判断是否能获取, 请使用 {nameof(HasContext)})");
+        public CqSelfMessagePostContext CurrentSelfContext => _asyncLocalCurrentSelfContext.Value ??
+            throw new InvalidOperationException($"该值只能在命令被触发且消息为自己的消息时获取 (要判断是否能获取, 请使用 {nameof(HasSelfContext)})");
+
 
         private StringComparison GetStringComparison()
         {
@@ -125,10 +156,20 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
 
         private async Task ExecuteCore(CqPostContext context, Func<Task> next)
         {
-            if (context is CqMessagePostContext msgContext && msgContext.Message.Text.StartsWith(Prefix))
+            if (context is CqMessagePostContext msgContext && msgContext.Message.Text is string messageText)
             {
+                if (TrimStart)
+                    messageText = messageText.TrimStart();
+                if (TrimEnd)
+                    messageText = messageText.TrimEnd();
+
+                if (!messageText.StartsWith(Prefix))
+                    goto MethodEnd;
+
+                _asyncLocalCurrentContext.Value = msgContext;
+
                 string commandLine =
-                    msgContext.Message.Text.Substring(Prefix.Length);
+                    messageText.Substring(Prefix.Length);
 
                 try
                 {
@@ -173,10 +214,20 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
                 if (ExecuteNextWhenExecuted)
                     await next.Invoke();
             }
-            else if (context is CqSelfMessagePostContext msgSelfContext && msgSelfContext.Message.Text.StartsWith(Prefix))
+            else if (context is CqSelfMessagePostContext msgSelfContext && msgSelfContext.Message.Text is string selfMessageText)
             {
+                if (TrimStart)
+                    selfMessageText = selfMessageText.TrimStart();
+                if (TrimEnd)
+                    selfMessageText = selfMessageText.TrimEnd();
+
+                if (!selfMessageText.StartsWith(Prefix))
+                    goto MethodEnd;
+
+                _asyncLocalCurrentSelfContext.Value = msgSelfContext;
+
                 string commandLine =
-                    msgSelfContext.Message.Text.Substring(Prefix.Length);
+                    selfMessageText.Substring(Prefix.Length);
 
                 try
                 {
@@ -225,6 +276,10 @@ namespace EleCho.GoCqHttpSdk.CommandExecuting
             {
                 await next.Invoke();
             }
+
+            MethodEnd:
+            _asyncLocalCurrentContext.Value = null;
+            _asyncLocalCurrentSelfContext.Value = null;
         }
 
         public async Task Execute(CqPostContext context, Func<Task> next)
