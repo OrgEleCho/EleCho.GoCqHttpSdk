@@ -19,12 +19,12 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 是否在线
         /// </summary>
-        public bool IsOnline { get; set; }
+        public bool IsOnline { get; internal set; }
 
         /// <summary>
         /// 客户端
         /// </summary>
-        public CqDevice Client { get; set; } = new CqDevice();
+        public CqDevice Client { get; internal set; } = new CqDevice();
         
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)

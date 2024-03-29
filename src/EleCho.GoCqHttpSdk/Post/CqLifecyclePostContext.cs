@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 生命周期类型
         /// </summary>
-        public CqLifecycleType LifecycleType { get; set; }
+        public CqLifecycleType LifecycleType { get; internal set; }
 
         internal CqLifecyclePostContext() { }
 

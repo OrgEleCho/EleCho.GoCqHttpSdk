@@ -17,12 +17,12 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 离线文件
         /// </summary>
-        public CqOfflineFile File { get; set; } = new CqOfflineFile();
+        public CqOfflineFile File { get; internal set; } = new CqOfflineFile();
         
         internal CqOfflineFileUploadedPostContext() { }
 

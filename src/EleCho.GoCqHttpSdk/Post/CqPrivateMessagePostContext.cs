@@ -19,17 +19,12 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 消息
         /// </summary>
-        public CqPrivateMessageType PrivateMessageType { get; set; }
+        public CqPrivateMessageType PrivateMessageType { get; internal set; }
 
         /// <summary>
         /// 临时会话来源
         /// </summary>
-        public CqTempSource TempSource { get; set; }
-
-        /// <summary>
-        /// 发送者
-        /// </summary>
-        public CqMessageSender Sender { get; set; } = new CqMessageSender();
+        public CqTempSource TempSource { get; internal set; }
         
         internal CqPrivateMessagePostContext() { }
 

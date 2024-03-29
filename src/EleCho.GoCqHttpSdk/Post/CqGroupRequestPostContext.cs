@@ -1,11 +1,12 @@
-﻿using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Interface;
+using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
     /// 加群请求上报上下文
     /// </summary>
-    public record class CqGroupRequestPostContext : CqRequestPostContext
+    public record class CqGroupRequestPostContext : CqRequestPostContext, IGroupPostContext
     {
         /// <summary>
         /// 请求类型: 群
@@ -17,27 +18,27 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群请求类型
         /// </summary>
-        public CqGroupRequestType GroupRequestType { get; set; }
+        public CqGroupRequestType GroupRequestType { get; internal set; }
         
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 验证消息
         /// </summary>
-        public string Comment { get; set; } = string.Empty;
+        public string Comment { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 加群标志 (用来处理加群请求)
         /// </summary>
-        public string Flag { get; set; } = string.Empty;
+        public string Flag { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 快速操作

@@ -13,7 +13,7 @@ namespace EleCho.GoCqHttpSdk
     /// <summary>
     /// 反向 WebSocket 会话
     /// </summary>
-    public class CqRWsSession : CqSession, ICqActionSession, ICqPostSession, IDisposable
+    public class CqRWsSession : CqSession, ICqActionAndPostSession, ICqActionSession, ICqPostSession, IDisposable
     {
         private readonly Uri baseUri;
         private readonly int bufferSize;
