@@ -1,6 +1,6 @@
 ﻿namespace EleCho.GoCqHttpSdk
 {
-    internal interface ICqActionAndPostSession : ICqPostSession, ICqActionSession
+    public interface ICqActionAndPostSession : ICqPostSession, ICqActionSession
     {
     }
 }
