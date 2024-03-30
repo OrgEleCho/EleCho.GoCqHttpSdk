@@ -19,7 +19,7 @@ namespace EleCho.GoCqHttpSdk
     /// 正向 WebSocket 会话
     /// 可处理上报, 以及发送 Action
     /// </summary>
-    public class CqWsSession : CqSession, ICqActionAndPostSession, ICqPostSession, ICqActionSession, IDisposable
+    public class CqWsSession : CqSession, ICqPostSession, ICqActionSession, IDisposable
     {
         /// <summary>
         /// 基地址
