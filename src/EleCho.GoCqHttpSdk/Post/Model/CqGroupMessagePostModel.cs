@@ -11,6 +11,5 @@ namespace EleCho.GoCqHttpSdk.Post.Model
 
         public long group_id { get; set; }
         public CqAnonymousInformationModel? anonymous { get; set; }
-        public CqGroupMessageSenderModel sender { get; set; }
     }
 }

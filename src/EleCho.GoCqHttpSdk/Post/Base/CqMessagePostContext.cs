@@ -66,6 +66,7 @@ namespace EleCho.GoCqHttpSdk.Post
             Message = new CqMessage(msgModel.message.Select(CqMsg.FromModel));
             RawMessage = msgModel.raw_message;
             Font = msgModel.font;
+            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 }

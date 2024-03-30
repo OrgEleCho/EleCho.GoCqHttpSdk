@@ -42,7 +42,6 @@ namespace EleCho.GoCqHttpSdk.Post
 
             GroupId = msgModel.group_id;
             Anonymous = msgModel.anonymous == null ? null : new CqAnonymousInfomation(msgModel.anonymous);
-            Sender = new CqGroupMessageSender(msgModel.sender);
         }
     }
 }

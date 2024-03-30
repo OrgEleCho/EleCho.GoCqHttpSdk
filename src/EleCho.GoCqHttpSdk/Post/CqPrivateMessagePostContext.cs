@@ -44,7 +44,6 @@ namespace EleCho.GoCqHttpSdk.Post
 
             PrivateMessageType = CqEnum.GetPrivateMessageType(msgModel.sub_type);
             TempSource = (CqTempSource)msgModel.temp_source;
-            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 }
