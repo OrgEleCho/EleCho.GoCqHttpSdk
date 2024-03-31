@@ -22,17 +22,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; private set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; private set; }
 
         /// <summary>
         /// 操作者 QQ
         /// </summary>
-        public long OperatorId { get; set; }
+        public long OperatorId { get; private set; }
 
         internal CqGroupMemberDecreasedPostContext() { }
 

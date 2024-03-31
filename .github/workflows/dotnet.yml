@@ -32,6 +32,10 @@ jobs:
     - name: Build
       run: dotnet build -c Release 
       working-directory: src
+
+    - name: Check
+      run: dotnet run --project src/AssmeblyCheck/AssmeblyCheck.csproj
+
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: src

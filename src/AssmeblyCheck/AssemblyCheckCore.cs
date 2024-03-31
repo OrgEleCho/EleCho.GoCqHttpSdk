@@ -1,5 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace TestConsole
         /// 对 EleCho.GoCqHttpSdk 的程序集进行基础测试
         /// </summary>
         /// <exception cref="Exception">有测试不通过的内容</exception>
-        public static void Run()
+        public static int Run()
         {
+            int warningCount = 0;
+
             Console.WriteLine("程序集检查开始...");
             Assembly asm = typeof(CqSession).Assembly;
 
@@ -31,7 +34,9 @@ namespace TestConsole
             Type[] cqActionParamsModelTypes = allTypes.Where(t => t.IsSubclassOf(typeCqActionParamsModel)).ToArray();
             Type[] cqActionResultTypes = allTypes.Where(t => t.IsSubclassOf(typeof(CqActionResult))).ToArray();
             Type[] cqActionResultDataModelTypes = allTypes.Where(t => t.IsSubclassOf(typeCqActionResultDataModel)).ToArray();
+            Type[] cqPostContextTypes = allTypes.Where(t => t.IsSubclassOf(typeof(CqPostContext))).ToArray();
 
+            Console.WriteLine("检查 Action...");
             foreach (var action in cqActionTypes)
             {
                 if (!action.Name.EndsWith("Action"))
@@ -41,10 +46,14 @@ namespace TestConsole
                 foreach (var prop in action.GetProperties())
                 {
                     if (!prop.CanWrite && prop.Name != nameof(CqAction.ActionType))
+                    {
                         Console.WriteLine($"程序集检查警告: {action} 的 {prop} 属性没有 '写' 访问器");
+                        warningCount++;
+                    }
                 }
             }
 
+            Console.WriteLine("检查 ActionParamsModel...");
             foreach (var actionParamsModel in cqActionParamsModelTypes)
             {
                 if (!actionParamsModel.Name.EndsWith("ActionParamsModel"))
@@ -54,10 +63,14 @@ namespace TestConsole
                 foreach (var prop in actionParamsModel.GetProperties())
                 {
                     if (prop.CanWrite)
+                    {
                         Console.WriteLine($"程序集检查警告: {actionParamsModel} 的 {prop} 是可写的");
+                        warningCount++;
+                    }
                 }
             }
 
+            Console.WriteLine("检查 ActionResult...");
             foreach (var actionResult in cqActionResultTypes)
             {
                 if (!actionResult.Name.EndsWith("ActionResult"))
@@ -71,10 +84,14 @@ namespace TestConsole
                 foreach (var prop in actionResult.GetProperties())
                 {
                     if (prop.CanWrite && prop.SetMethod!.IsPublic)
+                    {
                         Console.WriteLine($"程序集检查警告: {actionResult} 的 {prop} 有公共的 '写' 访问器, 它不应该对用户暴露");
+                        warningCount++;
+                    }
                 }
             }
 
+            Console.WriteLine("检查 ActionResultDataModel...");
             foreach (var actionResultDataModel in cqActionResultDataModelTypes)
             {
                 if (!actionResultDataModel.Name.EndsWith("ActionResultDataModel"))
@@ -85,14 +102,27 @@ namespace TestConsole
                     throw new Exception($"{actionResultDataModel} 命名空间不对劲");
             }
 
+            Console.WriteLine("检查 PostContext");
+            foreach (var postContext in cqPostContextTypes)
+            {
+                foreach (var prop in postContext.GetProperties())
+                {
+                    if (prop.CanWrite && prop.SetMethod!.IsPublic)
+                    {
+                        Console.WriteLine($"程序集检查警告: {postContext} 的 {prop} 有公共的 '写' 访问器, 它不应该对用户暴露");
+                        warningCount++;
+                    }
+                }
+            }
 
+            Console.WriteLine("检查枚举...");
             Type? cqenum = asm.GetType("EleCho.GoCqHttpSdk.CqEnum", true, false);
             MethodInfo? cqenumtostring = cqenum?.GetMethod("GetString", new Type[] { typeof(CqActionType) });
             Func<CqActionType, string>? cqenumtostringfunc = cqenumtostring?.CreateDelegate<Func<CqActionType, string>>();
 
             if (cqenumtostringfunc == null)
                 throw new Exception("找不到 CqEnum.GetString 方法");
-            
+
             foreach (var actionType in Enum.GetValues<CqActionType>())
             {
                 try
@@ -105,6 +135,7 @@ namespace TestConsole
                 }
             }
 
+            Console.WriteLine("检查 ActionResult 转换");
             Type actionResultType = typeof(CqActionResult);
             MethodInfo createActionResultFromActionTypeMethod = actionResultType.GetMethod("CreateActionResultFromActionType", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(string) })!;
 
@@ -120,6 +151,7 @@ namespace TestConsole
                 }
             }
 
+            Console.WriteLine("检查 ActionResultDataModel 转换");
             Type actionResultModelType = asm.GetType("EleCho.GoCqHttpSdk.Action.Model.ResultData.CqActionResultDataModel", true, false)!;
             MethodInfo actionResultDataModelFromRaw = actionResultModelType.GetMethod("FromRaw", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, new Type[] { typeof(JsonElement?), typeof(string) })!;
 
@@ -137,6 +169,11 @@ namespace TestConsole
             }
 
             Console.WriteLine("程序集基础检查通过");
+
+            if (warningCount != 0)
+                Console.WriteLine($"但是有 {warningCount} 个警告");
+
+            return warningCount++;
         }
     }
 }
