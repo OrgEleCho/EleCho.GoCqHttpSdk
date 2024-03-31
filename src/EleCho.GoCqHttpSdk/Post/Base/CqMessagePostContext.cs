@@ -26,27 +26,33 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 消息 ID
         /// </summary>
-        public long MessageId { get; set; }
+        public long MessageId { get; internal set; }
 
         /// <summary>
         /// 用户 ID
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
+
+        /// <summary>
+        /// 发送者
+        /// </summary>
+        //对我没初始化但这是个abstract class并且派生类型都初始化了这个所以没问题...吧... -by gdr2333
+        public CqMessageSender Sender { get; internal set; } = new CqMessageSender();
 
         /// <summary>
         /// 消息实例
         /// </summary>
-        public CqMessage Message { get; set; } = new CqMessage(0);
+        public CqMessage Message { get; internal set; } = new CqMessage(0);
 
         /// <summary>
         /// 原始消息 (CQ 码)
         /// </summary>
-        public string RawMessage { get; set; } = string.Empty;
+        public string RawMessage { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 字体
         /// </summary>
-        public int Font { get; set; }
+        public int Font { get; internal set; }
 
         internal override void ReadModel(CqPostModel model)
         {
@@ -60,6 +66,7 @@ namespace EleCho.GoCqHttpSdk.Post
             Message = new CqMessage(msgModel.message.Select(CqMsg.FromModel));
             RawMessage = msgModel.raw_message;
             Font = msgModel.font;
+            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 }

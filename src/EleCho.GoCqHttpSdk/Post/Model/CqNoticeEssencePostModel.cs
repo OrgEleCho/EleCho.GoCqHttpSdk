@@ -17,5 +17,6 @@ namespace EleCho.GoCqHttpSdk.Post.Model
         public long sender_id { get; set; }
         public long operator_id { get; set; }
         public long message_id { get; set; }
+        public long group_id { get; set; }
     }
 }

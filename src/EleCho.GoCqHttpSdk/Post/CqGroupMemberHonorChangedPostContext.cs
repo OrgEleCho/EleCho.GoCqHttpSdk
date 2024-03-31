@@ -1,4 +1,5 @@
 ﻿
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -6,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员群荣誉变更上报上下文
     /// </summary>
-    public record class CqGroupMemberHonorChangedPostContext : CqNotifyNoticePostContext
+    public record class CqGroupMemberHonorChangedPostContext : CqNotifyNoticePostContext, IGroupPostContext
     {
         /// <summary>
         /// 上报类型: 通知
@@ -26,17 +27,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群荣誉类型
         /// </summary>
-        public CqHonorType HonorType { get; set; }
+        public CqHonorType HonorType { get; internal set; }
 
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         internal CqGroupMemberHonorChangedPostContext() { }
 

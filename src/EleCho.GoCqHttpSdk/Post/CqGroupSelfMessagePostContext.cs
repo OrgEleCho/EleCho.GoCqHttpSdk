@@ -1,11 +1,12 @@
-﻿using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Interface;
+using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
 {
     /// <summary>
     /// 群消息上报上下文
     /// </summary>
-    public record class CqGroupSelfMessagePostContext : CqSelfMessagePostContext
+    public record class CqGroupSelfMessagePostContext : CqSelfMessagePostContext, IGroupPostContext
     {
         /// <summary>
         /// 消息类型: 群
@@ -15,17 +16,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 匿名对象
         /// </summary>
-        public CqAnonymousInfomation? Anonymous { get; set; }
+        public CqAnonymousInfomation? Anonymous { get; internal set; }
 
         /// <summary>
         /// 发送者
         /// </summary>
-        public CqGroupMessageSender Sender { get; set; } = new CqGroupMessageSender();
+        public CqGroupMessageSender Sender { get; internal set; } = new CqGroupMessageSender();
 
         internal CqGroupSelfMessagePostContext() { }
 

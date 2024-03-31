@@ -1,4 +1,5 @@
 ﻿
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -6,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群管理员变更上报上下文
     /// </summary>
-    public record class CqGroupAdministratorChangedPostContext : CqNoticePostContext
+    public record class CqGroupAdministratorChangedPostContext : CqNoticePostContext, IGroupPostContext
     {
         /// <summary>
         /// 通知类型: 群管理员
@@ -16,17 +17,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 变更类型
         /// </summary>
-        public CqGroupAdminChangeType ChangeType { get; set; }
+        public CqGroupAdminChangeType ChangeType { get; internal set; }
 
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         internal CqGroupAdministratorChangedPostContext() { }
 

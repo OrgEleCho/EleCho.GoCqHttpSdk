@@ -16,22 +16,22 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long? GroupId { get; set; }
+        public long? GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 发送者 QQ
         /// </summary>
-        public long SenderId { get; set; }
+        public long SenderId { get; internal set; }
 
         /// <summary>
         /// 目标 QQ
         /// </summary>
-        public long TargetId { get; set; }
+        public long TargetId { get; internal set; }
 
         internal CqPokedPostContext() { }
 

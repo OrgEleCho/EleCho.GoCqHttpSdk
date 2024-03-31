@@ -22,27 +22,27 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 消息 ID
         /// </summary>
-        public long MessageId { get; set; }
+        public long MessageId { get; internal set; }
 
         /// <summary>
         /// 用户 ID
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 消息实例
         /// </summary>
-        public CqMessage Message { get; set; } = new CqMessage(0);
+        public CqMessage Message { get; internal set; } = new CqMessage(0);
 
         /// <summary>
         /// 原始消息 (CQ 码)
         /// </summary>
-        public string RawMessage { get; set; } = string.Empty;
+        public string RawMessage { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 字体
         /// </summary>
-        public int Font { get; set; }
+        public int Font { get; internal set; }
 
         internal override void ReadModel(CqPostModel model)
         {

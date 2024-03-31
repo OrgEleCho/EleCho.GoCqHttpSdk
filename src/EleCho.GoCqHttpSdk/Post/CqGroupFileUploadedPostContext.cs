@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk;
-
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -7,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群文件上传上报上下文
     /// </summary>
-    public record class CqGroupFileUploadedPostContext : CqNoticePostContext
+    public record class CqGroupFileUploadedPostContext : CqNoticePostContext, IGroupPostContext
     {
         /// <summary>
         /// 通知类型: 群文件上传
@@ -17,17 +17,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
         
         /// <summary>
         /// 群文件
         /// </summary>
-        public CqGroupUploadedFile File { get; set; } = new CqGroupUploadedFile();
+        public CqGroupUploadedFile File { get; internal set; } = new CqGroupUploadedFile();
         
         internal CqGroupFileUploadedPostContext() { }
 

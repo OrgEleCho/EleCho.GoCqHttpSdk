@@ -17,17 +17,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 验证消息
         /// </summary>
-        public string Comment { get; set; } = string.Empty;
+        public string Comment { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 请求标志 (用来处理请求)
         /// </summary>
-        public string Flag { get; set; } = string.Empty;
+        public string Flag { get; internal set; } = string.Empty;
         
         internal CqFriendRequestPostContext() { }
 

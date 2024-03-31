@@ -1,4 +1,5 @@
 ﻿
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -6,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员群昵称变更上报上下文
     /// </summary>
-    public record class CqGroupMemberNicknameChangedPostContext : CqNoticePostContext
+    public record class CqGroupMemberNicknameChangedPostContext : CqNoticePostContext, IGroupPostContext
     {
         /// <summary>
         /// 通知类型: 
@@ -16,22 +17,22 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 新昵称
         /// </summary>
-        public string NewNickname { get; set; } = string.Empty;
+        public string NewNickname { get; internal set; } = string.Empty;
 
         /// <summary>
         /// 旧昵称
         /// </summary>
-        public string OldNickname { get; set; } = string.Empty;
+        public string OldNickname { get; internal set; } = string.Empty;
         
         internal CqGroupMemberNicknameChangedPostContext() { }
 

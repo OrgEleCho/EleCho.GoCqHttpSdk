@@ -1,4 +1,5 @@
 ﻿
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -6,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群成员头衔变更上报上下文
     /// </summary>
-    public record class CqGroupMemberTitleChangeNoticedPostContext : CqNotifyNoticePostContext
+    public record class CqGroupMemberTitleChangeNoticedPostContext : CqNotifyNoticePostContext, IGroupPostContext
     {
         /// <summary>
         /// 通知类型: 群成员头衔
@@ -16,17 +17,17 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 群号
         /// </summary>
-        public long GroupId { get; set; }
+        public long GroupId { get; internal set; }
 
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         /// <summary>
         /// 新荣誉
         /// </summary>
-        public string NewTitle { get; set; } = string.Empty;
+        public string NewTitle { get; internal set; } = string.Empty;
 
         internal override object? QuickOperationModel => null;
 

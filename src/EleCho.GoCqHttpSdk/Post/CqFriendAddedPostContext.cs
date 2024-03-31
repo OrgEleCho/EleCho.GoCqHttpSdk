@@ -16,7 +16,7 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 用户 QQ
         /// </summary>
-        public long UserId { get; set; }
+        public long UserId { get; internal set; }
 
         internal CqFriendAddedPostContext() { }
 

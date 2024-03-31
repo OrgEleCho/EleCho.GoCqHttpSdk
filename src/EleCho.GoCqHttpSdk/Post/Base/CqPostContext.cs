@@ -29,12 +29,12 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 机器人 QQ ID
         /// </summary>
-        public long SelfId { get; set; }
+        public long SelfId { get; internal set; }
 
         /// <summary>
         /// 上报时间
         /// </summary>
-        public DateTime Time { get; set; }
+        public DateTime Time { get; internal set; }
 
         internal abstract object? QuickOperationModel { get; }
 
