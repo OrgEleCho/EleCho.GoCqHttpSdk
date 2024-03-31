@@ -23,7 +23,11 @@ namespace EleCho.GoCqHttpSdk.Post
         /// 匿名对象
         /// </summary>
         public CqAnonymousInfomation? Anonymous { get; internal set; }
-        
+        /// <summary>
+        /// 发送者
+        /// </summary>
+        public CqGroupMessageSender Sender { get; internal set; } = new CqGroupMessageSender();
+
         internal CqGroupMessagePostContext() { }
 
         /// <summary>
@@ -42,6 +46,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
             GroupId = msgModel.group_id;
             Anonymous = msgModel.anonymous == null ? null : new CqAnonymousInfomation(msgModel.anonymous);
+            Sender = new CqGroupMessageSender(msgModel.sender);
         }
     }
 }

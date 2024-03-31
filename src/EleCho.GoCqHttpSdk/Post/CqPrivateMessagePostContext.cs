@@ -25,6 +25,10 @@ namespace EleCho.GoCqHttpSdk.Post
         /// 临时会话来源
         /// </summary>
         public CqTempSource TempSource { get; internal set; }
+        /// <summary>
+        /// 发送者
+        /// </summary>
+        public CqMessageSender Sender { get; internal set; } = new CqMessageSender();
         
         internal CqPrivateMessagePostContext() { }
 
@@ -44,6 +48,7 @@ namespace EleCho.GoCqHttpSdk.Post
 
             PrivateMessageType = CqEnum.GetPrivateMessageType(msgModel.sub_type);
             TempSource = (CqTempSource)msgModel.temp_source;
+            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 }
