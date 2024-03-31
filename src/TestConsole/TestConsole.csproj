@@ -6,10 +6,16 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'=='Debug'">
     <ProjectReference Include="..\EleCho.GoCqHttpSdk.CommandExecuting\EleCho.GoCqHttpSdk.CommandExecuting.csproj" />
     <ProjectReference Include="..\EleCho.GoCqHttpSdk.MessageMatching\EleCho.GoCqHttpSdk.MessageMatching.csproj" />
     <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='Release'">
+    <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.*" />
+    <PackageReference Include="EleCho.GoCqHttpSdk.CommandExecuting" Version="1.*" />
+    <PackageReference Include="EleCho.GoCqHttpSdk.MessageMatching" Version="1.*" />
   </ItemGroup>
 
   <ItemGroup>

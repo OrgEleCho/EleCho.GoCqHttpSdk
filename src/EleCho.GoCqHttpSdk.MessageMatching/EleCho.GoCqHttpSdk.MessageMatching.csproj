@@ -28,7 +28,11 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'=='Debug'">
+    <ProjectReference Include="..\EleCho.GoCqHttpSdk\EleCho.GoCqHttpSdk.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='Release'">
     <PackageReference Include="EleCho.GoCqHttpSdk" Version="1.2.*" />
   </ItemGroup>
 
