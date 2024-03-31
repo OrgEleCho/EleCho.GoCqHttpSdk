@@ -17,12 +17,12 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 状态
         /// </summary>
-        public CqStatus Status { get; set; } = new CqStatus();
+        public CqStatus Status { get; internal set; } = new CqStatus();
 
         /// <summary>
         /// 间隔
         /// </summary>
-        public TimeSpan Interval { get; set; }
+        public TimeSpan Interval { get; internal set; }
         
         internal CqHeartbeatPostContext() { }
 

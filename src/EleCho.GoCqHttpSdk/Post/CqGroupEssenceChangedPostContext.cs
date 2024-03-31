@@ -1,4 +1,5 @@
 ﻿
+using EleCho.GoCqHttpSdk.Post.Interface;
 using EleCho.GoCqHttpSdk.Post.Model;
 
 namespace EleCho.GoCqHttpSdk.Post
@@ -6,7 +7,7 @@ namespace EleCho.GoCqHttpSdk.Post
     /// <summary>
     /// 群精华消息变更上报上下文
     /// </summary>
-    public record class CqGroupEssenceChangedPostContext : CqNoticePostContext
+    public record class CqGroupEssenceChangedPostContext : CqNoticePostContext, IGroupPostContext
     {
         internal CqGroupEssenceChangedPostContext() { }
 
@@ -18,22 +19,27 @@ namespace EleCho.GoCqHttpSdk.Post
         /// <summary>
         /// 变更类型
         /// </summary>
-        public CqEssenceChangeType ChangeType { get; set; }
+        public CqEssenceChangeType ChangeType { get; internal set; }
 
         /// <summary>
         /// 消息发送者 QQ
         /// </summary>
-        public long SenderId { get; set; }
+        public long SenderId { get; internal set; }
 
         /// <summary>
         /// 操作者 QQ
         /// </summary>
-        public long OperatorId { get; set; }
+        public long OperatorId { get; internal set; }
 
         /// <summary>
         /// 消息 ID
         /// </summary>
-        public long MessageId { get; set; }
+        public long MessageId { get; internal set; }
+
+        /// <summary>
+        /// 群号
+        /// </summary>
+        public long GroupId { get; internal set; }
 
         internal override object? QuickOperationModel => null;
         internal override void ReadModel(CqPostModel model)
@@ -47,6 +53,7 @@ namespace EleCho.GoCqHttpSdk.Post
             SenderId = noticeModel.sender_id;
             OperatorId = noticeModel.operator_id;
             MessageId = noticeModel.message_id;
+            GroupId = noticeModel.group_id;
         }
     }
 }
