@@ -34,12 +34,6 @@ namespace EleCho.GoCqHttpSdk.Post
         public long UserId { get; internal set; }
 
         /// <summary>
-        /// 发送者
-        /// </summary>
-        //对我没初始化但这是个abstract class并且派生类型都初始化了这个所以没问题...吧... -by gdr2333
-        public CqMessageSender Sender { get; internal set; } = new CqMessageSender();
-
-        /// <summary>
         /// 消息实例
         /// </summary>
         public CqMessage Message { get; internal set; } = new CqMessage(0);
@@ -66,7 +60,6 @@ namespace EleCho.GoCqHttpSdk.Post
             Message = new CqMessage(msgModel.message.Select(CqMsg.FromModel));
             RawMessage = msgModel.raw_message;
             Font = msgModel.font;
-            Sender = new CqMessageSender(msgModel.sender);
         }
     }
 }

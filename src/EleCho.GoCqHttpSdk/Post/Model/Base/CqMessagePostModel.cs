@@ -1,7 +1,6 @@
 ﻿#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 #pragma warning disable IDE1006 // Naming Styles
 
-using EleCho.GoCqHttpSdk.DataStructure.Model;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 
 namespace EleCho.GoCqHttpSdk.Post.Model
@@ -17,6 +16,5 @@ namespace EleCho.GoCqHttpSdk.Post.Model
         public CqMsgModel[] message { get; set; }
         public string raw_message { get; set; }
         public int font { get; set; }
-        public CqMessageSenderModel sender { get; set; }
     }
 }
