@@ -148,7 +148,7 @@ namespace EleCho.GoCqHttpSdk.Message
         }
 
         internal override CqMsgDataModel? GetDataModel() =>
-            new CqImageMsgDataModel(Image, ImageTypeToString(ImageType), ((int)ImageSubType).ToString(), Url?.ToString(), UseCache.ToInt(), (int?)ImageEffect, ThreadCount);
+            new CqImageMsgDataModel(Image, ImageTypeToString(ImageType), (int)ImageSubType, Url?.ToString(), UseCache.ToInt(), (int?)ImageEffect, ThreadCount);
 
         internal override void ReadDataModel(CqMsgDataModel? model)
         {
@@ -158,7 +158,7 @@ namespace EleCho.GoCqHttpSdk.Message
 
             Image = m.file;
             ImageType = ImageTypeFromString(m.type);
-            ImageSubType = int.TryParse(m.subType, out int intsubtype) ? (CqImageSubType)intsubtype : CqImageSubType.Normal;
+            ImageSubType = m.subType.HasValue ? (CqImageSubType)m.subType : CqImageSubType.Normal;
             UseCache = m.cache.ToBool();
             ImageEffect = (CqImageEffect?)m.id;
             ThreadCount = m.c;

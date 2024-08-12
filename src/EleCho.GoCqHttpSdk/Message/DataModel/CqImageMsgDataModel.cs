@@ -8,7 +8,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
         {
         }
 
-        public CqImageMsgDataModel(string? file, string? type, string? subType, string? url, int? cache, int? id, int? c)
+        public CqImageMsgDataModel(string? file, string? type, int? subType, string? url, int? cache, int? id, int? c)
         {
             this.file = file;
             this.type = type;
@@ -21,7 +21,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
 
         public string? file { get; set; }
         public string? type { get; set; }
-        public string? subType { get; set; }
+        public int? subType { get; set; }
         public string? url { get; set; }
         public int? cache { get; set; }
         public int? id { get; set; }
@@ -32,7 +32,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
             return new CqImageMsgDataModel(
                 code.GetString(nameof(file))!,
                 code.GetString(nameof(type)),
-                code.GetString(nameof(subType)),
+                code.GetInt(nameof(subType)),
                 code.GetString(nameof(url))!,
                 code.GetInt(nameof(cache)),
                 code.GetInt(nameof(id)),
