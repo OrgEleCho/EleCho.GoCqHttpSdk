@@ -16,6 +16,7 @@
     <PackageIcon>logo-rect.png</PackageIcon>
     <PackageTags>Go-CqHttp;go-cqhttp;gocqhttp;OneBot;SDK</PackageTags>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

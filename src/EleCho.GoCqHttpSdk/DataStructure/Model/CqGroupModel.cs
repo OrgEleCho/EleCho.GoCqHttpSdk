@@ -1,7 +1,7 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
 
-using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.JsonConverter;
 using System.Text.Json.Serialization;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model
@@ -62,6 +62,7 @@ namespace EleCho.GoCqHttpSdk.DataStructure.Model
         public string area { get; } = string.Empty;
         public int join_time { get; }
         public int last_sent_time { get; }
+        [JsonConverter(typeof(ToStringJsonConverter))]
         public string level { get; } = string.Empty;
         public string role { get; } = string.Empty;
         public bool unfriendly { get; }

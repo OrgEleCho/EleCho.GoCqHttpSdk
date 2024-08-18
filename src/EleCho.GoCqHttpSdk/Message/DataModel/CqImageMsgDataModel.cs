@@ -1,5 +1,8 @@
 ﻿#pragma warning disable CS8618
 
+using System.Text.Json.Serialization;
+using EleCho.GoCqHttpSdk.JsonConverter;
+
 namespace EleCho.GoCqHttpSdk.Message.DataModel
 {
     internal record class CqImageMsgDataModel : CqMsgDataModel
@@ -21,6 +24,7 @@ namespace EleCho.GoCqHttpSdk.Message.DataModel
 
         public string? file { get; set; }
         public string? type { get; set; }
+        [JsonConverter(typeof(ToStringJsonConverter))]
         public string? subType { get; set; }
         public string? url { get; set; }
         public int? cache { get; set; }
