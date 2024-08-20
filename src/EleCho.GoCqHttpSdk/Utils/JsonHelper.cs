@@ -14,84 +14,86 @@ using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
 using System.Text.Unicode;
 
-namespace EleCho.GoCqHttpSdk.Utils
+namespace EleCho.GoCqHttpSdk.Utils;
+
+internal static class JsonHelper
 {
-    internal static class JsonHelper
+    private static Lazy<JsonSerializerOptions> options = new Lazy<JsonSerializerOptions>(NewOptions);
+
+    private static JsonSerializerOptions NewOptions()
     {
-        private static Lazy<JsonSerializerOptions> options = new Lazy<JsonSerializerOptions>(NewOptions);
-
-        private static JsonSerializerOptions NewOptions()
+        return new JsonSerializerOptions()
         {
-            return new JsonSerializerOptions()
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+            Converters =
             {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
-                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-                Converters =
-                {
-                    new CqWsDataModelConverter(),
+                new CqWsDataModelConverter(),
 
-                    new CqPostModelConverter(),
-                    new CqMessageEventModelConverter(),
-                    new CqSelfMessageEventModelConverter(),
+                new CqPostModelConverter(),
+                new CqMessageEventModelConverter(),
+                new CqSelfMessageEventModelConverter(),
 
-                    new CqNoticeEventModelConverter(),
-                    new CqNoticeNotifyEventModelConverter(),
+                new CqNoticeEventModelConverter(),
+                new CqNoticeNotifyEventModelConverter(),
 
-                    new CqMetaEventModelConverter(),
+                new CqMetaEventModelConverter(),
 
-                    new CqRequestEventModelConverter(),
+                new CqRequestEventModelConverter(),
 
-                    new CqMsgModelArrayConverter(),
-                    new CpMsgModelConverter(),
-                }
-            };
-        }
-
-        public static JsonSerializerOptions Options =>
-#if DEBUG
-            debugOptions.Value;
-#else
-            options.Value;
-#endif
-
-#if DEBUG
-        private static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
-
-        private static JsonSerializerOptions NewDebugOptions()
-        {
-            return new JsonSerializerOptions()
-            {
-                WriteIndented = true,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
-                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-                Converters =
-                {
-                    new CqWsDataModelConverter(),
-
-                    new CqPostModelConverter(),
-                    new CqMessageEventModelConverter(),
-                    new CqSelfMessageEventModelConverter(),
-
-                    new CqNoticeEventModelConverter(),
-                    new CqNoticeNotifyEventModelConverter(),
-
-                    new CqMetaEventModelConverter(),
-
-                    new CqRequestEventModelConverter(),
-
-                    new CqMsgModelArrayConverter(),
-                    new CpMsgModelConverter(),
-                },
+                new CqMsgModelArrayConverter(),
+                new CpMsgModelConverter(),
+            },
 #if NET7_0_OR_GREATER
-                TypeInfoResolver = JsonGeneratorSourceContext.Default;
+            TypeInfoResolver = JsonGeneratorSourceContext.Default,
 #endif
-            };
-        }
+        };
+    }
+
+    public static JsonSerializerOptions Options =>
+#if DEBUG
+        debugOptions.Value;
+#else
+        options.Value;
+#endif
+
+#if DEBUG
+    private static Lazy<JsonSerializerOptions> debugOptions = new(NewDebugOptions);
+
+    private static JsonSerializerOptions NewDebugOptions()
+    {
+        return new JsonSerializerOptions()
+        {
+            WriteIndented = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+            Converters =
+            {
+                new CqWsDataModelConverter(),
+
+                new CqPostModelConverter(),
+                new CqMessageEventModelConverter(),
+                new CqSelfMessageEventModelConverter(),
+
+                new CqNoticeEventModelConverter(),
+                new CqNoticeNotifyEventModelConverter(),
+
+                new CqMetaEventModelConverter(),
+
+                new CqRequestEventModelConverter(),
+
+                new CqMsgModelArrayConverter(),
+                new CpMsgModelConverter(),
+            },
+#if NET7_0_OR_GREATER
+            TypeInfoResolver = JsonGeneratorSourceContext.Default,
+#endif
+        };
+    }
 
 #endif
-    }
 }
 
 #if NET7_0_OR_GREATER
