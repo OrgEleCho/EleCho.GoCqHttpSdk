@@ -247,10 +247,10 @@ namespace EleCho.GoCqHttpSdk
 #endif
 
                     ms.Seek(0, SeekOrigin.Begin);
-                    CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(ms, JsonHelper.Options);
-
-                    // 处理 WebSocket 数据
-                    ProcWsDataAsync(wsDataModel);
+                CqWsDataModel? wsDataModel = JsonSerializer.Deserialize<CqWsDataModel>(ms, JsonHelper.Options);
+                
+                // 处理 WebSocket 数据
+                ProcWsDataAsync(wsDataModel);
 
 #if DEBUG
                 if (wsDataModel is not CqPostModel)
