@@ -1,41 +1,38 @@
-﻿using EleCho.GoCqHttpSdk;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
 
-using EleCho.GoCqHttpSdk.Post.Model;
+namespace EleCho.GoCqHttpSdk.Post;
 
-namespace EleCho.GoCqHttpSdk.Post
+/// <summary>
+/// 客户端状态变更上下文
+/// </summary>
+public record class CqClientStatusChangedPostContext : CqNoticePostContext
 {
     /// <summary>
-    /// 客户端状态变更上下文
+    /// 通知类型: 客户端状态
     /// </summary>
-    public record class CqClientStatusChangedPostContext : CqNoticePostContext
+    public override CqNoticeType NoticeType => CqNoticeType.ClientStatus;
+    
+    internal CqClientStatusChangedPostContext() { }
+
+    /// <summary>
+    /// 是否在线
+    /// </summary>
+    public bool IsOnline { get; internal set; }
+
+    /// <summary>
+    /// 客户端
+    /// </summary>
+    public CqDevice Client { get; internal set; } = new CqDevice();
+    
+    internal override object? QuickOperationModel => null;
+    internal override void ReadModel(CqPostModel model)
     {
-        /// <summary>
-        /// 通知类型: 客户端状态
-        /// </summary>
-        public override CqNoticeType NoticeType => CqNoticeType.ClientStatus;
-        
-        internal CqClientStatusChangedPostContext() { }
+        base.ReadModel(model);
 
-        /// <summary>
-        /// 是否在线
-        /// </summary>
-        public bool IsOnline { get; internal set; }
+        if (model is not CqNoticeClientStatusPostModel noticeModel)
+            return;
 
-        /// <summary>
-        /// 客户端
-        /// </summary>
-        public CqDevice Client { get; internal set; } = new CqDevice();
-        
-        internal override object? QuickOperationModel => null;
-        internal override void ReadModel(CqPostModel model)
-        {
-            base.ReadModel(model);
-
-            if (model is not CqNoticeClientStatusPostModel noticeModel)
-                return;
-
-            IsOnline = noticeModel.online;
-            Client = new CqDevice(noticeModel.client);
-        }
+        IsOnline = noticeModel.online;
+        Client = new CqDevice(noticeModel.client);
     }
 }

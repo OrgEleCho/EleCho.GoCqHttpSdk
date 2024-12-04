@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqGetGroupInformationActionParamsModel(long group_id, bool no_cache) : CqActionParamsModel
 {
-    internal class CqGetGroupInformationActionParamsModel : CqActionParamsModel
-    {
-        public CqGetGroupInformationActionParamsModel(long group_id, bool no_cache)
-        {
-            this.group_id = group_id;
-            this.no_cache = no_cache;
-        }
-
-        public long group_id { get; }
-        public bool no_cache { get; }
-    }
+    public long group_id { get; } = group_id;
+    public bool no_cache { get; } = no_cache;
 }

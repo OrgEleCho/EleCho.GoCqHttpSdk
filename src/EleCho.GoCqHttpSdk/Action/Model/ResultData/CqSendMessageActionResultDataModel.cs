@@ -1,20 +1,14 @@
-﻿using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Post;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+/// <summary>
+/// 私聊消息和群聊消息的响应数据模型父类
+/// </summary>
+[method: JsonConstructor]    /// <summary>
+                             /// 私聊消息和群聊消息的响应数据模型父类
+                             /// </summary>
+internal class CqSendMessageActionResultDataModel(long message_id) : CqActionResultDataModel
 {
-    /// <summary>
-    /// 私聊消息和群聊消息的响应数据模型父类
-    /// </summary>
-    internal class CqSendMessageActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqSendMessageActionResultDataModel(long message_id)
-        {
-            this.message_id = message_id;
-        }
-
-        public long message_id { get; }
-    }
+    public long message_id { get; } = message_id;
 }

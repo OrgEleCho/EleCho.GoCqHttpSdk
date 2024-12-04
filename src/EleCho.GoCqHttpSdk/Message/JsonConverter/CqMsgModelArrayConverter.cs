@@ -1,45 +1,42 @@
 ﻿using EleCho.GoCqHttpSdk.Message.DataModel;
-using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Message.JsonConverter
+namespace EleCho.GoCqHttpSdk.Message.JsonConverter;
+
+internal class CqMsgModelArrayConverter : JsonConverter<CqMsgModel[]>
 {
-    internal class CqMsgModelArrayConverter : JsonConverter<CqMsgModel[]>
+    public override CqMsgModel[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        public override CqMsgModel[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        JsonDocument jsondoc = JsonDocument.ParseValue(ref reader);
+
+        if (jsondoc.RootElement.ValueKind == JsonValueKind.Array)
         {
-            JsonDocument jsondoc = JsonDocument.ParseValue(ref reader);
+            List<CqMsgModel> rst = [];
 
-            if (jsondoc.RootElement.ValueKind == JsonValueKind.Array)
-            {
-                List<CqMsgModel> rst = new List<CqMsgModel>();
+            foreach (var ele in jsondoc.RootElement.EnumerateArray())
+                if (JsonSerializer.Deserialize<CqMsgModel>(ele, options) is CqMsgModel msg)
+                    rst.Add(msg);
 
-                foreach (var ele in jsondoc.RootElement.EnumerateArray())
-                    if (JsonSerializer.Deserialize<CqMsgModel>(ele, options) is CqMsgModel msg)
-                        rst.Add(msg);
-
-                return rst.ToArray();
-            }
-            else if (jsondoc.RootElement.ValueKind == JsonValueKind.String)
-            {
-                return CqCode.ModelChainFromCqCodeString(jsondoc.RootElement.GetString()!);
-            }
-
-            return null;
+            return [.. rst];
+        }
+        else if (jsondoc.RootElement.ValueKind == JsonValueKind.String)
+        {
+            return CqCode.ModelChainFromCqCodeString(jsondoc.RootElement.GetString()!);
         }
 
-        public override void Write(Utf8JsonWriter writer, CqMsgModel[] value, JsonSerializerOptions options)
-        {
-            writer.WriteStartArray();
-            
-            foreach (var msgModel in value)
-                JsonSerializer.Serialize(writer, msgModel, msgModel.GetType(), options);
-            
-            writer.WriteEndArray();
-        }
+        return null;
+    }
+
+    public override void Write(Utf8JsonWriter writer, CqMsgModel[] value, JsonSerializerOptions options)
+    {
+        writer.WriteStartArray();
+        
+        foreach (var msgModel in value)
+            JsonSerializer.Serialize(writer, msgModel, msgModel.GetType(), options);
+        
+        writer.WriteEndArray();
     }
 }

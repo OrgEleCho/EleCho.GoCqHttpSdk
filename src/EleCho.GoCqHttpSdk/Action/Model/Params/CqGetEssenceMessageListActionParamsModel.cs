@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqGetEssenceMessageListActionParamsModel(long group_id) : CqActionParamsModel
 {
-    internal class CqGetEssenceMessageListActionParamsModel : CqActionParamsModel
-    {
-        public CqGetEssenceMessageListActionParamsModel(long group_id)
-        {
-            this.group_id = group_id;
-        }
-
-        public long group_id { get; }
-    }
+    public long group_id { get; } = group_id;
 }

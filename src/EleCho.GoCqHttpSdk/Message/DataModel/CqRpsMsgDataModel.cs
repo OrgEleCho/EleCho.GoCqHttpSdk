@@ -1,10 +1,9 @@
-﻿namespace EleCho.GoCqHttpSdk.Message.DataModel
+﻿namespace EleCho.GoCqHttpSdk.Message.DataModel;
+
+internal record class CqRpsMsgDataModel : CqMsgDataModel
 {
-    internal record class CqRpsMsgDataModel : CqMsgDataModel
+    public static CqRpsMsgDataModel FromCqCode(CqCode code)
     {
-        public static CqRpsMsgDataModel FromCqCode(CqCode code)
-        {
-            return new CqRpsMsgDataModel();
-        }
+        return new CqRpsMsgDataModel();
     }
 }

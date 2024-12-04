@@ -1,13 +1,12 @@
-﻿namespace EleCho.GoCqHttpSdk
+﻿namespace EleCho.GoCqHttpSdk;
+
+/// <summary>
+/// 可处理上报的 Session
+/// </summary>
+public interface ICqPostSession
 {
     /// <summary>
-    /// 可处理上报的 Session
+    /// 上报管线
     /// </summary>
-    public interface ICqPostSession
-    {
-        /// <summary>
-        /// 上报管线
-        /// </summary>
-        CqPostPipeline PostPipeline { get; }
-    }
+    CqPostPipeline PostPipeline { get; }
 }

@@ -1,16 +1,10 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqGetForwardMessageActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqGetForwardMessageActionResultDataModel(CqForwardMsgNodeDataModel[] messages)
-        {
-            this.messages = messages;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        public CqForwardMsgNodeDataModel[] messages { get; }
-    }
+[method: JsonConstructor]
+internal class CqGetForwardMessageActionResultDataModel(CqForwardMsgNodeDataModel[] messages) : CqActionResultDataModel
+{
+    public CqForwardMsgNodeDataModel[] messages { get; } = messages;
 }

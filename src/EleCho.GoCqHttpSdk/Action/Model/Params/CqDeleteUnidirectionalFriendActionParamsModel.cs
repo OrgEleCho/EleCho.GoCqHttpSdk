@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqDeleteUnidirectionalFriendActionParamsModel : CqActionParamsModel
-    {
-        public CqDeleteUnidirectionalFriendActionParamsModel(long user_id)
-        {
-            this.user_id = user_id;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long user_id { get; }
-    }
+internal class CqDeleteUnidirectionalFriendActionParamsModel(long user_id) : CqActionParamsModel
+{
+    public long user_id { get; } = user_id;
 }

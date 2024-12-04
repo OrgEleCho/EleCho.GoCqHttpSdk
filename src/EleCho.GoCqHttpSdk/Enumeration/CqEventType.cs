@@ -1,28 +1,27 @@
-﻿namespace EleCho.GoCqHttpSdk
+﻿namespace EleCho.GoCqHttpSdk;
+
+/// <summary>
+/// 上报类型
+/// </summary>
+public enum CqPostType
 {
     /// <summary>
-    /// 上报类型
+    /// 元事件
     /// </summary>
-    public enum CqPostType
-    {
-        /// <summary>
-        /// 元事件
-        /// </summary>
-        MetaEvent,
+    MetaEvent,
 
-        /// <summary>
-        /// 请求
-        /// </summary>
-        Request,
+    /// <summary>
+    /// 请求
+    /// </summary>
+    Request,
 
-        /// <summary>
-        /// 消息
-        /// </summary>
-        Message,
+    /// <summary>
+    /// 消息
+    /// </summary>
+    Message,
 
-        /// <summary>
-        /// 通知
-        /// </summary>
-        Notice,
-    }
+    /// <summary>
+    /// 通知
+    /// </summary>
+    Notice,
 }

@@ -1,16 +1,9 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetStrangerInformationActionParamsModel : CqActionParamsModel
-    {
-        public CqGetStrangerInformationActionParamsModel(long user_id, bool no_cache)
-        {
-            this.user_id = user_id;
-            this.no_cache = no_cache;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long user_id { get; }
-        public bool no_cache { get; }
-    }
+internal class CqGetStrangerInformationActionParamsModel(long user_id, bool no_cache) : CqActionParamsModel
+{
+    public long user_id { get; } = user_id;
+    public bool no_cache { get; } = no_cache;
 }

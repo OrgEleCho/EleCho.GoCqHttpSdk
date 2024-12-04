@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqSetEssenceMessageActionParamsModel : CqActionParamsModel
-    {
-        public CqSetEssenceMessageActionParamsModel(long message_id)
-        {
-            this.message_id = message_id;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long message_id { get; }
-    }
+internal class CqSetEssenceMessageActionParamsModel(long message_id) : CqActionParamsModel
+{
+    public long message_id { get; } = message_id;
 }

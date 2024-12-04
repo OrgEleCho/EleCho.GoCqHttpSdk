@@ -1,23 +1,22 @@
-﻿namespace EleCho.GoCqHttpSdk
+﻿namespace EleCho.GoCqHttpSdk;
+
+/// <summary>
+/// 性别
+/// </summary>
+public enum CqGender
 {
     /// <summary>
-    /// 性别
+    /// 雄性
     /// </summary>
-    public enum CqGender
-    {
-        /// <summary>
-        /// 雄性
-        /// </summary>
-        Male, 
-        
-        /// <summary>
-        /// 雌性
-        /// </summary>
-        Female,
-        
-        /// <summary>
-        /// 未知 / 其他
-        /// </summary>
-        Unknown
-    }
+    Male, 
+    
+    /// <summary>
+    /// 雌性
+    /// </summary>
+    Female,
+    
+    /// <summary>
+    /// 未知 / 其他
+    /// </summary>
+    Unknown
 }

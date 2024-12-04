@@ -1,19 +1,18 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action
-{
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
-    public record class CqDeleteUnidirectionalFriendActionResult : CqActionResult
-    {
-        internal CqDeleteUnidirectionalFriendActionResult()
-        {
-        }
+namespace EleCho.GoCqHttpSdk.Action;
 
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            // no data
-        }
+/// <summary>
+/// <inheritdoc/>
+/// </summary>
+public record class CqDeleteUnidirectionalFriendActionResult : CqActionResult
+{
+    internal CqDeleteUnidirectionalFriendActionResult()
+    {
+    }
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
+    {
+        // no data
     }
 }

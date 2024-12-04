@@ -1,15 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqCanSendImageActionResultDataModel : CqActionResultDataModel
-    {
-        public bool yes { get; }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        [JsonConstructor]
-        public CqCanSendImageActionResultDataModel(bool yes)
-        {
-            this.yes = yes;
-        }
-    }
+[method: JsonConstructor]
+internal class CqCanSendImageActionResultDataModel(bool yes) : CqActionResultDataModel
+{
+    public bool yes { get; } = yes;
 }

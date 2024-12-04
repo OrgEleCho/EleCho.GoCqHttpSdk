@@ -1,27 +1,26 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 判断能发送图片操作结果
+/// </summary>
+public record class CqCanSendImageActionResult : CqActionResult
 {
+    internal CqCanSendImageActionResult()
+    { }
+
     /// <summary>
-    /// 判断能发送图片操作结果
+    /// 是否
     /// </summary>
-    public record class CqCanSendImageActionResult : CqActionResult
+    public bool Yes { get; private set; }
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        internal CqCanSendImageActionResult()
-        { }
+        if (model is not CqCanSendImageActionResultDataModel _m)
+            throw new Exception();
 
-        /// <summary>
-        /// 是否
-        /// </summary>
-        public bool Yes { get; private set; }
-
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            if (model is not CqCanSendImageActionResultDataModel _m)
-                throw new Exception();
-
-            Yes = _m.yes;
-        }
+        Yes = _m.yes;
     }
 }

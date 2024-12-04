@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+internal class CqGroupSignInActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqGroupSignInActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

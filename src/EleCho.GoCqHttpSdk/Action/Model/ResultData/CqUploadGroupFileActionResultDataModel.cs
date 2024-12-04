@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+internal class CqUploadGroupFileActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqUploadGroupFileActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

@@ -1,16 +1,9 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqOcrImageActionResultDataModel : CqActionResultDataModel
-    {
-        public CqOcrImageActionResultDataModel(CqTextDetectionModel[] texts, string language)
-        {
-            this.texts = texts;
-            this.language = language;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        public CqTextDetectionModel[] texts { get; }
-        public string language { get; }
-    }
+internal class CqOcrImageActionResultDataModel(CqTextDetectionModel[] texts, string language) : CqActionResultDataModel
+{
+    public CqTextDetectionModel[] texts { get; } = texts;
+    public string language { get; } = language;
 }

@@ -1,10 +1,9 @@
-﻿namespace EleCho.GoCqHttpSdk.Post
+﻿namespace EleCho.GoCqHttpSdk.Post;
+
+/// <summary>
+/// 上报快速操作
+/// </summary>
+public abstract class CqPostQuickOperation
 {
-    /// <summary>
-    /// 上报快速操作
-    /// </summary>
-    public abstract class CqPostQuickOperation
-    {
-        internal abstract object? GetModel();
-    }
+    internal abstract object? GetModel();
 }

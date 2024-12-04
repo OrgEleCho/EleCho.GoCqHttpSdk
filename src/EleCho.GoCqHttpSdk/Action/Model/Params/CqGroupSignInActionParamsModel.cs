@@ -1,14 +1,8 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGroupSignInActionParamsModel : CqActionParamsModel
-    {
-        public CqGroupSignInActionParamsModel(long group_id)
-        {
-            this.group_id = group_id;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long group_id { get; }
-    }
+internal class CqGroupSignInActionParamsModel(long group_id) : CqActionParamsModel
+{
+    public long group_id { get; } = group_id;
 }

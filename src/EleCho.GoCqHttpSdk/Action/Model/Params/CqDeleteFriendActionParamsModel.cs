@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqDeleteFriendActionParamsModel(long user_id) : CqActionParamsModel
 {
-    internal class CqDeleteFriendActionParamsModel : CqActionParamsModel
-    {
-        public CqDeleteFriendActionParamsModel(long user_id)
-        {
-            this.user_id = user_id;
-        }
-
-        public long user_id { get; }
-    }
+    public long user_id { get; } = user_id;
 }

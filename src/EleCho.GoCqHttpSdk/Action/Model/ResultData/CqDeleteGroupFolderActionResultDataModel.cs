@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+internal class CqDeleteGroupFolderActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqDeleteGroupFolderActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

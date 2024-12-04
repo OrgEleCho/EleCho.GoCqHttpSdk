@@ -1,34 +1,28 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 获取分词
+/// </summary>
+/// <remarks>
+/// 实例化
+/// </remarks>
+/// <param name="content"></param>
+public class CqGetWordSlicesAction(string content) : CqAction
 {
     /// <summary>
-    /// 获取分词
+    /// <inheritdoc/>
     /// </summary>
-    public class CqGetWordSlicesAction : CqAction
+    public override CqActionType ActionType => CqActionType.GetWordSlices;
+
+    /// <summary>
+    /// 分词内容
+    /// </summary>
+    public string Content { get; set; } = content;
+
+    internal override CqActionParamsModel GetParamsModel()
     {
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        public override CqActionType ActionType => CqActionType.GetWordSlices;
-
-        /// <summary>
-        /// 分词内容
-        /// </summary>
-        public string Content { get; set; }
-
-        /// <summary>
-        /// 实例化
-        /// </summary>
-        /// <param name="content"></param>
-        public CqGetWordSlicesAction(string content)
-        {
-            Content = content;
-        }
-
-        internal override CqActionParamsModel GetParamsModel()
-        {
-            return new CqGetWordSlicesActionParamsModel(Content);
-        }
+        return new CqGetWordSlicesActionParamsModel(Content);
     }
 }

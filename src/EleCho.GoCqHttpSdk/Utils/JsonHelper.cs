@@ -11,7 +11,6 @@ using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
 using System.Text.Unicode;
 
 namespace EleCho.GoCqHttpSdk.Utils;
@@ -45,9 +44,7 @@ internal static class JsonHelper
                 new CqMsgModelArrayConverter(),
                 new CpMsgModelConverter(),
             },
-#if NET7_0_OR_GREATER
             TypeInfoResolver = JsonGeneratorSourceContext.Default,
-#endif
         };
     }
 
@@ -87,9 +84,7 @@ internal static class JsonHelper
                 new CqMsgModelArrayConverter(),
                 new CpMsgModelConverter(),
             },
-#if NET7_0_OR_GREATER
             TypeInfoResolver = JsonGeneratorSourceContext.Default,
-#endif
         };
     }
 

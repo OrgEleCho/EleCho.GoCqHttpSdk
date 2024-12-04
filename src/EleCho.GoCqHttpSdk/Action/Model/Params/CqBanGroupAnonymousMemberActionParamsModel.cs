@@ -2,21 +2,12 @@
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqBanGroupAnonymousMemberActionParamsModel : CqActionParamsModel
-    {
-        public CqBanGroupAnonymousMemberActionParamsModel(long group_id, CqAnonymousInformationModel? anonymous, string? anonymous_flag, long duration)
-        {
-            this.group_id = group_id;
-            this.anonymous = anonymous;
-            this.anonymous_flag = anonymous_flag;
-            this.duration = duration;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long group_id { get; }
-        public CqAnonymousInformationModel? anonymous { get; }
-        public string? anonymous_flag { get; }
-        public long duration { get; }
-    }
+internal class CqBanGroupAnonymousMemberActionParamsModel(long group_id, CqAnonymousInformationModel? anonymous, string? anonymous_flag, long duration) : CqActionParamsModel
+{
+    public long group_id { get; } = group_id;
+    public CqAnonymousInformationModel? anonymous { get; } = anonymous;
+    public string? anonymous_flag { get; } = anonymous_flag;
+    public long duration { get; } = duration;
 }

@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
+
+internal class CqGetUnidirectionalFriendListActionParamsModel : CqActionParamsModel
 {
-    internal class CqGetUnidirectionalFriendListActionParamsModel : CqActionParamsModel
-    {
-        // no data
-    }
+    // no data
 }

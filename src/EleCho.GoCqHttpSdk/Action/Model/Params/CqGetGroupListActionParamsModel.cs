@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetGroupListActionParamsModel : CqActionParamsModel
-    {
-        public CqGetGroupListActionParamsModel(bool no_cache)
-        {
-            this.no_cache = no_cache;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public bool no_cache { get; }
-    }
+internal class CqGetGroupListActionParamsModel(bool no_cache) : CqActionParamsModel
+{
+    public bool no_cache { get; } = no_cache;
 }

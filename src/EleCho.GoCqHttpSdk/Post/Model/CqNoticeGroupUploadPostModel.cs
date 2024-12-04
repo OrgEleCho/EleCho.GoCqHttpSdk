@@ -3,14 +3,13 @@
 
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Post.Model
-{
-    internal class CqNoticeGroupUploadPostModel : CqNoticePostModel
-    {
-        public override string notice_type => "group_upload";
+namespace EleCho.GoCqHttpSdk.Post.Model;
 
-        public long group_id { get; set; }
-        public long user_id { get; set; }
-        public CqGroupUploadedFileModel file { get; set; }
-    }
+internal class CqNoticeGroupUploadPostModel : CqNoticePostModel
+{
+    public override string notice_type => "group_upload";
+
+    public long group_id { get; set; }
+    public long user_id { get; set; }
+    public CqGroupUploadedFileModel file { get; set; }
 }

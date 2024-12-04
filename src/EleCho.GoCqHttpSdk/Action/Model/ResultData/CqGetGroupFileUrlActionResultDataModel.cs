@@ -1,15 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqGetGroupFileUrlActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqGetGroupFileUrlActionResultDataModel(string url)
-        {
-            this.url = url;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        public string url { get; }
-    }
+[method: JsonConstructor]
+internal class CqGetGroupFileUrlActionResultDataModel(string url) : CqActionResultDataModel
+{
+    public string url { get; } = url;
 }

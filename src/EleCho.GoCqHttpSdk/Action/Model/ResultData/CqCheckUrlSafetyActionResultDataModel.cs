@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+[method: JsonConstructor]
+internal class CqCheckUrlSafetyActionResultDataModel() : CqActionResultDataModel
 {
-    internal class CqCheckUrlSafetyActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqCheckUrlSafetyActionResultDataModel()
-        {
-        }
-
-        public int level { get; }
-    }
+    public int level { get; }
 }

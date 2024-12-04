@@ -1,361 +1,357 @@
 ﻿using System;
-using System.Data;
 using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Utils;
-
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
-namespace EleCho.GoCqHttpSdk
+namespace EleCho.GoCqHttpSdk;
+
+internal static class CqEnum
 {
-    internal static class CqEnum
+    public static string? GetString(CqContactType contactType)
     {
-        public static string? GetString(CqContactType contactType)
+        return contactType switch
         {
-            return contactType switch
-            {
-                CqContactType.Group => "group",
-                CqContactType.Person => "qq",
-                _ => null
-            };
-        }
+            CqContactType.Group => "group",
+            CqContactType.Person => "qq",
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqMessageType messageType)
+    public static string? GetString(CqMessageType messageType)
+    {
+        return messageType switch
         {
-            return messageType switch
-            {
-                CqMessageType.Private => "private",
-                CqMessageType.Group => "group",
+            CqMessageType.Private => "private",
+            CqMessageType.Group => "group",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqLifecycleType lifecycleType)
+    public static string? GetString(CqLifecycleType lifecycleType)
+    {
+        return lifecycleType switch
         {
-            return lifecycleType switch
-            {
-                CqLifecycleType.Enable => "enable",
-                CqLifecycleType.Disable => "disable",
-                CqLifecycleType.Connect => "connect",
+            CqLifecycleType.Enable => "enable",
+            CqLifecycleType.Disable => "disable",
+            CqLifecycleType.Connect => "connect",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqRole role)
+    public static string? GetString(CqRole role)
+    {
+        return role switch
         {
-            return role switch
-            {
-                CqRole.Owner => "owner",
-                CqRole.Admin => "admin",
-                CqRole.Member => "member",
+            CqRole.Owner => "owner",
+            CqRole.Admin => "admin",
+            CqRole.Member => "member",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqActionStatus status)
+    public static string? GetString(CqActionStatus status)
+    {
+        return status switch
         {
-            return status switch
-            {
-                CqActionStatus.Okay => "ok",
-                CqActionStatus.Async => "async",
-                CqActionStatus.Failed => "failed",
+            CqActionStatus.Okay => "ok",
+            CqActionStatus.Async => "async",
+            CqActionStatus.Failed => "failed",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqPrivateMessageType privateType)
+    public static string? GetString(CqPrivateMessageType privateType)
+    {
+        return privateType switch
         {
-            return privateType switch
-            {
-                CqPrivateMessageType.Friend => "friend",
-                CqPrivateMessageType.Group => "group",
-                CqPrivateMessageType.GroupSelf => "group_self",
-                CqPrivateMessageType.Other => "other",
+            CqPrivateMessageType.Friend => "friend",
+            CqPrivateMessageType.Group => "group",
+            CqPrivateMessageType.GroupSelf => "group_self",
+            CqPrivateMessageType.Other => "other",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqGroupRequestType type)
+    public static string? GetString(CqGroupRequestType type)
+    {
+        return type switch
         {
-            return type switch
-            {
-                CqGroupRequestType.Add => "add",
-                CqGroupRequestType.Invite => "invite",
+            CqGroupRequestType.Add => "add",
+            CqGroupRequestType.Invite => "invite",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqEssenceChangeType type)
+    public static string? GetString(CqEssenceChangeType type)
+    {
+        return type switch
         {
-            return type switch
-            {
-                CqEssenceChangeType.Add => "add",
-                CqEssenceChangeType.Delete => "delete",
+            CqEssenceChangeType.Add => "add",
+            CqEssenceChangeType.Delete => "delete",
 
-                _ => null
-            };
-        }
+            _ => null
+        };
+    }
 
-        public static string? GetString(CqGender gender)
+    public static string? GetString(CqGender gender)
+    {
+        return gender switch
         {
-            return gender switch
-            {
-                CqGender.Male => "mail",
-                CqGender.Female => "female",
-                CqGender.Unknown => "unknown",
-                
-                _ => null,
-            };
-        }
+            CqGender.Male => "mail",
+            CqGender.Female => "female",
+            CqGender.Unknown => "unknown",
+            
+            _ => null,
+        };
+    }
 
-        public static string? GetString(CqActionType type)
+    public static string? GetString(CqActionType type)
+    {
+        return type switch
         {
-            return type switch
-            {
-                CqActionType.SendPrivateMessage => SendPrivateMsg,
-                CqActionType.SendGroupMessage => SendGroupMsg,
-                CqActionType.SendMessage => SendMsg,
-                CqActionType.RecallMessage => DeleteMsg,
-                CqActionType.SendGroupForwardMessage => SendGroupForwardMsg,
-                CqActionType.SendPrivateForwardMessage => SendPrivateForwardMsg,
-                CqActionType.GetMessage => GetMsg,
-                CqActionType.GetForwardMessage => GetForwardMsg,
-                CqActionType.GetImage => GetImage,
-                CqActionType.BanGroupMember => SetGroupBan,
-                CqActionType.BanGroupAnonymousMember => SetGroupAnonymousBan,
-                CqActionType.BanGroupAllMembers => SetGroupWholeBan,
-                CqActionType.KickGroupMember => SetGroupKick,
+            CqActionType.SendPrivateMessage => SendPrivateMsg,
+            CqActionType.SendGroupMessage => SendGroupMsg,
+            CqActionType.SendMessage => SendMsg,
+            CqActionType.RecallMessage => DeleteMsg,
+            CqActionType.SendGroupForwardMessage => SendGroupForwardMsg,
+            CqActionType.SendPrivateForwardMessage => SendPrivateForwardMsg,
+            CqActionType.GetMessage => GetMsg,
+            CqActionType.GetForwardMessage => GetForwardMsg,
+            CqActionType.GetImage => GetImage,
+            CqActionType.BanGroupMember => SetGroupBan,
+            CqActionType.BanGroupAnonymousMember => SetGroupAnonymousBan,
+            CqActionType.BanGroupAllMembers => SetGroupWholeBan,
+            CqActionType.KickGroupMember => SetGroupKick,
 
-                CqActionType.HandleFriendRequest => SetFriendAddRequest,
-                CqActionType.HandleGroupRequest => SetGroupAddRequest,
+            CqActionType.HandleFriendRequest => SetFriendAddRequest,
+            CqActionType.HandleGroupRequest => SetGroupAddRequest,
 
-                CqActionType.MarkMessageAsRead => MarkMsgAsRead,
-                CqActionType.SetGroupAdministrator => SetGroupAdmin,
-                CqActionType.SetGroupAnonymous => SetGroupAnonymous,
-                CqActionType.SetGroupNickname => SetGroupCard,
-                CqActionType.SetGroupName => SetGroupName,
-                CqActionType.SetGroupAvatar => SetGroupPortrait,
-                CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
-                CqActionType.GroupSignIn => SendGroupSign,
-                CqActionType.SetAccountProfile => SetQqProfile,
-                CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
+            CqActionType.MarkMessageAsRead => MarkMsgAsRead,
+            CqActionType.SetGroupAdministrator => SetGroupAdmin,
+            CqActionType.SetGroupAnonymous => SetGroupAnonymous,
+            CqActionType.SetGroupNickname => SetGroupCard,
+            CqActionType.SetGroupName => SetGroupName,
+            CqActionType.SetGroupAvatar => SetGroupPortrait,
+            CqActionType.SetGroupSpecialTitle => SetGroupSpecialTitle,
+            CqActionType.GroupSignIn => SendGroupSign,
+            CqActionType.SetAccountProfile => SetQqProfile,
+            CqActionType.GetUnidirectionalFriendList => GetUnidirectionalFriendList,
 
-                CqActionType.GetFriendList => GetFriendList,
-                CqActionType.GetGroupList => GetGroupList,
-                CqActionType.GetGroupMemberList => GetGroupMemberList,
+            CqActionType.GetFriendList => GetFriendList,
+            CqActionType.GetGroupList => GetGroupList,
+            CqActionType.GetGroupMemberList => GetGroupMemberList,
 
-                CqActionType.GetLoginInformation => GetLoginInfo,
-                CqActionType.GetStrangerInformation => GetStrangerInfo,
-                CqActionType.GetGroupInformation => GetGroupInfo,
-                CqActionType.GetGroupMemberInformation => GetGroupMemberInfo,
+            CqActionType.GetLoginInformation => GetLoginInfo,
+            CqActionType.GetStrangerInformation => GetStrangerInfo,
+            CqActionType.GetGroupInformation => GetGroupInfo,
+            CqActionType.GetGroupMemberInformation => GetGroupMemberInfo,
 
-                CqActionType.LeaveGroup => SetGroupLeave,
-                CqActionType.DeleteFriend => DeleteFriend,
-                CqActionType.DeleteUnidirectionalFriend => DeleteUnidirectionalFriend,
+            CqActionType.LeaveGroup => SetGroupLeave,
+            CqActionType.DeleteFriend => DeleteFriend,
+            CqActionType.DeleteUnidirectionalFriend => DeleteUnidirectionalFriend,
 
-                CqActionType.CanSendImage => CanSendImage,
-                CqActionType.CanSendRecord => CanSendRecord,
+            CqActionType.CanSendImage => CanSendImage,
+            CqActionType.CanSendRecord => CanSendRecord,
 
-                CqActionType.GetCookies => GetCookies,
-                CqActionType.GetCsrfToken => GetCsrfToken,
+            CqActionType.GetCookies => GetCookies,
+            CqActionType.GetCsrfToken => GetCsrfToken,
 
-                CqActionType.DownloadFile => DownloadFile,
-                CqActionType.GetOnlineClients => GetOnlineClients,
+            CqActionType.DownloadFile => DownloadFile,
+            CqActionType.GetOnlineClients => GetOnlineClients,
 
-                CqActionType.SetEssenceMessage => SetEssenceMsg,
-                CqActionType.DeleteEssenceMessage => DeleteEssenceMsg,
-                CqActionType.GetEssenceMessagesList => GetEssenceMsgList,
+            CqActionType.SetEssenceMessage => SetEssenceMsg,
+            CqActionType.DeleteEssenceMessage => DeleteEssenceMsg,
+            CqActionType.GetEssenceMessagesList => GetEssenceMsgList,
 
-                CqActionType.GetModelShow => GetModelShow,
-                CqActionType.SetModelShow => SetModelShow,
+            CqActionType.GetModelShow => GetModelShow,
+            CqActionType.SetModelShow => SetModelShow,
 
-                CqActionType.CheckUrlSafety => CheckUrlSafety,
-                CqActionType.GetVersionInformation => GetVersionInfo,
+            CqActionType.CheckUrlSafety => CheckUrlSafety,
+            CqActionType.GetVersionInformation => GetVersionInfo,
 
-                CqActionType.ReloadEventFilter => ReloadEventFilter,
+            CqActionType.ReloadEventFilter => ReloadEventFilter,
 
-                CqActionType.GetWordSlices => GetWordSlices,
-                CqActionType.OcrImage => OcrImage,
+            CqActionType.GetWordSlices => GetWordSlices,
+            CqActionType.OcrImage => OcrImage,
 
-                CqActionType.UploadGroupFile => UploadGroupFile,
-                CqActionType.DeleteGroupFile => DeleteGroupFile,
-                CqActionType.CreateGroupFolder => CreateGroupFileFolder,
-                CqActionType.DeleteGroupFolder => DeleteGroupFolder,
-                CqActionType.GetGroupFileSystemInformation => GetGroupFileSystemInfo,
-                CqActionType.GetGroupRootFiles => GetGroupRootFiles,
-                CqActionType.GetGroupFilesByFolder => GetGroupFilesByFolder,
-                CqActionType.UploadPrivateFile => UploadPrivateFile,
-                CqActionType.GetGroupFileUrl => GetGroupFileUrl,
+            CqActionType.UploadGroupFile => UploadGroupFile,
+            CqActionType.DeleteGroupFile => DeleteGroupFile,
+            CqActionType.CreateGroupFolder => CreateGroupFileFolder,
+            CqActionType.DeleteGroupFolder => DeleteGroupFolder,
+            CqActionType.GetGroupFileSystemInformation => GetGroupFileSystemInfo,
+            CqActionType.GetGroupRootFiles => GetGroupRootFiles,
+            CqActionType.GetGroupFilesByFolder => GetGroupFilesByFolder,
+            CqActionType.UploadPrivateFile => UploadPrivateFile,
+            CqActionType.GetGroupFileUrl => GetGroupFileUrl,
 
-                _ => throw new ArgumentException($"Unknown Action type: {type}")
-            };
-        }
+            _ => throw new ArgumentException($"Unknown Action type: {type}")
+        };
+    }
 
 
 
-        public static CqContactType GetContactType(string? value)
+    public static CqContactType GetContactType(string? value)
+    {
+        return value switch
         {
-            return value switch
-            {
-                "qq" => CqContactType.Person,
-                "group" => CqContactType.Group,
-                _ => (CqContactType)(-1)
-            };
-        }
+            "qq" => CqContactType.Person,
+            "group" => CqContactType.Group,
+            _ => (CqContactType)(-1)
+        };
+    }
 
-        public static CqMessageType GetMessageType(string? value)
+    public static CqMessageType GetMessageType(string? value)
+    {
+        return value switch
         {
-            return value switch
-            {
-                "private" => CqMessageType.Private,
-                "group" => CqMessageType.Group,
+            "private" => CqMessageType.Private,
+            "group" => CqMessageType.Group,
 
-                _ => CqMessageType.Unknown,
-            };
-        }
+            _ => CqMessageType.Unknown,
+        };
+    }
 
-        public static CqLifecycleType GetLifecycleType(string? value)
+    public static CqLifecycleType GetLifecycleType(string? value)
+    {
+        return value switch
         {
-            return value switch
-            {
-                "enable" => CqLifecycleType.Enable,
-                "disable" => CqLifecycleType.Disable,
-                "connect" => CqLifecycleType.Connect,
+            "enable" => CqLifecycleType.Enable,
+            "disable" => CqLifecycleType.Disable,
+            "connect" => CqLifecycleType.Connect,
 
-                _ => CqLifecycleType.Unknown
-            };
-        }
+            _ => CqLifecycleType.Unknown
+        };
+    }
 
-        public static CqActionStatus GetActionStatus(string? value)
+    public static CqActionStatus GetActionStatus(string? value)
+    {
+        return value switch
         {
-            return value switch
-            {
-                "ok" => CqActionStatus.Okay,
-                "async" => CqActionStatus.Async,
-                "failed" => CqActionStatus.Failed,
+            "ok" => CqActionStatus.Okay,
+            "async" => CqActionStatus.Async,
+            "failed" => CqActionStatus.Failed,
 
-                _ => CqActionStatus.Unknown
-            };
-        }
+            _ => CqActionStatus.Unknown
+        };
+    }
 
-        public static CqPrivateMessageType GetPrivateMessageType(string? value)
+    public static CqPrivateMessageType GetPrivateMessageType(string? value)
+    {
+        return value switch
         {
-            return value switch
-            {
-                "friend" => CqPrivateMessageType.Friend,
-                "group" => CqPrivateMessageType.Group,
-                "group_self" => CqPrivateMessageType.GroupSelf,
-                "other" => CqPrivateMessageType.Other,
+            "friend" => CqPrivateMessageType.Friend,
+            "group" => CqPrivateMessageType.Group,
+            "group_self" => CqPrivateMessageType.GroupSelf,
+            "other" => CqPrivateMessageType.Other,
 
-                _ => CqPrivateMessageType.Unknown
-            };
-        }
+            _ => CqPrivateMessageType.Unknown
+        };
+    }
 
-        public static CqGroupRequestType GetGroupRequestType(string? str)
+    public static CqGroupRequestType GetGroupRequestType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "add" => CqGroupRequestType.Add,
-                "invite" => CqGroupRequestType.Invite,
+            "add" => CqGroupRequestType.Add,
+            "invite" => CqGroupRequestType.Invite,
 
-                _ => CqGroupRequestType.Unknown
-            };
-        }
+            _ => CqGroupRequestType.Unknown
+        };
+    }
 
-        public static CqEssenceChangeType GetEssenceChangeType(string? str)
+    public static CqEssenceChangeType GetEssenceChangeType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "add" => CqEssenceChangeType.Add,
-                "delete" => CqEssenceChangeType.Delete,
+            "add" => CqEssenceChangeType.Add,
+            "delete" => CqEssenceChangeType.Delete,
 
-                _ => CqEssenceChangeType.Unknown
-            };
-        }
+            _ => CqEssenceChangeType.Unknown
+        };
+    }
 
-        public static CqGroupAdminChangeType GetGroupAdminChangeType(string? str)
+    public static CqGroupAdminChangeType GetGroupAdminChangeType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "set" => CqGroupAdminChangeType.Set,
-                "unset" => CqGroupAdminChangeType.UnSet,
+            "set" => CqGroupAdminChangeType.Set,
+            "unset" => CqGroupAdminChangeType.UnSet,
 
-                _ => CqGroupAdminChangeType.Unknown
-            };
-        }
+            _ => CqGroupAdminChangeType.Unknown
+        };
+    }
 
-        public static CqGroupBanChangeType GetGroupBanChangeType(string? str)
+    public static CqGroupBanChangeType GetGroupBanChangeType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "ban" => CqGroupBanChangeType.Ban,
-                "lift_ban" => CqGroupBanChangeType.LiftBan,
+            "ban" => CqGroupBanChangeType.Ban,
+            "lift_ban" => CqGroupBanChangeType.LiftBan,
 
-                _ => CqGroupBanChangeType.Unknown
-            };
-        }
+            _ => CqGroupBanChangeType.Unknown
+        };
+    }
 
-        public static CqGroupIncreaseChangeType GetGroupIncreaseChangeType(string? str)
+    public static CqGroupIncreaseChangeType GetGroupIncreaseChangeType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "approve" => CqGroupIncreaseChangeType.Approve,
-                "invite" => CqGroupIncreaseChangeType.Invite,
+            "approve" => CqGroupIncreaseChangeType.Approve,
+            "invite" => CqGroupIncreaseChangeType.Invite,
 
-                _ => CqGroupIncreaseChangeType.Unknown
-            };
-        }
+            _ => CqGroupIncreaseChangeType.Unknown
+        };
+    }
 
-        public static CqGroupDecreaseChangeType GetGroupDecreaseChangeType(string? str)
+    public static CqGroupDecreaseChangeType GetGroupDecreaseChangeType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "leave" => CqGroupDecreaseChangeType.Leave,
-                "kick" => CqGroupDecreaseChangeType.Kick,
-                "kick_me" => CqGroupDecreaseChangeType.KickMe,
+            "leave" => CqGroupDecreaseChangeType.Leave,
+            "kick" => CqGroupDecreaseChangeType.Kick,
+            "kick_me" => CqGroupDecreaseChangeType.KickMe,
 
-                _ => CqGroupDecreaseChangeType.Unknown
-            };
-        }
+            _ => CqGroupDecreaseChangeType.Unknown
+        };
+    }
 
-        public static CqHonorType GetHonorType(string? str)
+    public static CqHonorType GetHonorType(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "talkative" => CqHonorType.TalkAtive,
-                "performer" => CqHonorType.Performer,
-                "emotion" => CqHonorType.Emotion,
+            "talkative" => CqHonorType.TalkAtive,
+            "performer" => CqHonorType.Performer,
+            "emotion" => CqHonorType.Emotion,
 
-                _ => CqHonorType.Unknown
-            };
-        }
+            _ => CqHonorType.Unknown
+        };
+    }
 
-        public static CqRole GetRole(string? str)
+    public static CqRole GetRole(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "owner" => CqRole.Owner,
-                "admin" => CqRole.Admin,
-                "member" => CqRole.Member,
+            "owner" => CqRole.Owner,
+            "admin" => CqRole.Admin,
+            "member" => CqRole.Member,
 
-                _ => CqRole.Unknown
-            };
-        }
+            _ => CqRole.Unknown
+        };
+    }
 
-        public static CqGender GetGender(string? str)
+    public static CqGender GetGender(string? str)
+    {
+        return str switch
         {
-            return str switch
-            {
-                "male" => CqGender.Male,
-                "female" => CqGender.Female,
+            "male" => CqGender.Male,
+            "female" => CqGender.Female,
 
-                _ => CqGender.Unknown,
-            };
-        }
+            _ => CqGender.Unknown,
+        };
     }
 }

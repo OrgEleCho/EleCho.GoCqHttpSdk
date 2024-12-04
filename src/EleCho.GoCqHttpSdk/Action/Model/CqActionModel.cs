@@ -1,18 +1,11 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model
+﻿namespace EleCho.GoCqHttpSdk.Action.Model;
+
+internal class CqActionModel(string action, object @params)
 {
-    internal class CqActionModel
-    {
-        public CqActionModel(string action, object @params)
-        {
-            this.action = action;
-            this.@params = @params;
-        }
+    public CqActionModel(string action, object @params, string? echo) : this(action, @params) => this.echo = echo;
 
-        public CqActionModel(string action, object @params, string? echo) : this(action, @params) => this.echo = echo;
+    public string action { get; set; } = action;
+    public object @params { get; set; } = @params;
 
-        public string action { get; set; }
-        public object @params { get; set; }
-
-        public string? echo { get; set; }
-    }
+    public string? echo { get; set; }
 }

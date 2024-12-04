@@ -1,19 +1,17 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
-using System;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// <inheritdoc/>
+/// </summary>
+public record class CqBanGroupAllMembersActionResult : CqActionResult
 {
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
-    public record class CqBanGroupAllMembersActionResult : CqActionResult
-    {
-        internal CqBanGroupAllMembersActionResult() 
-        { }
+    internal CqBanGroupAllMembersActionResult() 
+    { }
 
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            
-        }
+    internal override void ReadDataModel(CqActionResultDataModel? model)
+    {
+        
     }
 }

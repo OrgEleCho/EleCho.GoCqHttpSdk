@@ -1,8 +1,7 @@
-﻿namespace EleCho.GoCqHttpSdk.Post.Model
+﻿namespace EleCho.GoCqHttpSdk.Post.Model;
+
+internal abstract class CqNoticePostModel : CqPostModel
 {
-    internal abstract class CqNoticePostModel : CqPostModel
-    {
-        public override string post_type => "notice";
-        public abstract string notice_type { get; }
-    }
+    public override string post_type => "notice";
+    public abstract string notice_type { get; }
 }

@@ -1,14 +1,8 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetWordSlicesActionParamsModel : CqActionParamsModel
-    {
-        public CqGetWordSlicesActionParamsModel(string content)
-        {
-            this.content = content;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public string content { get; } 
-    }
+internal class CqGetWordSlicesActionParamsModel(string content) : CqActionParamsModel
+{
+    public string content { get; } = content;
 }

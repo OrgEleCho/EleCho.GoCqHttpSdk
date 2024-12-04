@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetModelShowActionParamsModel : CqActionParamsModel
-    {
-        public CqGetModelShowActionParamsModel(string model)
-        {
-            this.model = model;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public string model { get; }
-    }
+internal class CqGetModelShowActionParamsModel(string model) : CqActionParamsModel
+{
+    public string model { get; } = model;
 }

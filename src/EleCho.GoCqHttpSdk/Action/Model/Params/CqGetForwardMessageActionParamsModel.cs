@@ -1,11 +1,8 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetForwardMessageActionParamsModel : CqActionParamsModel
-    {
-        public CqGetForwardMessageActionParamsModel(long message_id) => this.message_id = message_id;
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long message_id { get; }
-    }
+internal class CqGetForwardMessageActionParamsModel(long message_id) : CqActionParamsModel
+{
+    public long message_id { get; } = message_id;
 }

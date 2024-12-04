@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqReloadEventFilterActionParamsModel : CqActionParamsModel
-    {
-        public CqReloadEventFilterActionParamsModel(string file)
-        {
-            this.file = file;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public string file { get; }
-    }
+internal class CqReloadEventFilterActionParamsModel(string file) : CqActionParamsModel
+{
+    public string file { get; } = file;
 }

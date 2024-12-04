@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+internal class CqReloadEventFilterActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqReloadEventFilterActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

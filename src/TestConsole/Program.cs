@@ -2,14 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EleCho.CommandLine;
 using EleCho.GoCqHttpSdk;
-using EleCho.GoCqHttpSdk.Action;
 using EleCho.GoCqHttpSdk.CommandExecuting;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.MessageMatching;
@@ -17,279 +12,263 @@ using EleCho.GoCqHttpSdk.Post;
 
 #nullable enable
 
-namespace TestConsole
-{
-    internal class Program
-    {
-        public const int WebSocketPort = 5710;
+namespace TestConsole;
 
-        //static CqRWsSession session = new CqRWsSession(new CqRWsSessionOptions()
+internal class Program
+{
+    public const int WebSocketPort = 5710;
+
+    //static CqRWsSession session = new CqRWsSession(new CqRWsSessionOptions()
+    //{
+    //    BaseUri = new Uri($"http://127.0.0.1:{WebSocketPort}"),
+    //    AccessToken = 
+    //});
+
+    private static async Task Main(string[] args)
+    {
+        //await Console.Out.WriteLineAsync("OpenAI API Key:");
+        //string? apikey = Console.ReadLine();
+        //if (apikey == null)
+        //    return;
+
+        //if (!string.IsNullOrWhiteSpace(apikey))
+        //    session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
+
+        //session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
+
+        //session.UseGroupRequest(context =>
         //{
-        //    BaseUri = new Uri($"http://127.0.0.1:{WebSocketPort}"),
-        //    AccessToken = 
+        //    Console.WriteLine($"收到了加群请求{context}");
+        //    context.QuickOperation.Approve = true;
         //});
 
-        private static async Task Main(string[] args)
+        //session.UseGroupMessage(async context =>
+        //{
+        //    string text = context.Message.Text.Trim();
+
+        //    if (text.Equals("qwq", StringComparison.OrdinalIgnoreCase))
+        //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+        //        {
+        //            new CqReplyMsg(context.MessageId),
+        //            new CqTextMsg("qwq")
+        //        });
+
+        //    if (text.Equals("/throw_exception"))
+        //    {
+        //        throw new Exception("qwq");
+        //    }
+
+        //    if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
+        //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
+        //        {
+        //            new CqRecordMsg(new Uri(@"C:\Users\slime\Documents\Sound Recordings\Recording (3).m4a")),
+        //        });
+
+        //    if (text.StartsWith("#ban", StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+
+        //        if (at != null)
+        //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.FromSeconds(30));
+        //    }
+
+
+        //    if (text.StartsWith("#unban", StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
+
+        //        if (at != null)
+        //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
+        //    }
+
+        //    if (text.StartsWith("#fake", StringComparison.OrdinalIgnoreCase))
+        //    {
+        //        await session.SendGroupForwardMessageAsync(context.GroupId,
+        //            new CqForwardMessage()
+        //            {
+        //                new CqForwardMessageNode("Hello", 123123123, CqMessage.FromCqCode("Hello")),
+        //            });
+        //    }
+        //});
+
+        //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
+        await Console.Out.WriteAsync("URI: ");
+        string? uri = Console.ReadLine();
+
+        await Console.Out.WriteAsync("Access token");
+        string? accessToken = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(uri))
         {
-            //await Console.Out.WriteLineAsync("OpenAI API Key:");
-            //string? apikey = Console.ReadLine();
-            //if (apikey == null)
-            //    return;
+            await Console.Out.WriteLineAsync("Invalid URI");
+            return;
+        }
 
-            //if (!string.IsNullOrWhiteSpace(apikey))
-            //    session.UseMessageMatchPlugin(new OpenAiMatchPlugin(session, apikey));
-
-            //session.UseMessageMatchPlugin(new MessageMatchPlugin1(session));
-
-            //session.UseGroupRequest(context =>
-            //{
-            //    Console.WriteLine($"收到了加群请求{context}");
-            //    context.QuickOperation.Approve = true;
-            //});
-
-            //session.UseGroupMessage(async context =>
-            //{
-            //    string text = context.Message.Text.Trim();
-
-            //    if (text.Equals("qwq", StringComparison.OrdinalIgnoreCase))
-            //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
-            //        {
-            //            new CqReplyMsg(context.MessageId),
-            //            new CqTextMsg("qwq")
-            //        });
-
-            //    if (text.Equals("/throw_exception"))
-            //    {
-            //        throw new Exception("qwq");
-            //    }
-
-            //    if (text.StartsWith("#say", StringComparison.OrdinalIgnoreCase))
-            //        await session.SendGroupMessageAsync(context.GroupId, new CqMessage()
-            //        {
-            //            new CqRecordMsg(new Uri(@"C:\Users\slime\Documents\Sound Recordings\Recording (3).m4a")),
-            //        });
-
-            //    if (text.StartsWith("#ban", StringComparison.OrdinalIgnoreCase))
-            //    {
-            //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
-
-            //        if (at != null)
-            //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.FromSeconds(30));
-            //    }
-
-
-            //    if (text.StartsWith("#unban", StringComparison.OrdinalIgnoreCase))
-            //    {
-            //        CqAtMsg? at = context.Message.OfType<CqAtMsg>().FirstOrDefault();
-
-            //        if (at != null)
-            //            await session.BanGroupMemberAsync(context.GroupId, at.Target, TimeSpan.Zero);
-            //    }
-
-            //    if (text.StartsWith("#fake", StringComparison.OrdinalIgnoreCase))
-            //    {
-            //        await session.SendGroupForwardMessageAsync(context.GroupId,
-            //            new CqForwardMessage()
-            //            {
-            //                new CqForwardMessageNode("Hello", 123123123, CqMessage.FromCqCode("Hello")),
-            //            });
-            //    }
-            //});
-
-            //session.UseMessageMatchPlugin(new MessageMatchPlugin2(session));
-            await Console.Out.WriteAsync("URI: ");
-            string? uri = Console.ReadLine();
-
-            await Console.Out.WriteAsync("Access token");
-            string? accessToken = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(uri))
+        CqWsSession session = new CqWsSession(
+            new CqWsSessionOptions()
             {
-                await Console.Out.WriteLineAsync("Invalid URI");
-                return;
-            }
-
-            CqWsSession session = new CqWsSession(
-                new CqWsSessionOptions()
-                {
-                    BaseUri = new Uri(uri),
-                    AccessToken = accessToken
-                });
+                BaseUri = new Uri(uri),
+                AccessToken = accessToken
+            });
 
 
-            session.UseCommandExecutePlugin(
-                new MyCommandExecutePlugin(session)
-                {
-                    AtInvoker = true,
-                    ReplyInvoker = true,
-                    TrimStart = true,
-                    //AllowGroupSelfMessage = true
-                });
+        session.UseCommandExecutePlugin(
+            new MyCommandExecutePlugin(session)
+            {
+                AtInvoker = true,
+                ReplyInvoker = true,
+                TrimStart = true,
+                //AllowGroupSelfMessage = true
+            });
 
-            //session.UnhandledException += Session_UnhandledException;
+        //session.UnhandledException += Session_UnhandledException;
 
-            Console.WriteLine("OK");
-            await session.StartAsync();
-
-
-            var qwq = await session.GetGroupMemberListAsync(560611514);
-            var awa = await session.GetVersionInformationAsync();
-
-            await Console.Out.WriteLineAsync(awa?.ToString());
+        Console.WriteLine("OK");
+        await session.StartAsync();
 
 
-            await session.WaitForShutdownAsync();
-        }
+        var qwq = await session.GetGroupMemberListAsync(560611514);
+        var awa = await session.GetVersionInformationAsync();
 
-        private static void Session_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            Console.WriteLine($"{e}");
-        }
+        await Console.Out.WriteLineAsync(awa?.ToString());
+
+
+        await session.WaitForShutdownAsync();
     }
 
-    class MyCommandExecutePlugin : CqCommandExecutePostPlugin
+    private static void Session_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
-        readonly HttpClient httpClient = new HttpClient();
+        Console.WriteLine($"{e}");
+    }
+}
 
-        public MyCommandExecutePlugin(ICqActionSession actionSession)
-        {
-            ActionSession = actionSession;
-        }
+class MyCommandExecutePlugin(ICqActionSession actionSession) : CqCommandExecutePostPlugin
+{
+    readonly HttpClient httpClient = new HttpClient();
 
-        public ICqActionSession ActionSession { get; }
+    public ICqActionSession ActionSession { get; } = actionSession;
 
-        [Command]
-        public double Add(double a, double b)
-        {
-            if (HasContext)
-                Console.WriteLine($"响应了来自 {CurrentContext.UserId} 的消息");
+    [Command]
+    public double Add(double a, double b)
+    {
+        if (HasContext)
+            Console.WriteLine($"响应了来自 {CurrentContext.UserId} 的消息");
 
-            return a + b;
-        }
-
-        [Command]
-        public double Pow(double x, double y = 2)
-        {
-            return Math.Pow(x, y);
-        }
-
-        [Command]
-        public double Sum(params double[] nums)
-        {
-            return nums.Sum();
-        }
-
-        [Command]
-        public async Task<CqMessage> GetAvatar(long userId)
-        {
-            var avatarStream = await httpClient.GetStreamAsync($"http://q1.qlogo.cn/g?b=qq&nk={userId}&s=100");
-
-            return new CqMessage()
-            {
-                CqImageMsg.FromStream(avatarStream),
-            };
-        }
+        return a + b;
     }
 
-    class MessageMatchPlugin1 : CqMessageMatchPostPlugin
+    [Command]
+    public double Pow(double x, double y = 2)
     {
-        public MessageMatchPlugin1(ICqActionSession actionSession)
-        {
-            ActionSession = actionSession;
-        }
-
-        public ICqActionSession ActionSession { get; }
-
-
-        [CqMessageMatch("^echo (?<content>.*)")]
-        public async Task Echo(CqGroupMessagePostContext context, string content)
-        {
-            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
-        }
-
-        [CqMessageMatch("^self_echo (?<content>.*)")]
-        public async Task SelfEcho(CqGroupSelfMessagePostContext context, string content)
-        {
-            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
-        }
-
-        [CqMessageMatch("^slide (?<content>.*)")]
-        public async Task Slide(CqGroupMessagePostContext context, string content)
-        {
-            var slices =
-                await ActionSession.GetWordSlicesAsync(content);
-            if (slices == null)
-                return;
-
-            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(string.Join(", ", slices.Slices)));
-        }
-
-        [CqMessageMatch("(男同)|(南通)")]
-        public async Task Nantong(CqGroupMessagePostContext context)
-        {
-            var forwardMessage = new CqForwardMessage()
-            {
-                new CqForwardMessageNode(context.Sender.Nickname, context.UserId, new CqMessage("摊牌了, 我是男同!"))
-            };
-
-            foreach (var user in (await ActionSession.GetGroupMemberListAsync(context.GroupId))?.Members ?? Array.Empty<CqGroupMember>())
-            {
-                forwardMessage.Add(new CqForwardMessageNode(user.Nickname, user.UserId, new CqMessage("我超, 男同竟在我身边")));
-            }
-
-            await ActionSession.SendGroupForwardMessageAsync(context.GroupId, forwardMessage);
-        }
-
-        [CqMessageMatch("^#face (?<content>.*)")]
-        public async Task Face(CqGroupMessagePostContext context, string content)
-        {
-            if (CqFaceMsg.FromName(content) is CqFaceMsg face)
-                await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(face));
-        }
-
-        [CqMessageMatch("^testFile (?<name>.*)")]
-        public async Task TestFile(CqMessagePostContext context, string name)
-        {
-            var testContent =
-                $"""
-                现在时间: {DateTime.Now};
-                随机 GUID: {Guid.NewGuid()}
-                """;
-
-            FileInfo fileInfo = new FileInfo(name);
-
-            using (var file = fileInfo.OpenWrite())
-            {
-                using var writer = new StreamWriter(file);
-
-                await writer.WriteAsync(testContent);
-            }
-
-            if (context is CqGroupMessagePostContext groupContext)
-            {
-                await ActionSession.UploadGroupFileAsync(groupContext.GroupId, fileInfo.FullName, name);
-            }
-            else if (context is CqPrivateMessagePostContext privateContext)
-            {
-                await ActionSession.UploadPrivateFileAsync(privateContext.UserId, fileInfo.FullName, name);
-            }
-        }
+        return Math.Pow(x, y);
     }
 
-    class MessageMatchPlugin2 : CqMessageMatchPostPlugin
+    [Command]
+    public double Sum(params double[] nums)
     {
-        public MessageMatchPlugin2(ICqActionSession actionSession)
+        return nums.Sum();
+    }
+
+    [Command]
+    public async Task<CqMessage> GetAvatar(long userId)
+    {
+        var avatarStream = await httpClient.GetStreamAsync($"http://q1.qlogo.cn/g?b=qq&nk={userId}&s=100");
+
+        return
+        [
+            CqImageMsg.FromStream(avatarStream),
+        ];
+    }
+}
+
+class MessageMatchPlugin1(ICqActionSession actionSession) : CqMessageMatchPostPlugin
+{
+    public ICqActionSession ActionSession { get; } = actionSession;
+
+
+    [CqMessageMatch("^echo (?<content>.*)")]
+    public async Task Echo(CqGroupMessagePostContext context, string content)
+    {
+        await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
+    }
+
+    [CqMessageMatch("^self_echo (?<content>.*)")]
+    public async Task SelfEcho(CqGroupSelfMessagePostContext context, string content)
+    {
+        await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(content));
+    }
+
+    [CqMessageMatch("^slide (?<content>.*)")]
+    public async Task Slide(CqGroupMessagePostContext context, string content)
+    {
+        var slices =
+            await ActionSession.GetWordSlicesAsync(content);
+        if (slices == null)
+            return;
+
+        await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(string.Join(", ", slices.Slices)));
+    }
+
+    [CqMessageMatch("(男同)|(南通)")]
+    public async Task Nantong(CqGroupMessagePostContext context)
+    {
+        var forwardMessage = new CqForwardMessage()
         {
-            ActionSession = actionSession;
+            new CqForwardMessageNode(context.Sender.Nickname, context.UserId, new CqMessage("摊牌了, 我是男同!"))
+        };
+
+        foreach (var user in (await ActionSession.GetGroupMemberListAsync(context.GroupId))?.Members ?? Array.Empty<CqGroupMember>())
+        {
+            forwardMessage.Add(new CqForwardMessageNode(user.Nickname, user.UserId, new CqMessage("我超, 男同竟在我身边")));
         }
 
-        public ICqActionSession ActionSession { get; }
+        await ActionSession.SendGroupForwardMessageAsync(context.GroupId, forwardMessage);
+    }
 
+    [CqMessageMatch("^#face (?<content>.*)")]
+    public async Task Face(CqGroupMessagePostContext context, string content)
+    {
+        if (CqFaceMsg.FromName(content) is CqFaceMsg face)
+            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(face));
+    }
 
-        [CqMessageMatch(@"^repeat (?<content>.*)")]
-        public async Task Echo(CqGroupMessagePostContext context, string qwq)
+    [CqMessageMatch("^testFile (?<name>.*)")]
+    public async Task TestFile(CqMessagePostContext context, string name)
+    {
+        var testContent =
+            $"""
+            现在时间: {DateTime.Now};
+            随机 GUID: {Guid.NewGuid()}
+            """;
+
+        FileInfo fileInfo = new FileInfo(name);
+
+        using (var file = fileInfo.OpenWrite())
         {
-            await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(qwq));
+            using var writer = new StreamWriter(file);
+
+            await writer.WriteAsync(testContent);
         }
+
+        if (context is CqGroupMessagePostContext groupContext)
+        {
+            await ActionSession.UploadGroupFileAsync(groupContext.GroupId, fileInfo.FullName, name);
+        }
+        else if (context is CqPrivateMessagePostContext privateContext)
+        {
+            await ActionSession.UploadPrivateFileAsync(privateContext.UserId, fileInfo.FullName, name);
+        }
+    }
+}
+
+class MessageMatchPlugin2(ICqActionSession actionSession) : CqMessageMatchPostPlugin
+{
+    public ICqActionSession ActionSession { get; } = actionSession;
+
+
+    [CqMessageMatch(@"^repeat (?<content>.*)")]
+    public async Task Echo(CqGroupMessagePostContext context, string qwq)
+    {
+        await ActionSession.SendGroupMessageAsync(context.GroupId, new CqMessage(qwq));
     }
 }

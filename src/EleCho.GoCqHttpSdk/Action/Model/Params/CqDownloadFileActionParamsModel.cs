@@ -1,22 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqDownloadFileActionParamsModel(string url, int thread_count, string[] headers) : CqActionParamsModel
 {
-    internal class CqDownloadFileActionParamsModel : CqActionParamsModel
-    {
-        public CqDownloadFileActionParamsModel(string url, int thread_count, string[] headers)
-        {
-            this.url = url;
-            this.thread_count = thread_count;
-            this.headers = headers;
-        }
-
-        public string url { get;  }
-        public int thread_count { get; }
-        public string[] headers { get; }
-    }
+    public string url { get; } = url;
+    public int thread_count { get; } = thread_count;
+    public string[] headers { get; } = headers;
 }

@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+internal class CqHandleGroupRequestActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqHandleGroupRequestActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

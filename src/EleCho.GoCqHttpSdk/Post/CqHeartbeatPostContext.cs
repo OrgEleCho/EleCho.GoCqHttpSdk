@@ -1,41 +1,39 @@
-﻿
-using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Post.Model;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Post
+namespace EleCho.GoCqHttpSdk.Post;
+
+/// <summary>
+/// 心跳包上报上下文
+/// </summary>
+public record class CqHeartbeatPostContext : CqMetaEventPostContext
 {
     /// <summary>
-    /// 心跳包上报上下文
+    /// 元事件类型: 心跳
     /// </summary>
-    public record class CqHeartbeatPostContext : CqMetaEventPostContext
+    public override CqMetaEventType MetaEventType => CqMetaEventType.Heartbeat;
+
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public CqStatus Status { get; internal set; } = new CqStatus();
+
+    /// <summary>
+    /// 间隔
+    /// </summary>
+    public TimeSpan Interval { get; internal set; }
+    
+    internal CqHeartbeatPostContext() { }
+
+    internal override object? QuickOperationModel => null;
+    internal override void ReadModel(CqPostModel model)
     {
-        /// <summary>
-        /// 元事件类型: 心跳
-        /// </summary>
-        public override CqMetaEventType MetaEventType => CqMetaEventType.Heartbeat;
+        base.ReadModel(model);
 
-        /// <summary>
-        /// 状态
-        /// </summary>
-        public CqStatus Status { get; internal set; } = new CqStatus();
+        if (model is not CqMetaHeartbeatPostModel metaModel)
+            return;
 
-        /// <summary>
-        /// 间隔
-        /// </summary>
-        public TimeSpan Interval { get; internal set; }
-        
-        internal CqHeartbeatPostContext() { }
-
-        internal override object? QuickOperationModel => null;
-        internal override void ReadModel(CqPostModel model)
-        {
-            base.ReadModel(model);
-
-            if (model is not CqMetaHeartbeatPostModel metaModel)
-                return;
-
-            Status = new CqStatus(metaModel.status);
-            Interval = new TimeSpan(metaModel.interval * TimeSpan.TicksPerMillisecond);
-        }
+        Status = new CqStatus(metaModel.status);
+        Interval = new TimeSpan(metaModel.interval * TimeSpan.TicksPerMillisecond);
     }
 }

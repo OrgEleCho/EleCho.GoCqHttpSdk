@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+internal class CqKickGroupMemberActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqKickGroupMemberActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

@@ -1,12 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+[method: JsonConstructor]
+internal class CqSendPrivateMessageActionResultDataModel(long message_id) : CqSendMessageActionResultDataModel(message_id)
 {
-    internal class CqSendPrivateMessageActionResultDataModel : CqSendMessageActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqSendPrivateMessageActionResultDataModel(long message_id) : base(message_id)
-        {
-        }
-    }
 }

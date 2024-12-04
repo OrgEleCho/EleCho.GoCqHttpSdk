@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+[method: JsonConstructor]
+internal class CqGetCookiesActionResultDataModel(string cookies) : CqActionResultDataModel
 {
-    internal class CqGetCookiesActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqGetCookiesActionResultDataModel(string cookies)
-        {
-            this.cookies = cookies;
-        }
-
-        public string cookies { get; }
-    }
+    public string cookies { get; } = cookies;
 }

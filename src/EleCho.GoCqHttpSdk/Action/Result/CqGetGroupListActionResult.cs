@@ -2,28 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 获取群列表操作结果
+/// </summary>
+public record class CqGetGroupListActionResult : CqActionResult
 {
+    internal CqGetGroupListActionResult() { }
+
     /// <summary>
-    /// 获取群列表操作结果
+    /// 群聊
     /// </summary>
-    public record class CqGetGroupListActionResult : CqActionResult
+    public IReadOnlyList<CqGroup> Groups { get; private set; } = new List<CqGroup>(0).AsReadOnly();
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        internal CqGetGroupListActionResult() { }
+        if (model is not CqGetGroupListActionResultDataModel m)
+            throw new ArgumentException();
 
-        /// <summary>
-        /// 群聊
-        /// </summary>
-        public IReadOnlyList<CqGroup> Groups { get; private set; } = new List<CqGroup>(0).AsReadOnly();
-
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            if (model is not CqGetGroupListActionResultDataModel m)
-                throw new ArgumentException();
-
-            Groups = m.Select(fm => new CqGroup(fm)).ToList().AsReadOnly();
-        }
+        Groups = m.Select(fm => new CqGroup(fm)).ToList().AsReadOnly();
     }
 }

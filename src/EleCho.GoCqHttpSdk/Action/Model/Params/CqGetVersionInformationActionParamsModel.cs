@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqGetVersionInformationActionParamsModel : CqActionParamsModel
 {
-    internal class CqGetVersionInformationActionParamsModel : CqActionParamsModel
-    {
-        // no data
-    }
+    // no data
 }

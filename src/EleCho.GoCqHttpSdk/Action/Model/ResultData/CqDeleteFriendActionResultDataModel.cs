@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+internal class CqDeleteFriendActionResultDataModel : CqActionResultDataModel
 {
-    internal class CqDeleteFriendActionResultDataModel : CqActionResultDataModel
-    {
-        // no data
-    }
+    // no data
 }

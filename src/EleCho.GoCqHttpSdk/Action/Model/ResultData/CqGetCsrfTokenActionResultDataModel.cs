@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+[method: JsonConstructor]
+internal class CqGetCsrfTokenActionResultDataModel(int token) : CqActionResultDataModel
 {
-    internal class CqGetCsrfTokenActionResultDataModel : CqActionResultDataModel
-    {
-        public int token { get; }
-
-        [JsonConstructor]
-        public CqGetCsrfTokenActionResultDataModel(int token)
-        {
-            this.token = token;
-        }
-    }
+    public int token { get; } = token;
 }

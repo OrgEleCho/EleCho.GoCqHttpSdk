@@ -1,25 +1,24 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 发送消息操作结果
+/// </summary>
+public record class CqSendMessageActionResult : CqActionResult
 {
+    internal CqSendMessageActionResult() { }
+
     /// <summary>
-    /// 发送消息操作结果
+    /// 消息 ID
     /// </summary>
-    public record class CqSendMessageActionResult : CqActionResult
+    public long MessageId { get; private set; }
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        internal CqSendMessageActionResult() { }
-
-        /// <summary>
-        /// 消息 ID
-        /// </summary>
-        public long MessageId { get; private set; }
-
-        internal override void ReadDataModel(CqActionResultDataModel? model)
+        if (model is CqSendMessageActionResultDataModel dataModel)
         {
-            if (model is CqSendMessageActionResultDataModel dataModel)
-            {
-                MessageId = dataModel.message_id;
-            }
+            MessageId = dataModel.message_id;
         }
     }
 }

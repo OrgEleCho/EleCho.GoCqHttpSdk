@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
+
+[method: JsonConstructor]
+internal class CqDownloadFileActionResultDataModel(string file) : CqActionResultDataModel
 {
-    internal class CqDownloadFileActionResultDataModel : CqActionResultDataModel
-    {
-        public string file { get; }
-
-        [JsonConstructor]
-        public CqDownloadFileActionResultDataModel(string file)
-        {
-            this.file = file;
-        }
-    }
+    public string file { get; } = file;
 }

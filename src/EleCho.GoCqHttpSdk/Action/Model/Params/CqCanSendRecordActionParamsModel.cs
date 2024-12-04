@@ -1,7 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
+
+internal class CqCanSendRecordActionParamsModel : CqActionParamsModel
 {
-    internal class CqCanSendRecordActionParamsModel : CqActionParamsModel
-    {
-        // no data
-    }
+    // no data
 }

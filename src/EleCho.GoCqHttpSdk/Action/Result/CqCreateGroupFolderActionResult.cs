@@ -1,18 +1,17 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// <inheritdoc/>
+/// </summary>
+public record class CqCreateGroupFolderActionResult : CqActionResult
 {
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
-    public record class CqCreateGroupFolderActionResult : CqActionResult
+    internal CqCreateGroupFolderActionResult()
+    { }
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        internal CqCreateGroupFolderActionResult()
-        { }
 
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-
-        }
     }
 }

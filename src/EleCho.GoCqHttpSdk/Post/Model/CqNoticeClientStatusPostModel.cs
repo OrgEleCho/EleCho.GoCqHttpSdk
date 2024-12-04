@@ -3,13 +3,12 @@
 
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Post.Model
-{
-    internal class CqNoticeClientStatusPostModel : CqNoticePostModel
-    {
-        public override string notice_type => "client_status";
+namespace EleCho.GoCqHttpSdk.Post.Model;
 
-        public bool online { get; set; }
-        public CqDeviceModel client { get; set; }
-    }
+internal class CqNoticeClientStatusPostModel : CqNoticePostModel
+{
+    public override string notice_type => "client_status";
+
+    public bool online { get; set; }
+    public CqDeviceModel client { get; set; }
 }

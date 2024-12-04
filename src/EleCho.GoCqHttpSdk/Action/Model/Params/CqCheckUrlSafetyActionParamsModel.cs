@@ -1,12 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqCheckUrlSafetyActionParamsModel : CqActionParamsModel
-    {
-        public CqCheckUrlSafetyActionParamsModel(string url)
-        {
-            this.url = url;
-        }
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public string url { get; }
-    }
+internal class CqCheckUrlSafetyActionParamsModel(string url) : CqActionParamsModel
+{
+    public string url { get; } = url;
 }

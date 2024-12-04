@@ -1,11 +1,8 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqGetImageActionParamsModel : CqActionParamsModel
-    {
-        public CqGetImageActionParamsModel(string file) => this.file = file;
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public string file { get; }
-    }
+internal class CqGetImageActionParamsModel(string file) : CqActionParamsModel
+{
+    public string file { get; } = file;
 }

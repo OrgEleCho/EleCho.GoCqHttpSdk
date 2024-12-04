@@ -2,50 +2,47 @@
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Message
+namespace EleCho.GoCqHttpSdk.Message;
+
+/// <summary>
+/// JSON 消息段
+/// </summary>
+public record class CqJsonMsg : CqMsg
 {
     /// <summary>
-    /// JSON 消息段
+    /// 消息段类型: JSON 消息
     /// </summary>
-    public record class CqJsonMsg : CqMsg
+    public override string MsgType => Consts.MsgType.Json;
+
+    internal CqJsonMsg()
+    { }
+
+    /// <summary>
+    /// 构建 JSON 消息段
+    /// </summary>
+    /// <param name="data"></param>
+    public CqJsonMsg(string data)
     {
-        /// <summary>
-        /// 消息段类型: JSON 消息
-        /// </summary>
-        public override string MsgType => Consts.MsgType.Json;
+        Data = data;
+    }
 
-        internal CqJsonMsg()
-        { }
+    /// <summary>
+    /// JSON 数据内容
+    /// </summary>
+    public string Data { get; set; } = string.Empty;
 
-        /// <summary>
-        /// 构建 JSON 消息段
-        /// </summary>
-        /// <param name="data"></param>
-        public CqJsonMsg(string data)
-        {
-            Data = data;
-        }
+    /// <summary>
+    /// 默认不填为0, 走小程序通道, 填了走富文本通道发送
+    /// </summary>
+    public int ResId { get; set; }
 
-        /// <summary>
-        /// JSON 数据内容
-        /// </summary>
-        public string Data { get; set; } = string.Empty;
+    internal override CqMsgDataModel? GetDataModel() => new CqJsonMsgDataModel(Data, ResId);
 
-        /// <summary>
-        /// 默认不填为0, 走小程序通道, 填了走富文本通道发送
-        /// </summary>
-        public int ResId { get; set; }
+    internal override void ReadDataModel(CqMsgDataModel? model)
+    {
+        var m = model as CqJsonMsgDataModel ?? throw new ArgumentException("model必须是CqJsonMsgDataModel");
 
-        internal override CqMsgDataModel? GetDataModel() => new CqJsonMsgDataModel(Data, ResId);
-
-        internal override void ReadDataModel(CqMsgDataModel? model)
-        {
-            var m = model as CqJsonMsgDataModel;
-            if (m == null)
-                throw new ArgumentException();
-
-            Data = m.data;
-            ResId = m.resid;
-        }
+        Data = m.data;
+        ResId = m.resid;
     }
 }

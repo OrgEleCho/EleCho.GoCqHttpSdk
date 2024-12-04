@@ -1,15 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqGetWordSlicesActionResultDataModel : CqActionResultDataModel
-    {
-        public string[] slices { get; }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        [JsonConstructor]
-        public CqGetWordSlicesActionResultDataModel(string[] slices)
-        {
-            this.slices = slices;
-        }
-    }
+[method: JsonConstructor]
+internal class CqGetWordSlicesActionResultDataModel(string[] slices) : CqActionResultDataModel
+{
+    public string[] slices { get; } = slices;
 }

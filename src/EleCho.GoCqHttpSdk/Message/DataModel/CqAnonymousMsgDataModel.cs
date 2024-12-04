@@ -1,13 +1,9 @@
-﻿#pragma warning disable CS8618
+﻿namespace EleCho.GoCqHttpSdk.Message.DataModel;
 
-
-namespace EleCho.GoCqHttpSdk.Message.DataModel
+internal record class CqAnonymousMsgDataModel : CqMsgDataModel
 {
-    internal record class CqAnonymousMsgDataModel : CqMsgDataModel
+    public static CqAnonymousMsgDataModel FromCqCode(CqCode code)
     {
-        public static CqAnonymousMsgDataModel FromCqCode(CqCode code)
-        {
-            return new CqAnonymousMsgDataModel();
-        }
+        return new CqAnonymousMsgDataModel();
     }
 }

@@ -3,21 +3,13 @@ using System.Text.Json.Serialization;
 
 #pragma warning disable IDE1006 // Naming Styles
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
-{
-    internal class CqSendGroupMessageActionParamsModel : CqActionParamsModel
-    {
-        public CqSendGroupMessageActionParamsModel(long group_id, CqMsgModel[] message, bool auto_escape)
-        {
-            this.group_id = group_id;
-            this.message = message;
-            this.auto_escape = auto_escape;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-        public long group_id { get; }
-        public CqMsgModel[] message { get; }
-        
-        [JsonIgnore]
-        public bool auto_escape { get; }
-    }
+internal class CqSendGroupMessageActionParamsModel(long group_id, CqMsgModel[] message, bool auto_escape) : CqActionParamsModel
+{
+    public long group_id { get; } = group_id;
+    public CqMsgModel[] message { get; } = message;
+
+    [JsonIgnore]
+    public bool auto_escape { get; } = auto_escape;
 }

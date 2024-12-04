@@ -1,16 +1,10 @@
 ﻿using System.Text.Json.Serialization;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.ResultData
-{
-    internal class CqGetModelShowActionResultDataModel : CqActionResultDataModel
-    {
-        [JsonConstructor]
-        public CqGetModelShowActionResultDataModel(CqModelShowVariantModel[] variants)
-        {
-            this.variants = variants;
-        }
+namespace EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-        public CqModelShowVariantModel[] variants { get; }
-    }
+[method: JsonConstructor]
+internal class CqGetModelShowActionResultDataModel(CqModelShowVariantModel[] variants) : CqActionResultDataModel
+{
+    public CqModelShowVariantModel[] variants { get; } = variants;
 }

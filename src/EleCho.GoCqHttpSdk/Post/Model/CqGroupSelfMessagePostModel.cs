@@ -3,14 +3,13 @@
 
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Post.Model
-{
-    internal class CqGroupSelfMessagePostModel : CqSelfMessagePostModel
-    {
-        public override string message_type => "group";
+namespace EleCho.GoCqHttpSdk.Post.Model;
 
-        public long group_id { get; set; }
-        public CqAnonymousInformationModel? anonymous { get; set; }
-        public CqGroupMessageSenderModel sender { get; set; }
-    }
+internal class CqGroupSelfMessagePostModel : CqSelfMessagePostModel
+{
+    public override string message_type => "group";
+
+    public long group_id { get; set; }
+    public CqAnonymousInformationModel? anonymous { get; set; }
+    public CqGroupMessageSenderModel sender { get; set; }
 }

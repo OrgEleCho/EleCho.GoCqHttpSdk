@@ -3,26 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 获取群成员列表操作结果
+/// </summary>
+public record class CqGetGroupMemberListActionResult : CqActionResult
 {
+    internal CqGetGroupMemberListActionResult() { }
+
     /// <summary>
-    /// 获取群成员列表操作结果
+    /// 成员
     /// </summary>
-    public record class CqGetGroupMemberListActionResult : CqActionResult
+    public IReadOnlyList<CqGroupMember> Members { get; private set; } = new List<CqGroupMember>(0).AsReadOnly();
+
+    internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        internal CqGetGroupMemberListActionResult() { }
+        if (model is not CqGetGroupMemberListActionResultDataModel m)
+            throw new ArgumentException();
 
-        /// <summary>
-        /// 成员
-        /// </summary>
-        public IReadOnlyList<CqGroupMember> Members { get; private set; } = new List<CqGroupMember>(0).AsReadOnly();
-
-        internal override void ReadDataModel(CqActionResultDataModel? model)
-        {
-            if (model is not CqGetGroupMemberListActionResultDataModel m)
-                throw new ArgumentException();
-
-            Members = m.Select(fm => new CqGroupMember(fm)).ToList().AsReadOnly();
-        }
+        Members = m.Select(fm => new CqGroupMember(fm)).ToList().AsReadOnly();
     }
 }

@@ -1,25 +1,19 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.Params;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EleCho.GoCqHttpSdk.Action
+namespace EleCho.GoCqHttpSdk.Action;
+
+/// <summary>
+/// 获取版本信息操作
+/// </summary>
+public class CqGetVersionInformationAction : CqAction
 {
     /// <summary>
-    /// 获取版本信息操作
+    /// 操作类型: 获取版本信息
     /// </summary>
-    public class CqGetVersionInformationAction : CqAction
-    {
-        /// <summary>
-        /// 操作类型: 获取版本信息
-        /// </summary>
-        public override CqActionType ActionType => CqActionType.GetVersionInformation;
+    public override CqActionType ActionType => CqActionType.GetVersionInformation;
 
-        internal override CqActionParamsModel GetParamsModel()
-        {
-            return new CqGetVersionInformationActionParamsModel();
-        }
+    internal override CqActionParamsModel GetParamsModel()
+    {
+        return new CqGetVersionInformationActionParamsModel();
     }
 }

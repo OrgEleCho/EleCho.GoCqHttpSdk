@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿namespace EleCho.GoCqHttpSdk;
 
-namespace EleCho.GoCqHttpSdk
+/// <summary>
+/// 表示一个 Go-CqHttp 会话 (抽象基类)
+/// </summary>
+public abstract class CqSession
 {
-    /// <summary>
-    /// 表示一个 Go-CqHttp 会话 (抽象基类)
-    /// </summary>
-    public abstract class CqSession
-    {
-    }
 }

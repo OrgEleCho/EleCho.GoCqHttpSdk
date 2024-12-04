@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EleCho.GoCqHttpSdk.Action.Model.Params;
 
-namespace EleCho.GoCqHttpSdk.Action.Model.Params
+internal class CqGetCsrfTokenActionParamsModel : CqActionParamsModel
 {
-    internal class CqGetCsrfTokenActionParamsModel : CqActionParamsModel
-    {
-        // no data
-    }
+    // no data
 }

@@ -1,28 +1,27 @@
-﻿namespace EleCho.GoCqHttpSdk
+﻿namespace EleCho.GoCqHttpSdk;
+
+/// <summary>
+/// 生命周期类型
+/// </summary>
+public enum CqLifecycleType
 {
     /// <summary>
-    /// 生命周期类型
+    /// 启用
     /// </summary>
-    public enum CqLifecycleType
-    {
-        /// <summary>
-        /// 启用
-        /// </summary>
-        Enable,
-        
-        /// <summary>
-        /// 禁用
-        /// </summary>
-        Disable,
-        
-        /// <summary>
-        /// 连接
-        /// </summary>
-        Connect,
+    Enable,
+    
+    /// <summary>
+    /// 禁用
+    /// </summary>
+    Disable,
+    
+    /// <summary>
+    /// 连接
+    /// </summary>
+    Connect,
 
-        /// <summary>
-        /// 未知
-        /// </summary>
-        Unknown = -1
-    }
+    /// <summary>
+    /// 未知
+    /// </summary>
+    Unknown = -1
 }
