@@ -1,9 +1,10 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.DataStructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取群成员列表操作结果

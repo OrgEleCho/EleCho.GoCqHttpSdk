@@ -1,7 +1,8 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.DataStructure;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取机型显示操作结果

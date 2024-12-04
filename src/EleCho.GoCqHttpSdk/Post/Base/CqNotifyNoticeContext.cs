@@ -1,4 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
+
+namespace EleCho.GoCqHttpSdk.Post.Base;
 
 /// <summary>
 /// 群通知上报上下文

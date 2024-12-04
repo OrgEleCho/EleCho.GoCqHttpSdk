@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 当前龙王

@@ -1,7 +1,7 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 下载文件操作结果

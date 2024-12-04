@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// URL 安全等级

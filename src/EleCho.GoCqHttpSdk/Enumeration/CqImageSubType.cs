@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 图片子类型

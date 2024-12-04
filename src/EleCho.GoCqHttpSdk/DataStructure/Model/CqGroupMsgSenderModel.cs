@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using EleCho.GoCqHttpSdk.Enumeration;
 
 #pragma warning disable IDE1006 // Naming Styles
 

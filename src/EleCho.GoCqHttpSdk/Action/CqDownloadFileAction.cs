@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EleCho.GoCqHttpSdk.Action.Model.Params;
+using EleCho.GoCqHttpSdk.Enumeration;
 
 namespace EleCho.GoCqHttpSdk.Action;
 

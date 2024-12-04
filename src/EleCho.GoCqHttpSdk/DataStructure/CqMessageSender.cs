@@ -1,6 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 消息发送者

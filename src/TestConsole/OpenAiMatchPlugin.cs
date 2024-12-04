@@ -4,9 +4,11 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Extension;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.MessageMatching;
 using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 //using EleCho.GoCqHttpSdk.MessageMatching;
 
 #nullable enable

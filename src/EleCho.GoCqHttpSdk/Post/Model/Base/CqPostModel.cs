@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Model;
 
-namespace EleCho.GoCqHttpSdk.Post.Model;
+namespace EleCho.GoCqHttpSdk.Post.Model.Base;
 
 internal abstract class CqPostModel : CqWsDataModel
 {

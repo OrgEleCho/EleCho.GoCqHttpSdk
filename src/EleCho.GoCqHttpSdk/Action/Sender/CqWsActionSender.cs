@@ -4,8 +4,9 @@ using System.Net.WebSockets;
 using System.Text.Json;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Action.Model;
-using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.Post.Base;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using EleCho.GoCqHttpSdk.Utils;
 
 namespace EleCho.GoCqHttpSdk.Action.Sender;

@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 发送消息操作结果
@@ -17,8 +17,6 @@ public record class CqSendMessageActionResult : CqActionResult
     internal override void ReadDataModel(CqActionResultDataModel? model)
     {
         if (model is CqSendMessageActionResultDataModel dataModel)
-        {
             MessageId = dataModel.message_id;
-        }
     }
 }

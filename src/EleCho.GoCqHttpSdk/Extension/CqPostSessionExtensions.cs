@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.Extension;
 
 
 // 注意：这个文件是自动生成的，不要手动修改
@@ -17,9 +18,7 @@ public static class CqPostSessionExtensions
         session.PostPipeline.Use(async (context, next) =>
         {
             if (context is IContext specifiedContext)
-            {
                 await middleware.Invoke(specifiedContext, next);
-            }
             else
             {
                 await next.Invoke();
@@ -34,9 +33,7 @@ public static class CqPostSessionExtensions
         session.PostPipeline.Use(async (context, next) =>
         {
             if (context is IContext specifiedContext)
-            {
                 middleware.Invoke(specifiedContext, next);
-            }
             else
             {
                 await next.Invoke();

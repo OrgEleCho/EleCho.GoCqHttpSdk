@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 展示机型的变体

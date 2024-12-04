@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 请求类型
@@ -9,7 +9,7 @@ public enum CqRequestType
     /// 好友
     /// </summary>
     Friend,
-    
+
     /// <summary>
     /// 群
     /// </summary>

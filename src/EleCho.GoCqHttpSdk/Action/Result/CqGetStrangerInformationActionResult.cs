@@ -1,6 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取陌生人信息操作结果
@@ -17,7 +18,7 @@ public record class CqGetStrangerInformationActionResult : CqActionResult
     /// 昵称
     /// </summary>
     public string Nickname { get; private set; } = string.Empty;
-    
+
     /// <summary>
     /// 性别
     /// </summary>
@@ -27,17 +28,17 @@ public record class CqGetStrangerInformationActionResult : CqActionResult
     /// 年龄
     /// </summary>
     public int Age { get; private set; }
-    
+
     /// <summary>
     /// QID
     /// </summary>
     public string Qid { get; private set; } = string.Empty;
-    
+
     /// <summary>
     /// 等级
     /// </summary>
     public int Level { get; private set; }
-    
+
     /// <summary>
     /// 登陆天数
     /// </summary>

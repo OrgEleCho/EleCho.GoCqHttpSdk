@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 群禁言变更类型
@@ -8,8 +8,8 @@ public enum CqGroupBanChangeType
     /// <summary>
     /// 禁言
     /// </summary>
-    Ban, 
-    
+    Ban,
+
     /// <summary>
     /// 取消禁言
     /// </summary>

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
-using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.Post.Base;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 
 namespace EleCho.GoCqHttpSdk.Action.Sender;
 

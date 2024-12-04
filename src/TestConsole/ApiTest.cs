@@ -1,4 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Extension;
 using EleCho.GoCqHttpSdk.Message;
 using System.Text.Json;
 using System.Threading.Tasks;

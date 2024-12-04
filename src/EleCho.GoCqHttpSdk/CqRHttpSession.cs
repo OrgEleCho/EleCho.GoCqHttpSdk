@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Model;
-using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Post.Base;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.IO;

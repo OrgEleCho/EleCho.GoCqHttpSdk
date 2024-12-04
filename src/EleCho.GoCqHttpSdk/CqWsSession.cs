@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Action.Sender;
 using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Model;
-using EleCho.GoCqHttpSdk.Post;
-using EleCho.GoCqHttpSdk.Post.Model;
 using EleCho.GoCqHttpSdk.Utils;
 using System.Diagnostics;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
+using EleCho.GoCqHttpSdk.Post.Base;
 
 namespace EleCho.GoCqHttpSdk;
 

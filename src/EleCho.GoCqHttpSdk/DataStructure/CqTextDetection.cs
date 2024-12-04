@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System.Numerics;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 文本识别

@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Message;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk.Post;
+namespace EleCho.GoCqHttpSdk.Post.QuickOperation;
 
 
 /// <summary>

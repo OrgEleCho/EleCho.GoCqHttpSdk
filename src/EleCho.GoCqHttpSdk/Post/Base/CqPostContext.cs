@@ -1,8 +1,10 @@
-﻿using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Post;
+namespace EleCho.GoCqHttpSdk.Post.Base;
 
 /// <summary>
 /// 消息上报上下文基类 (可以理解为上报信息的具体数据)
@@ -13,7 +15,7 @@ public abstract record class CqPostContext
     {
         Time = DateTime.Now;
         Session = default!;         // 别警告了, 憨批 VS
-                                 // 保证在 new 之后通过 SetSession 设置 Session
+                                    // 保证在 new 之后通过 SetSession 设置 Session
     }
 
     /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Action.Model.Params;
+using EleCho.GoCqHttpSdk.Enumeration;
 
 namespace EleCho.GoCqHttpSdk.Action;
 

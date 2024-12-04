@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk.Post;
+﻿namespace EleCho.GoCqHttpSdk.Post.QuickOperation;
 
 /// <summary>
 /// 加群请求快速操作

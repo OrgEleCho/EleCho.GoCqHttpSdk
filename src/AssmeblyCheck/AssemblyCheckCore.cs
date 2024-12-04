@@ -1,6 +1,8 @@
 ﻿using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.Action;
-using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Base;
 using System.Reflection;
 using System.Text.Json;
 

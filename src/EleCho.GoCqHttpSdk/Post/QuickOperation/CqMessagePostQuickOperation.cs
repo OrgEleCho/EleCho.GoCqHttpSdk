@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Message;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Post;
+namespace EleCho.GoCqHttpSdk.Post.QuickOperation;
 
 /// <summary>
 /// 消息上报快速操作

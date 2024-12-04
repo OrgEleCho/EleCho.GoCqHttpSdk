@@ -1,7 +1,8 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.Enumeration;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// <inheritdoc/>
@@ -17,7 +18,7 @@ public record class CqCheckUrlSafetyActionResult : CqActionResult
     /// 安全等级
     /// </summary>
     public CqUrlSafetyLevel Level { get; private set; }
-    
+
     internal override void ReadDataModel(CqActionResultDataModel? model)
     {
         if (model is not CqCheckUrlSafetyActionResultDataModel _m)

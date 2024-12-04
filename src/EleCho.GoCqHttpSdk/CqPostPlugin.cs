@@ -1,6 +1,7 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Post;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Post.Base;
 
 namespace EleCho.GoCqHttpSdk;
 

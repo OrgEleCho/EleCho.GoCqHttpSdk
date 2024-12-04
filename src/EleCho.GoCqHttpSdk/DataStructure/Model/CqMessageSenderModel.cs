@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using EleCho.GoCqHttpSdk.Enumeration;
 
 namespace EleCho.GoCqHttpSdk.DataStructure.Model;
 

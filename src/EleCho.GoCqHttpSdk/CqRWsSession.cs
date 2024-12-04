@@ -1,5 +1,5 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Sender;
-using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 using System;
 using System.Collections;
 using System.Collections.Generic;

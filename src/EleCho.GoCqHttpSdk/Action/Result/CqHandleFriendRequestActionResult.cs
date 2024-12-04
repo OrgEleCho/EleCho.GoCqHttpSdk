@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 处理好友请求操作结果
@@ -13,6 +13,6 @@ public record class CqHandleFriendRequestActionResult : CqActionResult
 
     internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        
+
     }
 }

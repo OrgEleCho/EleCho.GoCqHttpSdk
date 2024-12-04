@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 客户端状态统计信息

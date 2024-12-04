@@ -2,8 +2,9 @@
 using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 using System.Linq;
+using EleCho.GoCqHttpSdk.DataStructure;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取消息操作结果
@@ -14,7 +15,7 @@ public record class CqGetMessageActionResult : CqActionResult
     /// 是群消息
     /// </summary>
     public bool IsGroupMessage { get; private set; }
-    
+
     /// <summary>
     /// 消息 ID
     /// </summary>
@@ -49,7 +50,7 @@ public record class CqGetMessageActionResult : CqActionResult
 
     internal override void ReadDataModel(CqActionResultDataModel? model)
     {
-        if(model is CqGetMessageActionResultDataModel dataModel)
+        if (model is CqGetMessageActionResultDataModel dataModel)
         {
             IsGroupMessage = dataModel.group;
             MessageId = dataModel.message_id;

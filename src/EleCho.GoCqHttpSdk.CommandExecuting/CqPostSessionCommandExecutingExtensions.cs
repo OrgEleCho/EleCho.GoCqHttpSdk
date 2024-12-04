@@ -1,4 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.CommandExecuting;
+﻿using EleCho.GoCqHttpSdk.Extension;
+
+namespace EleCho.GoCqHttpSdk.CommandExecuting;
 
 public static class CqPostSessionCommandExecutingExtensions
 {

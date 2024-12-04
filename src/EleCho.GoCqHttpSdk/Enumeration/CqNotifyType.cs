@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 群通知类型
@@ -9,17 +9,17 @@ public enum CqNotifyType
     /// 拍一拍
     /// </summary>
     Poke,
-    
+
     /// <summary>
     /// 红包幸运王
     /// </summary>
-    LuckyKing, 
+    LuckyKing,
 
     /// <summary>
     /// 群荣誉
     /// </summary>
-    Honor, 
-    
+    Honor,
+
     /// <summary>
     /// 群名片
     /// </summary>

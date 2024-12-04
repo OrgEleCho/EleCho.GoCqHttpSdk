@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取图像操作结果
@@ -21,7 +21,7 @@ public record class CqGetImageActionResult : CqActionResult
     /// 链接
     /// </summary>
     public string Url { get; private set; } = string.Empty;
-    
+
     internal CqGetImageActionResult() { }
 
     internal override void ReadDataModel(CqActionResultDataModel? model)

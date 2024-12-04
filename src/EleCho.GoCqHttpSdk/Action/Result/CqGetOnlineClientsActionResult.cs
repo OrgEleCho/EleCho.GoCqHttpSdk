@@ -1,7 +1,8 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.DataStructure;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取在线客户端操作结果
@@ -10,7 +11,7 @@ public record class CqGetOnlineClientsActionResult : CqActionResult
 {
     internal CqGetOnlineClientsActionResult()
     { }
-    
+
     /// <summary>
     /// 客户端
     /// </summary>

@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using EleCho.CommandLine;
 using EleCho.GoCqHttpSdk;
 using EleCho.GoCqHttpSdk.CommandExecuting;
+using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Extension;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.MessageMatching;
 using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 
 #nullable enable
 

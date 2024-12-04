@@ -1,6 +1,8 @@
 ﻿using EleCho.CommandLine;
+using EleCho.GoCqHttpSdk.Extension;
 using EleCho.GoCqHttpSdk.Message;
 using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

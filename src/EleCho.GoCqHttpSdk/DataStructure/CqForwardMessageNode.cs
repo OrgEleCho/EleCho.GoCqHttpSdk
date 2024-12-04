@@ -5,7 +5,7 @@ using System;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 转发消息节点

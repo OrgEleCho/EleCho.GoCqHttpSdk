@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EleCho.GoCqHttpSdk.DataStructure;
 
 namespace EleCho.GoCqHttpSdk.Message;
 

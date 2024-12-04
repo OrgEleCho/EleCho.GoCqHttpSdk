@@ -3,13 +3,13 @@ using EleCho.GoCqHttpSdk.Utils;
 using System;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk.Post;
+namespace EleCho.GoCqHttpSdk.Post.QuickOperation;
 
 /// <summary>
 /// 群消息上报上下文
 /// </summary>
 public class CqGroupMessagePostQuickOperation : CqMessagePostQuickOperation
-{   
+{
     /// <summary>
     /// AT 发送者
     /// </summary>

@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Post;
+﻿using EleCho.GoCqHttpSdk.Post.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EleCho.GoCqHttpSdk.Action;
+using EleCho.GoCqHttpSdk.Action.Result;
+using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Message;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.Extension;
 
 /// <summary>
 /// CQ 动作执行会话拓展
@@ -170,7 +173,7 @@ public static class CqActionSessionExtensions
     /// <returns>用于等待结果的任务</returns>
     public static Task<CqBanGroupAnonymousMemberActionResult?> BanGroupAnonymousMemberAsync(this ICqActionSession session, long groupId, CqAnonymousInfomation anonymous, TimeSpan duration) =>
         session.InvokeActionAsync<CqBanGroupAnonymousMemberAction, CqBanGroupAnonymousMemberActionResult>(new CqBanGroupAnonymousMemberAction(groupId, anonymous, duration));
-    
+
     /// <summary>
     /// 异步禁言群匿名成员
     /// </summary>
@@ -613,7 +616,7 @@ public static class CqActionSessionExtensions
     /// <returns>用于等待结果的任务</returns>
     public static Task<CqGetOnlineClientsActionResult?> GetOnlineClientsAsync(this ICqActionSession session, bool noCache) =>
         session.InvokeActionAsync<CqGetOnlineClientsAction, CqGetOnlineClientsActionResult>(new CqGetOnlineClientsAction(noCache));
-    
+
 
     /// <summary>
     /// 异步设置精华消息
@@ -651,7 +654,7 @@ public static class CqActionSessionExtensions
     /// <returns>用于等待结果的任务</returns>
     public static Task<CqGetModelShowActionResult?> GetModelShowAsync(this ICqActionSession session, string model) =>
         session.InvokeActionAsync<CqGetModelShowAction, CqGetModelShowActionResult>(new CqGetModelShowAction(model));
-    
+
     /// <summary>
     /// 异步设置显示机型
     /// </summary>
@@ -661,7 +664,7 @@ public static class CqActionSessionExtensions
     /// <returns>用于等待结果的任务</returns>
     public static Task<CqSetModelShowActionResult?> SetModelShowAsync(this ICqActionSession session, string model, string modelShow) =>
         session.InvokeActionAsync<CqSetModelShowAction, CqSetModelShowActionResult>(new CqSetModelShowAction(model, modelShow));
-    
+
     /// <summary>
     /// 异步检查 URL 安全性
     /// </summary>
@@ -869,7 +872,7 @@ public static class CqActionSessionExtensions
     /// <param name="message">消息</param>
     /// <returns>操作结果</returns>
     public static CqSendPrivateMessageActionResult? SendPrivateMessage(this ICqActionSession session, long userId, CqMessage message) =>
-        SendPrivateMessageAsync(session, userId, message).Result;
+        session.SendPrivateMessageAsync(userId, message).Result;
 
     /// <summary>
     /// 发送私聊消息 (临时会话)
@@ -880,7 +883,7 @@ public static class CqActionSessionExtensions
     /// <param name="message">消息</param>
     /// <returns>操作结果</returns>
     public static CqSendPrivateMessageActionResult? SendPrivateMessage(this ICqActionSession session, long userId, long groupId, CqMessage message) =>
-        SendPrivateMessageAsync(session, userId, groupId, message).Result;
+        session.SendPrivateMessageAsync(userId, groupId, message).Result;
 
     /// <summary>
     /// 发送群消息
@@ -890,7 +893,7 @@ public static class CqActionSessionExtensions
     /// <param name="message">消息</param>
     /// <returns>操作结果</returns>
     public static CqSendGroupMessageActionResult? SendGroupMessage(this ICqActionSession session, long groupId, CqMessage message) =>
-        SendGroupMessageAsync(session, groupId, message).Result;
+        session.SendGroupMessageAsync(groupId, message).Result;
 
     /// <summary>
     /// 发送消息
@@ -902,7 +905,7 @@ public static class CqActionSessionExtensions
     /// <param name="message">消息</param>
     /// <returns>操作结果</returns>
     public static CqSendMessageActionResult? SendMessage(this ICqActionSession session, CqMessageType messageType, long? userId, long? groupId, CqMessage message) =>
-        SendMessageAsync(session, messageType, userId, groupId, message).Result;
+        session.SendMessageAsync(messageType, userId, groupId, message).Result;
 
     /// <summary>
     /// 发送消息 (自动识别消息类型, 如果用户 QQ 和群号都指定了, 那么发送私聊消息)
@@ -913,7 +916,7 @@ public static class CqActionSessionExtensions
     /// <param name="message">消息</param>
     /// <returns>操作结果</returns>
     public static CqSendMessageActionResult? SendMessage(this ICqActionSession session, long? userId, long? groupId, CqMessage message) =>
-        SendMessageAsync(session, userId, groupId, message).Result;
+        session.SendMessageAsync(userId, groupId, message).Result;
 
     /// <summary>
     /// 撤回消息
@@ -922,7 +925,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">要撤回的消息的 ID</param>
     /// <returns>操作结果</returns>
     public static CqRecallMessageActionResult? RecallMessage(this ICqActionSession session, long messageId) =>
-        RecallMessageAsync(session, messageId).Result;
+        session.RecallMessageAsync(messageId).Result;
 
     /// <summary>
     /// 发送群转发消息
@@ -932,7 +935,7 @@ public static class CqActionSessionExtensions
     /// <param name="forwardMessage">转发消息</param>
     /// <returns>操作结果</returns>
     public static CqSendGroupForwardMessageActionResult? SendGroupForwardMessage(this ICqActionSession session, long groupId, CqForwardMessage forwardMessage) =>
-        SendGroupForwardMessageAsync(session, groupId, forwardMessage).Result;
+        session.SendGroupForwardMessageAsync(groupId, forwardMessage).Result;
 
     /// <summary>
     /// 发送私聊转发消息
@@ -942,7 +945,7 @@ public static class CqActionSessionExtensions
     /// <param name="forwardMessage">转发消息</param>
     /// <returns>操作结果</returns>
     public static CqSendPrivateForwardMessageActionResult? SendPrivateForwardMessage(this ICqActionSession session, long userId, CqForwardMessage forwardMessage) =>
-        SendPrivateForwardMessageAsync(session, userId, forwardMessage).Result;
+        session.SendPrivateForwardMessageAsync(userId, forwardMessage).Result;
 
     /// <summary>
     /// 获取消息
@@ -951,7 +954,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">消息 ID</param>
     /// <returns>操作结果</returns>
     public static CqGetMessageActionResult? GetMessage(this ICqActionSession session, long messageId) =>
-        GetMessageAsync(session, messageId).Result;
+        session.GetMessageAsync(messageId).Result;
 
     /// <summary>
     /// 获取转发消息
@@ -960,7 +963,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">消息 ID</param>
     /// <returns>操作结果</returns>
     public static CqGetForwardMessageActionResult? GetForwwardMessage(this ICqActionSession session, long messageId) =>
-        GetForwardMessageAsync(session, messageId).Result;
+        session.GetForwardMessageAsync(messageId).Result;
 
     /// <summary>
     /// 获取图片
@@ -969,7 +972,7 @@ public static class CqActionSessionExtensions
     /// <param name="filename">文件名</param>
     /// <returns>操作结果</returns>
     public static CqGetImageActionResult? GetImage(this ICqActionSession session, string filename) =>
-        GetImageAsync(session, filename).Result;
+        session.GetImageAsync(filename).Result;
 
     /// <summary>
     /// 禁言群成员
@@ -980,7 +983,7 @@ public static class CqActionSessionExtensions
     /// <param name="duration">时长</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupMemberActionResult? BanGroupMember(this ICqActionSession session, long groupId, long userId, TimeSpan duration) =>
-        BanGroupMemberAsync(session, groupId, userId, duration).Result;
+        session.BanGroupMemberAsync(groupId, userId, duration).Result;
 
     /// <summary>
     /// 解除禁言群成员
@@ -990,7 +993,7 @@ public static class CqActionSessionExtensions
     /// <param name="userId">用户 QQ</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupMemberActionResult? CancelBanGroupMember(this ICqActionSession session, long groupId, long userId) =>
-        CancelBanGroupMemberAsync(session, groupId, userId).Result;
+        session.CancelBanGroupMemberAsync(groupId, userId).Result;
 
     /// <summary>
     /// 禁言群匿名成员
@@ -1001,7 +1004,7 @@ public static class CqActionSessionExtensions
     /// <param name="duration">时长</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupAnonymousMemberActionResult? BanGroupAnonymousMember(this ICqActionSession session, long groupId, CqAnonymousInfomation anonymous, TimeSpan duration) =>
-        BanGroupAnonymousMemberAsync(session, groupId, anonymous, duration).Result;
+        session.BanGroupAnonymousMemberAsync(groupId, anonymous, duration).Result;
 
     /// <summary>
     /// 禁言群匿名成员
@@ -1012,7 +1015,7 @@ public static class CqActionSessionExtensions
     /// <param name="duration">时长</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupAnonymousMemberActionResult? BanGroupAnonymousMember(this ICqActionSession session, long groupId, string anonymousFlag, TimeSpan duration) =>
-        BanGroupAnonymousMemberAsync(session, groupId, anonymousFlag, duration).Result;
+        session.BanGroupAnonymousMemberAsync(groupId, anonymousFlag, duration).Result;
 
     /// <summary>
     /// 解除禁言群匿名成员
@@ -1022,7 +1025,7 @@ public static class CqActionSessionExtensions
     /// <param name="anonymous">匿名对象</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupAnonymousMemberActionResult? CancelBanGroupAnonymousMember(this ICqActionSession session, long groupId, CqAnonymousInfomation anonymous) =>
-        CancelBanGroupAnonymousMemberAsync(session, groupId, anonymous).Result;
+        session.CancelBanGroupAnonymousMemberAsync(groupId, anonymous).Result;
 
     /// <summary>
     /// 解除禁言群匿名成员
@@ -1032,7 +1035,7 @@ public static class CqActionSessionExtensions
     /// <param name="anonymousFlag">匿名标识</param>
     /// <returns>操作结果</returns>
     public static CqBanGroupAnonymousMemberActionResult? CancelBanGroupAnonymousMember(this ICqActionSession session, long groupId, string anonymousFlag) =>
-        CancelBanGroupAnonymousMemberAsync(session, groupId, anonymousFlag).Result;
+        session.CancelBanGroupAnonymousMemberAsync(groupId, anonymousFlag).Result;
 
     /// <summary>
     /// 开启全体禁言
@@ -1061,7 +1064,7 @@ public static class CqActionSessionExtensions
     /// <param name="rejectRequest">拒绝此人再次加群</param>
     /// <returns>操作结果</returns>
     public static CqKickGroupMemberActionResult? KickGroupMember(this ICqActionSession session, long groupId, long userId, bool rejectRequest) =>
-        KickGroupMemberAsync(session, groupId, userId, rejectRequest).Result;
+        session.KickGroupMemberAsync(groupId, userId, rejectRequest).Result;
 
     /// <summary>
     /// 处理好友请求
@@ -1072,7 +1075,7 @@ public static class CqActionSessionExtensions
     /// <param name="remark">备注 (如果拒绝请求, 则此参数无用)</param>
     /// <returns>操作结果</returns>
     public static CqHandleFriendRequestActionResult? HandleFriendRequest(this ICqActionSession session, string flag, bool approve, string? remark) =>
-        HandleFriendRequestAsync(session, flag, approve, remark).Result;
+        session.HandleFriendRequestAsync(flag, approve, remark).Result;
 
     /// <summary>
     /// 同意好友请求
@@ -1082,7 +1085,7 @@ public static class CqActionSessionExtensions
     /// <param name="remark">备注</param>
     /// <returns>操作结果</returns>
     public static CqHandleFriendRequestActionResult? ApproveFriendRequest(this ICqActionSession session, string flag, string? remark) =>
-        ApproveFriendRequestAsync(session, flag, remark).Result;
+        session.ApproveFriendRequestAsync(flag, remark).Result;
 
     /// <summary>
     /// 拒绝好友请求
@@ -1091,7 +1094,7 @@ public static class CqActionSessionExtensions
     /// <param name="flag">请求标识 (在请求上报中取得)</param>
     /// <returns>操作结果</returns>
     public static CqHandleFriendRequestActionResult? RejectFriendRequest(this ICqActionSession session, string flag) =>
-        RejectFriendRequestAsync(session, flag).Result;
+        session.RejectFriendRequestAsync(flag).Result;
 
     /// <summary>
     /// 处理群请求
@@ -1103,7 +1106,7 @@ public static class CqActionSessionExtensions
     /// <param name="reason">拒绝原因 (如果同意请求, 则此参数无用)</param>
     /// <returns>操作结果</returns>
     public static CqHandleGroupRequestActionResult? HandleGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType, bool approve, string? reason) =>
-        HandleGroupRequestAsync(session, flag, requestType, approve, reason).Result;
+        session.HandleGroupRequestAsync(flag, requestType, approve, reason).Result;
 
     /// <summary>
     /// 同意群请求
@@ -1113,7 +1116,7 @@ public static class CqActionSessionExtensions
     /// <param name="requestType">请求类型 (在请求上报中取得)</param>
     /// <returns>操作结果</returns>
     public static CqHandleGroupRequestActionResult? ApproveGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType) =>
-        ApproveGroupRequestAsync(session, flag, requestType).Result;
+        session.ApproveGroupRequestAsync(flag, requestType).Result;
 
     /// <summary>
     /// 拒绝群请求
@@ -1124,7 +1127,7 @@ public static class CqActionSessionExtensions
     /// <param name="reason">拒绝原因</param>
     /// <returns>操作结果</returns>
     public static CqHandleGroupRequestActionResult? RejectGroupRequest(this ICqActionSession session, string flag, CqGroupRequestType requestType, string? reason) =>
-        RejectGroupRequestAsync(session, flag, requestType, reason).Result;
+        session.RejectGroupRequestAsync(flag, requestType, reason).Result;
 
     /// <summary>
     /// 获取登陆信息
@@ -1132,7 +1135,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetLoginInformationActionResult? GetLoginInformation(this ICqActionSession session) =>
-        GetLoginInformationAsync(session).Result;
+        session.GetLoginInformationAsync().Result;
 
     /// <summary>
     /// 获取陌生人信息 (NoCache = false)
@@ -1141,7 +1144,7 @@ public static class CqActionSessionExtensions
     /// <param name="userId">用户 QQ</param>
     /// <returns>操作结果</returns>
     public static CqGetStrangerInformationActionResult? GetStrangerInformation(this ICqActionSession session, long userId) =>
-        GetStrangerInformationAsync(session, userId).Result;
+        session.GetStrangerInformationAsync(userId).Result;
 
     /// <summary>
     /// 获取陌生人信息
@@ -1151,7 +1154,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetStrangerInformationActionResult? GetStrangerInformation(this ICqActionSession session, long userId, bool noCache) =>
-        GetStrangerInformationAsync(session, userId, noCache).Result;
+        session.GetStrangerInformationAsync(userId, noCache).Result;
 
     /// <summary>
     /// 获取群信息 (NoCache = false)
@@ -1160,7 +1163,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, long groupId) =>
-        GetGroupInformationAsync(session, groupId).Result;
+        session.GetGroupInformationAsync(groupId).Result;
 
     /// <summary>
     /// 获取群信息
@@ -1170,7 +1173,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupInformationActionResult? GetGroupInformation(this ICqActionSession session, long groupId, bool noCache) =>
-        GetGroupInformationAsync(session, groupId, noCache).Result;
+        session.GetGroupInformationAsync(groupId, noCache).Result;
 
     /// <summary>
     /// 获取群成员信息
@@ -1180,7 +1183,7 @@ public static class CqActionSessionExtensions
     /// <param name="userId">用户 QQ</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupMemberInformationActionResult? GetGroupMemberInformation(this ICqActionSession session, long groupId, long userId) =>
-        GetGroupMemberInformationAsync(session, groupId, userId).Result;
+        session.GetGroupMemberInformationAsync(groupId, userId).Result;
 
     /// <summary>
     /// 获取群成员信息
@@ -1191,7 +1194,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupMemberInformationActionResult? GetGroupMemberInformation(this ICqActionSession session, long groupId, long userId, bool noCache) =>
-        GetGroupMemberInformationAsync(session, groupId, userId, noCache).Result;
+        session.GetGroupMemberInformationAsync(groupId, userId, noCache).Result;
 
     /// <summary>
     /// 标记消息已读
@@ -1200,7 +1203,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">消息 ID</param>
     /// <returns>操作结果</returns>
     public static CqMarkMessageAsReadActionResult? MarkMessageAsRead(this ICqActionSession session, long messageId) =>
-        MarkMessageAsReadAsync(session, messageId).Result;
+        session.MarkMessageAsReadAsync(messageId).Result;
 
     /// <summary>
     /// 设置群是否启用匿名聊天
@@ -1210,7 +1213,7 @@ public static class CqActionSessionExtensions
     /// <param name="enable">是否启用</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupAnonymousActionResult? SetGroupAnonymous(this ICqActionSession session, long groupId, bool enable) =>
-        SetGroupAnonymousAsync(session, groupId, enable).Result;
+        session.SetGroupAnonymousAsync(groupId, enable).Result;
 
     /// <summary>
     /// 设置群名
@@ -1220,7 +1223,7 @@ public static class CqActionSessionExtensions
     /// <param name="file">文件</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupNameActionResult? SetGroupName(this ICqActionSession session, long groupId, string file) =>
-        SetGroupNameAsync(session, groupId, file).Result;
+        session.SetGroupNameAsync(groupId, file).Result;
 
     /// <summary>
     /// 设置群头像 (UseCache = false)
@@ -1230,7 +1233,7 @@ public static class CqActionSessionExtensions
     /// <param name="file">文件</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupAvatarActionResult? SetGroupAvatar(this ICqActionSession session, long groupId, string file) =>
-        SetGroupAvatarAsync(session, groupId, file).Result;
+        session.SetGroupAvatarAsync(groupId, file).Result;
 
     /// <summary>
     /// 设置群头像
@@ -1241,7 +1244,7 @@ public static class CqActionSessionExtensions
     /// <param name="useCache">使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupAvatarActionResult? SetGroupAvatar(this ICqActionSession session, long groupId, string file, bool useCache) =>
-        SetGroupAvatarAsync(session, groupId, file, useCache).Result;
+        session.SetGroupAvatarAsync(groupId, file, useCache).Result;
 
     /// <summary>
     /// 设置群昵称
@@ -1252,7 +1255,7 @@ public static class CqActionSessionExtensions
     /// <param name="nickname">昵称</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupNicknameActionResult? SetGroupNickname(this ICqActionSession session, long groupId, long userId, string nickname) =>
-        SetGroupNicknameAsync(session, groupId, userId, nickname).Result;
+        session.SetGroupNicknameAsync(groupId, userId, nickname).Result;
 
     /// <summary>
     /// 退群 (DismissGroup = false)
@@ -1261,7 +1264,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqLeaveGroupActionResult? LeaveGroup(this ICqActionSession session, long groupId) =>
-        LeaveGroupAsync(session, groupId).Result;
+        session.LeaveGroupAsync(groupId).Result;
 
     /// <summary>
     /// 退群
@@ -1271,7 +1274,7 @@ public static class CqActionSessionExtensions
     /// <param name="dismissGroup">是否解散群聊 (只有当自己是群主时有效)</param>
     /// <returns>操作结果</returns>
     public static CqLeaveGroupActionResult? LeaveGroup(this ICqActionSession session, long groupId, bool dismissGroup) =>
-        LeaveGroupAsync(session, groupId, dismissGroup).Result;
+        session.LeaveGroupAsync(groupId, dismissGroup).Result;
 
     /// <summary>
     /// 设置群专属头衔
@@ -1282,7 +1285,7 @@ public static class CqActionSessionExtensions
     /// <param name="specialTitle">专属头衔</param>
     /// <returns>操作结果</returns>
     public static CqSetGroupSpecialTitleActionResult? SetGroupSpecialTitle(this ICqActionSession session, long groupId, long userId, string specialTitle) =>
-        SetGroupSpecialTitleAsync(session, groupId, userId, specialTitle).Result;
+        session.SetGroupSpecialTitleAsync(groupId, userId, specialTitle).Result;
 
     /// <summary>
     /// 群签到
@@ -1291,7 +1294,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGroupSignInActionResult? GroupSignIn(this ICqActionSession session, long groupId) =>
-        GroupSignInAsync(session, groupId).Result;
+        session.GroupSignInAsync(groupId).Result;
 
     /// <summary>
     /// 设置账号信息
@@ -1304,7 +1307,7 @@ public static class CqActionSessionExtensions
     /// <param name="personalNote">个人签名</param>
     /// <returns>操作结果</returns>
     public static CqSetAccountProfileActionResult? SetAccountProfile(this ICqActionSession session, string nickname, string company, string email, string college, string personalNote) =>
-        SetAccountProfileAsync(session, nickname, company, email, college, personalNote).Result;
+        session.SetAccountProfileAsync(nickname, company, email, college, personalNote).Result;
 
     /// <summary>
     /// 获取好友列表
@@ -1312,7 +1315,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetFriendListActionResult? GetFriendList(this ICqActionSession session) =>
-        GetFriendListAsync(session).Result;
+        session.GetFriendListAsync().Result;
 
     /// <summary>
     /// 获取群列表 (NoCache = false)
@@ -1320,7 +1323,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupListActionResult? GetGroupList(this ICqActionSession session) =>
-        GetGroupListAsync(session).Result;
+        session.GetGroupListAsync().Result;
 
     /// <summary>
     /// 获取群列表
@@ -1329,7 +1332,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupListActionResult? GetGroupList(this ICqActionSession session, bool noCache) =>
-        GetGroupListAsync(session, noCache).Result;
+        session.GetGroupListAsync(noCache).Result;
 
     /// <summary>
     /// 获取群成员列表 (NoCache = false)
@@ -1338,7 +1341,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupMemberListActionResult? GetGroupMemberList(this ICqActionSession session, long groupId) =>
-        GetGroupMemberListAsync(session, groupId).Result;
+        session.GetGroupMemberListAsync(groupId).Result;
 
     /// <summary>
     /// 获取群成员列表
@@ -1348,7 +1351,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupMemberListActionResult? GetGroupMemberList(this ICqActionSession session, long groupId, bool noCache) =>
-        GetGroupMemberListAsync(session, groupId, noCache).Result;
+        session.GetGroupMemberListAsync(groupId, noCache).Result;
 
     /// <summary>
     /// 获取单向好友列表
@@ -1356,7 +1359,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetUnidirectionalFriendListActionResult? GetUnidirectionalFriendList(this ICqActionSession session) =>
-        GetUnidirectionalFriendListAsync(session).Result;
+        session.GetUnidirectionalFriendListAsync().Result;
 
     /// <summary>
     /// 删除好友
@@ -1365,7 +1368,7 @@ public static class CqActionSessionExtensions
     /// <param name="userId">用户 QQ</param>
     /// <returns>操作结果</returns>
     public static CqDeleteFriendActionResult? DeleteFriend(this ICqActionSession session, long userId) =>
-        DeleteFriendAsync(session, userId).Result;
+        session.DeleteFriendAsync(userId).Result;
 
     /// <summary>
     /// 删除单项好友
@@ -1374,7 +1377,7 @@ public static class CqActionSessionExtensions
     /// <param name="userId">用户 QQ</param>
     /// <returns>操作结果</returns>
     public static CqDeleteUnidirectionalFriendActionResult? DeleteUnidirectionalFriend(this ICqActionSession session, long userId) =>
-        DeleteUnidirectionalFriendAsync(session, userId).Result;
+        session.DeleteUnidirectionalFriendAsync(userId).Result;
 
     /// <summary>
     /// 判断是否能发送图片
@@ -1382,7 +1385,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqCanSendImageActionResult? CanSendImage(this ICqActionSession session) =>
-        CanSendImageAsync(session).Result;
+        session.CanSendImageAsync().Result;
 
     /// <summary>
     /// 判断是否能发送语音
@@ -1390,7 +1393,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqCanSendRecordActionResult? CanSendRecord(this ICqActionSession session) =>
-        CanSendRecordAsync(session).Result;
+        session.CanSendRecordAsync().Result;
 
 
     /// <summary>
@@ -1400,7 +1403,7 @@ public static class CqActionSessionExtensions
     /// <param name="domain">域名</param>
     /// <returns>操作结果</returns>
     public static CqGetCookiesActionResult? GetCookies(this ICqActionSession session, string domain) =>
-        GetCookiesAsync(session, domain).Result;
+        session.GetCookiesAsync(domain).Result;
 
     /// <summary>
     /// 获取 CSRF Token
@@ -1408,7 +1411,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetCsrfTokenActionResult? GetCsrfToken(this ICqActionSession session) =>
-        GetCsrfTokenAsync(session).Result;
+        session.GetCsrfTokenAsync().Result;
 
 
     /// <summary>
@@ -1420,7 +1423,7 @@ public static class CqActionSessionExtensions
     /// <param name="headers">请求头</param>
     /// <returns>操作结果</returns>
     public static CqDownloadFileActionResult? DownloadFile(this ICqActionSession session, string url, int threadCount, Dictionary<string, string> headers) =>
-        DownloadFileAsync(session, url, threadCount, headers).Result;
+        session.DownloadFileAsync(url, threadCount, headers).Result;
 
     /// <summary>
     /// 获取在线客户端 (NoCache = false)
@@ -1428,7 +1431,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetOnlineClientsActionResult? GetOnlineClients(this ICqActionSession session) =>
-        GetOnlineClientsAsync(session).Result;
+        session.GetOnlineClientsAsync().Result;
 
     /// <summary>
     /// 获取在线客户端
@@ -1437,7 +1440,7 @@ public static class CqActionSessionExtensions
     /// <param name="noCache">不使用缓存</param>
     /// <returns>操作结果</returns>
     public static CqGetOnlineClientsActionResult? GetOnlineClients(this ICqActionSession session, bool noCache) =>
-        GetOnlineClientsAsync(session, noCache).Result;
+        session.GetOnlineClientsAsync(noCache).Result;
 
 
     /// <summary>
@@ -1447,7 +1450,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">消息 ID</param>
     /// <returns>操作结果</returns>
     public static CqSetEssenceMessageActionResult? SetEssenceMessage(this ICqActionSession session, long messageId) =>
-        SetEssenceMessageAsync(session, messageId).Result;
+        session.SetEssenceMessageAsync(messageId).Result;
 
     /// <summary>
     /// 删除精华消息
@@ -1456,7 +1459,7 @@ public static class CqActionSessionExtensions
     /// <param name="messageId">消息 ID</param>
     /// <returns>操作结果</returns>
     public static CqDeleteEssenceMessageActionResult? DeleteEssenceMessage(this ICqActionSession session, long messageId) =>
-        DeleteEssenceMessageAsync(session, messageId).Result;
+        session.DeleteEssenceMessageAsync(messageId).Result;
 
     /// <summary>
     /// 获取精华消息列表
@@ -1465,7 +1468,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGetEssenceMessageListActionResult? GetEssenceMessageList(this ICqActionSession session, long groupId) =>
-        GetEssenceMessageListAsync(session, groupId).Result;
+        session.GetEssenceMessageListAsync(groupId).Result;
 
 
     /// <summary>
@@ -1475,7 +1478,7 @@ public static class CqActionSessionExtensions
     /// <param name="model">机型</param>
     /// <returns>操作结果</returns>
     public static CqGetModelShowActionResult? GetModelShow(this ICqActionSession session, string model) =>
-        GetModelShowAsync(session, model).Result;
+        session.GetModelShowAsync(model).Result;
 
     /// <summary>
     /// 设置显示机型
@@ -1485,7 +1488,7 @@ public static class CqActionSessionExtensions
     /// <param name="modelShow">显示机型</param>
     /// <returns>操作结果</returns>
     public static CqSetModelShowActionResult? SetModelShow(this ICqActionSession session, string model, string modelShow) =>
-        SetModelShowAsync(session, model, modelShow).Result;
+        session.SetModelShowAsync(model, modelShow).Result;
 
     /// <summary>
     /// 检查 URL 安全性
@@ -1494,7 +1497,7 @@ public static class CqActionSessionExtensions
     /// <param name="url">链接</param>
     /// <returns>操作结果</returns>
     public static CqCheckUrlSafetyActionResult? CheckUrlSafety(this ICqActionSession session, string url) =>
-        CheckUrlSafetyAsync(session, url).Result;
+        session.CheckUrlSafetyAsync(url).Result;
 
     /// <summary>
     /// 获取版本信息
@@ -1502,7 +1505,7 @@ public static class CqActionSessionExtensions
     /// <param name="session">可发送操作的会话</param>
     /// <returns>操作结果</returns>
     public static CqGetVersionInformationActionResult? GetVersionInformation(this ICqActionSession session) =>
-        GetVersionInformationAsync(session).Result;
+        session.GetVersionInformationAsync().Result;
 
 
     /// <summary>
@@ -1512,7 +1515,7 @@ public static class CqActionSessionExtensions
     /// <param name="file">文件</param>
     /// <returns>操作结果</returns>
     public static CqReloadEventFilterActionResult? ReloadEventFilter(this ICqActionSession session, string file) =>
-        ReloadEventFilterAsync(session, file).Result;
+        session.ReloadEventFilterAsync(file).Result;
 
     /// <summary>
     /// 获取分词
@@ -1521,7 +1524,7 @@ public static class CqActionSessionExtensions
     /// <param name="content">内容</param>
     /// <returns>操作结果</returns>
     public static CqGetWordSlicesActionResult? GetWordSlices(this ICqActionSession session, string content) =>
-        GetWordSlicesAsync(session, content).Result;
+        session.GetWordSlicesAsync(content).Result;
 
     /// <summary>
     /// OCR 识别图片
@@ -1530,7 +1533,7 @@ public static class CqActionSessionExtensions
     /// <param name="image">图片 ID</param>
     /// <returns>操作结果</returns>
     public static CqOcrImageActionResult? OcrImage(this ICqActionSession session, string image) =>
-        OcrImageAsync(session, image).Result;
+        session.OcrImageAsync(image).Result;
 
 
 
@@ -1544,7 +1547,7 @@ public static class CqActionSessionExtensions
     /// <param name="folder">目录</param>
     /// <returns>操作结果</returns>
     public static CqUploadGroupFileActionResult? UploadGroupFile(this ICqActionSession session, long groupId, string file, string name, string folder) =>
-        UploadGroupFileAsync(session, groupId, file, name, folder).Result;
+        session.UploadGroupFileAsync(groupId, file, name, folder).Result;
 
     /// <summary>
     /// 上传群文件 (到根目录)
@@ -1555,7 +1558,7 @@ public static class CqActionSessionExtensions
     /// <param name="name">名称</param>
     /// <returns>操作结果</returns>
     public static CqUploadGroupFileActionResult? UploadGroupFile(this ICqActionSession session, long groupId, string file, string name) =>
-        UploadGroupFileAsync(session, groupId, file, name).Result;
+        session.UploadGroupFileAsync(groupId, file, name).Result;
 
     /// <summary>
     /// 删除群文件
@@ -1566,7 +1569,7 @@ public static class CqActionSessionExtensions
     /// <param name="busid">文件类型 (参考 <see cref="CqGroupFile"/>)</param>
     /// <returns>操作结果</returns>
     public static CqDeleteGroupFileActionResult? DeleteGroupFile(this ICqActionSession session, long groupId, string fileId, int busid) =>
-        DeleteGroupFileAsync(session, groupId, fileId, busid).Result;
+        session.DeleteGroupFileAsync(groupId, fileId, busid).Result;
 
     /// <summary>
     /// 创建群文件目录
@@ -1576,7 +1579,7 @@ public static class CqActionSessionExtensions
     /// <param name="name">名称</param>
     /// <returns>操作结果</returns>
     public static CqCreateGroupFolderActionResult? CreateGroupFolder(this ICqActionSession session, long groupId, string name) =>
-        CreateGroupFolderAsync(session, groupId, name).Result;
+        session.CreateGroupFolderAsync(groupId, name).Result;
 
     /// <summary>
     /// 删除群文件目录
@@ -1586,7 +1589,7 @@ public static class CqActionSessionExtensions
     /// <param name="folderId">目录</param>
     /// <returns>操作结果</returns>
     public static CqDeleteGroupFolderActionResult? DeleteGroupFolder(this ICqActionSession session, long groupId, string folderId) =>
-        DeleteGroupFolderAsync(session, groupId, folderId).Result;
+        session.DeleteGroupFolderAsync(groupId, folderId).Result;
 
     /// <summary>
     /// 获取群文件系统信息
@@ -1595,7 +1598,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupFileSystemInformationActionResult? GetGroupFileSystemInformation(this ICqActionSession session, long groupId) =>
-        GetGroupFileSystemInformationAsync(session, groupId).Result;
+        session.GetGroupFileSystemInformationAsync(groupId).Result;
 
     /// <summary>
     /// 获取群根目录文件
@@ -1604,7 +1607,7 @@ public static class CqActionSessionExtensions
     /// <param name="groupId">群号</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupRootFilesActionResult? GetGroupRootFiles(this ICqActionSession session, long groupId) =>
-        GetGroupRootFilesAsync(session, groupId).Result;
+        session.GetGroupRootFilesAsync(groupId).Result;
 
     /// <summary>
     /// 获取群指定目录文件
@@ -1614,7 +1617,7 @@ public static class CqActionSessionExtensions
     /// <param name="folderId">目录</param>
     /// <returns>操作结果</returns>
     public static CqGetGroupFilesByFolderActionResult? GetGroupFilesByFolder(this ICqActionSession session, long groupId, string folderId) =>
-        GetGroupFilesByFolderAsync(session, groupId, folderId).Result;
+        session.GetGroupFilesByFolderAsync(groupId, folderId).Result;
 
     /// <summary>
     /// 上传私聊文件
@@ -1625,7 +1628,7 @@ public static class CqActionSessionExtensions
     /// <param name="name">名称</param>
     /// <returns>操作结果</returns>
     public static CqUploadPrivateFileActionResult? UploadPrivateFile(this ICqActionSession session, long userId, string file, string name) =>
-        UploadPrivateFileAsync(session, userId, file, name).Result;
+        session.UploadPrivateFileAsync(userId, file, name).Result;
 
     /// <summary>
     /// 设置群管理员

@@ -1,4 +1,6 @@
-﻿namespace EleCho.GoCqHttpSdk.Message.DataModel;
+﻿using EleCho.GoCqHttpSdk.Message.CqCodeDef;
+
+namespace EleCho.GoCqHttpSdk.Message.DataModel;
 
 internal record class CqRecordMsgDataModel : CqMsgDataModel
 {

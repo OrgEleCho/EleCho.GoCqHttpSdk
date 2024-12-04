@@ -1,9 +1,10 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
+using EleCho.GoCqHttpSdk.Enumeration;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 一个 CQ Action 结果
@@ -142,7 +143,7 @@ public abstract record class CqActionResult
         rst.ErrorMsg = raw.msg;
         rst.ErrorInfo = raw.wording;
         rst.EchoData = raw.echo;
-        
+
         if (rst.RetCode == CqActionRetCode.Okay)
             rst.ReadDataModel(dataModel);
 

@@ -1,4 +1,4 @@
-﻿using EleCho.GoCqHttpSdk.Message;
+﻿using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 using EleCho.GoCqHttpSdk.Message.DataModel;
 using System.Text.Json.Serialization;
 

@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 操作类型
@@ -199,7 +199,7 @@ public enum CqActionType
     /// 获取版本信息
     /// </summary>
     GetVersionInformation,
-    
+
 
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using EleCho.GoCqHttpSdk.JsonConverter;
+using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 
 namespace EleCho.GoCqHttpSdk.Message.DataModel;
 

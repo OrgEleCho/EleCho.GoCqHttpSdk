@@ -2,6 +2,8 @@
 using EleCho.GoCqHttpSdk.Utils;
 using System;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.DataStructure;
+using EleCho.GoCqHttpSdk.Enumeration;
 
 namespace EleCho.GoCqHttpSdk.Action;
 

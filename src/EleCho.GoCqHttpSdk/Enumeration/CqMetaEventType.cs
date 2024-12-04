@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 元事件类型
@@ -8,8 +8,8 @@ public enum CqMetaEventType
     /// <summary>
     /// 生命周期
     /// </summary>
-    Lifecycle, 
-    
+    Lifecycle,
+
     /// <summary>
     /// 心跳包
     /// </summary>

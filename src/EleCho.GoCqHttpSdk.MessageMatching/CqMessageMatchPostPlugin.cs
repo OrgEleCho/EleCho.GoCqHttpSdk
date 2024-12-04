@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Enumeration;
 using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Base;
 
 namespace EleCho.GoCqHttpSdk.MessageMatching;
 

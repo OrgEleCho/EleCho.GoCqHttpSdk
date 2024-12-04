@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EleCho.GoCqHttpSdk.Message.CqCodeDef;
 
 namespace EleCho.GoCqHttpSdk.Message;
 

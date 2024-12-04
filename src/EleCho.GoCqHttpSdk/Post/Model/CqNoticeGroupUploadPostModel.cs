@@ -2,6 +2,7 @@
 #pragma warning disable IDE1006 // Naming Styles
 
 using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 
 namespace EleCho.GoCqHttpSdk.Post.Model;
 

@@ -1,7 +1,7 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 using System;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 发送私聊转发消息操作结果

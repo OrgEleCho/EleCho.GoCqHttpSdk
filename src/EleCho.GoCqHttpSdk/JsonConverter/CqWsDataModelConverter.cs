@@ -1,6 +1,6 @@
 ﻿using EleCho.GoCqHttpSdk.Action.Model;
 using EleCho.GoCqHttpSdk.Model;
-using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;

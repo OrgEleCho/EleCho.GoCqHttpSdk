@@ -1,5 +1,7 @@
 ﻿#pragma warning disable IDE1006 // Naming Styles
 
+using EleCho.GoCqHttpSdk.Post.Model.Base;
+
 namespace EleCho.GoCqHttpSdk.Post.Model;
 
 internal abstract class CqNoticeNotifyPostModel : CqNoticePostModel

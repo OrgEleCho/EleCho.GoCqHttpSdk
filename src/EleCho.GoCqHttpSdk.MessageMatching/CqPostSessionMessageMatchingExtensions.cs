@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using EleCho.GoCqHttpSdk.Extension;
 using EleCho.GoCqHttpSdk.Post;
 
 namespace EleCho.GoCqHttpSdk.MessageMatching;

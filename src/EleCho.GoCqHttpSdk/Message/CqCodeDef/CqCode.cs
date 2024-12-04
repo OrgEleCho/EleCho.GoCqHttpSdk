@@ -5,7 +5,15 @@ using System.Text;
 using static EleCho.GoCqHttpSdk.Utils.Consts.MsgType;
 using EleCho.GoCqHttpSdk.DataStructure.Model;
 
-namespace EleCho.GoCqHttpSdk.Message;
+/* 项目“EleCho.GoCqHttpSdk (net9.0)”的未合并的更改
+添加项:
+using EleCho;
+using EleCho.GoCqHttpSdk;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Message.CqCodeDef;
+*/
+
+namespace EleCho.GoCqHttpSdk.Message.CqCodeDef;
 
 /// <summary>
 /// 表示一个简单的 CQ 码

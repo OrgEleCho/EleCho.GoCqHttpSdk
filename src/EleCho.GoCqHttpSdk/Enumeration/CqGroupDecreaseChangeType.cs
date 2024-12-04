@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 群成员减少的变更类型
@@ -8,13 +8,13 @@ public enum CqGroupDecreaseChangeType
     /// <summary>
     /// 踢出
     /// </summary>
-    Kick, 
-    
+    Kick,
+
     /// <summary>
     /// 退群
     /// </summary>
-    Leave, 
-    
+    Leave,
+
     /// <summary>
     /// 自己被踢出
     /// </summary>

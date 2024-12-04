@@ -7,6 +7,7 @@ using EleCho.GoCqHttpSdk.Message.JsonConverter;
 using EleCho.GoCqHttpSdk.Model;
 using EleCho.GoCqHttpSdk.Post.JsonConverter;
 using EleCho.GoCqHttpSdk.Post.Model;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;

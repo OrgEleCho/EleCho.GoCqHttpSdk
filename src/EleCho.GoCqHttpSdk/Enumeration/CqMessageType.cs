@@ -1,4 +1,4 @@
-﻿namespace EleCho.GoCqHttpSdk;
+﻿namespace EleCho.GoCqHttpSdk.Enumeration;
 
 /// <summary>
 /// 消息类型
@@ -9,7 +9,7 @@ public enum CqMessageType
     /// 私聊
     /// </summary>
     Private,
-    
+
     /// <summary>
     /// 群聊
     /// </summary>

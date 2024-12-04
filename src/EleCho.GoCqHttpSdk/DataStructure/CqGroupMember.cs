@@ -1,7 +1,8 @@
 ﻿using EleCho.GoCqHttpSdk.DataStructure.Model;
+using EleCho.GoCqHttpSdk.Enumeration;
 using System;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.DataStructure;
 
 /// <summary>
 /// 群成员信息

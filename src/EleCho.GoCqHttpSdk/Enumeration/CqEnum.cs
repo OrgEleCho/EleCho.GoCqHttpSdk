@@ -2,7 +2,7 @@
 using EleCho.GoCqHttpSdk.Action;
 using static EleCho.GoCqHttpSdk.Utils.Consts.ActionType;
 
-namespace EleCho.GoCqHttpSdk;
+namespace EleCho.GoCqHttpSdk.Enumeration;
 
 internal static class CqEnum
 {
@@ -105,7 +105,7 @@ internal static class CqEnum
             CqGender.Male => "mail",
             CqGender.Female => "female",
             CqGender.Unknown => "unknown",
-            
+
             _ => null,
         };
     }

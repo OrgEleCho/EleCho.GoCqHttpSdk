@@ -7,8 +7,10 @@ using System.IO;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using EleCho.GoCqHttpSdk.Post.Model;
-using EleCho.GoCqHttpSdk.Post;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Base;
+using EleCho.GoCqHttpSdk.Action.Result;
 
 namespace EleCho.GoCqHttpSdk.Action.Sender;
 

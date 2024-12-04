@@ -1,8 +1,9 @@
-﻿using EleCho.GoCqHttpSdk.Message;
-using EleCho.GoCqHttpSdk.Post.Model;
+﻿using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Message;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
 using System.Linq;
 
-namespace EleCho.GoCqHttpSdk.Post;
+namespace EleCho.GoCqHttpSdk.Post.Base;
 
 /// <summary>
 /// 消息上报上下文

@@ -3,6 +3,9 @@
 
 
 
+using EleCho.GoCqHttpSdk.Enumeration;
+using EleCho.GoCqHttpSdk.Post.Model.Base;
+
 namespace EleCho.GoCqHttpSdk.Post.Model;
 
 internal class CqNoticeEssencePostModel : CqNoticePostModel

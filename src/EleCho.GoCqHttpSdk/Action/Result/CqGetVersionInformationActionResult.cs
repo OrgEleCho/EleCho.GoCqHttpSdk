@@ -1,7 +1,7 @@
 ﻿using System;
 using EleCho.GoCqHttpSdk.Action.Model.ResultData;
 
-namespace EleCho.GoCqHttpSdk.Action;
+namespace EleCho.GoCqHttpSdk.Action.Result;
 
 /// <summary>
 /// 获取版本信息操作结果
@@ -73,7 +73,7 @@ public record class CqGetVersionInformationActionResult : CqActionResult
     /// 版本
     /// </summary>
     public string Version { get; private set; } = string.Empty;
-    
+
 
     /// <summary>
     /// 协议
