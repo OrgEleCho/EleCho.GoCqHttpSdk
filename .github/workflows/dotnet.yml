@@ -28,6 +28,7 @@ jobs:
           5.0.x
           6.0.x
           7.0.x
+          8.0.x
 
     - name: Build
       run: dotnet build -c Release 
@@ -55,4 +56,9 @@ jobs:
       with:
         name: .NET 7
         path: src/EleCho.GoCqHttpSdk*/bin/Release/net7.0/*.dll
+    - name: Upload .NET 8
+      uses: actions/upload-artifact@v3
+      with:
+        name: .NET 8
+        path: src/EleCho.GoCqHttpSdk*/bin/Release/net8.0/*.dll
           
